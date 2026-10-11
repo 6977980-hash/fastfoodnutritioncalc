@@ -323,10 +323,46 @@ function ffnc_brand_badge_html( $brand, $size = 'md' ) {
  * "Brands" dropdown to the same 15 pages — removed as duplicate navigation
  * to the same content.)
  */
+/**
+ * Hub and tool pages for the header "Tools" menu and the footer "Explore"
+ * column. Only published pages are returned, so neither ships a broken link.
+ *
+ * @return array[] array( url, label )
+ */
+function ffnc_explore_links() {
+	$links = array();
+	$pages = array(
+		'calories'                             => __( 'Calories by Menu Item', 'ffnc' ),
+		'tools'                                => __( 'All Free Tools', 'ffnc' ),
+		'what-to-order'                        => __( 'What Should I Order?', 'ffnc' ),
+		'fast-food-day-planner'                => __( 'Day Planner', 'ffnc' ),
+		'same-craving-other-restaurant'        => __( 'Same Craving, Other Chain', 'ffnc' ),
+		'high-protein-fast-food'               => __( 'High-Protein Fast Food', 'ffnc' ),
+		'fast-food-under-500-calories'         => __( 'Under 500 Calories', 'ffnc' ),
+		'low-carb-fast-food'                   => __( 'Low-Carb Fast Food', 'ffnc' ),
+		'low-sodium-fast-food'                 => __( 'Low-Sodium Fast Food', 'ffnc' ),
+		'diabetic-friendly-fast-food'          => __( 'Diabetic-Friendly Fast Food', 'ffnc' ),
+		'vegetarian-fast-food'                 => __( 'Vegetarian Fast Food', 'ffnc' ),
+		'small-portion-high-protein-fast-food' => __( 'Small-Portion, High-Protein', 'ffnc' ),
+		'fast-food-cheat-sheets'               => __( 'Cheat Sheets', 'ffnc' ),
+		'menu-changes'                         => __( 'Menu Changes', 'ffnc' ),
+		'fast-food-nutrition-report'           => __( 'Nutrition Report', 'ffnc' ),
+	);
+	foreach ( $pages as $path => $label ) {
+		$url = ffnc_page_url( $path );
+		if ( $url ) {
+			$links[ $path ] = array( $url, $label );
+		}
+	}
+	return $links;
+}
+
 function ffnc_default_menu() {
 	$brands          = ffnc_get_live_brands();
 	$hub_url         = esc_url( ffnc_page_url( 'calculators' ) ? ffnc_page_url( 'calculators' ) : home_url( '/calculators/' ) );
 	$blog_page_id    = (int) get_option( 'page_for_posts' );
+	$explore         = ffnc_explore_links();
+	$tools           = array_diff_key( $explore, array_flip( array( 'calories', 'tools', 'menu-changes', 'fast-food-nutrition-report' ) ) );
 	?>
 	<ul class="ffnc-menu">
 		<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'ffnc' ); ?></a></li>
@@ -351,6 +387,29 @@ function ffnc_default_menu() {
 			</div>
 		</li>
 
+		<?php if ( isset( $explore['calories'] ) ) : ?>
+			<li><a href="<?php echo esc_url( $explore['calories'][0] ); ?>"><?php esc_html_e( 'Calories by Item', 'ffnc' ); ?></a></li>
+		<?php endif; ?>
+
+		<?php if ( $tools ) : ?>
+			<li class="ffnc-menu-item-dropdown">
+				<button type="button" class="ffnc-menu-dropdown-toggle" aria-expanded="false">
+					<?php esc_html_e( 'Tools', 'ffnc' ); ?>
+					<span class="ffnc-caret" aria-hidden="true"></span>
+				</button>
+				<div class="ffnc-submenu ffnc-submenu-tools">
+					<?php if ( isset( $explore['tools'] ) ) : ?>
+						<a class="ffnc-submenu-view-all" href="<?php echo esc_url( $explore['tools'][0] ); ?>"><?php esc_html_e( 'View all tools →', 'ffnc' ); ?></a>
+					<?php endif; ?>
+					<ul>
+						<?php foreach ( $tools as $ffnc_l ) : ?>
+							<li><a href="<?php echo esc_url( $ffnc_l[0] ); ?>"><span><?php echo esc_html( $ffnc_l[1] ); ?></span></a></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</li>
+		<?php endif; ?>
+
 		<?php if ( $blog_page_id ) : ?>
 			<li><a href="<?php echo esc_url( get_permalink( $blog_page_id ) ); ?>"><?php esc_html_e( 'Nutrition Guides', 'ffnc' ); ?></a></li>
 		<?php endif; ?>
@@ -359,9 +418,6 @@ function ffnc_default_menu() {
 		<?php endif; ?>
 		<?php if ( ffnc_methodology_url() ) : ?>
 			<li><a href="<?php echo esc_url( ffnc_methodology_url() ); ?>"><?php esc_html_e( 'Methodology', 'ffnc' ); ?></a></li>
-		<?php endif; ?>
-		<?php if ( ffnc_page_url( 'disclaimer' ) ) : ?>
-			<li><a href="<?php echo esc_url( ffnc_page_url( 'disclaimer' ) ); ?>"><?php esc_html_e( 'Disclaimer', 'ffnc' ); ?></a></li>
 		<?php endif; ?>
 		<?php if ( ffnc_page_url( 'about' ) ) : ?>
 			<li><a href="<?php echo esc_url( ffnc_page_url( 'about' ) ); ?>"><?php esc_html_e( 'About', 'ffnc' ); ?></a></li>

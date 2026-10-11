@@ -59,6 +59,23 @@
 			</ul>
 		</nav>
 
+		<?php $ffnc_explore = ffnc_explore_links(); ?>
+		<?php if ( $ffnc_explore ) : ?>
+			<nav class="ffnc-footer-col ffnc-footer-col-explore" aria-label="<?php esc_attr_e( 'Explore', 'ffnc' ); ?>">
+				<h2 class="ffnc-footer-heading"><?php esc_html_e( 'Explore', 'ffnc' ); ?></h2>
+				<ul>
+					<?php foreach ( $ffnc_explore as $ffnc_path => $ffnc_l ) : ?>
+						<?php
+						if ( in_array( $ffnc_path, array( 'tools', 'what-to-order' ), true ) ) {
+							continue; // Already in the Tools column.
+						}
+						?>
+						<li><a href="<?php echo esc_url( $ffnc_l[0] ); ?>"><?php echo esc_html( $ffnc_l[1] ); ?></a></li>
+					<?php endforeach; ?>
+				</ul>
+			</nav>
+		<?php endif; ?>
+
 		<nav class="ffnc-footer-col" aria-label="<?php esc_attr_e( 'Company', 'ffnc' ); ?>">
 			<h2 class="ffnc-footer-heading"><?php esc_html_e( 'Company', 'ffnc' ); ?></h2>
 			<?php

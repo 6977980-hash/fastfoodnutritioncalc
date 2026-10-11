@@ -132,8 +132,10 @@ function ffnc_shortcode_nutrition_table( $atts ) {
 				<tbody>
 				<?php foreach ( $cat['items'] as $item ) : ?>
 					<tr id="<?php echo esc_attr( 'item-' . $slug . '-' . $item['id'] ); ?>">
-						<th scope="row"><?php echo esc_html( $item['name'] ); ?>
+						<th scope="row">
 							<?php
+							$ffnc_item_url = function_exists( 'ffnc_item_page_url' ) ? ffnc_item_page_url( $slug, $item['id'] ) : '';
+							echo $ffnc_item_url ? '<a href="' . esc_url( $ffnc_item_url ) . '">' . esc_html( $item['name'] ) . '</a>' : esc_html( $item['name'] );
 							if ( ! empty( $checks[ $item['id'] ] ) ) {
 								foreach ( $checks[ $item['id'] ] as $c ) {
 									if ( (float) $c['official_value'] !== (float) $c['dataset_value'] ) {

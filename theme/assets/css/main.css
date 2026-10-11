@@ -281,6 +281,7 @@ html[data-ffnc-theme="dark"] .ffnc-theme-toggle .ffnc-icon-moon { display: none;
 	font-size: 0.88rem;
 }
 .ffnc-submenu ul { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.ffnc-submenu-tools { width: 380px; }
 .ffnc-submenu li a {
 	display: flex;
 	align-items: center;
@@ -816,7 +817,7 @@ html[data-ffnc-theme="dark"] .ffnc-theme-toggle .ffnc-icon-moon { display: none;
    Footer
    ------------------------------------------------------------------ */
 .ffnc-site-footer { background: var(--ffnc-navy); color: #c9d2e3; margin-top: 40px; padding-top: 46px; }
-.ffnc-footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 28px; padding-bottom: 30px; }
+.ffnc-footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 28px; padding-bottom: 30px; }
 .ffnc-footer-brand { display: flex; align-items: center; gap: 8px; }
 .ffnc-footer-about .ffnc-site-title { color: #fff; font-weight: 800; }
 .ffnc-footer-about p { color: #9aa6bd; font-size: 0.88rem; margin-top: 10px; }
@@ -826,6 +827,7 @@ html[data-ffnc-theme="dark"] .ffnc-theme-toggle .ffnc-icon-moon { display: none;
 .ffnc-footer-col a:hover { color: #fff; }
 .ffnc-footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding: 18px 0 26px; font-size: 0.8rem; color: #7c8aa3; }
 
+@media (max-width: 1100px) { .ffnc-footer-grid { grid-template-columns: 1fr 1fr 1fr; } }
 @media (max-width: 900px) { .ffnc-footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .ffnc-footer-grid { grid-template-columns: 1fr; } }
 
