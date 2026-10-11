@@ -163,6 +163,17 @@ function ffnc_goal_definitions() {
 			'sort'   => function ( $a, $b ) { return $b['protein'] <=> $a['protein']; },
 			'note'   => __( 'Main items with 600mg of sodium or less, most protein first.', 'ffnc' ),
 		),
+		'diabetic'      => array(
+			'filter' => function ( $i ) { return null !== $i['carbs'] && $i['carbs'] <= 30; },
+			'sort'   => function ( $a, $b ) { return ( $b['protein'] <=> $a['protein'] ) ?: ( $a['carbs'] <=> $b['carbs'] ); },
+			'note'   => __( 'Main items with 30g of carbohydrate or less as served, most protein first.', 'ffnc' ),
+		),
+		'carb-extras'   => array(
+			'extras' => true,
+			'filter' => function ( $i ) { return null !== $i['carbs'] && $i['carbs'] >= 30; },
+			'sort'   => function ( $a, $b ) { return $b['carbs'] <=> $a['carbs']; },
+			'note'   => __( 'Sides, drinks and desserts with 30g of carbs or more, most carbs first.', 'ffnc' ),
+		),
 		'small-portion' => array(
 			'filter' => function ( $i ) { return $i['calories'] <= 400 && $i['protein'] >= 15; },
 			'sort'   => function ( $a, $b ) { return ( $b['protein'] / max( 1, $b['calories'] ) ) <=> ( $a['protein'] / max( 1, $a['calories'] ) ); },
@@ -176,9 +187,10 @@ function ffnc_goal_rows( $goal, $limit = 40 ) {
 	if ( empty( $defs[ $goal ] ) ) {
 		return array();
 	}
-	$rows = array();
+	$rows   = array();
+	$extras = ! empty( $defs[ $goal ]['extras'] ); // Sides, drinks and desserts instead of mains.
 	foreach ( ffnc_all_items() as $x ) {
-		if ( ! in_array( $x['type'], ffnc_main_types(), true ) || preg_match( '/family|bucket/i', $x['item']['name'] ) ) {
+		if ( $extras === in_array( $x['type'], ffnc_main_types(), true ) || 'ingredient' === $x['type'] || preg_match( '/family|bucket/i', $x['item']['name'] ) ) {
 			continue;
 		}
 		$i = array(
@@ -188,7 +200,7 @@ function ffnc_goal_rows( $goal, $limit = 40 ) {
 			'sodium'   => ffnc_num( $x['item'], 'sodium' ),
 		);
 		// Single pieces (one wing, one nugget) are not a meal on their own.
-		if ( null === $i['calories'] || null === $i['protein'] || $i['calories'] < 120 ) {
+		if ( null === $i['calories'] || null === $i['protein'] || ( ! $extras && $i['calories'] < 120 ) ) {
 			continue;
 		}
 		if ( call_user_func( $defs[ $goal ]['filter'], $i ) ) {
@@ -220,7 +232,7 @@ function ffnc_render_item_rows_table( $rows, $caption, $extra_col = '' ) {
 		<tbody>
 		<?php foreach ( $rows as $r ) : $it = $r['item']; ?>
 			<tr>
-				<th scope="row"><a href="<?php echo esc_url( ffnc_order_link( $r['brand_url'], $it['id'] ) ); ?>"><?php echo esc_html( $it['name'] ); ?></a></th>
+				<th scope="row"><a href="<?php echo esc_url( ffnc_item_page_url( $r['brand'], $it['id'] ) ?: ffnc_order_link( $r['brand_url'], $it['id'] ) ); ?>"><?php echo esc_html( $it['name'] ); ?></a></th>
 				<td><?php echo esc_html( $r['brand_name'] ); ?></td>
 				<td><?php echo esc_html( ffnc_fmt_num( ffnc_num( $it, 'calories' ) ) ); ?></td>
 				<td><?php echo esc_html( ffnc_fmt_num( ffnc_num( $it, 'protein' ) ) . 'g' ); ?></td>
@@ -247,7 +259,7 @@ function ffnc_shortcode_goal_list( $atts ) {
 		return '';
 	}
 	$density = in_array( $atts['goal'], array( 'high-protein', 'small-portion' ), true ) ? 'density' : '';
-	$out     = '<p class="ffnc-goal-note">' . esc_html( $defs[ $atts['goal'] ]['note'] ) . ' ' . esc_html__( 'Values are each restaurant’s published figures for the standard item; tap an item to open it in that restaurant’s calculator.', 'ffnc' ) . '</p>';
+	$out     = '<p class="ffnc-goal-note">' . esc_html( $defs[ $atts['goal'] ]['note'] ) . ' ' . esc_html__( 'Values are each restaurant’s published figures for the standard item; tap an item for its full nutrition and lighter swaps.', 'ffnc' ) . '</p>';
 	return $out . ffnc_render_item_rows_table( $rows, __( 'Ranked menu items', 'ffnc' ), $density );
 }
 add_shortcode( 'ff_goal_list', 'ffnc_shortcode_goal_list' );
@@ -600,6 +612,27 @@ function ffnc_tool_pages() {
 			'content' => "<p>Fast food is often salty. These main items have 600mg of sodium or less, sorted by protein. Remember that fries, sauces and some drinks add sodium too.</p>\n\n[ff_goal_list goal=\"low-sodium\" limit=\"40\"]",
 			'tool'    => '',
 		),
+		'diabetic-friendly-fast-food'           => array(
+			'title'   => __( 'Diabetic-Friendly Fast Food: Lower-Carb Orders at 15 Chains', 'ffnc' ),
+			'seo'     => __( 'Fast Food for Diabetics: Lower-Carb Picks With Carb Counts', 'ffnc' ),
+			'desc'    => __( 'Fast food main items with 30g of carbs or less, ranked by protein, plus the sides and drinks that add the most carbs. Official nutrition data for 15 chains.', 'ffnc' ),
+			'content' => "<p>If you have diabetes, the number that matters most on a fast food menu is usually carbohydrate. These are the main items with 30g of carbs or less exactly as served, with the most protein first, from each restaurant's official U.S. nutrition data.</p>\n<p>This page is general nutrition information, not medical advice. Your doctor, diabetes educator or dietitian can tell you how many carbs fit your own plan. Our data lists total carbohydrate only; sugar and fiber are on each restaurant's own nutrition guide.</p>\n\n[ff_goal_list goal=\"diabetic\" limit=\"40\"]\n\n<h2>Where the carbs hide: sides, drinks and desserts</h2>\n<p>A regular soda or sweet tea and a side of fries often carry more carbs than the main. Water, unsweetened tea, diet soda or black coffee add none.</p>\n[ff_goal_list goal=\"carb-extras\" limit=\"20\"]\n\n<p>Want to add up a whole order? Every item links to its full nutrition, and each restaurant's calculator shows the carb total as you build an order. For the lowest-carb picks, see <a href=\"/low-carb-fast-food/\">Low-Carb Fast Food</a>.</p>",
+			'tool'    => '',
+		),
+		'vegetarian-fast-food'                  => array(
+			'title'   => __( 'Vegetarian Fast Food Options at 15 Chains', 'ffnc' ),
+			'seo'     => __( 'Vegetarian Fast Food: Meat-Free Options With Calories & Protein', 'ffnc' ),
+			'desc'    => __( 'Meat-free fast food items from Taco Bell, Subway, Chipotle, Domino’s, Panera and more, with calories and protein from official nutrition data.', 'ffnc' ),
+			'content' => "<p>These items contain no meat, poultry or fish according to each restaurant's published ingredients. Many contain dairy or egg, so they are vegetarian, not vegan. Most chains cook in shared fryers and on shared grills, so check the restaurant's own allergen and ingredient guide if that matters to you.</p>\n\n[ff_vegetarian_list]",
+			'tool'    => '',
+		),
+		'calories'                              => array(
+			'title'   => __( 'Fast Food Calories by Menu Item', 'ffnc' ),
+			'seo'     => __( 'Fast Food Calories by Item: Big Mac, McNuggets, Whopper & More', 'ffnc' ),
+			'desc'    => __( 'Calories, protein, carbs, fat and sodium for every menu item in our calculators, one page per item, plus meal totals and head-to-head comparisons.', 'ffnc' ),
+			'content' => "<p>Looking for one number rather than a whole calculator? Every item below has its own page with calories by size, full nutrition, lighter swaps and how it compares with other chains.</p>\n\n[ff_item_index]",
+			'tool'    => '',
+		),
 		'fast-food-cheat-sheets'                => array(
 			'title'   => __( 'Fast Food Cheat Sheets: Best Picks at 15 Chains', 'ffnc' ),
 			'seo'     => __( 'Printable Fast Food Cheat Sheets: Under 400 Calories', 'ffnc' ),
@@ -694,7 +727,7 @@ function ffnc_render_calculator_tools_links( $slug ) {
 		$links[] = '<li><a href="' . esc_url( $sheets . '#cheat-' . $slug ) . '">' . esc_html( sprintf( /* translators: %s brand */ __( 'Printable %s cheat sheet', 'ffnc' ), $brand['name'] ) ) . '</a></li>';
 	}
 	$add( 'fast-food-day-planner', __( 'Plan a whole day across restaurants', 'ffnc' ) );
-	$out = '';
+	$out = ffnc_render_brand_item_links( $slug );
 	if ( $links ) {
 		$out .= '<aside class="ffnc-more-tools"><h2>' . esc_html__( 'More free tools', 'ffnc' ) . '</h2><ul class="ffnc-list">' . implode( '', $links ) . '</ul></aside>';
 	}

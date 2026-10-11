@@ -289,3 +289,30 @@ test('extension data and engine copy are up to date (run node scripts/build-exte
 		assert.equal(fs.readFileSync(file, 'utf8'), build(), file);
 	}
 });
+
+test('page-catalog.json (meal, comparison and vegetarian pages) only uses real items', () => {
+	const cat = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'inc', 'page-catalog.json'), 'utf8'));
+	const ids = Object.fromEntries(brands.map(b => [b.slug, new Set(items(b.data).map(i => i.id))]));
+	const has = (brand, id) => ids[brand] && ids[brand].has(id);
+	for (const m of cat.meals) {
+		assert.ok(has(m.brand, m.main), 'meal ' + m.brand + ':' + m.main);
+		assert.ok((cat.meal_sets[m.brand] || []).length, 'meal sets for ' + m.brand);
+	}
+	for (const [brand, sets] of Object.entries(cat.meal_sets)) {
+		for (const s of sets) {
+			for (const id of s.items) { assert.ok(has(brand, id), 'meal set ' + brand + ':' + id); }
+		}
+	}
+	const slugs = new Set();
+	for (const c of cat.comparisons) {
+		assert.ok(c.title && /^[a-z0-9-]+$/.test(c.slug) && !slugs.has(c.slug), 'comparison ' + c.slug);
+		slugs.add(c.slug);
+		for (const side of [c.a, c.b]) {
+			const [brand, id] = side.split(':');
+			assert.ok(has(brand, id), 'comparison ' + c.slug + ' ' + side);
+		}
+	}
+	for (const [brand, list] of Object.entries(cat.vegetarian)) {
+		for (const id of list) { assert.ok(has(brand, id), 'vegetarian ' + brand + ':' + id); }
+	}
+});

@@ -1,0 +1,61 @@
+{
+ "_readme": "Hand-picked lists for the generated item, meal, comparison and vegetarian pages (inc/item-pages.php). Every id must exist in assets/data/<brand>.json; tests/calculator.test.js checks this. Item pages themselves need no entry here: every menu item (grouped by size) gets one.",
+ "meals": [
+  { "brand": "mcdonalds", "main": "big-mac", "name": "Big Mac Meal" },
+  { "brand": "mcdonalds", "main": "quarter-pounder-cheese", "name": "Quarter Pounder with Cheese Meal" },
+  { "brand": "mcdonalds", "main": "double-quarter-pounder-cheese", "name": "Double Quarter Pounder with Cheese Meal" },
+  { "brand": "mcdonalds", "main": "mcchicken", "name": "McChicken Meal" },
+  { "brand": "mcdonalds", "main": "filet-o-fish", "name": "Filet-O-Fish Meal" },
+  { "brand": "mcdonalds", "main": "nuggets-10", "name": "10 Piece Chicken McNuggets Meal" }
+ ],
+ "meal_sets": {
+  "mcdonalds": [
+   { "label": "medium fries and a medium Coca-Cola", "items": ["fries-medium", "coke-medium"] },
+   { "label": "medium fries and a medium Sweet Tea", "items": ["fries-medium", "sweet-tea-medium"] },
+   { "label": "medium fries and water or a zero-calorie drink", "items": ["fries-medium"] },
+   { "label": "small fries and a small Coca-Cola", "items": ["fries-small", "coke-small"] },
+   { "label": "large fries and a medium Coca-Cola", "items": ["fries-large", "coke-medium"] }
+  ]
+ },
+ "comparisons": [
+  { "slug": "big-mac-vs-whopper", "title": "Big Mac vs Whopper", "a": "mcdonalds:big-mac", "b": "burger-king:whopper" },
+  { "slug": "big-mac-vs-daves-single", "title": "Big Mac vs Dave's Single", "a": "mcdonalds:big-mac", "b": "wendys:daves-single" },
+  { "slug": "whopper-vs-daves-single", "title": "Whopper vs Dave's Single", "a": "burger-king:whopper", "b": "wendys:daves-single" },
+  { "slug": "quarter-pounder-vs-daves-single", "title": "Quarter Pounder vs Dave's Single", "a": "mcdonalds:quarter-pounder-cheese", "b": "wendys:daves-single" },
+  { "slug": "baconator-vs-bacon-king", "title": "Baconator vs Bacon King", "a": "wendys:baconator", "b": "burger-king:bacon-king" },
+  { "slug": "mcnuggets-vs-chick-fil-a-nuggets", "title": "McNuggets vs Chick-fil-A Nuggets", "a": "mcdonalds:nuggets-10", "b": "chick-fil-a:nuggets-12", "note": "Chick-fil-A sells nuggets in 8 and 12 counts and McDonald's in 4, 6, 10 and 20, so this compares the closest sizes: 10 McNuggets against 12 Chick-fil-A nuggets." },
+  { "slug": "mcnuggets-vs-wendys-nuggets", "title": "McNuggets vs Wendy's Nuggets", "a": "mcdonalds:nuggets-10", "b": "wendys:nuggets-10" },
+  { "slug": "mcdonalds-fries-vs-burger-king-fries", "title": "McDonald's Fries vs Burger King Fries", "a": "mcdonalds:fries-medium", "b": "burger-king:fries-medium" },
+  { "slug": "mcdonalds-fries-vs-chick-fil-a-waffle-fries", "title": "McDonald's Fries vs Chick-fil-A Waffle Fries", "a": "mcdonalds:fries-medium", "b": "chick-fil-a:waffle-fries-medium" },
+  { "slug": "mcchicken-vs-chick-fil-a-sandwich", "title": "McChicken vs Chick-fil-A Chicken Sandwich", "a": "mcdonalds:mcchicken", "b": "chick-fil-a:chicken-sandwich" },
+  { "slug": "chick-fil-a-vs-kfc-chicken-sandwich", "title": "Chick-fil-A vs KFC Chicken Sandwich", "a": "chick-fil-a:chicken-sandwich", "b": "kfc:chicken-sandwich" },
+  { "slug": "chick-fil-a-vs-wendys-chicken-sandwich", "title": "Chick-fil-A vs Wendy's Chicken Sandwich", "a": "chick-fil-a:chicken-sandwich", "b": "wendys:classic-chicken-sandwich" },
+  { "slug": "dominos-vs-pizza-hut-pepperoni-pizza", "title": "Domino's vs Pizza Hut Pepperoni Pizza", "a": "dominos:pepperoni-slice", "b": "pizza-hut:pepperoni-hand-tossed-slice", "note": "Domino's publishes values for a slice of a large (14\") pizza and Pizza Hut for a slice of a medium (12\") pizza, so a Domino's slice is bigger. Compare whole orders in each calculator if you are choosing a pizza to share." },
+  { "slug": "kfc-original-recipe-vs-extra-crispy", "title": "KFC Original Recipe vs Extra Crispy", "a": "kfc:or-breast", "b": "kfc:ec-breast" },
+  { "slug": "mcflurry-vs-blizzard", "title": "McFlurry vs Blizzard", "a": "mcdonalds:mcflurry-oreo", "b": "dairy-queen:oreo-blizzard-small", "note": "Both are the OREO version: a regular McFlurry against a small Blizzard." }
+ ],
+ "vegetarian": {
+  "taco-bell": ["bean-burrito", "chips-cheese", "cinnamon-twists"],
+  "subway": ["veggie-delite", "veggie-delite-salad", "cookie-choc-chip", "cookie-double-chocolate", "cookie-oatmeal-raisin", "cookie-white-chip-macadamia"],
+  "chipotle": ["sofritas", "white-rice", "brown-rice", "black-beans", "pinto-beans", "flour-tortilla-burrito", "corn-salsa", "guacamole", "cheese", "sour-cream", "queso-blanco", "queso-side", "chips"],
+  "dominos": ["cheese-slice", "pacific-veggie-slice", "spinach-feta-slice", "wisconsin-6-cheese-slice", "thin-cheese-slice", "cheesy-bread-1", "garlic-bread-bites-4", "chocolate-lava-cake", "cinnamon-bread-bites-4"],
+  "pizza-hut": ["cheese-pan-slice", "cheese-hand-tossed-slice", "cheese-thin-slice", "breadsticks-1", "cheese-sticks-1"],
+  "panera-bread": ["broccoli-cheddar-bowl", "broccoli-cheddar-cup", "greek-salad", "bread-bowl", "baguette-quarter", "cinnamon-roll"],
+  "dunkin": ["egg-cheese-wake-up-wrap", "avocado-toast", "hash-browns", "glazed-donut", "chocolate-frosted-donut", "boston-kreme-donut"],
+  "wendys": ["baked-potato-plain", "baked-potato-sour-cream-chive", "natural-fries-jr", "frosty-jr"],
+  "burger-king": ["fries-medium", "onion-rings-medium", "hersheys-sundae-pie"],
+  "chick-fil-a": ["waffle-fries-small", "waffle-fries-medium", "waffle-fries-large", "mac-cheese-medium"],
+  "kfc": ["mashed-potatoes", "mac-cheese", "coleslaw", "biscuit", "cornbread-muffin", "chocolate-chunk-cookie", "apple-turnover"],
+  "panda-express": ["super-greens", "chow-mein", "fried-rice", "white-rice-side", "spring-roll", "cream-cheese-rangoon-3"],
+  "dairy-queen": ["fries-regular", "fries-large", "oreo-blizzard-small", "vanilla-cone-small"],
+  "five-guys": ["little-fries", "regular-fries", "little-cajun-fries"],
+  "mcdonalds": ["apple-pie", "mcflurry-oreo", "mcflurry-mm"]
+ },
+ "vegetarian_notes": {
+  "mcdonalds": "In the U.S., McDonald's fries and hash browns contain natural beef flavor, so they are not vegetarian. None of the main items in our McDonald's data is meat-free.",
+  "kfc": "KFC's gravy, green beans and BBQ baked beans are left out because they may contain meat or meat flavoring.",
+  "chipotle": "Build a bowl or burrito from sofritas, rice, beans, salsas, cheese and guacamole; every part is in the Chipotle calculator.",
+  "burger-king": "The Impossible Whopper is not in our Burger King data yet, so only sides and desserts are listed.",
+  "panda-express": "Panda Express cooks in shared woks, so vegetarian sides may touch meat dishes."
+ }
+}

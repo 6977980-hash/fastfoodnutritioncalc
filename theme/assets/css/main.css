@@ -1134,3 +1134,25 @@ html[data-ffnc-theme="dark"] .ffnc-reviewed-list time { color: #4ade80; backgrou
 	html.ffnc-printing .ffnc-print-me { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; }
 	.ffnc-print { display: none !important; }
 }
+
+/* Item, meal and comparison pages (inc/item-pages.php) */
+.ffnc-item-hero { background: var(--ffnc-white); border: 1px solid var(--ffnc-border); border-top: 6px solid var(--ffnc-brand-color, var(--ffnc-blue)); border-radius: var(--ffnc-radius); padding: 18px 20px; box-shadow: var(--ffnc-shadow); margin: 0 0 24px; }
+.ffnc-item-answer { font-size: 1.15rem; margin: 0 0 12px; }
+.ffnc-item-big { display: inline-block; font-size: 2rem; line-height: 1.15; color: var(--ffnc-ink); }
+.ffnc-macro-chips { list-style: none; padding: 0; margin: 0 0 14px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.ffnc-macro-chips li { background: var(--ffnc-bg); border-radius: 10px; padding: 8px 10px; text-align: center; }
+.ffnc-macro-chips strong { display: block; font-size: 1.1rem; }
+.ffnc-macro-chips span { font-size: 0.8rem; color: var(--ffnc-muted); }
+.ffnc-item-actions { margin: 0 0 10px; }
+.ffnc-item-source { font-size: 0.82rem; color: var(--ffnc-muted); margin: 8px 0 0; }
+.ffnc-item-more { line-height: 1.9; }
+.ffnc-total-row th, .ffnc-total-row td { font-weight: 700; border-top: 2px solid var(--ffnc-border); }
+.ffnc-vs-table td { text-align: center; }
+.ffnc-vs-table td.ffnc-vs-win { font-weight: 700; color: var(--ffnc-green); }
+.ffnc-item-index { margin: 0 0 22px; }
+.ffnc-item-index-list { columns: 2 240px; column-gap: 24px; }
+.ffnc-item-index-list li { break-inside: avoid; }
+@media (max-width: 520px) {
+	.ffnc-macro-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.ffnc-item-big { font-size: 1.7rem; }
+}
