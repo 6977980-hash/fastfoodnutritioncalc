@@ -573,5 +573,93 @@
         }
       ]
     }
+  ],
+  "deals_meta": {
+    "checked": "2026-10-11",
+    "source_name": "McDonald's McValue deals as reported in April 2026 (Chowhound)",
+    "source_url": "https://www.chowhound.com/2156406/mcdonalds-cheapest-deal/",
+    "note": "Deal prices and availability vary by location (some restaurants charge $6 for the Meal Deal). Dipping sauce is not counted; add one from the item's add-ons."
+  },
+  "deals": [
+    {
+      "id": "meal-deal-mcchicken",
+      "name": "$5 Meal Deal with McChicken",
+      "price": "$5",
+      "includes": "McChicken, 4 pc Chicken McNuggets, small fries and a small drink (Coca-Cola shown)",
+      "items": [
+        {
+          "id": "mcchicken",
+          "qty": 1
+        },
+        {
+          "id": "nuggets-4",
+          "qty": 1
+        },
+        {
+          "id": "fries-small",
+          "qty": 1
+        },
+        {
+          "id": "coke-small",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "meal-deal-mcdouble",
+      "name": "$5 Meal Deal with McDouble",
+      "price": "$5",
+      "includes": "McDouble, 4 pc Chicken McNuggets, small fries and a small drink (Coca-Cola shown)",
+      "items": [
+        {
+          "id": "mcdouble",
+          "qty": 1
+        },
+        {
+          "id": "nuggets-4",
+          "qty": 1
+        },
+        {
+          "id": "fries-small",
+          "qty": 1
+        },
+        {
+          "id": "coke-small",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "breakfast-deal-mcmuffin",
+      "name": "$4 Breakfast Meal Deal with Sausage McMuffin",
+      "price": "$4",
+      "includes": "Sausage McMuffin and Hash Browns (the small coffee or drink is not counted)",
+      "items": [
+        {
+          "id": "sausage-mcmuffin",
+          "qty": 1
+        },
+        {
+          "id": "hash-browns",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "breakfast-deal-biscuit",
+      "name": "$4 Breakfast Meal Deal with Sausage Biscuit",
+      "price": "$4",
+      "includes": "Sausage Biscuit and Hash Browns (the small coffee or drink is not counted)",
+      "items": [
+        {
+          "id": "sausage-biscuit",
+          "qty": 1
+        },
+        {
+          "id": "hash-browns",
+          "qty": 1
+        }
+      ]
+    }
   ]
 }

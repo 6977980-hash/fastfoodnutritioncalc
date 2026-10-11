@@ -1045,3 +1045,10 @@ html[data-ffnc-theme="dark"] .ffnc-reviewed-list time { color: #4ade80; backgrou
 	.ffnc-home-blog-list li:only-child { grid-column: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .ffnc-home-blog-list li { transition: none; } .ffnc-home-blog-list li:hover { transform: none; } }
+
+/* Deals & Combos (calculator tab + table on brand pages) */
+.ffnc-deals-note { font-size: 0.86rem; color: var(--ffnc-muted); margin: 0 0 14px; }
+.ffnc-deal-includes { display: block; font-size: 0.84rem; font-weight: 400; color: var(--ffnc-muted); margin: 2px 0 8px; }
+.ffnc-deal-card .ffnc-item-name { margin-bottom: 2px; }
+.ffnc-deals-table th[scope="row"] { min-width: 220px; }
+.ffnc-deal-build { display: inline-block; font-size: 0.84rem; font-weight: 700; }

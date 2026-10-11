@@ -132,6 +132,26 @@
 		return item.id + '|' + addons.map(function (a) { return a.name; }).sort().join(',');
 	}
 
+	/**
+	 * Resolve a deal's { id, qty } entries against the dataset. Returns order
+	 * lines ({ item, addons: [], qty }) or null if any item id is missing, so
+	 * a deal is never shown with part of its food silently dropped.
+	 */
+	function dealLines(deal, data) {
+		var byId = {};
+		(data.categories || []).forEach(function (c) {
+			(c.items || []).forEach(function (i) { byId[i.id] = i; });
+		});
+		var lines = [];
+		var items = (deal && deal.items) || [];
+		for (var i = 0; i < items.length; i++) {
+			var item = byId[items[i].id];
+			if (!item) { return null; }
+			lines.push({ item: item, addons: [], qty: clampQty(items[i].qty || 1) });
+		}
+		return lines.length ? lines : null;
+	}
+
 	var api = {
 		NUTRIENTS: NUTRIENTS,
 		MAX_QTY: MAX_QTY,
@@ -143,7 +163,8 @@
 		unavailableNutrients: unavailableNutrients,
 		hasUnavailableValues: hasUnavailableValues,
 		isKnown: isKnown,
-		lineKey: lineKey
+		lineKey: lineKey,
+		dealLines: dealLines
 	};
 
 	if (typeof module !== 'undefined' && module.exports) {
@@ -225,6 +246,11 @@
 	function renderCalculator(mount, data) {
 		var state = { order: [], activeCategory: data.categories[0] ? data.categories[0].id : null };
 		var meta = data.meta || {};
+		var DEALS_TAB = '__deals';
+		var dealsMeta = data.deals_meta || {};
+		var deals = (data.deals || []).map(function (d) {
+			return { deal: d, lines: dealLines(d, data) };
+		}).filter(function (d) { return d.lines; });
 
 		var brandSlug      = mount.getAttribute('data-brand') || data.slug || 'brand';
 		var brandName      = mount.getAttribute('data-brand-name') || data.brand || '';
@@ -286,7 +312,11 @@
 
 		var catList = document.createElement('div');
 		catList.className = 'ffnc-calc-category-list';
-		data.categories.forEach(function (cat) {
+		var tabs = data.categories.slice();
+		if (deals.length) {
+			tabs.unshift({ id: DEALS_TAB, name: 'Deals & Combos' });
+		}
+		tabs.forEach(function (cat) {
 			var tab = document.createElement('button');
 			tab.type = 'button';
 			tab.className = 'ffnc-calc-tab';
@@ -414,7 +444,77 @@
 			return data.categories[0];
 		}
 
+		function renderDeals() {
+			itemsWrap.innerHTML = '';
+			var heading = document.createElement('p');
+			heading.className = 'ffnc-calc-category-heading';
+			heading.textContent = brandName + ' Deals & Combos';
+			itemsWrap.appendChild(heading);
+
+			var intro = document.createElement('p');
+			intro.className = 'ffnc-deals-note';
+			intro.innerHTML = escapeHtml(dealsMeta.note || '') +
+				(dealsMeta.checked ? ' Deal contents checked ' + escapeHtml(humanDate(dealsMeta.checked)) + '.' : '') +
+				(dealsMeta.source_url ? ' <a href="' + escapeHtml(dealsMeta.source_url) + '" target="_blank" rel="noopener nofollow">' + escapeHtml(dealsMeta.source_name || 'Source') + '</a>' : '');
+			itemsWrap.appendChild(intro);
+
+			deals.forEach(function (d) {
+				var t = computeTotals(d.lines);
+				var card = document.createElement('div');
+				card.className = 'ffnc-item-card ffnc-deal-card';
+				card.id = 'ffnc-deal-' + brandSlug + '-' + slugify(d.deal.id);
+
+				var info = document.createElement('div');
+				info.className = 'ffnc-item-info';
+				info.innerHTML =
+					'<p class="ffnc-item-name">' + escapeHtml(d.deal.name) + '</p>' +
+					'<p class="ffnc-deal-includes">' + escapeHtml(d.deal.includes || d.lines.map(function (l) { return (l.qty > 1 ? l.qty + ' \u00d7 ' : '') + l.item.name; }).join(', ')) + '</p>' +
+					'<div class="ffnc-item-pills">' +
+					'  <span class="ffnc-pill ffnc-pill-cal">' + fmt(t.calories) + ' cal</span>' +
+					'  <span class="ffnc-pill"><abbr title="Protein">P</abbr> ' + fmt(t.protein) + 'g</span>' +
+					'  <span class="ffnc-pill"><abbr title="Carbohydrates">C</abbr> ' + fmt(t.carbs) + 'g</span>' +
+					'  <span class="ffnc-pill"><abbr title="Fat">F</abbr> ' + fmt(t.fat) + 'g</span>' +
+					'  <span class="ffnc-pill">' + fmt(t.sodium) + 'mg sodium</span>' +
+					'</div>';
+
+				var addBtn = document.createElement('button');
+				addBtn.type = 'button';
+				addBtn.className = 'ffnc-btn ffnc-btn-add';
+				addBtn.setAttribute('aria-label', 'Add ' + d.deal.name + ' to order');
+				addBtn.innerHTML = '<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M10 4a1 1 0 0 1 1 1v4h4a1 1 0 1 1 0 2h-4v4a1 1 0 1 1-2 0v-4H5a1 1 0 1 1 0-2h4V5a1 1 0 0 1 1-1z"/></svg><span>Add deal</span>';
+				addBtn.addEventListener('click', function () { addDeal(d); });
+
+				var top = document.createElement('div');
+				top.className = 'ffnc-item-top';
+				top.appendChild(info);
+				top.appendChild(addBtn);
+				card.appendChild(top);
+				itemsWrap.appendChild(card);
+			});
+		}
+
+		/* Adds every item of a deal as normal order lines, so each one can
+		   still be removed or changed in the order summary. */
+		function addDeal(d) {
+			d.lines.forEach(function (l) {
+				var key = lineKey(l.item, []);
+				var existing = null;
+				state.order.forEach(function (e) { if (e.key === key) { existing = e; } });
+				if (existing) {
+					existing.qty = clampQty(existing.qty + l.qty);
+				} else {
+					state.order.push({ key: key, item: l.item, addons: [], qty: l.qty });
+				}
+			});
+			renderOrder();
+			announce('Added ' + d.deal.name + '. Order total ' + fmt(computeTotals(state.order).calories) + ' calories.');
+		}
+
 		function renderItems() {
+			if (state.activeCategory === DEALS_TAB) {
+				renderDeals();
+				return;
+			}
 			var cat = findCategory(state.activeCategory);
 			itemsWrap.innerHTML = '';
 			var heading = document.createElement('p');
@@ -680,6 +780,21 @@
 					announce('Please allow pop-ups to view your order report.');
 				}
 			}
+		}
+
+		/* ?deal=<id> (from the deals table on the page) opens the Deals tab
+		   with that deal already in the order. */
+		var wantedDeal = null;
+		try {
+			wantedDeal = new URLSearchParams(window.location.search).get('deal');
+		} catch (e) { /* old browser: ignore */ }
+		if (wantedDeal) {
+			deals.forEach(function (d) {
+				if (d.deal.id === wantedDeal) {
+					state.activeCategory = DEALS_TAB;
+					addDeal(d);
+				}
+			});
 		}
 
 		renderItems();

@@ -671,5 +671,73 @@
         }
       ]
     }
+  ],
+  "deals_meta": {
+    "checked": "2026-10-11",
+    "source_name": "KFC Box Feasts as reported by Nation's Restaurant News (March 31, 2026)",
+    "source_url": "https://www.nrn.com/quick-service/kfc-launches-box-feasts-lineup-in-latest-value-play",
+    "note": "Prices and availability vary by location. Box Feast fries are a 3 oz portion; KFC's guide only lists the individual size, which is used here, so the box's real fries total may differ. The medium drink is not counted; add one from Drinks."
+  },
+  "deals": [
+    {
+      "id": "box-feast-7",
+      "name": "$7 Box Feast",
+      "price": "$7",
+      "includes": "1 KFC Snacker, 5 Kentucky Fried Nuggets and fries (drink not counted)",
+      "items": [
+        {
+          "id": "kfc-snacker",
+          "qty": 1
+        },
+        {
+          "id": "kentucky-fried-nugget-1",
+          "qty": 5
+        },
+        {
+          "id": "secret-fries",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "box-feast-9",
+      "name": "$9 Box Feast",
+      "price": "$9",
+      "includes": "2 KFC Snackers, 5 Kentucky Fried Nuggets and fries (drink not counted)",
+      "items": [
+        {
+          "id": "kfc-snacker",
+          "qty": 2
+        },
+        {
+          "id": "kentucky-fried-nugget-1",
+          "qty": 5
+        },
+        {
+          "id": "secret-fries",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "box-feast-11",
+      "name": "$11 Box Feast",
+      "price": "$11",
+      "includes": "Classic Chicken Sandwich, 2 Original Recipe Tenders and fries (drink not counted)",
+      "items": [
+        {
+          "id": "chicken-sandwich",
+          "qty": 1
+        },
+        {
+          "id": "or-tender-1",
+          "qty": 2
+        },
+        {
+          "id": "secret-fries",
+          "qty": 1
+        }
+      ]
+    }
   ]
 }

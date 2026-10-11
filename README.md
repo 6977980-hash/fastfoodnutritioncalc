@@ -6,6 +6,7 @@ Code for [fastfoodnutritioncalc.com](https://fastfoodnutritioncalc.com/) (WordPr
   - nutrition data: `theme/assets/data/<brand>.json`
   - calculator engine: `theme/assets/js/calculator.js` (tests: `node --test theme/tests/calculator.test.js`)
   - page text fixes: `theme/inc/content-updates.json`, applied from WordPress > Tools > FFNC Content Updates
+  - deals: optional `deals` + `deals_meta` in a brand JSON add a "Deals & Combos" calculator tab and a deals table on that brand page
 - `ffnc-site-fixes.php` — small plugin that copies `theme/` into the live theme folder
 
 ## Where things live

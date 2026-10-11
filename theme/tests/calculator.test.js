@@ -194,3 +194,26 @@ test('regression: original v1.1.8 engine ignored add-on macros', () => {
 	const t = calc.computeTotals([{ item, addons: [{ name: 'A', calories: 5, protein: 2, carbs: 0, fat: 0, sodium: 0 }], qty: 1 }]);
 	assert.equal(t.protein, 3);
 });
+
+for (const b of brands) {
+	if (!b.data.deals) { continue; }
+	test(`${b.slug}: every deal uses real items and adds up like separate lines`, () => {
+		assert.ok(b.data.deals_meta && b.data.deals_meta.checked && /^https:\/\//.test(b.data.deals_meta.source_url), b.slug + ' deals_meta');
+		const ids = new Set();
+		for (const d of b.data.deals) {
+			assert.ok(!ids.has(d.id), 'duplicate deal id ' + d.id);
+			ids.add(d.id);
+			const lines = calc.dealLines(d, b.data);
+			assert.ok(lines, b.slug + ' deal ' + d.id + ' references a missing item');
+			for (const l of lines) {
+				for (const k of N) { assert.equal(typeof l.item[k], 'number', d.id + ' ' + l.item.id + ' ' + k); }
+			}
+			assert.deepEqual(calc.computeTotals(lines), expected(lines));
+		}
+	});
+}
+
+test('dealLines rejects a deal with an unknown item', () => {
+	const data = brands.find(b => b.slug === 'mcdonalds').data;
+	assert.equal(calc.dealLines({ items: [{ id: 'big-mac', qty: 1 }, { id: 'no-such-item', qty: 1 }] }, data), null);
+});

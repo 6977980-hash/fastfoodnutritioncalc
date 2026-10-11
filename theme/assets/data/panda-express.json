@@ -218,5 +218,93 @@
         }
       ]
     }
+  ],
+  "deals_meta": {
+    "checked": "2026-10-11",
+    "source_name": "Panda Express menu (Bowl, Plate and Bigger Plate)",
+    "source_url": "https://www.pandaexpress.com/menu",
+    "note": "A Bowl is 1 side + 1 entree, a Plate is 1 side + 2 entrees and a Bigger Plate is 1 side + 3 entrees. These are popular example builds; swap any entree or side in the calculator. Prices vary by location."
+  },
+  "deals": [
+    {
+      "id": "bowl-orange-chicken-chow-mein",
+      "name": "Bowl: Orange Chicken + Chow Mein",
+      "price": "",
+      "includes": "1 side (Chow Mein) + 1 entree (Orange Chicken)",
+      "items": [
+        {
+          "id": "orange-chicken",
+          "qty": 1
+        },
+        {
+          "id": "chow-mein",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "plate-classic",
+      "name": "Plate: Orange Chicken + Beijing Beef + Fried Rice",
+      "price": "",
+      "includes": "1 side (Fried Rice) + 2 entrees (Orange Chicken, Beijing Beef)",
+      "items": [
+        {
+          "id": "orange-chicken",
+          "qty": 1
+        },
+        {
+          "id": "beijing-beef",
+          "qty": 1
+        },
+        {
+          "id": "fried-rice",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "plate-lighter",
+      "name": "Lighter Plate: Grilled Teriyaki Chicken + Broccoli Beef + Super Greens",
+      "price": "",
+      "includes": "1 side (Super Greens) + 2 entrees (Grilled Teriyaki Chicken, Broccoli Beef)",
+      "items": [
+        {
+          "id": "grilled-teriyaki-chicken",
+          "qty": 1
+        },
+        {
+          "id": "broccoli-beef",
+          "qty": 1
+        },
+        {
+          "id": "super-greens",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "id": "bigger-plate",
+      "name": "Bigger Plate: Orange Chicken + Honey Walnut Shrimp + Kung Pao Chicken + Chow Mein",
+      "price": "",
+      "includes": "1 side (Chow Mein) + 3 entrees",
+      "items": [
+        {
+          "id": "orange-chicken",
+          "qty": 1
+        },
+        {
+          "id": "honey-walnut-shrimp",
+          "qty": 1
+        },
+        {
+          "id": "kung-pao-chicken",
+          "qty": 1
+        },
+        {
+          "id": "chow-mein",
+          "qty": 1
+        }
+      ]
+    }
   ]
 }

@@ -82,6 +82,104 @@ function ffnc_get_faq_schema_script( $post_id ) {
 }
 
 /**
+ * "Deals & Combos" section for a brand page: one row per deal in the dataset's
+ * `deals` list, with totals added up from the same item values the calculator
+ * uses, and a link that opens the calculator with that deal in the order.
+ *
+ * @param string $slug Brand slug.
+ * @return string HTML, or '' when the brand has no deals.
+ */
+function ffnc_render_deals_section( $slug ) {
+	$data = ffnc_get_brand_data( $slug );
+	if ( ! $data || empty( $data['deals'] ) ) {
+		return '';
+	}
+	$by_id = array();
+	foreach ( $data['categories'] as $cat ) {
+		foreach ( $cat['items'] as $item ) {
+			$by_id[ $item['id'] ] = $item;
+		}
+	}
+	$keys = array( 'calories', 'protein', 'carbs', 'fat', 'sodium' );
+	$rows = array();
+	foreach ( $data['deals'] as $deal ) {
+		$t  = array_fill_keys( $keys, 0 );
+		$ok = ! empty( $deal['items'] );
+		foreach ( (array) $deal['items'] as $line ) {
+			if ( empty( $by_id[ $line['id'] ] ) ) {
+				$ok = false;
+				break;
+			}
+			foreach ( $keys as $k ) {
+				$t[ $k ] += (float) ( isset( $by_id[ $line['id'] ][ $k ] ) ? $by_id[ $line['id'] ][ $k ] : 0 ) * max( 1, (int) $line['qty'] );
+			}
+		}
+		if ( $ok ) {
+			$rows[] = array( 'deal' => $deal, 'totals' => $t );
+		}
+	}
+	if ( ! $rows ) {
+		return '';
+	}
+
+	$brand = ffnc_get_brand( $slug );
+	$bname = $brand ? $brand['name'] : $data['brand'];
+	$meta  = isset( $data['deals_meta'] ) ? $data['deals_meta'] : array();
+
+	ob_start();
+	?>
+	<section class="ffnc-deals" id="deals">
+		<h2><?php echo esc_html( sprintf( /* translators: %s brand */ __( '%s Deals & Combos: Calories and Nutrition', 'ffnc' ), $bname ) ); ?></h2>
+		<p><?php esc_html_e( 'Totals add up the official values of every item in the deal. Tap "Build in calculator" to load the deal into the calculator above and change any item.', 'ffnc' ); ?></p>
+		<div class="ffnc-table-scroll" tabindex="0" role="region" aria-label="<?php esc_attr_e( 'Deals nutrition table (scrollable)', 'ffnc' ); ?>">
+		<table class="ffnc-nutrition-table ffnc-deals-table">
+			<thead>
+				<tr>
+					<th scope="col"><?php esc_html_e( 'Deal', 'ffnc' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Calories', 'ffnc' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Protein', 'ffnc' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Carbs', 'ffnc' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Fat', 'ffnc' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Sodium', 'ffnc' ); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php foreach ( $rows as $r ) : ?>
+				<tr>
+					<th scope="row">
+						<?php echo esc_html( $r['deal']['name'] ); ?>
+						<?php if ( ! empty( $r['deal']['includes'] ) ) : ?>
+							<span class="ffnc-deal-includes"><?php echo esc_html( $r['deal']['includes'] ); ?></span>
+						<?php endif; ?>
+						<a class="ffnc-deal-build" href="<?php echo esc_url( add_query_arg( 'deal', $r['deal']['id'], get_permalink() ) ); ?>"><?php esc_html_e( 'Build in calculator', 'ffnc' ); ?></a>
+					</th>
+					<td><?php echo esc_html( ffnc_fmt_num( round( $r['totals']['calories'], 1 ) ) ); ?></td>
+					<td><?php echo esc_html( ffnc_fmt_num( round( $r['totals']['protein'], 1 ) ) . 'g' ); ?></td>
+					<td><?php echo esc_html( ffnc_fmt_num( round( $r['totals']['carbs'], 1 ) ) . 'g' ); ?></td>
+					<td><?php echo esc_html( ffnc_fmt_num( round( $r['totals']['fat'], 1 ) ) . 'g' ); ?></td>
+					<td><?php echo esc_html( ffnc_fmt_num( round( $r['totals']['sodium'], 1 ) ) . 'mg' ); ?></td>
+				</tr>
+			<?php endforeach; ?>
+			</tbody>
+		</table>
+		</div>
+		<p class="ffnc-deals-note">
+			<?php
+			echo esc_html( isset( $meta['note'] ) ? $meta['note'] : '' );
+			if ( ! empty( $meta['checked'] ) ) {
+				echo ' ' . esc_html( sprintf( /* translators: %s date */ __( 'Deal contents checked %s.', 'ffnc' ), ffnc_format_review_date( $meta['checked'], 'F j, Y' ) ) );
+			}
+			if ( ! empty( $meta['source_url'] ) ) {
+				echo ' <a href="' . esc_url( $meta['source_url'] ) . '" target="_blank" rel="noopener nofollow">' . esc_html( ! empty( $meta['source_name'] ) ? $meta['source_name'] : __( 'Source', 'ffnc' ) ) . '</a>';
+			}
+			?>
+		</p>
+	</section>
+	<?php
+	return ob_get_clean();
+}
+
+/**
  * After the_content renders (and shortcodes have executed, so the FAQ
  * collector is populated), append:
  *   1. The "Related Calculators" box, if the page set related brand slugs.
@@ -107,6 +205,10 @@ function ffnc_append_page_extras( $content ) {
 			$slugs = ffnc_default_related_brands( $page_brand );
 		}
 	}
+	if ( '1' === get_post_meta( $post_id, '_ffnc_is_calculator_page', true ) && ffnc_get_page_brand_slug( $post_id ) ) {
+		$extra .= ffnc_render_deals_section( ffnc_get_page_brand_slug( $post_id ) );
+	}
+
 	// Never link a page to itself.
 	$slugs = array_values( array_diff( $slugs, array( ffnc_get_page_brand_slug( $post_id ) ) ) );
 	if ( $slugs ) {

@@ -204,5 +204,33 @@
         }
       ]
     }
+  ],
+  "deals_meta": {
+    "checked": "2026-10-11",
+    "source_name": "Dunkin' $6 Meal Deal as announced (World Coffee Portal / local news)",
+    "source_url": "https://www.worldcoffeeportal.com/news/dunkin-steps-up-value-competition-in-the-us-with-6-meal-deal/",
+    "note": "Price, bread choice and availability vary by location. The coffee is shown black; cream and sugar add calories (see the coffee items)."
+  },
+  "deals": [
+    {
+      "id": "six-dollar-meal-deal",
+      "name": "$6 Meal Deal",
+      "price": "$6",
+      "includes": "Sausage, Egg & Cheese on English Muffin, Hash Browns and a medium iced coffee (black)",
+      "items": [
+        {
+          "id": "sausage-egg-cheese-muffin",
+          "qty": 1
+        },
+        {
+          "id": "hash-browns",
+          "qty": 1
+        },
+        {
+          "id": "iced-coffee-black-medium",
+          "qty": 1
+        }
+      ]
+    }
   ]
 }
