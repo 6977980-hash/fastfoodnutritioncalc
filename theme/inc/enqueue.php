@@ -19,7 +19,9 @@ function ffnc_enqueue_assets() {
 		wp_enqueue_script( 'ffnc-compare', FFNC_URI . '/assets/js/compare.js', array(), FFNC_VERSION, true );
 	}
 	if ( is_singular() && get_post() && has_shortcode( get_post()->post_content, 'ff_calculator' ) ) {
-		wp_enqueue_script( 'ffnc-calculator', FFNC_URI . '/assets/js/calculator.js', array(), FFNC_VERSION, true );
+		// In <head>, not the footer: the shortcode boots the calculator right
+		// after its markup so it is drawn before first paint (no layout jump).
+		wp_enqueue_script( 'ffnc-calculator', FFNC_URI . '/assets/js/calculator.js', array(), FFNC_VERSION, false );
 		wp_localize_script( 'ffnc-calculator', 'ffncCalcConfig', array(
 			'dataUrl' => FFNC_URI . '/assets/data/',
 		) );

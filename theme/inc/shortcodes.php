@@ -48,6 +48,7 @@ function ffnc_shortcode_calculator( $atts ) {
 		<div class="ffnc-calc-loading"><?php esc_html_e( 'Loading calculator…', 'ffnc' ); ?></div>
 		<noscript><p class="ffnc-calc-error"><?php esc_html_e( 'The interactive calculator needs JavaScript. The complete nutrition table for every item in this calculator is further down this page.', 'ffnc' ); ?></p></noscript>
 	</div>
+	<script>window.FFNCCalcBoot && window.FFNCCalcBoot();</script>
 	<?php
 	return ob_get_clean();
 }

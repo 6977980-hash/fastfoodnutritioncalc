@@ -534,6 +534,8 @@
 	function init() {
 		var mounts = document.querySelectorAll('.ffnc-calculator[data-brand]');
 		Array.prototype.forEach.call(mounts, function (mount) {
+			if (mount.getAttribute('data-ffnc-booted')) { return; }
+			mount.setAttribute('data-ffnc-booted', '1');
 			var brand = mount.getAttribute('data-brand');
 			var inline = mount.querySelector('script.ffnc-calc-data');
 			if (inline) {
@@ -1257,6 +1259,11 @@
 		renderOrder();
 	}
 
+	/* The shortcode calls this from an inline script right after the
+	   calculator's markup (the engine loads in <head> on calculator pages),
+	   so the calculator is built before the first paint instead of popping
+	   in after the rest of the page and pushing it down. */
+	window.FFNCCalcBoot = init;
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', init);
 	} else {
