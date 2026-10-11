@@ -49,6 +49,22 @@
    {
     "find": "The figures here are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Recipes and portion sizes can vary by location and change over time, so for precise figures we recommend checking KFC’s own official nutrition resources directly.",
     "replace": "The figures come from KFC’s official U.S. Full Nutrition Guide (last updated September 15, 2026) and were checked line by line on September 25, 2026. Recipes and portions can vary by location and change over time, so confirm current figures with KFC, especially for allergies or medical diets."
+   },
+   {
+    "find": "at 2,160mg it has the most sodium of any item in this calculator",
+    "replace": "at 2,160mg it has the most sodium of any individual-size item in this calculator"
+   },
+   {
+    "find": "and 2,160mg of sodium, the most sodium of any item in this calculator.",
+    "replace": "and 2,160mg of sodium, the most sodium of any individual-size item in this calculator."
+   },
+   {
+    "find": "a Kentucky Fried Nugget (35 calories each) and an Original Recipe drumstick or whole wing (130 calories each) are the lowest-calorie chicken items.",
+    "replace": "a Kentucky Fried Nugget (35 calories each) and a Kentucky Grilled Chicken whole wing (70 calories) or drumstick (80 calories) are the lowest-calorie chicken items. A Kentucky Grilled Chicken breast has 38g of protein for 210 calories."
+   },
+   {
+    "find": "(last updated September 15, 2026) and were checked line by line on September 25, 2026.",
+    "replace": "(last updated October 2, 2026) and were checked line by line on October 11, 2026."
    }
   ]
  },
@@ -94,6 +110,14 @@
    {
     "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard 6-inch recipes in the United States. Because Subway sandwiches are fully customizable and recipes can vary by location, treat these as a starting point and confirm exact figures for your specific order using Subway’s own nutrition resources.",
     "replace": "The figures come from Subway’s official U.S. Nutrition Information guide (January 2026) and were checked line by line on September 25, 2026. Because Subway sandwiches are customizable and recipes can vary by location, confirm exact figures for your specific order with Subway."
+   },
+   {
+    "find": "the Spicy Italian (680 calories, 44g of fat) and the B.M.T. (610 calories, 36g of fat) are highest, followed by the Tuna and the Meatball Marinara at 570 calories each.",
+    "replace": "the Meatball Pepperoni (690 calories, 38g of fat), the Spicy Italian (680 calories, 44g of fat) and the 5 Meat Italian (680 calories, 37g of fat) are highest, followed by the B.M.T. at 610 calories."
+   },
+   {
+    "find": "and were checked line by line on September 25, 2026.",
+    "replace": "and were checked line by line on October 11, 2026."
    }
   ]
  },

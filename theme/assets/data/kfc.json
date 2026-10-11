@@ -8,9 +8,9 @@
     "source_name": "KFC Full Nutrition Guide (U.S.)",
     "source_url": "https://www.kfc.com/full-nutrition-guide",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item and add-on was checked on 2026-09-25 against KFC's official U.S. Full Nutrition Guide (kfc.com/full-nutrition-guide, served through Nutritionix, last updated 09/15/2026).",
+    "values_origin": "Every item and add-on was checked on 2026-10-11 against KFC's official U.S. Full Nutrition Guide (kfc.com/full-nutrition-guide, last updated 10/02/2026).",
     "status": "verified",
-    "last_reviewed": "2026-09-25",
+    "last_reviewed": "2026-10-11",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
     "addon_macros": "Dipping-sauce add-ons use KFC's published per-cup nutrition, so all five nutrients are included in totals.",
     "spot_checks": [],
@@ -22,6 +22,10 @@
       {
         "date": "2026-09-25",
         "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: ec-tenders-3, popcorn-nuggets. New ids: kentucky-fried-nugget-1, or-tender-1."
+      },
+      {
+        "date": "2026-10-11",
+        "change": "Re-checked every item against KFC's official U.S. Full Nutrition Guide (last updated 10/02/2026); all existing values match. Added Extra Crispy drumstick and wing, Kentucky Grilled and Spicy Crispy pieces, Spicy Chicken Sandwich, Snacker, Twister, Pot Pie, Popcorn Chicken, more sides, family sides, desserts and drinks."
       }
     ]
   },
@@ -130,6 +134,136 @@
           "fat": 23,
           "sodium": 700,
           "addons": []
+        },
+        {
+          "id": "ec-drumstick",
+          "name": "Extra Crispy Drumstick",
+          "calories": 170,
+          "protein": 10,
+          "carbs": 5,
+          "fat": 12,
+          "sodium": 390,
+          "addons": []
+        },
+        {
+          "id": "ec-wing",
+          "name": "Extra Crispy Whole Wing",
+          "calories": 170,
+          "protein": 10,
+          "carbs": 5,
+          "fat": 13,
+          "sodium": 340,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "kentucky-grilled",
+      "name": "Kentucky Grilled Chicken",
+      "items": [
+        {
+          "id": "kgc-breast",
+          "name": "Kentucky Grilled Chicken Breast",
+          "calories": 210,
+          "protein": 38,
+          "carbs": 0,
+          "fat": 7,
+          "sodium": 710,
+          "addons": [
+            {
+              "name": "BBQ Dipping Sauce (1 cup)",
+              "calories": 45,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 150
+            }
+          ]
+        },
+        {
+          "id": "kgc-thigh",
+          "name": "Kentucky Grilled Chicken Thigh",
+          "calories": 150,
+          "protein": 17,
+          "carbs": 0,
+          "fat": 9,
+          "sodium": 420,
+          "addons": []
+        },
+        {
+          "id": "kgc-drumstick",
+          "name": "Kentucky Grilled Chicken Drumstick",
+          "calories": 80,
+          "protein": 11,
+          "carbs": 0,
+          "fat": 4,
+          "sodium": 220,
+          "addons": []
+        },
+        {
+          "id": "kgc-wing",
+          "name": "Kentucky Grilled Chicken Whole Wing",
+          "calories": 70,
+          "protein": 9,
+          "carbs": 0,
+          "fat": 3,
+          "sodium": 180,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "spicy-crispy",
+      "name": "Spicy Crispy Chicken",
+      "items": [
+        {
+          "id": "sc-breast",
+          "name": "Spicy Crispy Chicken Breast",
+          "calories": 350,
+          "protein": 30,
+          "carbs": 11,
+          "fat": 20,
+          "sodium": 1100,
+          "addons": [
+            {
+              "name": "Ranch Dipping Sauce (1 cup)",
+              "calories": 130,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 14,
+              "sodium": 240
+            }
+          ]
+        },
+        {
+          "id": "sc-thigh",
+          "name": "Spicy Crispy Chicken Thigh",
+          "calories": 270,
+          "protein": 13,
+          "carbs": 10,
+          "fat": 20,
+          "sodium": 720,
+          "addons": []
+        },
+        {
+          "id": "sc-drumstick",
+          "name": "Spicy Crispy Chicken Drumstick",
+          "calories": 130,
+          "protein": 9,
+          "carbs": 5,
+          "fat": 8,
+          "sodium": 420,
+          "addons": []
+        },
+        {
+          "id": "sc-wing",
+          "name": "Spicy Crispy Chicken Whole Wing",
+          "calories": 120,
+          "protein": 7,
+          "carbs": 5,
+          "fat": 8,
+          "sodium": 350,
+          "addons": []
         }
       ]
     },
@@ -227,6 +361,73 @@
           "fat": 22,
           "sodium": 2160,
           "addons": []
+        },
+        {
+          "id": "spicy-chicken-sandwich",
+          "name": "Spicy Chicken Sandwich",
+          "calories": 620,
+          "protein": 34,
+          "carbs": 49,
+          "fat": 33,
+          "sodium": 2140,
+          "addons": []
+        },
+        {
+          "id": "kfc-snacker",
+          "name": "KFC Snacker",
+          "calories": 350,
+          "protein": 15,
+          "carbs": 39,
+          "fat": 16,
+          "sodium": 730,
+          "addons": []
+        },
+        {
+          "id": "twister",
+          "name": "Twister",
+          "calories": 680,
+          "protein": 29,
+          "carbs": 74,
+          "fat": 31,
+          "sodium": 1360,
+          "addons": []
+        },
+        {
+          "id": "chicken-pot-pie",
+          "name": "Chicken Pot Pie",
+          "calories": 720,
+          "protein": 26,
+          "carbs": 60,
+          "fat": 41,
+          "sodium": 1750,
+          "addons": []
+        },
+        {
+          "id": "popcorn-chicken",
+          "name": "Popcorn Chicken",
+          "calories": 620,
+          "protein": 23,
+          "carbs": 40,
+          "fat": 41,
+          "sodium": 1970,
+          "addons": [
+            {
+              "name": "BBQ Dipping Sauce (1 cup)",
+              "calories": 45,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 150
+            },
+            {
+              "name": "Honey Mustard Dipping Sauce (1 cup)",
+              "calories": 110,
+              "protein": 0,
+              "carbs": 6,
+              "fat": 9,
+              "sodium": 120
+            }
+          ]
         }
       ]
     },
@@ -291,6 +492,181 @@
           "carbs": 41,
           "fat": 15,
           "sodium": 1100,
+          "addons": []
+        },
+        {
+          "id": "mashed-potatoes",
+          "name": "Mashed Potatoes, no gravy (individual)",
+          "calories": 110,
+          "protein": 2,
+          "carbs": 17,
+          "fat": 3.5,
+          "sodium": 330,
+          "addons": []
+        },
+        {
+          "id": "bbq-baked-beans",
+          "name": "BBQ Baked Beans (individual)",
+          "calories": 190,
+          "protein": 11,
+          "carbs": 34,
+          "fat": 1,
+          "sodium": 650,
+          "addons": []
+        },
+        {
+          "id": "corn-on-the-cob",
+          "name": "Corn on the Cob",
+          "calories": 70,
+          "protein": 2,
+          "carbs": 17,
+          "fat": 0.5,
+          "sodium": 0,
+          "addons": []
+        },
+        {
+          "id": "green-beans",
+          "name": "Green Beans (individual)",
+          "calories": 25,
+          "protein": 1,
+          "carbs": 5,
+          "fat": 0,
+          "sodium": 300,
+          "addons": []
+        },
+        {
+          "id": "cornbread-muffin",
+          "name": "Cornbread Muffin",
+          "calories": 210,
+          "protein": 3,
+          "carbs": 28,
+          "fat": 9,
+          "sodium": 240,
+          "addons": [
+            {
+              "name": "Honey Sauce Packet",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 8,
+              "fat": 0,
+              "sodium": 0
+            }
+          ]
+        },
+        {
+          "id": "mashed-potatoes-gravy-family",
+          "name": "Mashed Potatoes with Gravy (family)",
+          "calories": 590,
+          "protein": 12,
+          "carbs": 88,
+          "fat": 21,
+          "sodium": 2590,
+          "addons": []
+        },
+        {
+          "id": "coleslaw-family",
+          "name": "Coleslaw (family)",
+          "calories": 640,
+          "protein": 4,
+          "carbs": 54,
+          "fat": 46,
+          "sodium": 670,
+          "addons": []
+        },
+        {
+          "id": "mac-cheese-family",
+          "name": "Mac & Cheese (family)",
+          "calories": 540,
+          "protein": 18,
+          "carbs": 66,
+          "fat": 23,
+          "sodium": 2220,
+          "addons": []
+        },
+        {
+          "id": "secret-fries-family",
+          "name": "Secret Recipe Fries (family)",
+          "calories": 840,
+          "protein": 13,
+          "carbs": 108,
+          "fat": 40,
+          "sodium": 2890,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "desserts-drinks",
+      "name": "Desserts & Drinks",
+      "items": [
+        {
+          "id": "chocolate-chunk-cookie",
+          "name": "Chocolate Chunk Cookie",
+          "calories": 190,
+          "protein": 2,
+          "carbs": 26,
+          "fat": 9,
+          "sodium": 105,
+          "addons": []
+        },
+        {
+          "id": "apple-turnover",
+          "name": "Apple Turnover",
+          "calories": 230,
+          "protein": 2,
+          "carbs": 32,
+          "fat": 10,
+          "sodium": 140,
+          "addons": []
+        },
+        {
+          "id": "pepsi-20",
+          "name": "Pepsi (20 fl oz)",
+          "calories": 250,
+          "protein": 0,
+          "carbs": 69,
+          "fat": 0,
+          "sodium": 55,
+          "addons": []
+        },
+        {
+          "id": "pepsi-30",
+          "name": "Pepsi (30 fl oz)",
+          "calories": 380,
+          "protein": 0,
+          "carbs": 104,
+          "fat": 0,
+          "sodium": 80,
+          "addons": []
+        },
+        {
+          "id": "sweet-tea-20",
+          "name": "Lipton Brisk Sweet Iced Tea (20 fl oz)",
+          "calories": 130,
+          "protein": 0,
+          "carbs": 36,
+          "fat": 0,
+          "sodium": 80,
+          "addons": []
+        },
+        {
+          "id": "lemonade-20",
+          "name": "Classic Lemonade (20 fl oz)",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 39,
+          "fat": 0,
+          "sodium": 130,
+          "addons": []
+        },
+        {
+          "id": "pepsi-zero-20",
+          "name": "Pepsi Zero Sugar (20 fl oz)",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 60,
           "addons": []
         }
       ]
