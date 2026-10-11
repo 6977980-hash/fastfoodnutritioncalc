@@ -1,0 +1,223 @@
+{
+  "brand": "Taco Bell",
+  "slug": "taco-bell",
+  "note": "Values are Taco Bell's official U.S. nutrition figures, checked on September 25, 2026. Recipes change and vary by location — confirm current figures with Taco Bell, especially for allergies or medical diets.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Taco Bell Nutrition Information (U.S.)",
+    "source_url": "https://www.tacobell.com/nutrition/info",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Every item was checked on 2026-09-25 against the official nutrition label each tacobell.com product page links to (served through Nutritionix) and Taco Bell's Full Nutrition Information table (updated 09/24/2026).",
+    "status": "verified",
+    "last_reviewed": "2026-09-25",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "Taco Bell publishes only the calories an add-on adds (\"Adds X Cal\" on tacobell.com). Add-on protein, carbs, fat and sodium are not published, so they are shown as not available and are not counted.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-25",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "tacos",
+      "name": "Tacos",
+      "items": [
+        {
+          "id": "crunchy-taco",
+          "name": "Crunchy Taco",
+          "calories": 170,
+          "protein": 7,
+          "carbs": 13,
+          "fat": 9,
+          "sodium": 310,
+          "addons": [
+            {
+              "name": "Add Three-Cheese Blend",
+              "calories": 20
+            },
+            {
+              "name": "Add Reduced-Fat Sour Cream",
+              "calories": 20
+            }
+          ],
+          "source_url": "https://www.tacobell.com/food/tacos/crunchy-taco"
+        },
+        {
+          "id": "soft-taco",
+          "name": "Soft Taco (Beef)",
+          "calories": 180,
+          "protein": 9,
+          "carbs": 18,
+          "fat": 8,
+          "sodium": 500,
+          "addons": [
+            {
+              "name": "Add Three-Cheese Blend",
+              "calories": 20
+            },
+            {
+              "name": "Add Reduced-Fat Sour Cream",
+              "calories": 20
+            }
+          ],
+          "source_url": "https://www.tacobell.com/food/tacos/soft-taco"
+        },
+        {
+          "id": "doritos-locos-taco",
+          "name": "Nacho Cheese Doritos Locos Taco",
+          "calories": 170,
+          "protein": 7,
+          "carbs": 13,
+          "fat": 10,
+          "sodium": 370,
+          "addons": [],
+          "source_url": "https://www.tacobell.com/food/tacos/nacho-cheese-doritos-locos-tacos"
+        }
+      ]
+    },
+    {
+      "id": "burritos",
+      "name": "Burritos",
+      "items": [
+        {
+          "id": "bean-burrito",
+          "name": "Bean Burrito",
+          "calories": 360,
+          "protein": 13,
+          "carbs": 54,
+          "fat": 10,
+          "sodium": 1080,
+          "addons": [
+            {
+              "name": "Add Three-Cheese Blend",
+              "calories": 20
+            },
+            {
+              "name": "Add Reduced-Fat Sour Cream",
+              "calories": 20
+            }
+          ],
+          "source_url": "https://www.tacobell.com/food/burritos/bean-burrito"
+        },
+        {
+          "id": "burrito-supreme-beef",
+          "name": "Burrito Supreme (Beef)",
+          "calories": 390,
+          "protein": 16,
+          "carbs": 52,
+          "fat": 14,
+          "sodium": 1160,
+          "addons": [
+            {
+              "name": "Add Three-Cheese Blend",
+              "calories": 20
+            }
+          ],
+          "source_url": "https://www.tacobell.com/food/burritos/burrito-supreme"
+        },
+        {
+          "id": "crunchwrap-supreme",
+          "name": "Crunchwrap Supreme",
+          "calories": 530,
+          "protein": 15,
+          "carbs": 74,
+          "fat": 20,
+          "sodium": 1210,
+          "addons": [],
+          "source_url": "https://www.tacobell.com/food/specialties/crunchwrap-supreme"
+        }
+      ]
+    },
+    {
+      "id": "specialties",
+      "name": "Specialties",
+      "items": [
+        {
+          "id": "quesadilla-chicken",
+          "name": "Chicken Quesadilla",
+          "calories": 490,
+          "protein": 26,
+          "carbs": 44,
+          "fat": 23,
+          "sodium": 1240,
+          "addons": [
+            {
+              "name": "Add Reduced-Fat Sour Cream",
+              "calories": 20
+            }
+          ],
+          "source_url": "https://www.tacobell.com/food/quesadillas/chicken-quesadilla"
+        },
+        {
+          "id": "cheesy-gordita-crunch",
+          "name": "Cheesy Gordita Crunch",
+          "calories": 480,
+          "protein": 20,
+          "carbs": 44,
+          "fat": 26,
+          "sodium": 830,
+          "addons": [],
+          "source_url": "https://www.tacobell.com/food/specialties/cheesy-gordita-crunch"
+        },
+        {
+          "id": "mexican-pizza",
+          "name": "Mexican Pizza",
+          "calories": 530,
+          "protein": 19,
+          "carbs": 51,
+          "fat": 27,
+          "sodium": 1000,
+          "addons": [],
+          "source_url": "https://www.tacobell.com/food/specialties/mexican-pizza"
+        },
+        {
+          "id": "nachos-bellgrande",
+          "name": "Nachos BellGrande (Beef)",
+          "calories": 730,
+          "protein": 17,
+          "carbs": 81,
+          "fat": 38,
+          "sodium": 1180,
+          "addons": [],
+          "source_url": "https://www.tacobell.com/food/nachos/nachos-bellgrande"
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Sides",
+      "items": [
+        {
+          "id": "cinnamon-twists",
+          "name": "Cinnamon Twists",
+          "calories": 170,
+          "protein": 2,
+          "carbs": 27,
+          "fat": 6,
+          "sodium": 150,
+          "addons": [],
+          "source_url": "https://www.tacobell.com/food/sweets/cinnamon-twists"
+        },
+        {
+          "id": "chips-cheese",
+          "name": "Chips and Nacho Cheese Sauce",
+          "calories": 220,
+          "protein": 3,
+          "carbs": 24,
+          "fat": 13,
+          "sodium": 280,
+          "addons": [],
+          "source_url": "https://www.tacobell.com/food/nachos/chips-and-nacho-cheese-sauce"
+        }
+      ]
+    }
+  ]
+}

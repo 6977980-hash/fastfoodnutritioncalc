@@ -2,9 +2,11 @@
 
 Code for [fastfoodnutritioncalc.com](https://fastfoodnutritioncalc.com/) (WordPress on Hostinger).
 
-The site itself (pages, calculators, menus) lives in WordPress. This repo is
-the **FFNC Site Fixes** WordPress plugin: the repo root is the plugin folder,
-and Hostinger deploys it straight from GitHub.
+- `theme/` — the "Fast Food Nutrition Calculators" theme
+  - nutrition data: `theme/assets/data/<brand>.json`
+  - calculator engine: `theme/assets/js/calculator.js` (tests: `node --test theme/tests/calculator.test.js`)
+  - page text fixes: `theme/inc/content-updates.json`, applied from WordPress > Tools > FFNC Content Updates
+- `ffnc-site-fixes.php` — small plugin that copies `theme/` into the live theme folder
 
 ## Where things live
 
@@ -13,19 +15,10 @@ and Hostinger deploys it straight from GitHub.
 | Repo root | https://github.com/6977980-hash/fastfoodnutritioncalc |
 | Site root on Hostinger | `public_html/` |
 | This repo on Hostinger | `public_html/wp-content/plugins/ffnc-site-fixes/` |
+| Live theme | `public_html/wp-content/themes/fastfood-nutrition/` |
 
-## Hostinger Git auto-deploy (one-time setup)
+## Deploy
 
-1. hPanel > Websites > fastfoodnutritioncalc.com > Advanced > **Git**.
-2. Create a new repository:
-   - Repository: `https://github.com/6977980-hash/fastfoodnutritioncalc.git`
-   - Branch: `main`
-   - Install path: `wp-content/plugins/ffnc-site-fixes`
-     (this folder must not exist yet; Hostinger needs an empty target)
-3. Click **Deploy** once, then turn on **Auto Deployment** and copy the
-   webhook URL it shows.
-4. GitHub repo > Settings > Webhooks > Add webhook: paste that URL as the
-   Payload URL, content type `application/json`, event "Just the push event".
-5. WordPress > Plugins > activate **FFNC Site Fixes**.
-
-From then on every push to `main` deploys to the live site.
+Hostinger hPanel > Advanced > Git deploys `main` into the plugin folder (Auto
+Deployment webhook in GitHub). On the next page load the plugin copies changed
+files from `theme/` into the live theme. Keep **FFNC Site Fixes** active.

@@ -1,0 +1,428 @@
+{
+  "brand": "Domino's",
+  "slug": "dominos",
+  "note": "Values come from Domino's official U.S. Nutrition Guide (August 2026), checked on September 26, 2026. One slice = 1/8 of a Large (14-inch) pizza. Cheese, Pepperoni and Crunchy Thin slices add up Domino's official crust, sauce, cheese and topping values. Values can vary by location and supplier.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Domino's Nutrition Guide (U.S., August 2026)",
+    "source_url": "https://www.dominos.com/content/nutrition",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Checked on 2026-09-26 against Domino's official U.S. Nutrition Guide (August 2026 PDF). Specialty pizzas, breads, wings, desserts and dipping cups use the guide's published per-serving rows. Cheese, Pepperoni and Crunchy Thin cheese slices are the sum of the guide's official per-1/8 values for crust, garlic oil (Hand Tossed only), pizza sauce, cheese and topping, as the guide publishes build-your-own pizzas by component.",
+    "status": "verified",
+    "last_reviewed": "2026-09-26",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "Pizza topping add-ons use the guide's official per-1/8 Large-pizza values, and dipping-cup add-ons use its per-cup values, so all five nutrients are included in totals.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-26",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "pizza-hand-tossed",
+      "name": "Pizza (Large Hand Tossed, per slice)",
+      "items": [
+        {
+          "id": "cheese-slice",
+          "name": "Cheese Pizza (1 slice)",
+          "calories": 285,
+          "protein": 11,
+          "carbs": 34,
+          "fat": 10.5,
+          "sodium": 595,
+          "addons": []
+        },
+        {
+          "id": "pepperoni-slice",
+          "name": "Pepperoni Pizza (1 slice)",
+          "calories": 295,
+          "protein": 11,
+          "carbs": 33,
+          "fat": 12,
+          "sodium": 665,
+          "addons": [
+            {
+              "name": "Italian Sausage (topping, 1/8 pizza)",
+              "calories": 70,
+              "protein": 2,
+              "carbs": 0,
+              "fat": 7,
+              "sodium": 115
+            },
+            {
+              "name": "Bacon (topping, 1/8 pizza)",
+              "calories": 70,
+              "protein": 4,
+              "carbs": 0,
+              "fat": 5,
+              "sodium": 220
+            },
+            {
+              "name": "Mushrooms (topping, 1/8 pizza)",
+              "calories": 5,
+              "protein": 1,
+              "carbs": 1,
+              "fat": 0,
+              "sodium": 0
+            },
+            {
+              "name": "Onions (topping, 1/8 pizza)",
+              "calories": 5,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 0,
+              "sodium": 0
+            }
+          ]
+        },
+        {
+          "id": "deluxe-slice",
+          "name": "The People's Pizza – Deluxe (1 slice)",
+          "calories": 340,
+          "protein": 13,
+          "carbs": 35,
+          "fat": 16,
+          "sodium": 680,
+          "addons": []
+        },
+        {
+          "id": "extravaganzza-slice",
+          "name": "ExtravaganZZa (1 slice)",
+          "calories": 380,
+          "protein": 16,
+          "carbs": 36,
+          "fat": 19,
+          "sodium": 900,
+          "addons": []
+        },
+        {
+          "id": "ultimate-pepperoni-slice",
+          "name": "Ultimate Pepperoni (1 slice)",
+          "calories": 360,
+          "protein": 15,
+          "carbs": 34,
+          "fat": 18,
+          "sodium": 830,
+          "addons": []
+        },
+        {
+          "id": "meatzza-slice",
+          "name": "MeatZZa (1 slice)",
+          "calories": 370,
+          "protein": 15,
+          "carbs": 34,
+          "fat": 18,
+          "sodium": 850,
+          "addons": []
+        },
+        {
+          "id": "honolulu-hawaiian-slice",
+          "name": "Honolulu Hawaiian (1 slice)",
+          "calories": 330,
+          "protein": 14,
+          "carbs": 36,
+          "fat": 14,
+          "sodium": 760,
+          "addons": []
+        },
+        {
+          "id": "memphis-bbq-chicken-slice",
+          "name": "Memphis BBQ Chicken (1 slice)",
+          "calories": 350,
+          "protein": 15,
+          "carbs": 39,
+          "fat": 14,
+          "sodium": 680,
+          "addons": []
+        },
+        {
+          "id": "pacific-veggie-slice",
+          "name": "Pacific Veggie (1 slice)",
+          "calories": 310,
+          "protein": 12,
+          "carbs": 35,
+          "fat": 13,
+          "sodium": 630,
+          "addons": []
+        },
+        {
+          "id": "philly-cheese-steak-slice",
+          "name": "Philly Cheese Steak (1 slice)",
+          "calories": 310,
+          "protein": 13,
+          "carbs": 33,
+          "fat": 13,
+          "sodium": 720,
+          "addons": []
+        },
+        {
+          "id": "spicy-chicken-bacon-ranch-slice",
+          "name": "Spicy Chicken Bacon Ranch (1 slice)",
+          "calories": 410,
+          "protein": 16,
+          "carbs": 34,
+          "fat": 22,
+          "sodium": 1090,
+          "addons": []
+        },
+        {
+          "id": "spinach-feta-slice",
+          "name": "Spinach & Feta (1 slice)",
+          "calories": 320,
+          "protein": 13,
+          "carbs": 33,
+          "fat": 15,
+          "sodium": 610,
+          "addons": []
+        },
+        {
+          "id": "wisconsin-6-cheese-slice",
+          "name": "Wisconsin 6 Cheese (1 slice)",
+          "calories": 330,
+          "protein": 14,
+          "carbs": 35,
+          "fat": 15,
+          "sodium": 670,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "pizza-thin",
+      "name": "Pizza (Large Crunchy Thin, per slice)",
+      "items": [
+        {
+          "id": "thin-cheese-slice",
+          "name": "Cheese Pizza, Crunchy Thin (1 slice)",
+          "calories": 210,
+          "protein": 8,
+          "carbs": 17,
+          "fat": 11,
+          "sodium": 435,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Breads & Wings",
+      "items": [
+        {
+          "id": "cheesy-bread-1",
+          "name": "Stuffed Cheesy Bread (1 piece)",
+          "calories": 160,
+          "protein": 5,
+          "carbs": 15,
+          "fat": 8,
+          "sodium": 220,
+          "addons": [
+            {
+              "name": "Marinara Dipping Cup",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 6,
+              "fat": 0,
+              "sodium": 290
+            },
+            {
+              "name": "Ranch Dipping Cup",
+              "calories": 160,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 17,
+              "sodium": 300
+            },
+            {
+              "name": "Blue Cheese Dipping Cup",
+              "calories": 200,
+              "protein": 1,
+              "carbs": 2,
+              "fat": 21,
+              "sodium": 270
+            },
+            {
+              "name": "Hot Buffalo Dipping Cup",
+              "calories": 15,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 1,
+              "sodium": 860
+            }
+          ]
+        },
+        {
+          "id": "garlic-bread-bites-4",
+          "name": "Garlic Bread Bites (4 pieces)",
+          "calories": 210,
+          "protein": 5,
+          "carbs": 27,
+          "fat": 9,
+          "sodium": 200,
+          "addons": [
+            {
+              "name": "Marinara Dipping Cup",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 6,
+              "fat": 0,
+              "sodium": 290
+            },
+            {
+              "name": "Ranch Dipping Cup",
+              "calories": 160,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 17,
+              "sodium": 300
+            },
+            {
+              "name": "Blue Cheese Dipping Cup",
+              "calories": 200,
+              "protein": 1,
+              "carbs": 2,
+              "fat": 21,
+              "sodium": 270
+            },
+            {
+              "name": "Hot Buffalo Dipping Cup",
+              "calories": 15,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 1,
+              "sodium": 860
+            }
+          ]
+        },
+        {
+          "id": "plain-wings-4",
+          "name": "Plain Wings, no sauce (4 pieces)",
+          "calories": 250,
+          "protein": 14,
+          "carbs": 8,
+          "fat": 20,
+          "sodium": 720,
+          "addons": [
+            {
+              "name": "Marinara Dipping Cup",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 6,
+              "fat": 0,
+              "sodium": 290
+            },
+            {
+              "name": "Ranch Dipping Cup",
+              "calories": 160,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 17,
+              "sodium": 300
+            },
+            {
+              "name": "Blue Cheese Dipping Cup",
+              "calories": 200,
+              "protein": 1,
+              "carbs": 2,
+              "fat": 21,
+              "sodium": 270
+            },
+            {
+              "name": "Hot Buffalo Dipping Cup",
+              "calories": 15,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 1,
+              "sodium": 860
+            }
+          ]
+        },
+        {
+          "id": "hot-buffalo-wings-4",
+          "name": "Hot Buffalo Wings (4 pieces)",
+          "calories": 260,
+          "protein": 15,
+          "carbs": 9,
+          "fat": 20,
+          "sodium": 1520,
+          "addons": [
+            {
+              "name": "Marinara Dipping Cup",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 6,
+              "fat": 0,
+              "sodium": 290
+            },
+            {
+              "name": "Ranch Dipping Cup",
+              "calories": 160,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 17,
+              "sodium": 300
+            },
+            {
+              "name": "Blue Cheese Dipping Cup",
+              "calories": 200,
+              "protein": 1,
+              "carbs": 2,
+              "fat": 21,
+              "sodium": 270
+            },
+            {
+              "name": "Hot Buffalo Dipping Cup",
+              "calories": 15,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 1,
+              "sodium": 860
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "items": [
+        {
+          "id": "chocolate-lava-cake",
+          "name": "Chocolate Lava Cake",
+          "calories": 360,
+          "protein": 4,
+          "carbs": 47,
+          "fat": 17,
+          "sodium": 180,
+          "addons": []
+        },
+        {
+          "id": "cinnamon-bread-bites-4",
+          "name": "Cinnamon Bread Bites (4 pieces)",
+          "calories": 230,
+          "protein": 5,
+          "carbs": 30,
+          "fat": 9,
+          "sodium": 160,
+          "addons": [
+            {
+              "name": "Sweet Icing Dipping Cup",
+              "calories": 220,
+              "protein": 0,
+              "carbs": 52,
+              "fat": 4,
+              "sodium": 110
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,567 @@
+[
+ {
+  "page": "calculators/kfc-calories-calculator",
+  "changes": [
+   {
+    "find": "If you’re trying to maximize protein per calorie, the breast is generally your best pick.",
+    "replace": "Of the Original Recipe pieces, the breast has the most protein per calorie: 39g of protein for 390 calories."
+   },
+   {
+    "find": "An Extra Crispy breast runs about 490 calories compared to roughly 390 for the Original Recipe version of the same cut, mostly from the thicker coating absorbing more oil during frying. If calories matter more to you than crunch, Original Recipe is consistently the lighter choice across every cut.",
+    "replace": "An Extra Crispy breast is 530 calories with 35g of fat, compared with 390 calories and 21g of fat for the Original Recipe breast. In KFC’s official guide, the Original Recipe version is lower in calories than the Extra Crispy version for every cut (breast, thigh, drumstick and wing)."
+   },
+   {
+    "find": "Go easy on dipping sauces — ranch and honey mustard can each add 70–110 calories on their own",
+    "replace": "Count dipping sauces: a Ranch cup adds 130 calories and a Honey Mustard cup adds 110 calories"
+   },
+   {
+    "find": "Skip the Famous Bowl if you’re watching sodium; it’s one of the higher-sodium items on the menu at over 2,000mg",
+    "replace": "Check sodium on the Famous Bowl: at 2,160mg it has the most sodium of any item in this calculator"
+   },
+   {
+    "find": "How many calories are in 3 KFC Extra Crispy Tenders?",
+    "replace": "How many calories are in a KFC Original Recipe Tender?"
+   },
+   {
+    "find": "Three Extra Crispy Tenders come to approximately 410 calories, with about 29g of protein, 24g of carbs and 22g of fat, not including any dipping sauce.",
+    "replace": "One Original Recipe Tender is 170 calories, with 11g of protein, 20g of carbs, 6g of fat and 400mg of sodium, before any dipping sauce. Three tenders come to 510 calories."
+   },
+   {
+    "find": "What is the healthiest thing to order at KFC?",
+    "replace": "Which KFC Items Are Lower in Calories?"
+   },
+   {
+    "find": "For a lighter option, an Original Recipe drumstick or wing (around 130 calories each) paired with a side like green beans or corn on the cob where available tends to be one of the lighter combinations. If you want more protein for fewer calories, the Original Recipe breast is a strong choice at roughly 390 calories for 39g of protein.",
+    "replace": "Among the items in this calculator, a Kentucky Fried Nugget (35 calories each) and an Original Recipe drumstick or whole wing (130 calories each) are the lowest-calorie chicken items. For sides, Mashed Potatoes with Gravy (130 calories) is lower in calories than Secret Recipe Fries (320 calories). The Original Recipe breast has the most protein per calorie of the Original Recipe pieces: 39g of protein for 390 calories."
+   },
+   {
+    "find": "A Famous Bowl is approximately 660 calories, with about 24g of protein, 66g of carbs, 33g of fat and over 2,000mg of sodium, making it one of the more calorie- and sodium-dense single items on the menu.",
+    "replace": "A Famous Bowl is 590 calories, with 31g of protein, 67g of carbs, 22g of fat and 2,160mg of sodium, the most sodium of any item in this calculator."
+   },
+   {
+    "find": "Is KFC popcorn chicken high in calories?",
+    "replace": "How many calories are in KFC Kentucky Fried Nuggets?"
+   },
+   {
+    "find": "An individual serving of Popcorn Nuggets is approximately 380 calories, which is comparable to three Extra Crispy Tenders, so it’s a moderate option rather than an especially light one.",
+    "replace": "Each Kentucky Fried Nugget is 35 calories, with 3g of protein, 1g of carbs, 1.5g of fat and 140mg of sodium, so 8 nuggets come to 280 calories before dipping sauce."
+   },
+   {
+    "find": "The figures here are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Recipes and portion sizes can vary by location and change over time, so for precise figures we recommend checking KFC’s own official nutrition resources directly.",
+    "replace": "The figures come from KFC’s official U.S. Full Nutrition Guide (last updated September 15, 2026) and were checked line by line on September 25, 2026. Recipes and portions can vary by location and change over time, so confirm current figures with KFC, especially for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/subway-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Add any 6-inch sandwich from the Sandwiches category, then check off extras like cheese, bacon, mayo or ranch to see how they shift your totals. We’ve also included common sides like cookies and chips under Sides & Extras. Keep in mind these figures assume a standard 6-inch sandwich with each sandwich’s typical recipe toppings — going footlong roughly doubles every number, and swapping bread or removing toppings will shift things too.",
+    "replace": "Add any 6-inch sandwich, then check off extras like cheese, bacon, mayo or ranch to see how they change your totals. A cookie, hash browns and a Veggie Delite salad are under Salads, Cookies & Sides. Figures are Subway’s published values for its standard 6-inch recipes; Subway’s guide says to double them for a footlong, and swapping bread or removing toppings will change them."
+   },
+   {
+    "find": "What’s the Healthiest Sandwich at Subway?",
+    "replace": "Which Subway Sandwiches Are Lower in Calories?"
+   },
+   {
+    "find": "Among the classics, the 6-inch Turkey Breast is one of the lightest options at roughly 260 calories, 3g of fat and 20g of protein — a solid pick if you’re watching fat specifically. Veggie Delite comes in even lower on calories (around 200) but with less protein, since it’s built entirely around vegetables. If you want more protein without much added fat, Rotisserie-Style Chicken or Sweet Onion Chicken Teriyaki are both worth a look, though the teriyaki sauce does add extra carbs from sugar.",
+    "replace": "Among the 6-inch sandwiches in this calculator, the Veggie Delite has the fewest calories at 320 (17g of protein), followed by the Sweet Onion Teriyaki Chicken at 430 calories with 29g of protein and 11g of fat. The Oven-Roasted Turkey is 480 calories with 26g of protein. The Sweet Onion Teriyaki Chicken has more carbohydrates (55g) than most of the other sandwiches here, largely from its sauce."
+   },
+   {
+    "find": "Among the sandwiches covered here, the Italian B.M.T., Tuna and Spicy Italian tend to run highest, largely because of the higher-fat meats and, in tuna’s case, the mayo mixed into the filling. The Tuna sandwich in particular can be deceiving — fish sounds light, but the mayo-based dressing pushes it to around 480 calories and 25g of fat for a standard 6-inch, comparable to some of the meatier options.",
+    "replace": "Among the sandwiches covered here, the Spicy Italian (680 calories, 44g of fat) and the B.M.T. (610 calories, 36g of fat) are highest, followed by the Tuna and the Meatball Marinara at 570 calories each. The 6-inch Tuna has 33g of fat; Subway lists the tuna filling alone at 23g of fat."
+   },
+   {
+    "find": "The base sandwich is only part of the story. Cheese typically adds around 40 calories, bacon around 70, and sauces like mayo, ranch or chipotle southwest can each add 90–100 calories on their own. Stacking two or three of these on top of an otherwise light sandwich like Turkey Breast or Veggie Delite can easily erase the calorie advantage you started with — which is exactly why we built the add-on checkboxes into the calculator above.",
+    "replace": "The base sandwich is only part of the story. For a 6-inch, Subway lists American cheese at 80 calories, provolone at 90, bacon at 80, mayonnaise at 100, Peppercorn Ranch at 80 and Baja Chipotle at 70. Adding three of these to a 6-inch Veggie Delite (320 calories) adds 230 to 270 calories. The add-on checkboxes above add every nutrient Subway publishes for them — calories, protein, carbs, fat and sodium."
+   },
+   {
+    "find": "A 6-inch Italian B.M.T. on standard bread is approximately 410 calories, with about 20g of protein, 46g of carbs, 16g of fat and 1,260mg of sodium, before any extra cheese or sauce.",
+    "replace": "A 6-inch B.M.T. made to Subway’s standard recipe is 610 calories, with 27g of protein, 44g of carbs, 36g of fat and 1,500mg of sodium, before any extras."
+   },
+   {
+    "find": "Is Subway healthier than other fast food?",
+    "replace": "How Does Subway Nutrition Compare With Other Fast Food?"
+   },
+   {
+    "find": "It depends entirely on what you order. A Veggie Delite or Turkey Breast sandwich without heavy sauces is generally lighter than a comparable fast food burger, but a footlong loaded with extra cheese, bacon and mayo can easily match or exceed the calories in a large burger meal. The build-your-own format means the healthiness is really up to your choices at the counter.",
+    "replace": "It depends on the order. A 6-inch Veggie Delite (320 calories) or Oven-Roasted Turkey (480 calories) has fewer calories than a McDonald’s Big Mac (580 calories), while a 6-inch Spicy Italian (680 calories) has more, and a footlong doubles every value. Use the comparison tool to check specific items side by side."
+   },
+   {
+    "find": "As a rule of thumb, a footlong sandwich has roughly double the calories, protein, carbs, fat and sodium of the same 6-inch sandwich, since it uses twice the bread and twice the fillings.",
+    "replace": "Subway’s official nutrition guide says to double the 6-inch values for a footlong, so a footlong has twice the calories, protein, carbs, fat and sodium of the same 6-inch sandwich."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard 6-inch recipes in the United States. Because Subway sandwiches are fully customizable and recipes can vary by location, treat these as a starting point and confirm exact figures for your specific order using Subway’s own nutrition resources.",
+    "replace": "The figures come from Subway’s official U.S. Nutrition Information guide (January 2026) and were checked line by line on September 25, 2026. Because Subway sandwiches are customizable and recipes can vary by location, confirm exact figures for your specific order with Subway."
+   }
+  ]
+ },
+ {
+  "page": "calculators/taco-bell-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Add tacos, burritos and specialty items as you build your order. Most items here don’t have separate add-ons since Taco Bell’s menu items already come as fixed combinations — instead, focus on comparing similar items (like a Crunchy Taco vs. a Doritos Locos Taco) to see how small format changes shift the numbers.",
+    "replace": "Add tacos, burritos and specialty items as you build your order. Some items list optional add-ons such as Three-Cheese Blend or Reduced-Fat Sour Cream. Taco Bell publishes only the calories these add, so the calculator adds those calories and marks the protein, carbs, fat and sodium totals with a + to show the add-on values are not included."
+   },
+   {
+    "find": "A Crunchwrap Supreme comes in at roughly 530 calories, with 71g of carbs making up the largest share — a good reminder that the tortilla, crunchy tostada shell and warm flour wrap together account for more of the total than the beef inside. It’s a filling single item, comparable to ordering two or three regular tacos at once.",
+    "replace": "A Crunchwrap Supreme is 530 calories, with 74g of carbohydrates, 20g of fat, 15g of protein and 1,210mg of sodium. That is about the same number of calories as three Crunchy Tacos (510 calories)."
+   },
+   {
+    "find": "A single Crunchy or Soft Taco is fairly light on its own at 170–180 calories, so three tacos land around 510–540 calories — similar to one Burrito Supreme (410 calories) plus a side. The practical difference is portion control: it’s easy to keep ordering tacos one at a time well past the point you’d stop with a single large burrito, so tracking your count as you go (which is exactly what the calculator above does) helps more with tacos than with bigger items.",
+    "replace": "A single Crunchy or Soft Taco is 170–180 calories, so three tacos come to 510–540 calories — more than one Burrito Supreme (390 calories) or Bean Burrito (360 calories). Tacos are ordered one at a time, so tracking your count in the calculator above keeps the total accurate."
+   },
+   {
+    "find": "A Bean Burrito is approximately 350 calories, with about 13g of protein, 54g of carbs and 9g of fat, making it one of the lighter burrito options on the menu.",
+    "replace": "A Bean Burrito is 360 calories, with 13g of protein, 54g of carbs, 10g of fat and 1,080mg of sodium — the lowest-calorie burrito in this calculator."
+   },
+   {
+    "find": "Among regular menu items, a single Crunchy or Soft Taco at 170–180 calories each is one of the lightest options, especially compared to specialty items like the Crunchwrap Supreme or Nachos BellGrande.",
+    "replace": "In this calculator, the Crunchy Taco, the Nacho Cheese Doritos Locos Taco and Cinnamon Twists (170 calories each) are the lowest-calorie items, compared with 530 calories for a Crunchwrap Supreme and 730 for Nachos BellGrande."
+   },
+   {
+    "find": "Nachos BellGrande is approximately 740 calories, with 78g of carbs and 40g of fat, making it one of the heavier single items on the Taco Bell menu.",
+    "replace": "Nachos BellGrande (beef) is 730 calories, with 81g of carbs, 38g of fat and 1,180mg of sodium — the highest-calorie item in this calculator."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Taco Bell’s own official nutrition resources.",
+    "replace": "The figures come from Taco Bell’s official U.S. nutrition information (the nutrition labels linked from each tacobell.com product page) and were checked line by line on September 25, 2026. Confirm current figures with Taco Bell, especially for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/wendys-calories-calculator",
+  "changes": [
+   {
+    "find": "Add burgers, chicken items, sides or a Frosty as you build your order. A few items, like Dave’s Single and the chicken nuggets, have optional add-ons — cheese, bacon, or dipping sauce — that you can check to see how much they shift your total.",
+    "replace": "Add burgers, chicken items, sides or a Jr. Frosty as you build your order. Wendy’s does not publish separate nutrition for extra toppings or sauces, so this calculator lists menu items as Wendy’s serves them."
+   },
+   {
+    "find": "A Dave’s Single runs about 590 calories on its own, while the Baconator — with two beef patties and six strips of bacon — jumps to roughly 920 calories, a difference of over 300 calories from the extra patty and bacon alone. If you love the Baconator flavor but not the calorie count, ordering a Jr. Bacon Cheeseburger-style build with a single patty is the more moderate route.",
+    "replace": "A Dave’s Single is 560 calories, while the Baconator — two beef patties and six strips of bacon — is 890 calories, 330 calories more. The Jr. Cheeseburger is 270 calories, less than a third of the Baconator."
+   },
+   {
+    "find": "Is a Frosty Actually Lighter Than It Looks?",
+    "replace": "How Many Calories Are in a Jr. Frosty?"
+   },
+   {
+    "find": "A small Chocolate Frosty is around 340 calories — noticeably more than a scoop of regular ice cream because of how dense and thick it’s made, but still lighter than most specialty milkshakes elsewhere. Stepping up to a medium adds roughly 90 more calories. If dessert is non-negotiable, a small Frosty is a genuinely moderate way to end a meal compared to many fast food dessert options.",
+    "replace": "A Jr. Classic Chocolate Frosty is 310 calories, with 49g of carbohydrates, 9g of fat and 9g of protein, as listed on Wendy’s online menu. Larger sizes have more calories; check Wendy’s menu for the size you order."
+   },
+   {
+    "find": "A Baconator is approximately 920 calories, with about 57g of protein, 38g of carbs and 60g of fat, making it one of the highest-calorie single items on the Wendy’s menu.",
+    "replace": "A Baconator is 890 calories, with 59g of protein, 36g of carbs, 58g of fat and 1,580mg of sodium — the highest-calorie item in this calculator."
+   },
+   {
+    "find": "What's the healthiest thing to order at Wendy's?",
+    "replace": "Which Wendy's Items Are Lower in Calories?"
+   },
+   {
+    "find": "A Grilled Chicken Sandwich at around 370 calories with 28g of protein and just 12g of fat is one of the more balanced options, especially paired with a side salad instead of fries.",
+    "replace": "In this calculator, the Jr. Natural-Cut Fries (260 calories), the Plain Baked Potato (270 calories, 0g fat), the Jr. Cheeseburger (270 calories) and Chili (280 calories, 19g protein) are the lowest-calorie items."
+   },
+   {
+    "find": "A small chili is approximately 170 calories, with 15g of protein and 5g of fat, making it one of the more filling lower-calorie options on the menu.",
+    "replace": "Wendy’s Chili is 280 calories, with 19g of protein, 24g of carbs, 12g of fat and 1,050mg of sodium, as listed on Wendy’s online menu."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Check Wendy’s own official nutrition resources for exact, current figures.",
+    "replace": "The figures come from the nutrition panels on Wendy’s official U.S. online menu and were checked line by line on September 25, 2026. Confirm current figures with Wendy’s, especially for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/pizza-hut-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Add slices one at a time as you eat them — figures are per slice of a Medium (12-inch) pizza. Add wings, breadsticks or dessert from the Sides section to round out your total order.",
+    "replace": "Add slices one at a time — figures are per slice of a Medium pizza. Add breadsticks or wings from Sides & Wings; wing values are per wing, and wing sauces are listed as add-ons."
+   },
+   {
+    "find": "A Pan Crust cheese slice runs about 280 calories, while a Thin ‘N Crispy cheese slice comes in lighter at roughly 190 calories — a 90-calorie difference per slice that adds up fast across a whole meal. The pan crust’s thicker, oil-baked dough is what accounts for most of that gap, not the cheese or sauce.",
+    "replace": "A Medium Original Pan cheese slice is 260 calories, while a Medium Thin ‘N Crispy cheese slice is 180 calories — 80 calories less per slice, or 320 calories less over four slices."
+   },
+   {
+    "find": "Traditional bone-in wings run about 75 calories per piece, so an order of 6 adds roughly 450 calories on top of your pizza. Boneless wings are similar per piece but often come breaded, landing around 60 calories each. Either way, wings are worth counting deliberately rather than treating them as a “free” side.",
+    "replace": "A naked Traditional Bone-In wing and a naked Bone-Out wing are each 80 calories, so six wings add 480 calories before sauce. Sauce adds more per wing: on a traditional wing, Garlic Parmesan adds 60 calories, Honey BBQ 25 and Buffalo Medium 20."
+   },
+   {
+    "find": "A slice of Medium Pan Crust cheese pizza is approximately 280 calories, with about 12g of protein, 30g of carbs and 12g of fat.",
+    "replace": "A slice of Medium Original Pan cheese pizza is 260 calories, with 10g of protein, 30g of carbs, 11g of fat and 480mg of sodium."
+   },
+   {
+    "find": "Yes, per slice. A Thin ‘N Crispy cheese slice is roughly 90 calories lighter than the same size Pan Crust slice, mainly due to the thinner, less oily dough.",
+    "replace": "Yes, per slice. A Medium Thin ‘N Crispy cheese slice (180 calories) has 80 fewer calories than a Medium Original Pan cheese slice (260 calories)."
+   },
+   {
+    "find": "One breadstick is approximately 150 calories before the marinara dip, which adds about 30 more calories per serving.",
+    "replace": "One breadstick is 150 calories; a marinara dipping cup adds 45 calories."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard Medium pizza preparations. Confirm exact, current figures using Pizza Hut’s own official nutrition resources.",
+    "replace": "The figures come from Pizza Hut’s official U.S. nutrition information (linked from pizzahut.com, updated September 23, 2026) and were checked line by line on September 25, 2026. Confirm current figures with Pizza Hut, especially for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/five-guys-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Add your burger or hot dog, then check off toppings — bacon, cheese, mayo, grilled onions, and more — the same way you’d list them off at the counter. Add fries separately; sizes here are Little and Regular, and the gap between them is bigger than at most fast food chains.",
+    "replace": "Add your burger or hot dog, then check off toppings — cheese, bacon, mayo, grilled onions and more — the same way you’d list them at the counter. Add fries separately: Little, Regular and Large, plus Cajun Style. Five Guys publishes nutrition by component, so a burger here is the official bun plus patty values."
+   },
+   {
+    "find": "A Regular order of fries is approximately 950 calories on its own — more than most entire burgers on this list. That’s not a data error: Five Guys portions are famously generous, often overflowing the cup into the bottom of the bag, and the fries are cooked in peanut oil with nothing held back on portion size. A Little Fries at around 480 calories is still a large serving by most other chains’ standards, and a much more reasonable choice if fries are a side rather than the main event.",
+    "replace": "A Regular order of fries is 953 calories on its own — more than the 844-calorie Hamburger (bun plus two patties). A Little Fries is 526 calories and a Large is 1,314. Five Guys fries are cooked in peanut oil."
+   },
+   {
+    "find": "Most vegetable toppings (lettuce, grilled onions, grilled mushrooms, jalapeños) add close to nothing calorie-wise. The toppings that matter are bacon (about 80 calories), cheese (about 50 calories per slice), and mayo (about 90 calories) — stacking all three onto a Little Hamburger adds around 220 calories on top of the base 480, which is a bigger jump than people typically expect from “free” add-ons.",
+    "replace": "Most vegetable toppings add very little: grilled onions are 11 calories and grilled mushrooms 6. Mayonnaise adds 111 calories, and cheese (one slice) and bacon (two pieces) each add 70. Adding all three to a Little Hamburger (542 calories) adds 251 calories."
+   },
+   {
+    "find": "A Little Hamburger (one patty) is approximately 480 calories, with about 23g of protein, 39g of carbs and 26g of fat, before any toppings.",
+    "replace": "A Little Hamburger (bun plus one patty) is 542 calories, with 23g of protein, 35g of carbs, 25g of fat and 360mg of sodium before toppings, calculated from Five Guys’ official bun and patty values."
+   },
+   {
+    "find": "A Regular order of fries is approximately 950 calories, with 128g of carbs and 44g of fat — among the highest-calorie single sides in fast food, largely due to portion size.",
+    "replace": "A Regular order of Five Guys Style fries is 953 calories, with 131g of carbs, 41g of fat and 962mg of sodium — more calories than any burger in this calculator."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information, including Five Guys’ own published nutrition and allergen guide. Portion sizes can vary by location, so confirm exact figures directly with Five Guys for precise tracking.",
+    "replace": "The figures come from Five Guys’ official U.S. Nutrition & Allergen Guide (September 2026) and were checked on September 25, 2026. Five Guys lists nutrition by component, so burgers and the hot dog are the sum of the official bun and patty (or hot dog) values. Portions can vary, so confirm with Five Guys for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/panda-express-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Which Panda Express Entree Is Actually the Lightest?",
+    "replace": "Which Panda Express Entree Has the Fewest Calories?"
+   },
+   {
+    "find": "Broccoli Beef is the standout at just 150 calories per serving with 9g of protein — noticeably lighter than fried options like Orange Chicken (490 calories) or Beijing Beef (480 calories). Grilled Teriyaki Chicken is another strong pick at 275 calories with 32g of protein, making it one of the better protein-to-calorie ratios on the whole menu.",
+    "replace": "Broccoli Beef has the fewest calories of the entrees here at 150, with 15g of protein, compared with 510 calories for Orange Chicken and 470 for Beijing Beef. Grilled Teriyaki Chicken is 275 calories with 33g of protein, the most protein of any entree in this calculator."
+   },
+   {
+    "find": "Not hugely — Fried Rice (490 calories) and Chow Mein (400 calories) are both carb-heavy sides, with Chow Mein coming in about 90 calories lighter. If you’re trying to lower the calories in a full plate meaningfully, swapping the side for Super Greens (90 calories) makes a much bigger difference than choosing between the two starchy options.",
+    "replace": "Not by much — Fried Rice (620 calories) and Chow Mein (600 calories) are 20 calories apart as sides. Swapping either for Super Greens (130 calories) lowers a plate by 470 to 490 calories."
+   },
+   {
+    "find": "A serving of Orange Chicken is approximately 490 calories, with about 25g of protein, 51g of carbs and 23g of fat.",
+    "replace": "A serving of Orange Chicken (5.9 oz) is 510 calories, with 16g of protein, 53g of carbs, 24g of fat and 850mg of sodium."
+   },
+   {
+    "find": "Broccoli Beef is the lightest entree covered here at approximately 150 calories per serving, well below most of the fried entree options.",
+    "replace": "Broccoli Beef is the lowest-calorie entree in this calculator at 150 calories per serving."
+   },
+   {
+    "find": "Is Panda Express fried rice healthier than white rice?",
+    "replace": "How Does Panda Express Fried Rice Compare With White Rice?"
+   },
+   {
+    "find": "No — Fried Rice (490 calories) is actually higher in calories and fat than plain White Steamed Rice, since it’s cooked with oil, egg and soy sauce. If you’re optimizing for calories, plain steamed rice is the lighter side option.",
+    "replace": "As a side, Fried Rice has 620 calories, 19g of fat and 1,000mg of sodium, while White Steamed Rice has 520 calories, 0g of fat and 0mg of sodium."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Panda Express’s own official nutrition resources.",
+    "replace": "The figures come from Panda Express’s official U.S. nutrition information (pandaexpress.com) for the portion sizes Panda Express publishes, checked line by line on September 25, 2026. Confirm current figures with Panda Express, especially for allergies or medical diets."
+   },
+   {
+    "find": "Broccoli Beef has the fewest calories of the entrees here at 150, with 15g of protein, compared with 510 calories for Orange Chicken and 470 for Beijing Beef. Grilled Teriyaki Chicken is 275 calories with 33g of protein, the most protein of any entree in this calculator.",
+    "replace": "Mushroom Chicken has the fewest calories of the entrees here at 180, followed by Broccoli Beef at 190 calories with 17g of protein, compared with 560 calories for Orange Chicken and 480 for Beijing Beef. Grilled Teriyaki Chicken is 280 calories with 38g of protein, the most protein of any entree in this calculator."
+   },
+   {
+    "find": "Not by much — Fried Rice (620 calories) and Chow Mein (600 calories) are 20 calories apart as sides. Swapping either for Super Greens (130 calories) lowers a plate by 470 to 490 calories.",
+    "replace": "As sides, Chow Mein (520 calories) has 90 fewer calories than Fried Rice (610 calories). Swapping either for Super Greens (180 calories) lowers a plate by 340 to 430 calories."
+   },
+   {
+    "find": "A serving of Orange Chicken (5.9 oz) is 510 calories, with 16g of protein, 53g of carbs, 24g of fat and 850mg of sodium.",
+    "replace": "A serving of Orange Chicken (6.2 oz) is 560 calories, with 19g of protein, 63g of carbs, 25g of fat and 1,000mg of sodium."
+   },
+   {
+    "find": "Broccoli Beef is the lowest-calorie entree in this calculator at 150 calories per serving.",
+    "replace": "Mushroom Chicken is the lowest-calorie entree in this calculator at 180 calories per serving, followed by Broccoli Beef at 190."
+   },
+   {
+    "find": "As a side, Fried Rice has 620 calories, 19g of fat and 1,000mg of sodium, while White Steamed Rice has 520 calories, 0g of fat and 0mg of sodium.",
+    "replace": "As a side, Fried Rice has 610 calories, 13g of fat and 810mg of sodium, while White Steamed Rice has 570 calories, 0g of fat and 0mg of sodium."
+   },
+   {
+    "find": "checked line by line on September 25, 2026.",
+    "replace": "checked line by line on October 11, 2026."
+   }
+  ]
+ },
+ {
+  "page": "calculators/chick-fil-a-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Add sandwiches, nuggets or sides as you build your order. Sauces are listed as optional add-ons under the nugget items — worth checking, since Chick-fil-A Sauce and Polynesian Sauce both add well over 100 calories per serving on their own.",
+    "replace": "Add sandwiches, nuggets or sides as you build your order. Sauces are listed as optional add-ons: Chick-fil-A Sauce adds 140 calories and Polynesian Sauce 110 per container. Chick-fil-A does not publish sodium for its sauces, so a sodium total that includes a sauce is marked + and excludes the sauce."
+   },
+   {
+    "find": "The Grilled Chicken Sandwich is one of the lightest true sandwiches in fast food at around 320 calories with just 6g of fat, compared to 440 calories and 19g of fat for the original breaded Chicken Sandwich. Both have the same 28g of protein, so if you’re optimizing for protein per calorie without cutting the sandwich format entirely, grilled is the clear winner.",
+    "replace": "The Grilled Chicken Sandwich is 390 calories with 11g of fat, compared with 420 calories and 18g of fat for the original Chick-fil-A Chicken Sandwich. Protein is similar (28g vs. 29g), and sodium is about half (765mg vs. 1,460mg). The grilled option contains fewer calories and less fat than the original option, based on the listed serving sizes."
+   },
+   {
+    "find": "They do. Chick-fil-A Sauce adds about 140 calories per serving — nearly as much as the 8-count nugget order it usually accompanies (250 calories). Ordering nuggets with two sauce packets can add close to 280 extra calories, more than doubling what looked like a “light” nugget order.",
+    "replace": "They do. Chick-fil-A Sauce adds 140 calories per container — more than half of an 8-count nugget order (250 calories). Two containers add 280 calories, more than the nuggets themselves."
+   },
+   {
+    "find": "What's the healthiest thing to order at Chick-fil-A?",
+    "replace": "Which Chick-fil-A Items Are Lower in Calories?"
+   },
+   {
+    "find": "The Grilled Chicken Sandwich (about 320 calories) or the Grilled Nuggets are generally the lightest protein-forward options, especially paired with a fruit cup instead of waffle fries.",
+    "replace": "In this calculator, the 8-count Nuggets (250 calories, 27g protein) are the lowest-calorie entree, followed by the 3-count Chick-n-Strips (310 calories). The Grilled Chicken Sandwich (390 calories) is the lowest-calorie sandwich."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Chick-fil-A’s own official nutrition resources.",
+    "replace": "The figures come from Chick-fil-A’s official U.S. nutrition information (chick-fil-a.com) and were checked line by line on September 25, 2026. Salads are listed as served, with the default chicken and dressing. Confirm current figures with Chick-fil-A, especially for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/chipotle-nutrition-calculator",
+  "changes": [
+   {
+    "find": "A bowl built from chicken, romaine lettuce, black beans, tomatillo-green salsa and a little cheese lands under 500 calories with a solid 45+ grams of protein — skipping rice, sour cream and guacamole is what keeps it there, since those three alone can add over 400 calories combined. Guacamole in particular is the single biggest calorie add-on at 230 calories for a standard scoop, more than double most other toppings.",
+    "replace": "A bowl of chicken, romaine lettuce, black beans, tomatillo-green salsa and cheese comes to 440 calories with 46g of protein. White rice, sour cream and guacamole together would add 550 calories. Guacamole (230 calories per 4 oz) has the most calories of any topping in this calculator."
+   },
+   {
+    "find": "A chicken bowl with white rice, black beans, cheese, lettuce and a mild salsa comes to roughly 660–700 calories. Adding guacamole or sour cream on top can push that past 850–900 calories.",
+    "replace": "A chicken bowl with white rice, black beans, cheese, romaine lettuce and fresh tomato salsa comes to 660 calories. Adding guacamole brings it to 890 calories; sour cream adds 110."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard portion sizes. Because Chipotle portions can vary by location and by how a bowl is scooped, use Chipotle’s own official nutrition calculator for exact, current figures.",
+    "replace": "The figures come from Chipotle’s official U.S. nutrition facts (linked from chipotle.com’s Nutrition Calculator) for the standard portions shown, checked line by line on September 25, 2026. Portions can vary by how a bowl is scooped, so confirm with Chipotle for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/panera-bread-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Panera markets itself as the “healthier” fast-casual option, and a lot of the menu backs that up — but soups, bread bowls and creamy dressings can undo that reputation fast if you’re not paying attention.",
+    "replace": "Panera’s menu covers a wide calorie range — from 180 calories for a bowl of Homestyle Chicken Noodle Soup to 650 calories for a sourdough bread bowl on its own — so soups, bread bowls and dressings are worth adding up."
+   },
+   {
+    "find": "Add soups, salads, sandwiches or bakery items as you build your meal. Salads are listed without dressing by default, with dressing available as an optional add-on — a meaningful one, since a single serving of Caesar dressing adds around 150 calories on its own.",
+    "replace": "Add soups, salads, sandwiches or bakery items as you build your meal. Salads are listed as Panera serves them, with dressing. An extra cup of Caesar dressing is available as an add-on (160 calories)."
+   },
+   {
+    "find": "It changes more than most people expect. A bowl of Broccoli Cheddar soup on its own is around 360 calories, but swapping the container for a bread bowl adds another 460 calories for the bread itself — more than doubling the meal before you’ve eaten a single spoonful of soup. A cup of soup with a side baguette slice is a lighter way to get a similar combination.",
+    "replace": "Yes. A bowl of Broccoli Cheddar Soup is 420 calories, while Panera lists Broccoli Cheddar Soup in a bread bowl at 930 calories; the Sourdough Soup Bowl alone is 650 calories. A cup of Broccoli Cheddar Soup is 280 calories."
+   },
+   {
+    "find": "Salad Dressings Can Erase the “Healthy” Choice",
+    "replace": "How Much Does Dressing Add to a Panera Salad?"
+   },
+   {
+    "find": "A Caesar Salad with chicken and no dressing is a reasonable 380 calories with 34g of protein. Add a full serving of Caesar dressing and you’re looking at 530 calories — still a solid meal, but worth knowing before you assume “salad” automatically means “light.”",
+    "replace": "Panera lists the whole Caesar Salad with Chicken at 670 calories, 47g of fat and 35g of protein as served with dressing. Each extra cup of Caesar dressing adds 160 calories, 16g of fat and 440mg of sodium."
+   },
+   {
+    "find": "A bowl (the larger size) is approximately 360 calories, with 13g of protein, 24g of carbs and 24g of fat. A cup is lighter at around 230 calories.",
+    "replace": "A bowl is 420 calories, with 12g of protein, 25g of carbs, 31g of fat and 1,520mg of sodium. A cup is 280 calories."
+   },
+   {
+    "find": "A plain sourdough bread bowl is approximately 460 calories on its own, which is added on top of whatever soup goes inside it.",
+    "replace": "Panera lists the Sourdough Soup Bowl (the bread bowl alone) at 650 calories."
+   },
+   {
+    "find": "What's the lightest meal option at Panera?",
+    "replace": "Which Panera Items Are Lower in Calories?"
+   },
+   {
+    "find": "A cup of Chicken Noodle Soup (about 190 calories) paired with a side salad without dressing is one of the lighter combinations on the menu, though it’s worth checking the sodium content of soups specifically, which tends to run high.",
+    "replace": "In this calculator, a bowl of Homestyle Chicken Noodle Soup (180 calories, 14g protein) is the lowest-calorie item. It has 1,570mg of sodium, so check sodium on soups."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Panera’s own official nutrition resources.",
+    "replace": "The figures come from Panera Bread’s official Nutrition Guide (effective September 2, 2026) and were checked line by line on September 25, 2026. Menus vary by bakery-cafe, so confirm current figures with Panera, especially for allergies or medical diets."
+   },
+   {
+    "find": "Panera’s menu covers a wide calorie range — from 180 calories for a bowl of Homestyle Chicken Noodle Soup to 650 calories for a sourdough bread bowl on its own — so soups, bread bowls and dressings are worth adding up.",
+    "replace": "Panera’s menu covers a wide calorie range — from 180 calories for a bowl of Homestyle Chicken Noodle Soup to 670 calories for a whole Caesar Salad with Chicken or a half Toasted Italiano, and a sourdough bread bowl alone is 650 — so soups, bread bowls and dressings are worth adding up."
+   },
+   {
+    "find": "Panera lists the Sourdough Soup Bowl (the bread bowl alone) at 650 calories.",
+    "replace": "Panera lists the Sourdough Soup Bowl (the bread bowl alone) at 650 calories. Served in a bread bowl, Broccoli Cheddar Soup is 930 calories, 510 more than a regular bowl (420 calories)."
+   }
+  ]
+ },
+ {
+  "page": "calculators/dairy-queen-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Add burgers, basket meals, cones or a Blizzard as you build your order. Blizzards are listed by size and flavor separately since both change the total meaningfully — an Oreo Blizzard runs notably higher than a plain Vanilla one at the same size.",
+    "replace": "Add burgers, basket meals, cones or a Blizzard as you build your order. Blizzards are listed by size because size changes the total: a small OREO Cookie Blizzard is 600 calories and a medium is 820."
+   },
+   {
+    "find": "A small Vanilla Blizzard is about 340 calories, but a small Oreo Blizzard jumps to roughly 470 calories, and a medium Oreo Blizzard climbs to about 640 — more than some full burger meals on this list. Mix-ins are where most of the calorie difference comes from, not the soft-serve base itself, so flavor choice matters more than size alone once you’re comparing two different Blizzard flavors.",
+    "replace": "A small OREO Cookie Blizzard is 600 calories and a medium is 820 — more than the Original Cheeseburger (370 calories) and more than the Bacon Two Cheese Deluxe Double (720 calories). For comparison, a small Vanilla Cone is 220 calories."
+   },
+   {
+    "find": "Is the Chicken Strip Basket a Better Choice Than a Burger?",
+    "replace": "How Does the Chicken Strip Basket Compare With a Burger?"
+   },
+   {
+    "find": "Not if you’re counting calories: a 4-piece Chicken Strip Basket with fries and gravy is approximately 1,140 calories, well above even the Bacon Cheeseburger (630 calories). Baskets include a full side of fries and gravy by default, which is most of what pushes the total that high — the chicken strips themselves are a smaller share of the number.",
+    "replace": "A 4-piece Chicken Strip Basket is 1,020 calories with 2,120mg of sodium, compared with 720 calories for the Bacon Two Cheese Deluxe Burger (Double) and 370 for the Original Cheeseburger. Baskets include sides by default, which is part of the total."
+   },
+   {
+    "find": "A small Oreo Blizzard is approximately 470 calories, with about 9g of protein, 68g of carbs and 17g of fat.",
+    "replace": "A small OREO Cookie Blizzard is 600 calories, with 13g of protein, 89g of carbs, 22g of fat and 280mg of sodium."
+   },
+   {
+    "find": "A DQ Original Cheeseburger is approximately 400 calories, with about 22g of protein, 29g of carbs and 22g of fat.",
+    "replace": "A single DQ Original Cheeseburger is 370 calories, with 17g of protein, 37g of carbs, 18g of fat and 1,120mg of sodium."
+   },
+   {
+    "find": "What's the lightest treat option at Dairy Queen?",
+    "replace": "Which Dairy Queen Treats Are Lower in Calories?"
+   },
+   {
+    "find": "A small Vanilla Soft Serve Cone at approximately 230 calories is one of the lighter dessert options, well below any Blizzard flavor at the same size.",
+    "replace": "A small Vanilla Cone (220 calories) is the lowest-calorie treat in this calculator; a small Chocolate Dipped Cone is 320 calories and a small OREO Cookie Blizzard 600."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Dairy Queen’s own official nutrition resources.",
+    "replace": "The figures come from Dairy Queen’s official nutrition tables on dairyqueen.com and were checked line by line on September 25, 2026. Confirm current figures with Dairy Queen, especially for allergies or medical diets."
+   },
+   {
+    "find": "A small OREO Cookie Blizzard is 600 calories and a medium is 820 — more than the Original Cheeseburger (370 calories) and more than the Bacon Two Cheese Deluxe Double (720 calories). For comparison, a small Vanilla Cone is 220 calories.",
+    "replace": "A small OREO Cookie Blizzard is 600 calories — more than the Original Cheeseburger (370 calories) — and a medium is 820, more than the Bacon Two Cheese Deluxe Double (720 calories). For comparison, a small Vanilla Cone is 220 calories."
+   }
+  ]
+ },
+ {
+  "page": "calculators/dunkin-calories-calculator",
+  "changes": [
+   {
+    "find": "Black coffee, hot or iced, is close to calorie-free — around 5 calories for a medium iced coffee. The moment cream and sugar get involved, that same drink jumps to roughly 190 calories, and a medium Coolatta made from a sugary base can run as high as 460 calories on its own, before any food. If you’re trying to keep your morning order light, the drink itself is usually the easiest place to cut, not the donut.",
+    "replace": "A medium black iced coffee is 5 calories. With cream it is 90 calories, and with cream and sugar 190 calories. A medium Blue Raspberry Coolatta is 350 calories, and a medium Hot Latte with whole milk is 170."
+   },
+   {
+    "find": "Among the classics, a plain Glazed Donut is one of the lighter choices at around 260 calories, compared to roughly 300 for a Boston Kreme, which carries extra filling and icing. None of the donuts are especially “light,” but the difference between a glazed and a filled, iced option is enough to matter if you’re having coffee and a donut daily.",
+    "replace": "Of the donuts here, the Glazed Donut has the fewest calories at 240, followed by the Chocolate Frosted Donut (260) and the Boston Kreme Donut (270). One Glazed Munchkins donut hole is 60 calories."
+   },
+   {
+    "find": "A Bacon, Egg & Cheese sandwich on a croissant is approximately 550 calories, with about 22g of protein, 40g of carbs and 34g of fat, making it one of the heavier breakfast sandwich options on the menu.",
+    "replace": "A Bacon, Egg & Cheese on a croissant is 520 calories, with 19g of protein, 34g of carbs, 34g of fat and 870mg of sodium."
+   },
+   {
+    "find": "Iced coffee on its own is very low calorie — around 5 calories for a medium with nothing added. Calories come almost entirely from what you add: cream, sugar, or a flavor swirl, each of which can add anywhere from 15 to 25 calories or more.",
+    "replace": "A medium iced coffee with nothing added is 5 calories. Dunkin’ lists a medium with cream at 90 calories and with cream and sugar at 190 calories, so most of the calories come from what is added."
+   },
+   {
+    "find": "What's the lightest breakfast option at Dunkin'?",
+    "replace": "Which Dunkin' Breakfast Items Are Lower in Calories?"
+   },
+   {
+    "find": "The Egg & Cheese Wake-Up Wrap is one of the lighter hot options at around 180 calories, noticeably less than a full breakfast sandwich on a croissant or English muffin.",
+    "replace": "Among the breakfast items here, Hash Browns (110 calories for 6 pieces) and the Egg & Cheese Wake-Up Wrap (180 calories) are lowest, compared with 520 calories for a Bacon, Egg & Cheese on a croissant."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu items. Recipes and portion sizes can vary by location, so check Dunkin’s own official nutrition resources for precise, current figures.",
+    "replace": "The figures come from Dunkin’s official U.S. Nutrition Guide (last updated August 19, 2026) and were checked line by line on September 25, 2026. Recipes can vary by location, so confirm current figures with Dunkin’, especially for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/burger-king-nutrition-calculator",
+  "changes": [
+   {
+    "find": "Add your burgers, chicken and sides as you build your order. The Whopper and Chicken Fries both have optional add-ons — cheese, bacon, dipping sauces — so you can see exactly how much each extra is adding before you order it for real.",
+    "replace": "Add your burgers, chicken and sides as you build your order. Burger King does not publish separate nutrition for extra toppings or dipping sauces, so the Whopper with Cheese and the Whopper with Bacon are listed as their own items with Burger King’s published values, and Chicken Fries are listed in 4, 8 and 12 pieces."
+   },
+   {
+    "find": "A plain Whopper is approximately 660 calories, with 28g of protein, 49g of carbs and 40g of fat. Adding cheese brings it to around 730 calories, and the Bacon King — two beef patties, cheese and bacon — is in a different league entirely at roughly 1,150 calories, more than half of a full day’s calories for many people in a single sandwich.",
+    "replace": "A plain Whopper is 710 calories, with 34g of protein, 57g of carbs, 42g of fat and 1,250mg of sodium. The Whopper with Cheese is 790 calories and the Whopper with Bacon is 770. The Bacon King — two beef patties, cheese and bacon — is 1,260 calories with 2,330mg of sodium, the most calories and sodium of any item in this calculator."
+   },
+   {
+    "find": "Chicken Fries (9 pieces) come in relatively moderate at around 290 calories on their own, but they’re often ordered alongside a burger rather than instead of one, which is where the real total comes from. A full Original Chicken Sandwich, by comparison, is about 660 calories on its own — essentially tied with a plain Whopper, despite chicken often being assumed to be the lighter choice.",
+    "replace": "Chicken Fries are 110 calories for 4 pieces, 220 for 8 pieces and 340 for 12 pieces. An Original Chicken Sandwich is 680 calories — 30 fewer than a plain Whopper (710) — and the Royal Crispy Chicken is 600 calories with 31g of protein. Chicken Fries are often ordered with a burger rather than instead of one, so add both to see the total."
+   },
+   {
+    "find": "A Whopper with cheese is approximately 730 calories, with about 31g of protein, 50g of carbs and 46g of fat.",
+    "replace": "A Whopper with Cheese is 790 calories, with 37g of protein, 58g of carbs, 49g of fat and 1,660mg of sodium."
+   },
+   {
+    "find": "Not necessarily. An Original Chicken Sandwich (about 660 calories) is comparable to a plain Whopper, largely because of the breading and mayo-based sauce. A Crispy Chicken Sandwich, at roughly 470 calories, is the lower-calorie chicken sandwich in this calculator.",
+    "replace": "The Original Chicken Sandwich is 680 calories with 39g of fat, close to a plain Whopper (710 calories, 42g of fat). The Royal Crispy Chicken is 600 calories with 31g of fat, and 8 pieces of Chicken Fries are 220 calories."
+   },
+   {
+    "find": "Among the items covered here, Chicken Fries (9 piece) at around 290 calories is one of the lighter individual items, though it’s a side rather than a full meal on its own.",
+    "replace": "Among the items in this calculator, 4-piece Chicken Fries (110 calories) and 8-piece Chicken Fries (220 calories) are lowest, followed by Medium Onion Rings (290 calories) and the HERSHEY’S Sundae Pie (310 calories). This calculator does not include Burger King’s full menu."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Burger King’s own official nutrition resources.",
+    "replace": "The figures come from Burger King’s official U.S. Nutrition Explorer (bk.com/nutrition-explorer) and were checked item by item on September 26, 2026. Recipes and availability can vary by location, so confirm current figures with Burger King, especially for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "calculators/dominos-calories-calculator",
+  "changes": [
+   {
+    "find": "Add slices as you go — each item represents one slice of a Large (14-inch) pizza cut into 8, unless noted otherwise. If you’re having three slices of pepperoni, add the Pepperoni Pizza item three times and watch the sidebar total build with you.",
+    "replace": "Add slices as you go — each pizza item is one slice, 1/8 of a Large (14-inch) pizza. If you’re having three slices of pepperoni, add the Pepperoni Pizza item and set the quantity to 3. Pepperoni slices have optional extra toppings, and breads and wings have optional dipping cups; each adds the values Domino’s publishes for it."
+   },
+   {
+    "find": "Multiply the per-slice number by 8 for a full Large pizza: a Large Hand Tossed Cheese pizza comes to roughly 1,600 calories for the whole pie, and a Pepperoni version comes to around 1,840. Since most people eat 2–4 slices in one sitting rather than a whole pizza alone, using the calculator above to add exactly the slices you’re having is usually more useful than the whole-pizza number.",
+    "replace": "Multiply the per-slice number by 8 for a full Large pizza: a Large Hand Tossed Cheese pizza is 2,280 calories for the whole pie (285 per slice), and a Pepperoni pizza is 2,360 (295 per slice). An ExtravaganZZa is 380 calories per slice, or 3,040 for the whole pie. Adding exactly the slices you’re having in the calculator above is usually more useful than the whole-pizza number."
+   },
+   {
+    "find": "A Thin Crust slice is lighter per slice (around 160 calories) than a Hand Tossed slice (200 calories for cheese), but thin crust pizzas are typically cut into more, smaller slices — so the gap per bite is smaller than it looks at first glance. If you’re having the same number of slices either way, thin crust does save some calories overall.",
+    "replace": "For a Large cheese pizza cut into 8 slices, a Crunchy Thin slice is 210 calories with 17g of carbs, compared with 285 calories and 34g of carbs for a Hand Tossed slice. Most of the difference is the crust: Domino’s lists the Large Crunchy Thin crust at 100 calories per slice and the Large Hand Tossed crust at 160, plus 15 for its garlic oil blend."
+   },
+   {
+    "find": "One slice (1/8) of a Large Hand Tossed Pepperoni pizza is approximately 230 calories, with about 9g of protein, 25g of carbs and 10g of fat.",
+    "replace": "One slice (1/8) of a Large Hand Tossed Pepperoni pizza is 295 calories, with 11g of protein, 33g of carbs, 12g of fat and 665mg of sodium, based on Domino’s official crust, sauce, cheese and pepperoni values. The Ultimate Pepperoni specialty pizza is 360 calories per Large slice."
+   },
+   {
+    "find": "How many calories are in Domino's breadsticks?",
+    "replace": "How many calories are in Domino's bread bites and Stuffed Cheesy Bread?"
+   },
+   {
+    "find": "One breadstick is approximately 140 calories; an order typically includes multiple pieces, so check how many are in your order and add them individually in the calculator above.",
+    "replace": "An order of 4 Garlic Bread Bites is 210 calories, and one piece of Stuffed Cheesy Bread is 160 calories. Domino’s lists Stuffed Cheesy Bread per piece, so set the quantity to the number of pieces you eat. A Marinara dipping cup adds 30 calories and 290mg of sodium."
+   },
+   {
+    "find": "Yes. These figures are based on a Large (14-inch) pizza; a Medium or Small pizza cut into the same number of slices will have smaller, lower-calorie slices, while the same size pizza cut into fewer slices will have larger, higher-calorie slices.",
+    "replace": "Yes. Domino’s publishes each size with its own serving: The People’s Pizza – Deluxe is 340 calories per 1/8 of a Large, 450 per 1/8 of an Extra Large and 360 per 1/4 of a Small. The figures in this calculator are for a Large (14-inch) pizza cut into 8 slices."
+   },
+   {
+    "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard Large Hand Tossed preparations. Confirm exact, current figures using Domino’s own official nutrition guide.",
+    "replace": "The figures come from Domino’s official U.S. Nutrition Guide (August 2026) and were checked on September 26, 2026. Specialty pizzas, breads, wings and desserts use the guide’s published servings. Cheese, Pepperoni and Crunchy Thin slices add up the guide’s official crust, sauce, cheese and topping values, because Domino’s publishes build-your-own pizzas by component. Values can vary by location and supplier, so confirm with Domino’s for allergies or medical diets."
+   }
+  ]
+ },
+ {
+  "page": "contact",
+  "changes": [
+   {
+    "find": "<a href=\"contact@fastfoodnutritioncalc.com\">",
+    "replace": "<a href=\"mailto:contact@fastfoodnutritioncalc.com\">"
+   },
+   {
+    "find": "We’re actively expanding our list of supported restaurants. If there’s a chain you’d like to see covered next, let us know.",
+    "replace": "We’re actively expanding our list of supported restaurants. If there’s a chain you’d like to see covered next, let us know.",
+    "insert_after": "<h2>Nutrition Data Corrections</h2>\n<p>To report a specific value that doesn’t match the restaurant’s official nutrition information, please use our <a href=\"/report-an-error/\">nutrition data error form</a> and include the restaurant, the item, the value you saw and, if possible, a link to the official source. Every report is checked against the official source before anything changes. You can also read <a href=\"/methodology/\">how we source and check nutrition data</a>.</p>\n<h2>Website Feedback</h2>\n<p>If a calculator, table or page isn’t working as expected, email us with the page address, the device and browser you used, and what happened.</p>\n<h2>Privacy Questions</h2>\n<p>For questions about how this site handles information, see our <a href=\"/privacy-policy/\">privacy policy</a>, or email us with “Privacy” in the subject line.</p>"
+   }
+  ]
+ },
+ {
+  "page": "privacy-policy",
+  "changes": [
+   {
+    "find": "This is a general template and should be reviewed by a qualified professional before publishing.",
+    "replace": ""
+   }
+  ]
+ }
+]

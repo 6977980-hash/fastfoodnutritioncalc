@@ -1,0 +1,175 @@
+{
+  "brand": "Wendy's",
+  "slug": "wendys",
+  "note": "Values are Wendy's official U.S. nutrition figures from its online menu, checked on September 25, 2026. Confirm current figures with Wendy's, especially for allergies or medical diets.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Wendy's Online Menu Nutrition (U.S.)",
+    "source_url": "https://order.wendys.com/us/en/national/menu",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Every item was checked on 2026-09-25 against the Nutrition panel of each product on Wendy's official U.S. online menu (order.wendys.com, national menu). Where Wendy's shows only one size without starting an order (fries, Frosty), that size is listed.",
+    "status": "verified",
+    "last_reviewed": "2026-09-25",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "Wendy's does not publish standalone nutrition for extra toppings, so this calculator lists no add-ons.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-25",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: chili-small, frosty-medium, frosty-small, grilled-chicken-sandwich, natural-fries-medium. New ids: baked-potato-sour-cream-chive, chili, classic-chicken-sandwich, frosty-jr, natural-fries-jr."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "burgers",
+      "name": "Burgers",
+      "items": [
+        {
+          "id": "daves-single",
+          "name": "Dave's Single",
+          "calories": 560,
+          "protein": 31,
+          "carbs": 37,
+          "fat": 34,
+          "sodium": 1170,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/hamburgers/daves-single"
+        },
+        {
+          "id": "baconator",
+          "name": "Baconator",
+          "calories": 890,
+          "protein": 59,
+          "carbs": 36,
+          "fat": 58,
+          "sodium": 1580,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/hamburgers/baconator"
+        },
+        {
+          "id": "jr-cheeseburger",
+          "name": "Jr. Cheeseburger",
+          "calories": 270,
+          "protein": 14,
+          "carbs": 25,
+          "fat": 13,
+          "sodium": 660,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/hamburgers/jr-cheeseburger"
+        }
+      ]
+    },
+    {
+      "id": "chicken",
+      "name": "Chicken",
+      "items": [
+        {
+          "id": "spicy-chicken-sandwich",
+          "name": "Spicy Chicken Sandwich",
+          "calories": 560,
+          "protein": 28,
+          "carbs": 55,
+          "fat": 26,
+          "sodium": 1500,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/chicken-nuggets-more/spicy-chicken-sandwich"
+        },
+        {
+          "id": "classic-chicken-sandwich",
+          "name": "Classic Chicken Sandwich",
+          "calories": 550,
+          "protein": 28,
+          "carbs": 55,
+          "fat": 25,
+          "sodium": 1630,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/chicken-nuggets-more/classic-chicken-sandwich"
+        },
+        {
+          "id": "nuggets-10",
+          "name": "Chicken Nuggets (10 pc)",
+          "calories": 430,
+          "protein": 23,
+          "carbs": 22,
+          "fat": 27,
+          "sodium": 900,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/chicken-nuggets-more/10-pc-chicken-nuggets"
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Sides",
+      "items": [
+        {
+          "id": "natural-fries-jr",
+          "name": "Jr. Natural-Cut Fries",
+          "calories": 260,
+          "protein": 4,
+          "carbs": 35,
+          "fat": 12,
+          "sodium": 420,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/fries-sides/french-fries"
+        },
+        {
+          "id": "baked-potato-plain",
+          "name": "Baked Potato (Plain)",
+          "calories": 270,
+          "protein": 7,
+          "carbs": 61,
+          "fat": 0,
+          "sodium": 40,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/fries-sides/plain-baked-potato"
+        },
+        {
+          "id": "baked-potato-sour-cream-chive",
+          "name": "Sour Cream and Chive Baked Potato",
+          "calories": 300,
+          "protein": 8,
+          "carbs": 63,
+          "fat": 2.5,
+          "sodium": 55,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/fries-sides/sour-cream-and-chive-baked-potato"
+        },
+        {
+          "id": "chili",
+          "name": "Chili",
+          "calories": 280,
+          "protein": 19,
+          "carbs": 24,
+          "fat": 12,
+          "sodium": 1050,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/fries-sides/chili"
+        }
+      ]
+    },
+    {
+      "id": "frosty",
+      "name": "Frosty",
+      "items": [
+        {
+          "id": "frosty-jr",
+          "name": "Jr. Classic Chocolate Frosty",
+          "calories": 310,
+          "protein": 9,
+          "carbs": 49,
+          "fat": 9,
+          "sodium": 180,
+          "addons": [],
+          "source_url": "https://order.wendys.com/us/en/national/menu/frosty/classic-chocolate-frosty"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "brand": "Five Guys",
+  "slug": "five-guys",
+  "note": "Values come from Five Guys' official U.S. Nutrition & Allergen Guide (September 2026). Five Guys lists nutrition by component; burgers here are bun + patties, and toppings are added individually. Values can vary by supplier and restaurant.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Five Guys U.S. Nutrition & Allergen Guide (September 2026)",
+    "source_url": "https://www.fiveguys.com/nutritional-allergy-information/",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Checked on 2026-09-25 against Five Guys' official U.S. Nutrition & Allergen Guide (September 2026 PDF). Five Guys publishes nutrition by component, so burgers and the hot dog are the sum of the official bun + patty (or hot dog) values; where the guide lists more than one supplier, the first-listed supplier's values are used.",
+    "status": "verified",
+    "last_reviewed": "2026-09-25",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "Every topping add-on uses the official per-portion values from the guide, so all five nutrients are included in totals.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-25",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: cheeseburger, grilled-cheese, little-bacon-burger, little-cheeseburger. New ids: large-fries, little-cajun-fries, regular-cajun-fries."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "burgers",
+      "name": "Burgers",
+      "items": [
+        {
+          "id": "little-hamburger",
+          "name": "Little Hamburger (bun + 1 patty)",
+          "calories": 542,
+          "protein": 23,
+          "carbs": 35,
+          "fat": 25,
+          "sodium": 360,
+          "addons": [
+            {
+              "name": "Cheese (1 slice)",
+              "calories": 70,
+              "protein": 4,
+              "carbs": 0,
+              "fat": 6,
+              "sodium": 300
+            },
+            {
+              "name": "Bacon (2 pieces)",
+              "calories": 70,
+              "protein": 5,
+              "carbs": 0,
+              "fat": 6,
+              "sodium": 210
+            },
+            {
+              "name": "Grilled Mushrooms",
+              "calories": 6,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 0,
+              "sodium": 50
+            },
+            {
+              "name": "Grilled Onions",
+              "calories": 11,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 0,
+              "sodium": 1
+            },
+            {
+              "name": "Mayonnaise",
+              "calories": 111,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 11,
+              "sodium": 70
+            },
+            {
+              "name": "A.1. Sauce",
+              "calories": 15,
+              "protein": 0,
+              "carbs": 3,
+              "fat": 0,
+              "sodium": 280
+            },
+            {
+              "name": "Ketchup",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 5,
+              "fat": 0,
+              "sodium": 160
+            },
+            {
+              "name": "BBQ Sauce",
+              "calories": 49,
+              "protein": 0,
+              "carbs": 15,
+              "fat": 0,
+              "sodium": 400
+            }
+          ]
+        },
+        {
+          "id": "hamburger",
+          "name": "Hamburger (bun + 2 patties)",
+          "calories": 844,
+          "protein": 39,
+          "carbs": 35,
+          "fat": 42,
+          "sodium": 410,
+          "addons": [
+            {
+              "name": "Cheese (1 slice)",
+              "calories": 70,
+              "protein": 4,
+              "carbs": 0,
+              "fat": 6,
+              "sodium": 300
+            },
+            {
+              "name": "Bacon (2 pieces)",
+              "calories": 70,
+              "protein": 5,
+              "carbs": 0,
+              "fat": 6,
+              "sodium": 210
+            },
+            {
+              "name": "Grilled Mushrooms",
+              "calories": 6,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 0,
+              "sodium": 50
+            },
+            {
+              "name": "Grilled Onions",
+              "calories": 11,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 0,
+              "sodium": 1
+            },
+            {
+              "name": "Mayonnaise",
+              "calories": 111,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 11,
+              "sodium": 70
+            },
+            {
+              "name": "A.1. Sauce",
+              "calories": 15,
+              "protein": 0,
+              "carbs": 3,
+              "fat": 0,
+              "sodium": 280
+            },
+            {
+              "name": "Ketchup",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 5,
+              "fat": 0,
+              "sodium": 160
+            },
+            {
+              "name": "BBQ Sauce",
+              "calories": 49,
+              "protein": 0,
+              "carbs": 15,
+              "fat": 0,
+              "sodium": 400
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hot-dogs",
+      "name": "Hot Dogs",
+      "items": [
+        {
+          "id": "hot-dog",
+          "name": "Hot Dog (bun + hot dog)",
+          "calories": 500,
+          "protein": 17,
+          "carbs": 34,
+          "fat": 33,
+          "sodium": 1090,
+          "addons": [
+            {
+              "name": "Cheese (1 slice)",
+              "calories": 70,
+              "protein": 4,
+              "carbs": 0,
+              "fat": 6,
+              "sodium": 300
+            },
+            {
+              "name": "Bacon (2 pieces)",
+              "calories": 70,
+              "protein": 5,
+              "carbs": 0,
+              "fat": 6,
+              "sodium": 210
+            },
+            {
+              "name": "Grilled Onions",
+              "calories": 11,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 0,
+              "sodium": 1
+            },
+            {
+              "name": "Ketchup",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 5,
+              "fat": 0,
+              "sodium": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fries",
+      "name": "Fries",
+      "items": [
+        {
+          "id": "little-fries",
+          "name": "Little Fries (Five Guys Style)",
+          "calories": 526,
+          "protein": 8,
+          "carbs": 72,
+          "fat": 23,
+          "sodium": 531,
+          "addons": []
+        },
+        {
+          "id": "regular-fries",
+          "name": "Regular Fries (Five Guys Style)",
+          "calories": 953,
+          "protein": 15,
+          "carbs": 131,
+          "fat": 41,
+          "sodium": 962,
+          "addons": []
+        },
+        {
+          "id": "large-fries",
+          "name": "Large Fries (Five Guys Style)",
+          "calories": 1314,
+          "protein": 20,
+          "carbs": 181,
+          "fat": 57,
+          "sodium": 1327,
+          "addons": []
+        },
+        {
+          "id": "little-cajun-fries",
+          "name": "Little Cajun Fries",
+          "calories": 540,
+          "protein": 8,
+          "carbs": 75,
+          "fat": 28,
+          "sodium": 862,
+          "addons": []
+        },
+        {
+          "id": "regular-cajun-fries",
+          "name": "Regular Cajun Fries",
+          "calories": 967,
+          "protein": 15,
+          "carbs": 134,
+          "fat": 41,
+          "sodium": 1293,
+          "addons": []
+        }
+      ]
+    }
+  ]
+}

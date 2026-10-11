@@ -1,13 +1,12 @@
 === FFNC Site Fixes ===
 Requires at least: 6.3
-Stable tag: 1.0.1
+Stable tag: 2.0.0
 License: GPLv2 or later
 
-Small front-end fixes for fastfoodnutritioncalc.com:
+Keeps the Fast Food Nutrition Calculators theme in sync with GitHub.
 
-* Hides the WordPress version (generator meta tag and ?ver= on core assets).
-* Makes the "Skip to content" link work when the theme has no #primary element.
-* Sends the homepage "How It Works" button to /methodology/ when the
-  #ffnc-how-it-works section does not exist on the page.
-* Keeps in-page jump targets (like "How It Works") from hiding under the
-  sticky header and admin bar.
+Hostinger's Git deployment puts this repo in wp-content/plugins/ffnc-site-fixes/.
+On the next page load after a deploy, the plugin copies every changed file
+from theme/ into the active theme (only if it is the Fast Food Nutrition
+Calculators theme). It never deletes theme files. Errors show as an admin
+notice. Keep the plugin active.
