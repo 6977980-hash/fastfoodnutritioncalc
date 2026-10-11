@@ -1,11 +1,12 @@
 # fastfoodnutritioncalc
 
-The WordPress theme for [fastfoodnutritioncalc.com](https://fastfoodnutritioncalc.com/)
-("Fast Food Nutrition Calculators"). The repo root is the theme folder.
+Code for [fastfoodnutritioncalc.com](https://fastfoodnutritioncalc.com/) (WordPress on Hostinger).
 
-- Nutrition data: `assets/data/<brand>.json`
-- Calculator engine: `assets/js/calculator.js` (tests: `node --test tests/calculator.test.js`)
-- Page prose fixes: `inc/content-updates.json`, applied from WordPress > Tools > FFNC Content Updates
+- `theme/` — the "Fast Food Nutrition Calculators" theme
+  - nutrition data: `theme/assets/data/<brand>.json`
+  - calculator engine: `theme/assets/js/calculator.js` (tests: `node --test theme/tests/calculator.test.js`)
+  - page text fixes: `theme/inc/content-updates.json`, applied from WordPress > Tools > FFNC Content Updates
+- `ffnc-site-fixes.php` — small plugin that copies `theme/` into the live theme folder
 
 ## Where things live
 
@@ -13,10 +14,11 @@ The WordPress theme for [fastfoodnutritioncalc.com](https://fastfoodnutritioncal
 | --- | --- |
 | Repo root | https://github.com/6977980-hash/fastfoodnutritioncalc |
 | Site root on Hostinger | `public_html/` |
-| This repo on Hostinger | `public_html/wp-content/themes/<theme folder>/` |
+| This repo on Hostinger | `public_html/wp-content/plugins/ffnc-site-fixes/` |
+| Live theme | `public_html/wp-content/themes/fastfood-nutrition/` |
 
 ## Deploy
 
-Hostinger hPanel > Advanced > Git deploys `main` into the theme folder, with
-Auto Deployment turned on (webhook in GitHub > Settings > Webhooks). Every
-push to `main` goes live.
+Hostinger hPanel > Advanced > Git deploys `main` into the plugin folder (Auto
+Deployment webhook in GitHub). On the next page load the plugin copies changed
+files from `theme/` into the live theme. Keep **FFNC Site Fixes** active.
