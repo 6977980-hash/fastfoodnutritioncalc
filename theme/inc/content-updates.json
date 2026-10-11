@@ -320,6 +320,14 @@
    {
     "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Chick-fil-A’s own official nutrition resources.",
     "replace": "The figures come from Chick-fil-A’s official U.S. nutrition information (chick-fil-a.com) and were checked line by line on September 25, 2026. Salads are listed as served, with the default chicken and dressing. Confirm current figures with Chick-fil-A, especially for allergies or medical diets."
+   },
+   {
+    "find": "The Grilled Chicken Sandwich is 390 calories with 11g of fat, compared with 420 calories and 18g of fat for the original Chick-fil-A Chicken Sandwich.",
+    "replace": "The Grilled Chicken Sandwich is 390 calories with 11g of fat, compared with 420 calories and 16g of fat for the original Chick-fil-A Chicken Sandwich."
+   },
+   {
+    "find": "Protein is similar (28g vs. 29g), and sodium is about half (765mg vs. 1,460mg).",
+    "replace": "Protein is similar (28g vs. 29g), and sodium is about half (765mg vs. 1,470mg)."
    }
   ]
  },
@@ -559,7 +567,7 @@
   "page": "privacy-policy",
   "changes": [
    {
-    "find": "This is a general template and should be reviewed by a qualified professional before publishing.",
+    "find": "This is a general template and should be reviewed by a qualified professional before publishing, so it accurately reflects your actual data practices and complies with the laws that apply to your visitors (such as GDPR in the EU/UK or CCPA in California).",
     "replace": ""
    }
   ]
