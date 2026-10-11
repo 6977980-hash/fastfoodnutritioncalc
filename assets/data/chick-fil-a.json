@@ -10,7 +10,7 @@
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item was checked on 2026-09-25 against chick-fil-a.com (Nutrition & Allergens page and individual menu-item pages). Salads are listed as Chick-fil-A serves them, including the default chicken and dressing.",
     "status": "verified",
-    "last_reviewed": "2026-09-25",
+    "last_reviewed": "2026-10-11",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
     "addon_macros": "Dipping-sauce add-ons use Chick-fil-A's published calories, fat, carbohydrates and protein. Chick-fil-A's sauce pages do not publish sodium, so sauce sodium is shown as not available and is not counted.",
     "spot_checks": [],
@@ -22,6 +22,10 @@
       {
         "date": "2026-09-25",
         "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: chick-n-strips-4, cobb-salad-grilled, market-salad-grilled. New ids: chick-n-strips-3, cobb-salad, market-salad."
+      },
+      {
+        "date": "2026-10-11",
+        "change": "Re-checked against chick-fil-a.com item pages: Chicken Sandwich fat 18 -> 16 g, sodium 1460 -> 1470 mg; Spicy Chicken Sandwich fat 19 -> 18 g, carbs 45 -> 44 g, sodium 1730 -> 1740 mg."
       }
     ]
   },
@@ -36,8 +40,8 @@
           "calories": 420,
           "protein": 29,
           "carbs": 41,
-          "fat": 18,
-          "sodium": 1460,
+          "fat": 16,
+          "sodium": 1470,
           "addons": [
             {
               "name": "Chick-fil-A Sauce (1 container)",
@@ -61,9 +65,9 @@
           "name": "Spicy Chicken Sandwich",
           "calories": 450,
           "protein": 28,
-          "carbs": 45,
-          "fat": 19,
-          "sodium": 1730,
+          "carbs": 44,
+          "fat": 18,
+          "sodium": 1740,
           "addons": [
             {
               "name": "Chick-fil-A Sauce (1 container)",
