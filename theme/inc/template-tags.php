@@ -207,6 +207,7 @@ function ffnc_append_page_extras( $content ) {
 	}
 	if ( '1' === get_post_meta( $post_id, '_ffnc_is_calculator_page', true ) && ffnc_get_page_brand_slug( $post_id ) ) {
 		$extra .= ffnc_render_deals_section( ffnc_get_page_brand_slug( $post_id ) );
+		$extra .= ffnc_render_calculator_tools_links( ffnc_get_page_brand_slug( $post_id ) );
 	}
 
 	// Never link a page to itself.

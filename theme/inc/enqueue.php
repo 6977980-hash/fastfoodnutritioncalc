@@ -24,6 +24,11 @@ function ffnc_enqueue_assets() {
 			'dataUrl' => FFNC_URI . '/assets/data/',
 		) );
 	}
+	// Cross-restaurant tools reuse the calculator engine's maths.
+	if ( is_singular() && get_post() && has_shortcode( get_post()->post_content, 'ff_tool' ) ) {
+		wp_enqueue_script( 'ffnc-calculator', FFNC_URI . '/assets/js/calculator.js', array(), FFNC_VERSION, true );
+		wp_enqueue_script( 'ffnc-tools', FFNC_URI . '/assets/js/tools.js', array( 'ffnc-calculator' ), FFNC_VERSION, true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'ffnc_enqueue_assets' );
 

@@ -1070,3 +1070,67 @@ html[data-ffnc-theme="dark"] .ffnc-reviewed-list time { color: #4ade80; backgrou
 .ffnc-paste-panel .ffnc-btn, .ffnc-paste-result .ffnc-btn { justify-self: start; }
 .ffnc-share { background: var(--ffnc-white); color: var(--ffnc-blue); border: 1px solid var(--ffnc-border); justify-self: start; }
 .ffnc-share:hover { background: var(--ffnc-bg); }
+
+/* Cross-restaurant tools (assets/js/tools.js) and data pages (inc/tools.php) */
+.ffnc-tool { margin: 20px 0 28px; }
+.ffnc-tool-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px 16px; align-items: end; background: var(--ffnc-white); border: 1px solid var(--ffnc-border); border-radius: var(--ffnc-radius); padding: 16px; box-shadow: var(--ffnc-shadow); }
+.ffnc-tool-form label { display: grid; gap: 4px; font-weight: 600; font-size: 0.9rem; }
+.ffnc-tool-form .ffnc-check { display: flex; align-items: center; gap: 8px; grid-column: 1 / -1; font-weight: 500; }
+.ffnc-tool-form input[type="number"], .ffnc-tool-form select, .ffnc-day-add select, .ffnc-day-target input { font: inherit; padding: 8px 10px; border: 1px solid var(--ffnc-border); border-radius: 10px; background: var(--ffnc-white); color: var(--ffnc-ink); min-width: 0; max-width: 100%; }
+.ffnc-tool-form .ffnc-btn { justify-self: start; }
+.ffnc-tool-results { margin-top: 16px; }
+.ffnc-idea-rank { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ffnc-muted); margin: 0 0 4px; }
+.ffnc-idea-open { display: inline-block; margin-top: 10px; font-weight: 700; font-size: 0.9rem; }
+.ffnc-tool-note, .ffnc-goal-note { font-size: 0.88rem; color: var(--ffnc-muted); }
+.ffnc-tool-empty { font-weight: 600; }
+.ffnc-muted { color: var(--ffnc-muted); font-size: 0.85em; }
+.ffnc-day-target { margin-bottom: 14px; font-weight: 600; }
+.ffnc-day-target input { width: 6.5em; margin: 0 4px; }
+.ffnc-day-meals { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.ffnc-day-meal { background: var(--ffnc-white); border: 1px solid var(--ffnc-border); border-radius: var(--ffnc-radius); padding: 14px 16px; box-shadow: var(--ffnc-shadow); }
+.ffnc-day-meal h3 { display: flex; justify-content: space-between; margin: 0 0 8px; font-size: 1.05rem; }
+.ffnc-day-meal h3 span { color: var(--ffnc-muted); font-weight: 600; font-size: 0.9rem; }
+.ffnc-day-lines { list-style: none; margin: 0 0 10px; padding: 0; font-size: 0.88rem; }
+.ffnc-day-lines li { padding: 4px 0; border-bottom: 1px solid var(--ffnc-border); }
+.ffnc-day-lines li span { color: var(--ffnc-muted); }
+.ffnc-day-add { display: grid; gap: 6px; }
+.ffnc-day-add .ffnc-btn { justify-self: start; }
+.ffnc-day-paste summary { cursor: pointer; font-size: 0.84rem; color: var(--ffnc-blue); font-weight: 600; }
+.ffnc-day-paste textarea { width: 100%; margin: 6px 0; font: inherit; font-size: 0.86rem; border: 1px solid var(--ffnc-border); border-radius: 8px; padding: 6px 8px; }
+.ffnc-day-total { margin: 18px 0 10px; background: var(--ffnc-white); border: 1px solid var(--ffnc-border); border-radius: var(--ffnc-radius); padding: 14px 16px; }
+.ffnc-day-sum { margin: 0 0 8px; font-size: 1.05rem; }
+.ffnc-day-bar { height: 10px; background: var(--ffnc-bg); border-radius: 999px; overflow: hidden; margin-top: 10px; }
+.ffnc-day-bar span { display: block; height: 100%; background: var(--ffnc-blue); }
+.ffnc-day-bar span.is-over { background: #c0392b; }
+.ffnc-goal-table th[scope="row"] { min-width: 180px; }
+.ffnc-cheat-nav { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 0 0 18px; font-weight: 600; font-size: 0.9rem; }
+.ffnc-cheat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.ffnc-cheat { background: var(--ffnc-white); border: 1px solid var(--ffnc-border); border-radius: var(--ffnc-radius); padding: 0 16px 12px; box-shadow: var(--ffnc-shadow); overflow: hidden; }
+.ffnc-cheat-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 0 -16px 10px; padding: 12px 16px; border-top: 6px solid var(--ffnc-brand-color, var(--ffnc-blue)); }
+.ffnc-cheat-head h2 { margin: 0; font-size: 1.15rem; }
+.ffnc-cheat h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ffnc-muted); margin: 10px 0 6px; }
+.ffnc-cheat-list { margin: 0; padding-left: 20px; font-size: 0.9rem; }
+.ffnc-cheat-list li { padding: 2px 0; }
+.ffnc-cheat-list span { color: var(--ffnc-muted); white-space: nowrap; }
+.ffnc-cheat-foot { font-size: 0.75rem; color: var(--ffnc-muted); margin: 10px 0 0; }
+.ffnc-print { font-size: 0.8rem; padding: 6px 12px; }
+.ffnc-changes { margin: 0 0 18px; padding-left: 20px; }
+.ffnc-changes li { margin: 4px 0; }
+.ffnc-changes-date { font-size: 1.1rem; margin-top: 22px; }
+.ffnc-report-stats { list-style: none; padding: 0; margin: 0 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.ffnc-report-stats li { background: var(--ffnc-white); border: 1px solid var(--ffnc-border); border-radius: var(--ffnc-radius); padding: 12px 14px; color: var(--ffnc-muted); }
+.ffnc-report-stats strong { display: block; font-size: 1.5rem; color: var(--ffnc-ink); }
+.ffnc-tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 18px 0; }
+.ffnc-tool-card { display: grid; gap: 6px; background: var(--ffnc-white); border: 1px solid var(--ffnc-border); border-radius: var(--ffnc-radius); padding: 16px; box-shadow: var(--ffnc-shadow); color: var(--ffnc-ink); }
+.ffnc-tool-card:hover { text-decoration: none; border-color: var(--ffnc-blue); }
+.ffnc-tool-card span { color: var(--ffnc-muted); font-size: 0.88rem; }
+.ffnc-more-tools { margin: 28px 0 12px; }
+.ffnc-embed-box { margin: 12px 0 24px; }
+.ffnc-embed-box summary { cursor: pointer; font-weight: 700; }
+.ffnc-embed-box textarea { width: 100%; font-family: ui-monospace, monospace; font-size: 0.8rem; border: 1px solid var(--ffnc-border); border-radius: 8px; padding: 8px; }
+@media print {
+	html.ffnc-printing body * { visibility: hidden; }
+	html.ffnc-printing .ffnc-print-me, html.ffnc-printing .ffnc-print-me * { visibility: visible; }
+	html.ffnc-printing .ffnc-print-me { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; }
+	.ffnc-print { display: none !important; }
+}

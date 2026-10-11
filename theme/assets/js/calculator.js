@@ -137,6 +137,16 @@
 	 * lines ({ item, addons: [], qty }) or null if any item id is missing, so
 	 * a deal is never shown with part of its food silently dropped.
 	 */
+	/** Same item listed twice -> one line with qty 2. */
+	function groupLines(items) {
+		var lines = [];
+		items.forEach(function (it) {
+			var last = lines[lines.length - 1];
+			if (last && last.item === it) { last.qty += 1; } else { lines.push({ key: lineKey(it, []), item: it, addons: [], qty: 1 }); }
+		});
+		return lines;
+	}
+
 	function dealLines(deal, data) {
 		var byId = {};
 		(data.categories || []).forEach(function (c) {
@@ -275,6 +285,8 @@
 	}
 
 	var SIZE_WORDS = ['small', 'medium', 'large', 'jr', 'kids', 'regular', 'mini'];
+	var MULTI_TYPES = ['mexican', 'pizza', 'chicken-piece', 'wings', 'sub', 'breakfast'];
+	var MAIN_TYPES = ['burger', 'chicken-sandwich', 'nuggets', 'pizza', 'sub', 'mexican', 'chicken-piece', 'wings', 'breakfast', 'salad', 'soup', 'entree', 'other'];
 	var STOP = { the: 1, a: 1, with: 1, and: 1, of: 1, on: 1, 'in': 1, 'for': 1 };
 	function tokens(s) {
 		return normalizeName(s).split(' ').filter(function (t) { return t && !STOP[t]; });
@@ -341,8 +353,8 @@
 		['entree', /\b(orange chicken|beijing|kung pao|broccoli beef|shrimp|teriyaki|steak|mushroom chicken|string bean|honey sesame|pot pie|famous bowl)\b/],
 		['dessert', /\b(cookie|pie|cake|brownie|cinnamon|churro|twists|turnover|donut|munchkin)\b/],
 		['breakfast', /\b(mcmuffin|biscuit|croissant|wake up wrap|hash browns?|scramble|egg and cheese|egg cheese|sausage|breakfast|pancake|avocado toast)\b/],
+		['nuggets', /\b(nugget|nuggets|mcnuggets|tenders?|strips?|minis|popcorn chicken|snacker|chicken fries)\b/],
 		['fries', /\b(fries|fry|tots|onion rings)\b/],
-		['nuggets', /\b(nugget|nuggets|mcnuggets|tenders?|strips?|minis|popcorn chicken|snacker)\b/],
 		['wings', /\bwings?\b/],
 		['chicken-piece', /\b(breast|thigh|drumstick)\b/],
 		['burger', /\b(burger|whopper|big mac|quarter pounder|mcdouble|baconator|daves|cheeseburger|hamburger|bacon king|double stack)\b/],
@@ -369,8 +381,8 @@
 	 * Best orders from one menu for a calorie budget: combinations of up to
 	 * `maxItems` different items (no drinks unless allowed) within the
 	 * budget that meet the protein floor and any carb / sodium caps, sorted
-	 * by protein (then by fewer calories). Returns up to `limit` orders whose
-	 * main item differs.
+	 * by protein (then by fewer calories), or by protein per calorie with
+	 * sort: 'density'. Returns up to `limit` orders whose main item differs.
 	 */
 	function bestOrders(data, opts) {
 		opts = opts || {};
@@ -380,32 +392,54 @@
 		var maxSodium = isKnown(opts.maxSodium) && opts.maxSodium !== '' ? num(opts.maxSodium) : Infinity;
 		var maxItems = Math.max(1, Math.min(3, num(opts.maxItems) || 3));
 		var limit = num(opts.limit) || 3;
+		var typeOf = {};
 		var pool = allItems(data).filter(function (x) {
 			var t = itemType(x.item, x.catName);
 			if (!opts.allowDrinks && (t === 'drink' || t === 'coffee')) { return false; }
-			if (/family|bucket|\(20 pc\)|large\)/i.test(x.item.name) && x.item.calories > budget) { return false; }
-			return isKnown(x.item.calories) && x.item.calories > 0 && x.item.calories <= budget;
-		}).map(function (x) { return x.item; });
+			if (/family|bucket/i.test(x.item.name)) { return false; }
+			return isKnown(x.item.calories) && x.item.calories >= 60 && x.item.calories <= budget;
+		}).map(function (x) { var it = x.item; typeOf[it.id] = itemType(it, x.catName); return it; });
 		var results = [];
 		function consider(combo) {
+			// A burger + fries, not two sizes of nuggets: one item of each kind,
+			// except kinds people do order several of (tacos, slices, pieces),
+			// and never two sizes of the same product.
+			var seen = {};
+			var bases = {};
+			for (var k = 0; k < combo.length; k++) {
+				var ty = typeOf[combo[k].id];
+				var base = tokens(combo[k].name).filter(function (t) { return SIZE_WORDS.indexOf(t) < 0 && !/^\d+$/.test(t) && t !== 'pc' && t !== 'ct'; }).join(' ');
+				var repeat = k > 0 && combo[k] === combo[k - 1];
+				if (!repeat && ((seen[ty] && MULTI_TYPES.indexOf(ty) < 0) || bases[base])) { return; }
+				seen[ty] = true;
+				bases[base] = true;
+			}
+			// Breakfast is a different menu (morning only): don't mix it with lunch mains.
+			if (seen.breakfast && Object.keys(seen).some(function (t) { return t !== 'breakfast' && MAIN_TYPES.indexOf(t) >= 0; })) { return; }
 			var t = computeTotals(combo.map(function (i) { return { item: i, addons: [], qty: 1 }; }));
 			if (t.calories > budget || t.protein < minProtein || t.carbs > maxCarbs || t.sodium > maxSodium) { return; }
 			results.push({ items: combo, totals: t });
 		}
+		// Kinds people order several of (tacos, slices) may repeat the same item.
+		var again = function (i) { return MULTI_TYPES.indexOf(typeOf[pool[i].id]) >= 0 ? i : i + 1; };
 		for (var a = 0; a < pool.length; a++) {
 			consider([pool[a]]);
 			if (maxItems < 2) { continue; }
-			for (var b = a + 1; b < pool.length; b++) {
+			for (var b = again(a); b < pool.length; b++) {
 				if (pool[a].calories + pool[b].calories > budget) { continue; }
 				consider([pool[a], pool[b]]);
 				if (maxItems < 3) { continue; }
-				for (var c = b + 1; c < pool.length; c++) {
+				for (var c = again(b); c < pool.length; c++) {
 					if (pool[a].calories + pool[b].calories + pool[c].calories > budget) { continue; }
 					consider([pool[a], pool[b], pool[c]]);
 				}
 			}
 		}
+		var density = function (o) { return o.totals.calories > 0 ? o.totals.protein / o.totals.calories : 0; };
 		results.sort(function (x, y) {
+			if (opts.sort === 'density') {
+				return (density(y) - density(x)) || (y.totals.protein - x.totals.protein);
+			}
 			return (y.totals.protein - x.totals.protein) || (x.totals.calories - y.totals.calories) || (x.items.length - y.items.length);
 		});
 		var picked = [];
@@ -432,6 +466,7 @@
 		isKnown: isKnown,
 		lineKey: lineKey,
 		dealLines: dealLines,
+		groupLines: groupLines,
 		allItems: allItems,
 		itemById: itemById,
 		encodeOrder: encodeOrder,

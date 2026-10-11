@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Block direct access.
 }
 
-define( 'FFNC_VERSION', '1.3.6' );
+define( 'FFNC_VERSION', '1.4.0' );
 define( 'FFNC_DIR', get_template_directory() );
 define( 'FFNC_URI', get_template_directory_uri() );
 
@@ -62,6 +62,7 @@ require FFNC_DIR . '/inc/site-fixes.php';
 require FFNC_DIR . '/inc/reports.php';
 require FFNC_DIR . '/inc/setup.php';
 require FFNC_DIR . '/inc/content-updates.php';
+require FFNC_DIR . '/inc/tools.php';
 
 /**
  * Register the two widget areas used in the footer.

@@ -47,6 +47,12 @@
 				<?php if ( ffnc_compare_url() ) : ?>
 					<li><a href="<?php echo esc_url( ffnc_compare_url() ); ?>"><?php esc_html_e( 'Compare Menu Items', 'ffnc' ); ?></a></li>
 				<?php endif; ?>
+				<?php if ( ffnc_page_url( 'tools' ) ) : ?>
+					<li><a href="<?php echo esc_url( ffnc_page_url( 'tools' ) ); ?>"><?php esc_html_e( 'Free Nutrition Tools', 'ffnc' ); ?></a></li>
+				<?php endif; ?>
+				<?php if ( ffnc_page_url( 'what-to-order' ) ) : ?>
+					<li><a href="<?php echo esc_url( ffnc_page_url( 'what-to-order' ) ); ?>"><?php esc_html_e( 'What Should I Order?', 'ffnc' ); ?></a></li>
+				<?php endif; ?>
 				<?php if ( get_option( 'page_for_posts' ) ) : ?>
 					<li><a href="<?php echo esc_url( get_permalink( (int) get_option( 'page_for_posts' ) ) ); ?>"><?php esc_html_e( 'Nutrition Guides', 'ffnc' ); ?></a></li>
 				<?php endif; ?>

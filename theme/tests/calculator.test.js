@@ -277,3 +277,8 @@ test('exercise minutes follow the Harvard Health 30-minute table', () => {
 	assert.deepEqual(calc.exerciseMinutes(133, 155), { walk: 30, run: 14, bike: 14 });
 	assert.deepEqual(calc.exerciseMinutes(336, 185), { walk: 63, run: 30, bike: 30 });
 });
+
+test('generated item-types.json is up to date (run node scripts/build-item-types.js)', () => {
+	const gen = require('../../scripts/build-item-types.js');
+	assert.equal(fs.readFileSync(gen.OUT, 'utf8'), gen.build());
+});
