@@ -1,6 +1,6 @@
 === FFNC Site Fixes ===
 Requires at least: 6.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 
 Small front-end fixes for fastfoodnutritioncalc.com:
@@ -9,3 +9,5 @@ Small front-end fixes for fastfoodnutritioncalc.com:
 * Makes the "Skip to content" link work when the theme has no #primary element.
 * Sends the homepage "How It Works" button to /methodology/ when the
   #ffnc-how-it-works section does not exist on the page.
+* Keeps in-page jump targets (like "How It Works") from hiding under the
+  sticky header and admin bar.

@@ -2,14 +2,14 @@
 /**
  * Plugin Name: FFNC Site Fixes
  * Description: Small front-end fixes for fastfoodnutritioncalc.com. Deployed automatically from GitHub.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      Fast Food Nutrition Calculators Team
  * License:     GPL-2.0-or-later
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'FFNC_SITE_FIXES_VERSION', '1.0.0' );
+define( 'FFNC_SITE_FIXES_VERSION', '1.0.1' );
 
 // Stop printing the WordPress version in the page source and feeds.
 remove_action( 'wp_head', 'wp_generator' );
