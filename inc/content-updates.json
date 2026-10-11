@@ -267,6 +267,30 @@
    {
     "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Panda Express’s own official nutrition resources.",
     "replace": "The figures come from Panda Express’s official U.S. nutrition information (pandaexpress.com) for the portion sizes Panda Express publishes, checked line by line on September 25, 2026. Confirm current figures with Panda Express, especially for allergies or medical diets."
+   },
+   {
+    "find": "Broccoli Beef has the fewest calories of the entrees here at 150, with 15g of protein, compared with 510 calories for Orange Chicken and 470 for Beijing Beef. Grilled Teriyaki Chicken is 275 calories with 33g of protein, the most protein of any entree in this calculator.",
+    "replace": "Mushroom Chicken has the fewest calories of the entrees here at 180, followed by Broccoli Beef at 190 calories with 17g of protein, compared with 560 calories for Orange Chicken and 480 for Beijing Beef. Grilled Teriyaki Chicken is 280 calories with 38g of protein, the most protein of any entree in this calculator."
+   },
+   {
+    "find": "Not by much — Fried Rice (620 calories) and Chow Mein (600 calories) are 20 calories apart as sides. Swapping either for Super Greens (130 calories) lowers a plate by 470 to 490 calories.",
+    "replace": "As sides, Chow Mein (520 calories) has 90 fewer calories than Fried Rice (610 calories). Swapping either for Super Greens (180 calories) lowers a plate by 340 to 430 calories."
+   },
+   {
+    "find": "A serving of Orange Chicken (5.9 oz) is 510 calories, with 16g of protein, 53g of carbs, 24g of fat and 850mg of sodium.",
+    "replace": "A serving of Orange Chicken (6.2 oz) is 560 calories, with 19g of protein, 63g of carbs, 25g of fat and 1,000mg of sodium."
+   },
+   {
+    "find": "Broccoli Beef is the lowest-calorie entree in this calculator at 150 calories per serving.",
+    "replace": "Mushroom Chicken is the lowest-calorie entree in this calculator at 180 calories per serving, followed by Broccoli Beef at 190."
+   },
+   {
+    "find": "As a side, Fried Rice has 620 calories, 19g of fat and 1,000mg of sodium, while White Steamed Rice has 520 calories, 0g of fat and 0mg of sodium.",
+    "replace": "As a side, Fried Rice has 610 calories, 13g of fat and 810mg of sodium, while White Steamed Rice has 570 calories, 0g of fat and 0mg of sodium."
+   },
+   {
+    "find": "checked line by line on September 25, 2026.",
+    "replace": "checked line by line on October 11, 2026."
    }
   ]
  },
@@ -358,6 +382,14 @@
    {
     "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Panera’s own official nutrition resources.",
     "replace": "The figures come from Panera Bread’s official Nutrition Guide (effective September 2, 2026) and were checked line by line on September 25, 2026. Menus vary by bakery-cafe, so confirm current figures with Panera, especially for allergies or medical diets."
+   },
+   {
+    "find": "Panera’s menu covers a wide calorie range — from 180 calories for a bowl of Homestyle Chicken Noodle Soup to 650 calories for a sourdough bread bowl on its own — so soups, bread bowls and dressings are worth adding up.",
+    "replace": "Panera’s menu covers a wide calorie range — from 180 calories for a bowl of Homestyle Chicken Noodle Soup to 670 calories for a whole Caesar Salad with Chicken or a half Toasted Italiano, and a sourdough bread bowl alone is 650 — so soups, bread bowls and dressings are worth adding up."
+   },
+   {
+    "find": "Panera lists the Sourdough Soup Bowl (the bread bowl alone) at 650 calories.",
+    "replace": "Panera lists the Sourdough Soup Bowl (the bread bowl alone) at 650 calories. Served in a bread bowl, Broccoli Cheddar Soup is 930 calories, 510 more than a regular bowl (420 calories)."
    }
   ]
  },
@@ -399,6 +431,10 @@
    {
     "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard U.S. menu preparations. Confirm exact, current figures using Dairy Queen’s own official nutrition resources.",
     "replace": "The figures come from Dairy Queen’s official nutrition tables on dairyqueen.com and were checked line by line on September 25, 2026. Confirm current figures with Dairy Queen, especially for allergies or medical diets."
+   },
+   {
+    "find": "A small OREO Cookie Blizzard is 600 calories and a medium is 820 — more than the Original Cheeseburger (370 calories) and more than the Bacon Two Cheese Deluxe Double (720 calories). For comparison, a small Vanilla Cone is 220 calories.",
+    "replace": "A small OREO Cookie Blizzard is 600 calories — more than the Original Cheeseburger (370 calories) — and a medium is 820, more than the Bacon Two Cheese Deluxe Double (720 calories). For comparison, a small Vanilla Cone is 220 calories."
    }
   ]
  },
