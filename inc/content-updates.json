@@ -554,5 +554,14 @@
     "insert_after": "<h2>Nutrition Data Corrections</h2>\n<p>To report a specific value that doesn’t match the restaurant’s official nutrition information, please use our <a href=\"/report-an-error/\">nutrition data error form</a> and include the restaurant, the item, the value you saw and, if possible, a link to the official source. Every report is checked against the official source before anything changes. You can also read <a href=\"/methodology/\">how we source and check nutrition data</a>.</p>\n<h2>Website Feedback</h2>\n<p>If a calculator, table or page isn’t working as expected, email us with the page address, the device and browser you used, and what happened.</p>\n<h2>Privacy Questions</h2>\n<p>For questions about how this site handles information, see our <a href=\"/privacy-policy/\">privacy policy</a>, or email us with “Privacy” in the subject line.</p>"
    }
   ]
+ },
+ {
+  "page": "privacy-policy",
+  "changes": [
+   {
+    "find": "This is a general template and should be reviewed by a qualified professional before publishing.",
+    "replace": ""
+   }
+  ]
  }
 ]
