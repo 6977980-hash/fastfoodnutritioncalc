@@ -22,6 +22,10 @@
       {
         "date": "2026-09-25",
         "change": "Full review against McDonald's official U.S. nutrition data. 21 items changed; removed: Side Salad (not on the current McDonald's US menu). Unverifiable add-ons removed (Extra Sauce, Cheese Sauce, Extra Salt, Ranch Dressing, Grilled Chicken, burger/McMuffin Bacon)."
+      },
+      {
+        "date": "2026-10-11",
+        "change": "Checked against McDonald's official U.S. nutrition data (mcdonalds.com item details). Sweet Tea (Medium) corrected from 200 to 130 calories (31g carbs). Added items for the McValue deals and popular orders. New ids: double-quarter-pounder-cheese, nuggets-4, sausage-mcmuffin, sausage-biscuit, coke-small, sprite-small, sweet-tea-small, mcflurry-oreo."
       }
     ]
   },
@@ -77,6 +81,17 @@
             }
           ],
           "source_url": "https://www.mcdonalds.com/us/en-us/product/quarter-pounder-with-cheese.html"
+        },
+        {
+          "id": "double-quarter-pounder-cheese",
+          "name": "Double Quarter Pounder with Cheese",
+          "calories": 740,
+          "protein": 48,
+          "carbs": 43,
+          "fat": 42,
+          "sodium": 1360,
+          "addons": [],
+          "source_url": "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200476"
         },
         {
           "id": "mcdouble",
@@ -176,6 +191,50 @@
       "id": "chicken",
       "name": "Chicken McNuggets",
       "items": [
+        {
+          "id": "nuggets-4",
+          "name": "Chicken McNuggets (4 pc)",
+          "calories": 170,
+          "protein": 9,
+          "carbs": 10,
+          "fat": 10,
+          "sodium": 340,
+          "addons": [
+            {
+              "name": "Tangy Barbeque Sauce (1 cup)",
+              "calories": 45,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 260
+            },
+            {
+              "name": "Sweet 'N Sour Sauce (1 cup)",
+              "calories": 50,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 160
+            },
+            {
+              "name": "Creamy Ranch Sauce (1 cup)",
+              "calories": 110,
+              "protein": 0,
+              "carbs": 1,
+              "fat": 12,
+              "sodium": 160
+            },
+            {
+              "name": "Honey Mustard Sauce (1 cup)",
+              "calories": 60,
+              "protein": 0,
+              "carbs": 6,
+              "fat": 3.5,
+              "sodium": 125
+            }
+          ],
+          "source_url": "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200692"
+        },
         {
           "id": "nuggets-6",
           "name": "Chicken McNuggets (6 pc)",
@@ -315,6 +374,28 @@
           "source_url": "https://www.mcdonalds.com/us/en-us/product/egg-mcmuffin.html"
         },
         {
+          "id": "sausage-mcmuffin",
+          "name": "Sausage McMuffin",
+          "calories": 400,
+          "protein": 14,
+          "carbs": 29,
+          "fat": 26,
+          "sodium": 760,
+          "addons": [],
+          "source_url": "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200449"
+        },
+        {
+          "id": "sausage-biscuit",
+          "name": "Sausage Biscuit (Regular)",
+          "calories": 460,
+          "protein": 11,
+          "carbs": 37,
+          "fat": 30,
+          "sodium": 1090,
+          "addons": [],
+          "source_url": "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200301"
+        },
+        {
           "id": "sausage-mcmuffin-egg",
           "name": "Sausage McMuffin with Egg",
           "calories": 480,
@@ -426,7 +507,7 @@
         },
         {
           "id": "coke-medium",
-          "name": "Coca-Cola (Medium, no ice)",
+          "name": "Coca-Cola (Medium)",
           "calories": 270,
           "protein": 0,
           "carbs": 70,
@@ -438,13 +519,57 @@
         {
           "id": "sweet-tea-medium",
           "name": "Sweet Tea (Medium)",
-          "calories": 200,
+          "calories": 130,
           "protein": 1,
-          "carbs": 50,
+          "carbs": 31,
           "fat": 0,
           "sodium": 20,
           "addons": [],
           "source_url": "https://www.mcdonalds.com/us/en-us/product/sweet-tea-medium.html"
+        },
+        {
+          "id": "coke-small",
+          "name": "Coca-Cola (Small)",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 39,
+          "fat": 0,
+          "sodium": 40,
+          "addons": [],
+          "source_url": "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200611"
+        },
+        {
+          "id": "sprite-small",
+          "name": "Sprite (Small)",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 35,
+          "fat": 0,
+          "sodium": 70,
+          "addons": [],
+          "source_url": "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200615"
+        },
+        {
+          "id": "sweet-tea-small",
+          "name": "Sweet Tea (Small)",
+          "calories": 100,
+          "protein": 0,
+          "carbs": 26,
+          "fat": 0,
+          "sodium": 15,
+          "addons": [],
+          "source_url": "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200627"
+        },
+        {
+          "id": "mcflurry-oreo",
+          "name": "McFlurry with OREO Cookies (Regular)",
+          "calories": 410,
+          "protein": 10,
+          "carbs": 64,
+          "fat": 13,
+          "sodium": 210,
+          "addons": [],
+          "source_url": "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200101"
         }
       ]
     }

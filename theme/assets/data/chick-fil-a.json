@@ -26,6 +26,10 @@
       {
         "date": "2026-10-11",
         "change": "Re-checked against chick-fil-a.com item pages: Chicken Sandwich fat 18 -> 16 g, sodium 1460 -> 1470 mg; Spicy Chicken Sandwich fat 19 -> 18 g, carbs 45 -> 44 g, sodium 1730 -> 1740 mg."
+      },
+      {
+        "date": "2026-10-11",
+        "change": "Added items from chick-fil-a.com menu pages and the official nutrition & allergens table. New ids: deluxe-sandwich, spicy-deluxe-sandwich, cool-wrap, grilled-nuggets-8, grilled-nuggets-12, chick-n-minis-4, waffle-fries-small, waffle-fries-large, spicy-southwest-salad, chicken-biscuit, hash-brown-scramble-burrito."
       }
     ]
   },
@@ -95,6 +99,39 @@
               "fat": 0
             }
           ]
+        },
+        {
+          "id": "deluxe-sandwich",
+          "name": "Chick-fil-A Deluxe Sandwich",
+          "calories": 490,
+          "protein": 32,
+          "carbs": 43,
+          "fat": 21,
+          "sodium": 1710,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/menu/chick-fil-a-deluxe-sandwich"
+        },
+        {
+          "id": "spicy-deluxe-sandwich",
+          "name": "Spicy Deluxe Sandwich",
+          "calories": 540,
+          "protein": 34,
+          "carbs": 46,
+          "fat": 24,
+          "sodium": 1890,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/menu/spicy-deluxe-sandwich"
+        },
+        {
+          "id": "cool-wrap",
+          "name": "Chick-fil-A Cool Wrap (with Avocado Lime Ranch)",
+          "calories": 660,
+          "protein": 43,
+          "carbs": 32,
+          "fat": 45,
+          "sodium": 1420,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/menu/chick-fil-a-cool-wrap"
         }
       ]
     },
@@ -218,6 +255,39 @@
               "fat": 2.5
             }
           ]
+        },
+        {
+          "id": "grilled-nuggets-8",
+          "name": "Grilled Nuggets (8 ct)",
+          "calories": 130,
+          "protein": 25,
+          "carbs": 1,
+          "fat": 3,
+          "sodium": 440,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/menu/grilled-nuggets"
+        },
+        {
+          "id": "grilled-nuggets-12",
+          "name": "Grilled Nuggets (12 ct)",
+          "calories": 200,
+          "protein": 38,
+          "carbs": 2,
+          "fat": 4.5,
+          "sodium": 660,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/nutrition-allergens"
+        },
+        {
+          "id": "chick-n-minis-4",
+          "name": "Chick-n-Minis (4 ct)",
+          "calories": 360,
+          "protein": 20,
+          "carbs": 41,
+          "fat": 13,
+          "sodium": 1060,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/menu/chick-n-minis"
         }
       ]
     },
@@ -225,6 +295,17 @@
       "id": "sides",
       "name": "Sides",
       "items": [
+        {
+          "id": "waffle-fries-small",
+          "name": "Waffle Potato Fries (Small)",
+          "calories": 320,
+          "protein": 4,
+          "carbs": 35,
+          "fat": 19,
+          "sodium": 190,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/nutrition-allergens"
+        },
         {
           "id": "waffle-fries-medium",
           "name": "Waffle Potato Fries (Medium)",
@@ -234,6 +315,17 @@
           "fat": 24,
           "sodium": 240,
           "addons": []
+        },
+        {
+          "id": "waffle-fries-large",
+          "name": "Waffle Potato Fries (Large)",
+          "calories": 600,
+          "protein": 7,
+          "carbs": 65,
+          "fat": 35,
+          "sodium": 340,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/nutrition-allergens"
         },
         {
           "id": "mac-cheese-medium",
@@ -272,6 +364,45 @@
           "sodium": 1010,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/market-salad"
+        },
+        {
+          "id": "spicy-southwest-salad",
+          "name": "Spicy Southwest Salad (with toppings and dressing)",
+          "calories": 680,
+          "protein": 33,
+          "carbs": 27,
+          "fat": 49,
+          "sodium": 1570,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/menu/spicy-southwest-salad"
+        }
+      ]
+    },
+    {
+      "id": "breakfast",
+      "name": "Breakfast",
+      "items": [
+        {
+          "id": "chicken-biscuit",
+          "name": "Chick-fil-A Chicken Biscuit",
+          "calories": 460,
+          "protein": 19,
+          "carbs": 45,
+          "fat": 23,
+          "sodium": 1510,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/menu/chick-fil-a-chicken-biscuit"
+        },
+        {
+          "id": "hash-brown-scramble-burrito",
+          "name": "Hash Brown Scramble Burrito (with Nuggets)",
+          "calories": 700,
+          "protein": 34,
+          "carbs": 51,
+          "fat": 40,
+          "sodium": 1770,
+          "addons": [],
+          "source_url": "https://www.chick-fil-a.com/menu/hash-brown-scramble-burrito"
         }
       ]
     }

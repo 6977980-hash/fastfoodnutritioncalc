@@ -22,6 +22,10 @@
       {
         "date": "2026-09-25",
         "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: bacon-cheeseburger-quarter, original-basket-fries-small, vanilla-blizzard-small. New ids: bacon-two-cheese-deluxe-double, fries-regular."
+      },
+      {
+        "date": "2026-10-11",
+        "change": "Added items from dairyqueen.com's official nutrition table. New ids: oreo-blizzard-mini, oreo-blizzard-large, reeses-blizzard-mini, reeses-blizzard-small, reeses-blizzard-medium, reeses-blizzard-large, chicken-strip-basket-6, chicken-strips-3, fries-kids, fries-large, vanilla-cone-large."
       }
     ]
   },
@@ -30,6 +34,16 @@
       "id": "blizzards",
       "name": "Blizzard Treats",
       "items": [
+        {
+          "id": "oreo-blizzard-mini",
+          "name": "OREO Cookie Blizzard (Mini)",
+          "calories": 330,
+          "protein": 7,
+          "carbs": 48,
+          "fat": 12,
+          "sodium": 150,
+          "addons": []
+        },
         {
           "id": "oreo-blizzard-small",
           "name": "OREO Cookie Blizzard (Small)",
@@ -48,6 +62,56 @@
           "carbs": 121,
           "fat": 30,
           "sodium": 390,
+          "addons": []
+        },
+        {
+          "id": "oreo-blizzard-large",
+          "name": "OREO Cookie Blizzard (Large)",
+          "calories": 1050,
+          "protein": 22,
+          "carbs": 156,
+          "fat": 39,
+          "sodium": 500,
+          "addons": []
+        },
+        {
+          "id": "reeses-blizzard-mini",
+          "name": "Reese's Peanut Butter Cups Blizzard (Mini)",
+          "calories": 360,
+          "protein": 9,
+          "carbs": 50,
+          "fat": 14,
+          "sodium": 170,
+          "addons": []
+        },
+        {
+          "id": "reeses-blizzard-small",
+          "name": "Reese's Peanut Butter Cups Blizzard (Small)",
+          "calories": 610,
+          "protein": 16,
+          "carbs": 84,
+          "fat": 24,
+          "sodium": 300,
+          "addons": []
+        },
+        {
+          "id": "reeses-blizzard-medium",
+          "name": "Reese's Peanut Butter Cups Blizzard (Medium)",
+          "calories": 820,
+          "protein": 21,
+          "carbs": 113,
+          "fat": 34,
+          "sodium": 410,
+          "addons": []
+        },
+        {
+          "id": "reeses-blizzard-large",
+          "name": "Reese's Peanut Butter Cups Blizzard (Large)",
+          "calories": 1080,
+          "protein": 28,
+          "carbs": 148,
+          "fat": 45,
+          "sodium": 550,
           "addons": []
         }
       ]
@@ -101,6 +165,46 @@
           "fat": 13,
           "sodium": 590,
           "addons": []
+        },
+        {
+          "id": "chicken-strip-basket-6",
+          "name": "Chicken Strip Basket (6 pc)",
+          "calories": 1300,
+          "protein": 48,
+          "carbs": 139,
+          "fat": 61,
+          "sodium": 2750,
+          "addons": []
+        },
+        {
+          "id": "chicken-strips-3",
+          "name": "Chicken Strips (3 pc, strips only)",
+          "calories": 430,
+          "protein": 19,
+          "carbs": 41,
+          "fat": 20,
+          "sodium": 950,
+          "addons": []
+        },
+        {
+          "id": "fries-kids",
+          "name": "Fries (Kids')",
+          "calories": 170,
+          "protein": 3,
+          "carbs": 23,
+          "fat": 8,
+          "sodium": 370,
+          "addons": []
+        },
+        {
+          "id": "fries-large",
+          "name": "Fries (Large)",
+          "calories": 450,
+          "protein": 8,
+          "carbs": 59,
+          "fat": 21,
+          "sodium": 950,
+          "addons": []
         }
       ]
     },
@@ -116,6 +220,16 @@
           "carbs": 34,
           "fat": 7,
           "sodium": 90,
+          "addons": []
+        },
+        {
+          "id": "vanilla-cone-large",
+          "name": "Vanilla Cone (Large)",
+          "calories": 450,
+          "protein": 12,
+          "carbs": 71,
+          "fat": 14,
+          "sodium": 180,
           "addons": []
         },
         {

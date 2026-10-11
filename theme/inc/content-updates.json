@@ -587,5 +587,22 @@
     "replace": ""
    }
   ]
+ },
+ {
+  "page": "calculators/mcdonalds-calories-calculator",
+  "changes": [
+   {
+    "find": "Breakfast items are a bit of an outlier on the McDonald's menu — portion for portion, biscuit sandwiches and hash browns pack in more fat than most lunch items.",
+    "replace": "Biscuit sandwiches are among the higher-fat breakfast picks: a Sausage Biscuit has 30g of fat and a Bacon, Egg & Cheese Biscuit 26g, compared with 13g for a Cheeseburger. Hash Browns are lighter at 8g of fat."
+   },
+   {
+    "find": "The complete nutrition table for every menu item is further down this page.",
+    "replace": "The complete nutrition table for every item in this calculator is further down this page."
+   },
+   {
+    "find": "Sauces like ranch or sweet ‘n sour can add another 45–110 calories depending on which one you choose.",
+    "replace": "Dipping sauces add 45 to 110 calories per cup: Tangy Barbeque is 45, Sweet ‘N Sour 50, Honey Mustard 60 and Creamy Ranch 110."
+   }
+  ]
  }
 ]
