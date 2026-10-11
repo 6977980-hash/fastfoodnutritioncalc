@@ -389,6 +389,26 @@
    {
     "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard portion sizes. Because Chipotle portions can vary by location and by how a bowl is scooped, use Chipotle’s own official nutrition calculator for exact, current figures.",
     "replace": "The figures come from Chipotle’s official U.S. nutrition facts (linked from chipotle.com’s Nutrition Calculator) for the standard portions shown, checked line by line on September 25, 2026. Portions can vary by how a bowl is scooped, so confirm with Chipotle for allergies or medical diets."
+   },
+   {
+    "find": "rather than assuming they’re included — they’re both add-on-priced items in real life too.",
+    "replace": "rather than assuming they’re included; Chipotle charges extra for both."
+   },
+   {
+    "find": "run about 210 calories per serving, and most people get a full scoop by default unless they ask for “half rice” or none.",
+    "replace": "have 210 calories per 4 oz serving, and you can ask for half rice or none."
+   },
+   {
+    "find": "will typically run 300+ calories higher.",
+    "replace": "will be 320 calories higher, the calories in the flour tortilla."
+   },
+   {
+    "find": "around 21–32g of protein per serving",
+    "replace": "21g (steak) to 32g (chicken) of protein per 4 oz serving"
+   },
+   {
+    "find": "Beans are lighter at around 130 calories.",
+    "replace": "Beans are lighter at 130 calories per 4 oz."
    }
   ]
  },
@@ -630,6 +650,26 @@
    {
     "find": "Sauces like ranch or sweet ‘n sour can add another 45–110 calories depending on which one you choose.",
     "replace": "Dipping sauces add 45 to 110 calories per cup: Tangy Barbeque is 45, Sweet ‘N Sour 50, Honey Mustard 60 and Creamy Ranch 110."
+   },
+   {
+    "find": "the Hash Browns (140 calories) are the lowest-calorie option.",
+    "replace": "the Hash Browns (140 calories) are the lowest-calorie food. Among drinks, a small Sweet Tea is 100 calories."
+   },
+   {
+    "find": "which tend to run higher in sodium than the lunch and dinner sandwiches.",
+    "replace": "which has 1,330mg of sodium, nearly as much as a Double Quarter Pounder with Cheese (1,360mg)."
+   },
+   {
+    "find": "Cheeseburger (around 300 calories)",
+    "replace": "Cheeseburger (300 calories)"
+   },
+   {
+    "find": "Hamburger (about 250 calories)",
+    "replace": "Hamburger (250 calories)"
+   },
+   {
+    "find": "breakfast menu at around 310 calories",
+    "replace": "breakfast menu at 310 calories"
    }
   ]
  }
