@@ -38,8 +38,8 @@
 			<h2 class="ffnc-footer-heading"><?php esc_html_e( 'Tools', 'ffnc' ); ?></h2>
 			<ul>
 				<?php
-				// A couple of example calculators + the hub, not all 15 brands.
-				foreach ( array_slice( ffnc_get_live_brands(), 0, 2 ) as $brand ) :
+				// The first six calculators + the hub, not all 15 brands.
+				foreach ( array_slice( ffnc_get_live_brands(), 0, 6 ) as $brand ) :
 					?>
 					<li><a href="<?php echo esc_url( home_url( $brand['url'] ) ); ?>"><?php echo esc_html( $brand['title'] ); ?></a></li>
 				<?php endforeach; ?>
