@@ -10,7 +10,7 @@
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item was checked on 2026-09-25 against Pizza Hut's official U.S. nutrition menu that pizzahut.com links to (served through Nutritionix, last updated 09/23/2026). Pizza values are per slice of a Medium pizza; wing values are per wing.",
     "status": "verified",
-    "last_reviewed": "2026-09-25",
+    "last_reviewed": "2026-10-11",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
     "addon_macros": "Wing-sauce and marinara add-ons use Pizza Hut's published per-wing / per-cup nutrition, so all five nutrients are included in totals.",
     "spot_checks": [],
@@ -22,6 +22,10 @@
       {
         "date": "2026-09-25",
         "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: boneless-wings-4, cinnabon-mini-rolls, traditional-wings-2. New ids: bone-out-wing-1, traditional-wing-1."
+      },
+      {
+        "date": "2026-10-11",
+        "change": "Re-checked pizza against Pizza Hut's official Nutritionix menu (pizzahut.com > Full Menu Nutrition). Medium Original Pan Cheese 260 -> 240, Pepperoni 270 -> 250, Supreme 280 -> 260 calories, with updated protein, carbs, fat and sodium; Thin 'N Crispy Cheese sodium confirmed. New ids: meat-lovers-pan-slice, pepperoni-thin-slice, cheese-hand-tossed-slice, pepperoni-hand-tossed-slice, supreme-hand-tossed-slice. Sides and wings could not be re-checked (not on the official menu page)."
       }
     ]
   },
@@ -33,31 +37,77 @@
         {
           "id": "cheese-pan-slice",
           "name": "Cheese Pizza, Medium Original Pan (1 slice)",
-          "calories": 260,
+          "calories": 240,
           "protein": 10,
-          "carbs": 30,
-          "fat": 11,
-          "sodium": 480,
+          "carbs": 28,
+          "fat": 10,
+          "sodium": 440,
           "addons": []
         },
         {
           "id": "pepperoni-pan-slice",
           "name": "Pepperoni Pizza, Medium Original Pan (1 slice)",
-          "calories": 270,
-          "protein": 9,
-          "carbs": 29,
-          "fat": 12,
-          "sodium": 500,
+          "calories": 250,
+          "protein": 10,
+          "carbs": 28,
+          "fat": 11,
+          "sodium": 460,
           "addons": []
         },
         {
           "id": "supreme-pan-slice",
           "name": "Supreme Pizza, Medium Original Pan (1 slice)",
-          "calories": 280,
+          "calories": 260,
+          "protein": 11,
+          "carbs": 28,
+          "fat": 12,
+          "sodium": 490,
+          "addons": []
+        },
+        {
+          "id": "meat-lovers-pan-slice",
+          "name": "Meat Lover's Pizza, Medium Original Pan (1 slice)",
+          "calories": 310,
+          "protein": 13,
+          "carbs": 28,
+          "fat": 17,
+          "sodium": 630,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "hand-tossed-medium",
+      "name": "Hand Tossed Pizza (Medium, per slice)",
+      "items": [
+        {
+          "id": "cheese-hand-tossed-slice",
+          "name": "Cheese Pizza, Medium Hand Tossed (1 slice)",
+          "calories": 210,
           "protein": 10,
-          "carbs": 30,
-          "fat": 13,
-          "sodium": 530,
+          "carbs": 26,
+          "fat": 7,
+          "sodium": 390,
+          "addons": []
+        },
+        {
+          "id": "pepperoni-hand-tossed-slice",
+          "name": "Pepperoni Pizza, Medium Hand Tossed (1 slice)",
+          "calories": 220,
+          "protein": 10,
+          "carbs": 25,
+          "fat": 9,
+          "sodium": 420,
+          "addons": []
+        },
+        {
+          "id": "supreme-hand-tossed-slice",
+          "name": "Supreme Pizza, Medium Hand Tossed (1 slice)",
+          "calories": 230,
+          "protein": 10,
+          "carbs": 26,
+          "fat": 10,
+          "sodium": 440,
           "addons": []
         }
       ]
@@ -74,6 +124,16 @@
           "carbs": 22,
           "fat": 7,
           "sodium": 420,
+          "addons": []
+        },
+        {
+          "id": "pepperoni-thin-slice",
+          "name": "Pepperoni Pizza, Medium Thin 'N Crispy (1 slice)",
+          "calories": 200,
+          "protein": 9,
+          "carbs": 22,
+          "fat": 9,
+          "sodium": 470,
           "addons": []
         }
       ]

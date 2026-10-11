@@ -22,6 +22,10 @@
       {
         "date": "2026-09-25",
         "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: cheeseburger, grilled-cheese, little-bacon-burger, little-cheeseburger. New ids: large-fries, little-cajun-fries, regular-cajun-fries."
+      },
+      {
+        "date": "2026-10-11",
+        "change": "Added Large Cajun Fries from the official U.S. Nutrition & Allergen Guide (September 2026). New ids: large-cajun-fries."
       }
     ]
   },
@@ -283,6 +287,16 @@
           "carbs": 134,
           "fat": 41,
           "sodium": 1293,
+          "addons": []
+        },
+        {
+          "id": "large-cajun-fries",
+          "name": "Large Cajun Fries",
+          "calories": 1328,
+          "protein": 20,
+          "carbs": 184,
+          "fat": 57,
+          "sodium": 1658,
           "addons": []
         }
       ]

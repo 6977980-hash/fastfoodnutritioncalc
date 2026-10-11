@@ -201,6 +201,22 @@
    {
     "find": "These figures are approximate reference values compiled from publicly available nutrition information for standard Medium pizza preparations. Confirm exact, current figures using Pizza Hut’s own official nutrition resources.",
     "replace": "The figures come from Pizza Hut’s official U.S. nutrition information (linked from pizzahut.com, updated September 23, 2026) and were checked line by line on September 25, 2026. Confirm current figures with Pizza Hut, especially for allergies or medical diets."
+   },
+   {
+    "find": "A Medium Original Pan cheese slice is 260 calories, while a Medium Thin ‘N Crispy cheese slice is 180 calories — 80 calories less per slice, or 320 calories less over four slices.",
+    "replace": "A Medium Original Pan cheese slice is 240 calories, a Medium Hand Tossed cheese slice is 210, and a Medium Thin ‘N Crispy cheese slice is 180 — 60 calories less than Pan per slice, or 240 calories less over four slices."
+   },
+   {
+    "find": "A slice of Medium Original Pan cheese pizza is 260 calories, with 10g of protein, 30g of carbs, 11g of fat and 480mg of sodium.",
+    "replace": "A slice of Medium Original Pan cheese pizza is 240 calories, with 10g of protein, 28g of carbs, 10g of fat and 440mg of sodium."
+   },
+   {
+    "find": "Yes, per slice. A Medium Thin ‘N Crispy cheese slice (180 calories) has 80 fewer calories than a Medium Original Pan cheese slice (260 calories).",
+    "replace": "Yes, per slice. A Medium Thin ‘N Crispy cheese slice (180 calories) has 60 fewer calories than a Medium Original Pan cheese slice (240 calories)."
+   },
+   {
+    "find": "and were checked line by line on September 25, 2026.",
+    "replace": "and the pizzas were re-checked on October 11, 2026."
    }
   ]
  },
