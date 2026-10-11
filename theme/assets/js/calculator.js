@@ -152,6 +152,273 @@
 		return lines.length ? lines : null;
 	}
 
+	/* ------------------------------------------------------------------
+	 * Order tools (pure, shared with tools.js, covered by tests)
+	 * ---------------------------------------------------------------- */
+
+	/** Every item of a dataset, each tagged with its category id/name. */
+	function allItems(data) {
+		var out = [];
+		(data.categories || []).forEach(function (c) {
+			(c.items || []).forEach(function (i) { out.push({ item: i, catId: c.id, catName: c.name }); });
+		});
+		return out;
+	}
+
+	function itemById(data, id) {
+		var list = allItems(data);
+		for (var i = 0; i < list.length; i++) {
+			if (list[i].item.id === id) { return list[i].item; }
+		}
+		return null;
+	}
+
+	/**
+	 * Order <-> short URL string. Line = id, optional *qty, optional ~add-on
+	 * indexes ("big-mac*2~0.1"); lines joined by commas. Ids are slugs, so no
+	 * escaping is needed beyond encodeURIComponent of the whole value.
+	 */
+	function encodeOrder(order) {
+		return (order || []).filter(function (e) { return e.qty > 0; }).map(function (e) {
+			var idx = (e.addons || []).map(function (a) { return (e.item.addons || []).indexOf(a); })
+				.filter(function (n) { return n >= 0; }).sort(function (a, b) { return a - b; });
+			return e.item.id + (e.qty > 1 ? '*' + e.qty : '') + (idx.length ? '~' + idx.join('.') : '');
+		}).join(',');
+	}
+
+	function decodeOrder(str, data) {
+		var lines = [];
+		String(str || '').split(',').forEach(function (part) {
+			var m = /^([a-z0-9-]+)(?:\*(\d+))?(?:~([\d.]+))?$/.exec(part.trim());
+			if (!m) { return; }
+			var item = itemById(data, m[1]);
+			if (!item) { return; }
+			var addons = [];
+			if (m[3]) {
+				m[3].split('.').forEach(function (n) {
+					var a = (item.addons || [])[Number(n)];
+					if (a && addons.indexOf(a) < 0) { addons.push(a); }
+				});
+			}
+			var qty = clampQty(m[2] ? Number(m[2]) : 1);
+			if (qty > 0) { lines.push({ key: lineKey(item, addons), item: item, addons: addons, qty: qty }); }
+		});
+		return lines;
+	}
+
+	/**
+	 * A lighter item from the same menu category: fewer calories and at
+	 * least 70% of the protein (so it is a like-for-like swap, not "eat a
+	 * side salad instead"). Falls back to the nearest lower-calorie item
+	 * when nothing keeps the protein. Null when nothing is lighter.
+	 */
+	function findSwap(item, data) {
+		var cat = null;
+		(data.categories || []).forEach(function (c) {
+			(c.items || []).forEach(function (i) { if (i.id === item.id) { cat = c; } });
+		});
+		if (!cat || !isKnown(item.calories)) { return null; }
+		var lower = cat.items.filter(function (i) {
+			return i.id !== item.id && isKnown(i.calories) && i.calories < item.calories;
+		});
+		if (!lower.length) { return null; }
+		var keepsProtein = lower.filter(function (i) {
+			return num(i.protein) >= 0.7 * num(item.protein);
+		});
+		var pick;
+		if (keepsProtein.length) {
+			// Prefer the same product in another size (Coke Medium -> Coke Small).
+			var base = tokens(item.name).filter(function (t) { return SIZE_WORDS.indexOf(t) < 0; });
+			var overlap = function (i) {
+				return tokens(i.name).filter(function (t) { return base.indexOf(t) >= 0; }).length;
+			};
+			pick = keepsProtein.reduce(function (a, b) {
+				var d = overlap(b) - overlap(a);
+				return (d > 0 || (d === 0 && b.calories < a.calories)) ? b : a;
+			});
+		} else {
+			pick = lower.reduce(function (a, b) { return b.calories > a.calories ? b : a; });
+		}
+		return { item: pick, saving: round1(item.calories - pick.calories) };
+	}
+
+	/*
+	 * Calories burned in 30 minutes by body weight (lb), from Harvard Health
+	 * Publishing, "Calories burned in 30 minutes for people of three different
+	 * weights": walking 3.5 mph, running 5 mph, bicycling 12-13.9 mph.
+	 */
+	var BURN_30 = {
+		125: { walk: 107, run: 240, bike: 240 },
+		155: { walk: 133, run: 288, bike: 288 },
+		185: { walk: 159, run: 336, bike: 336 }
+	};
+	function exerciseMinutes(calories, weightLb) {
+		var w = Number(weightLb);
+		var row = BURN_30[w] || BURN_30[155];
+		var out = {};
+		Object.keys(row).forEach(function (k) {
+			out[k] = Math.round(num(calories) / row[k] * 30);
+		});
+		return out;
+	}
+
+	/** Lower-case words without punctuation, trademark marks or apostrophes. */
+	function normalizeName(s) {
+		return String(s || '').toLowerCase()
+			.replace(/[®™©]/g, '')
+			.replace(/['’`]/g, '')
+			.replace(/&/g, ' and ')
+			.replace(/(\d+)\s*-?\s*(pc|pcs|piece|pieces|ct|count)\b/g, '$1 pc')
+			.replace(/\bsm\b/g, 'small').replace(/\bmed\b|\bmd\b/g, 'medium').replace(/\blg\b/g, 'large')
+			.replace(/[^a-z0-9 ]+/g, ' ')
+			.replace(/\s+/g, ' ').trim();
+	}
+
+	var SIZE_WORDS = ['small', 'medium', 'large', 'jr', 'kids', 'regular', 'mini'];
+	var STOP = { the: 1, a: 1, with: 1, and: 1, of: 1, on: 1, 'in': 1, 'for': 1 };
+	function tokens(s) {
+		return normalizeName(s).split(' ').filter(function (t) { return t && !STOP[t]; });
+	}
+
+	/** 0..1 similarity between a typed line and an item name. */
+	function nameScore(line, name) {
+		var a = tokens(line);
+		var b = tokens(name);
+		if (!a.length || !b.length) { return 0; }
+		var hit = 0;
+		b.forEach(function (t) { if (a.indexOf(t) >= 0) { hit += 1; } });
+		var extra = a.filter(function (t) { return b.indexOf(t) < 0; }).length;
+		// Numbers (sizes, piece counts) must agree when both sides have them.
+		var na = a.filter(function (t) { return /^\d+$/.test(t); });
+		var nb = b.filter(function (t) { return /^\d+$/.test(t); });
+		if (na.length && nb.length && !na.some(function (n) { return nb.indexOf(n) >= 0; })) { return 0; }
+		var sizes = SIZE_WORDS;
+		var sa = a.filter(function (t) { return sizes.indexOf(t) >= 0; });
+		var sb = b.filter(function (t) { return sizes.indexOf(t) >= 0; });
+		if (sa.length && sb.length && !sa.some(function (n) { return sb.indexOf(n) >= 0; })) { return 0; }
+		return hit / (b.length + 0.5 * extra);
+	}
+
+	/**
+	 * Read a pasted order (delivery app cart, receipt, a note) line by line.
+	 * Returns { matched: [{ item, qty, line, score }], unmatched: [line] }.
+	 */
+	function parseCart(text, data) {
+		var items = allItems(data).map(function (x) { return x.item; });
+		var matched = [];
+		var unmatched = [];
+		String(text || '').split(/\r?\n|;/).forEach(function (raw) {
+			var line = raw.replace(/\$\s*\d+(\.\d+)?/g, ' ').trim();
+			if (!line || line.length < 3) { return; }
+			var qty = 1;
+			var m = /^\s*(\d{1,2})\s*(?:x|×)\s+/i.exec(line) || /^\s*(\d{1,2})\s+(?!pc\b|piece|pieces|ct\b|count\b|-?inch|")/i.exec(line);
+			if (m) { qty = Number(m[1]); line = line.slice(m[0].length); }
+			var m2 = /\s*(?:x|×)\s*(\d{1,2})\s*$/i.exec(line) || /\bqty:?\s*(\d{1,2})\b/i.exec(line) || /\((\d{1,2})\)\s*$/.exec(line);
+			if (m2) { qty = Number(m2[1]); line = line.replace(m2[0], ' '); }
+			var best = null;
+			var bestScore = 0;
+			items.forEach(function (it) {
+				var s = nameScore(line, it.name);
+				if (s > bestScore) { bestScore = s; best = it; }
+			});
+			if (best && bestScore >= 0.5) {
+				matched.push({ item: best, qty: clampQty(qty) || 1, line: raw.trim(), score: round1(bestScore) });
+			} else if (/[a-z]{3}/i.test(line)) {
+				unmatched.push(raw.trim());
+			}
+		});
+		return { matched: matched, unmatched: unmatched };
+	}
+
+	/* Rough food type from item + category name, for cross-chain matching. */
+	var TYPES = [
+		['sub', /^6 |footlong|protein pocket|italiano/],
+		['pizza', /\b(pizza|slice)\b/],
+		['salad', /\bsalad\b/],
+		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water)\b/],
+		['coffee', /\b(coffee|latte|cappuccino|espresso|macchiato)\b/],
+		['shake', /\b(shake|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
+		['entree', /\b(orange chicken|beijing|kung pao|broccoli beef|shrimp|teriyaki|steak|mushroom chicken|string bean|honey sesame|pot pie|famous bowl)\b/],
+		['dessert', /\b(cookie|pie|cake|brownie|cinnamon|churro|twists|turnover|donut|munchkin)\b/],
+		['breakfast', /\b(mcmuffin|biscuit|croissant|wake up wrap|hash browns?|scramble|egg and cheese|egg cheese|sausage|breakfast|pancake|avocado toast)\b/],
+		['fries', /\b(fries|fry|tots|onion rings)\b/],
+		['nuggets', /\b(nugget|nuggets|mcnuggets|tenders?|strips?|minis|popcorn chicken|snacker)\b/],
+		['wings', /\bwings?\b/],
+		['chicken-piece', /\b(breast|thigh|drumstick)\b/],
+		['burger', /\b(burger|whopper|big mac|quarter pounder|mcdouble|baconator|daves|cheeseburger|hamburger|bacon king|double stack)\b/],
+		['chicken-sandwich', /\b(sandwich|mcchicken|royal crispy|cool wrap|twister|filet o fish)\b/],
+		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|gordita|nachos|chalupa)\b/],
+		['soup', /\b(soup|chili)\b/],
+		['side', /\b(rice|chow mein|greens|mashed|coleslaw|mac|beans|corn|potato|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
+	];
+	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
+	function itemType(item, catName, brandSlug) {
+		if (brandSlug === 'chipotle') { return 'ingredient'; }
+		var n = normalizeName(item.name);
+		var s = normalizeName(item.name + ' ' + (catName || ''));
+		for (var i = 0; i < TYPES.length; i++) {
+			if (TYPES[i][1].test(n)) { return TYPES[i][0]; }
+		}
+		for (var j = 0; j < TYPES.length; j++) {
+			if (TYPES[j][1].test(s)) { return TYPES[j][0]; }
+		}
+		return 'other';
+	}
+
+	/**
+	 * Best orders from one menu for a calorie budget: combinations of up to
+	 * `maxItems` different items (no drinks unless allowed) within the
+	 * budget that meet the protein floor and any carb / sodium caps, sorted
+	 * by protein (then by fewer calories). Returns up to `limit` orders whose
+	 * main item differs.
+	 */
+	function bestOrders(data, opts) {
+		opts = opts || {};
+		var budget = num(opts.calories) || 600;
+		var minProtein = num(opts.protein);
+		var maxCarbs = isKnown(opts.maxCarbs) && opts.maxCarbs !== '' ? num(opts.maxCarbs) : Infinity;
+		var maxSodium = isKnown(opts.maxSodium) && opts.maxSodium !== '' ? num(opts.maxSodium) : Infinity;
+		var maxItems = Math.max(1, Math.min(3, num(opts.maxItems) || 3));
+		var limit = num(opts.limit) || 3;
+		var pool = allItems(data).filter(function (x) {
+			var t = itemType(x.item, x.catName);
+			if (!opts.allowDrinks && (t === 'drink' || t === 'coffee')) { return false; }
+			if (/family|bucket|\(20 pc\)|large\)/i.test(x.item.name) && x.item.calories > budget) { return false; }
+			return isKnown(x.item.calories) && x.item.calories > 0 && x.item.calories <= budget;
+		}).map(function (x) { return x.item; });
+		var results = [];
+		function consider(combo) {
+			var t = computeTotals(combo.map(function (i) { return { item: i, addons: [], qty: 1 }; }));
+			if (t.calories > budget || t.protein < minProtein || t.carbs > maxCarbs || t.sodium > maxSodium) { return; }
+			results.push({ items: combo, totals: t });
+		}
+		for (var a = 0; a < pool.length; a++) {
+			consider([pool[a]]);
+			if (maxItems < 2) { continue; }
+			for (var b = a + 1; b < pool.length; b++) {
+				if (pool[a].calories + pool[b].calories > budget) { continue; }
+				consider([pool[a], pool[b]]);
+				if (maxItems < 3) { continue; }
+				for (var c = b + 1; c < pool.length; c++) {
+					if (pool[a].calories + pool[b].calories + pool[c].calories > budget) { continue; }
+					consider([pool[a], pool[b], pool[c]]);
+				}
+			}
+		}
+		results.sort(function (x, y) {
+			return (y.totals.protein - x.totals.protein) || (x.totals.calories - y.totals.calories) || (x.items.length - y.items.length);
+		});
+		var picked = [];
+		var mains = {};
+		for (var r = 0; r < results.length && picked.length < limit; r++) {
+			var main = results[r].items.reduce(function (p, q) { return q.calories > p.calories ? q : p; });
+			if (mains[main.id]) { continue; }
+			mains[main.id] = true;
+			picked.push(results[r]);
+		}
+		return picked;
+	}
+
 	var api = {
 		NUTRIENTS: NUTRIENTS,
 		MAX_QTY: MAX_QTY,
@@ -164,11 +431,25 @@
 		hasUnavailableValues: hasUnavailableValues,
 		isKnown: isKnown,
 		lineKey: lineKey,
-		dealLines: dealLines
+		dealLines: dealLines,
+		allItems: allItems,
+		itemById: itemById,
+		encodeOrder: encodeOrder,
+		decodeOrder: decodeOrder,
+		findSwap: findSwap,
+		exerciseMinutes: exerciseMinutes,
+		normalizeName: normalizeName,
+		nameScore: nameScore,
+		parseCart: parseCart,
+		itemType: itemType,
+		bestOrders: bestOrders
 	};
 
 	if (typeof module !== 'undefined' && module.exports) {
 		module.exports = api;
+	}
+	if (typeof window !== 'undefined') {
+		window.FFNCCalc = api;
 	}
 	if (typeof document === 'undefined') {
 		return;
@@ -349,6 +630,15 @@
 		sidebar.tabIndex = -1;
 		sidebar.innerHTML =
 			'<p class="ffnc-calc-sidebar-title"><span>Your Order</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 4h-2a1 1 0 1 0 0 2h1.22l1.7 8.53A2 2 0 0 0 9.87 16h7.26a2 2 0 0 0 1.95-1.55l1.34-6A1 1 0 0 0 19.46 7H7.42l-.2-1A2 2 0 0 0 7 4zM9 20a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></p>' +
+			'<div class="ffnc-paste">' +
+			'  <button type="button" class="ffnc-paste-toggle" aria-expanded="false">Paste an order from an app or receipt</button>' +
+			'  <div class="ffnc-paste-panel" hidden>' +
+			'    <label class="screen-reader-text" for="ffnc-paste-' + escapeHtml(brandSlug) + '">Paste your order</label>' +
+			'    <textarea id="ffnc-paste-' + escapeHtml(brandSlug) + '" rows="4" placeholder="2x Big Mac&#10;Medium Fries&#10;10 pc McNuggets"></textarea>' +
+			'    <button type="button" class="ffnc-btn ffnc-btn-solid ffnc-paste-go">Find items</button>' +
+			'    <div class="ffnc-paste-result" aria-live="polite"></div>' +
+			'  </div>' +
+			'</div>' +
 			'<ul class="ffnc-order-list"></ul>' +
 			'<p class="ffnc-order-empty">No items selected. Tap <strong>Add</strong> on any menu item.</p>' +
 			'<div class="ffnc-order-totals" hidden>' +
@@ -359,6 +649,12 @@
 			'  <div class="ffnc-total-row"><span>Fat</span><strong data-total="fat">0g</strong></div>' +
 			'  <div class="ffnc-total-row"><span>Sodium</span><strong data-total="sodium">0mg</strong></div>' +
 			'  <p class="ffnc-order-addon-note" hidden></p>' +
+			'</div>' +
+			'<div class="ffnc-order-tools" hidden>' +
+			'  <div class="ffnc-tool-row"><label>Sharing? Split between <input type="number" class="ffnc-split" min="1" max="20" value="1" inputmode="numeric"> people</label><p class="ffnc-split-out" hidden></p></div>' +
+			'  <div class="ffnc-tool-row"><label>Paid $<input type="number" class="ffnc-price" min="0" step="0.01" inputmode="decimal" placeholder="0.00"></label><p class="ffnc-price-out" hidden></p></div>' +
+			'  <div class="ffnc-tool-row"><label>Burn it off at <select class="ffnc-weight"><option value="125">125 lb</option><option value="155" selected>155 lb</option><option value="185">185 lb</option></select></label><p class="ffnc-burn-out"></p></div>' +
+			'  <button type="button" class="ffnc-btn ffnc-share">Copy link to this order</button>' +
 			'</div>' +
 			'<div class="ffnc-order-actions">' +
 			'  <button type="button" class="ffnc-btn ffnc-btn-ghost ffnc-order-clear" hidden>Clear order</button>' +
@@ -416,6 +712,102 @@
 		var addonNoteEl = sidebar.querySelector('.ffnc-order-addon-note');
 		var clearBtn = sidebar.querySelector('.ffnc-order-clear');
 		var exportBtn = sidebar.querySelector('.ffnc-order-export');
+
+		var toolsEl = sidebar.querySelector('.ffnc-order-tools');
+		var splitIn = sidebar.querySelector('.ffnc-split');
+		var splitOut = sidebar.querySelector('.ffnc-split-out');
+		var priceIn = sidebar.querySelector('.ffnc-price');
+		var priceOut = sidebar.querySelector('.ffnc-price-out');
+		var weightIn = sidebar.querySelector('.ffnc-weight');
+		var burnOut = sidebar.querySelector('.ffnc-burn-out');
+		var shareBtn = sidebar.querySelector('.ffnc-share');
+		var pasteToggle = sidebar.querySelector('.ffnc-paste-toggle');
+		var pastePanel = sidebar.querySelector('.ffnc-paste-panel');
+		var pasteResult = sidebar.querySelector('.ffnc-paste-result');
+		[splitIn, priceIn, weightIn].forEach(function (el) {
+			el.addEventListener('input', renderTools);
+			el.addEventListener('change', renderTools);
+		});
+		shareBtn.addEventListener('click', function () {
+			var url = window.location.href.split('#')[0].split('?')[0] + '?o=' + encodeURIComponent(encodeOrder(state.order));
+			var done = function () { shareBtn.textContent = 'Link copied'; announce('Link to this order copied.'); setTimeout(function () { shareBtn.textContent = 'Copy link to this order'; }, 2500); };
+			if (navigator.clipboard && navigator.clipboard.writeText) {
+				navigator.clipboard.writeText(url).then(done, function () { window.prompt('Copy this link:', url); });
+			} else {
+				window.prompt('Copy this link:', url);
+			}
+		});
+		pasteToggle.addEventListener('click', function () {
+			pastePanel.hidden = !pastePanel.hidden;
+			pasteToggle.setAttribute('aria-expanded', pastePanel.hidden ? 'false' : 'true');
+			if (!pastePanel.hidden) { pastePanel.querySelector('textarea').focus(); }
+		});
+		sidebar.querySelector('.ffnc-paste-go').addEventListener('click', function () {
+			var res = parseCart(pastePanel.querySelector('textarea').value, data);
+			pasteResult.innerHTML = '';
+			if (!res.matched.length) {
+				pasteResult.textContent = 'No ' + brandName + ' items found. Put one item per line.';
+				return;
+			}
+			var ul = document.createElement('ul');
+			ul.className = 'ffnc-paste-list';
+			res.matched.forEach(function (m) {
+				var li = document.createElement('li');
+				li.textContent = (m.qty > 1 ? m.qty + ' \u00d7 ' : '') + m.item.name + ' (' + fmt(m.item.calories * m.qty) + ' cal)';
+				ul.appendChild(li);
+			});
+			pasteResult.appendChild(ul);
+			if (res.unmatched.length) {
+				var miss = document.createElement('p');
+				miss.className = 'ffnc-paste-miss';
+				miss.textContent = 'Not found: ' + res.unmatched.join(', ') + '. Add these from the menu if they are on it.';
+				pasteResult.appendChild(miss);
+			}
+			var add = document.createElement('button');
+			add.type = 'button';
+			add.className = 'ffnc-btn ffnc-btn-solid';
+			add.textContent = 'Add ' + res.matched.length + ' item(s) to order';
+			add.addEventListener('click', function () {
+				res.matched.forEach(function (m) { addLine(m.item, [], m.qty); });
+				renderOrder();
+				pasteResult.innerHTML = '';
+				pastePanel.querySelector('textarea').value = '';
+				announce('Added pasted items. Order total ' + fmt(computeTotals(state.order).calories) + ' calories.');
+			});
+			pasteResult.appendChild(add);
+		});
+
+		function addLine(item, addons, qty) {
+			var key = lineKey(item, addons);
+			var existing = null;
+			state.order.forEach(function (e) { if (e.key === key) { existing = e; } });
+			if (existing) {
+				existing.qty = clampQty(existing.qty + qty);
+			} else {
+				state.order.push({ key: key, item: item, addons: addons, qty: clampQty(qty) });
+			}
+		}
+
+		function renderTools() {
+			var empty = !state.order.length;
+			toolsEl.hidden = empty;
+			if (empty) { return; }
+			var t = computeTotals(state.order);
+			var n = Math.max(1, Math.min(20, Math.floor(num(splitIn.value)) || 1));
+			splitOut.hidden = n < 2;
+			if (n > 1) {
+				splitOut.textContent = 'Each person: ' + fmt(t.calories / n) + ' cal, ' + fmt(t.protein / n) + 'g protein, ' +
+					fmt(t.carbs / n) + 'g carbs, ' + fmt(t.fat / n) + 'g fat, ' + fmt(t.sodium / n) + 'mg sodium.';
+			}
+			var price = num(priceIn.value);
+			priceOut.hidden = !(price > 0);
+			if (price > 0) {
+				priceOut.textContent = fmt(t.protein / price) + 'g protein and ' + fmt(t.calories / price) + ' calories per $1.';
+			}
+			var mins = exerciseMinutes(t.calories, weightIn.value);
+			burnOut.textContent = 'About ' + fmt(mins.walk) + ' min walking (3.5 mph), ' + fmt(mins.run) + ' min running (5 mph) or ' +
+				fmt(mins.bike) + ' min cycling (12\u201314 mph). Source: Harvard Health.';
+		}
 
 		clearBtn.addEventListener('click', function () {
 			state.order = [];
@@ -496,16 +888,7 @@
 		/* Adds every item of a deal as normal order lines, so each one can
 		   still be removed or changed in the order summary. */
 		function addDeal(d) {
-			d.lines.forEach(function (l) {
-				var key = lineKey(l.item, []);
-				var existing = null;
-				state.order.forEach(function (e) { if (e.key === key) { existing = e; } });
-				if (existing) {
-					existing.qty = clampQty(existing.qty + l.qty);
-				} else {
-					state.order.push({ key: key, item: l.item, addons: [], qty: l.qty });
-				}
-			});
+			d.lines.forEach(function (l) { addLine(l.item, [], l.qty); });
 			renderOrder();
 			announce('Added ' + d.deal.name + '. Order total ' + fmt(computeTotals(state.order).calories) + ' calories.');
 		}
@@ -680,6 +1063,35 @@
 				removeBtn.textContent = '×';
 				removeBtn.addEventListener('click', function () { setQty(entry.key, 0); });
 				li.appendChild(removeBtn);
+
+				var swap = entry.addons.length ? null : findSwap(entry.item, data);
+				if (swap && swap.saving > 0) {
+					var sw = document.createElement('p');
+					sw.className = 'ffnc-swap';
+					sw.appendChild(document.createTextNode('Lighter swap: ' + swap.item.name + ' (\u2212' + fmt(swap.saving) + ' cal) '));
+					var swBtn = document.createElement('button');
+					swBtn.type = 'button';
+					swBtn.className = 'ffnc-swap-btn';
+					swBtn.textContent = 'Swap';
+					swBtn.setAttribute('aria-label', 'Swap ' + entry.item.name + ' for ' + swap.item.name);
+					swBtn.addEventListener('click', function () {
+						var at = state.order.indexOf(entry);
+						var key = lineKey(swap.item, []);
+						var merged = false;
+						state.order.forEach(function (e) {
+							if (e.key === key) { e.qty = clampQty(e.qty + entry.qty); merged = true; }
+						});
+						if (merged) {
+							state.order.splice(at, 1);
+						} else {
+							state.order[at] = { key: key, item: swap.item, addons: [], qty: entry.qty };
+						}
+						renderOrder();
+						announce('Swapped to ' + swap.item.name + '. Order total ' + fmt(computeTotals(state.order).calories) + ' calories.');
+					});
+					sw.appendChild(swBtn);
+					li.appendChild(sw);
+				}
 				orderListEl.appendChild(li);
 			});
 
@@ -700,6 +1112,7 @@
 			toolbarTotalEl.textContent = fmt(totals.calories);
 			mobileBar.querySelector('[data-mobile-total]').textContent = fmt(totals.calories);
 			mobileBar.querySelector('[data-mobile-count]').textContent = count;
+			renderTools();
 		}
 
 		/**
@@ -788,6 +1201,13 @@
 		try {
 			wantedDeal = new URLSearchParams(window.location.search).get('deal');
 		} catch (e) { /* old browser: ignore */ }
+		var sharedOrder = null;
+		try {
+			sharedOrder = new URLSearchParams(window.location.search).get('o');
+		} catch (e2) { /* ignore */ }
+		if (sharedOrder) {
+			state.order = decodeOrder(sharedOrder, data);
+		}
 		if (wantedDeal) {
 			deals.forEach(function (d) {
 				if (d.deal.id === wantedDeal) {

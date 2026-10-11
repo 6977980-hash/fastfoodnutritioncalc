@@ -217,3 +217,63 @@ test('dealLines rejects a deal with an unknown item', () => {
 	const data = brands.find(b => b.slug === 'mcdonalds').data;
 	assert.equal(calc.dealLines({ items: [{ id: 'big-mac', qty: 1 }, { id: 'no-such-item', qty: 1 }] }, data), null);
 });
+
+/* ---- Order tools ---- */
+for (const b of brands) {
+	test(`${b.slug}: share link round-trips the order (items, quantities, add-ons)`, () => {
+		const its = items(b.data);
+		const order = its.slice(0, 4).map((item, i) => ({ item, addons: (item.addons || []).slice(0, 2), qty: i + 1 }));
+		const back = calc.decodeOrder(calc.encodeOrder(order), b.data);
+		assert.equal(back.length, order.length);
+		back.forEach((l, i) => {
+			assert.equal(l.item.id, order[i].item.id);
+			assert.equal(l.qty, order[i].qty);
+			assert.deepEqual(l.addons.map(a => a.name).sort(), order[i].addons.map(a => a.name).sort());
+		});
+		assert.deepEqual(calc.computeTotals(back), expected(order));
+	});
+	test(`${b.slug}: every swap is from the same category and lighter`, () => {
+		for (const c of b.data.categories) {
+			for (const item of c.items) {
+				const s = calc.findSwap(item, b.data);
+				if (!s) { continue; }
+				assert.ok(c.items.includes(s.item), item.id + ' swap leaves its category');
+				assert.ok(s.item.calories < item.calories, item.id + ' swap is not lighter');
+				assert.equal(s.saving, Math.round((item.calories - s.item.calories) * 10) / 10);
+			}
+		}
+	});
+	test(`${b.slug}: pasting an item's own name finds an item with that name`, () => {
+		for (const item of items(b.data)) {
+			const r = calc.parseCart(item.name, b.data);
+			assert.equal(r.matched.length, 1, item.name);
+			assert.equal(r.matched[0].item.name, item.name);
+		}
+	});
+	test(`${b.slug}: best orders stay within the budget and protein floor`, () => {
+		const orders = calc.bestOrders(b.data, { calories: 700, protein: 20 });
+		for (const o of orders) {
+			assert.ok(o.totals.calories <= 700);
+			assert.ok(o.totals.protein >= 20);
+			assert.ok(o.items.length >= 1 && o.items.length <= 3);
+		}
+	});
+}
+
+test('decodeOrder ignores unknown ids and bad parts; quantity is clamped', () => {
+	const md = brands.find(b => b.slug === 'mcdonalds').data;
+	const lines = calc.decodeOrder('big-mac*99,nope,<script>,fries-small', md);
+	assert.deepEqual(lines.map(l => [l.item.id, l.qty]), [['big-mac', 20], ['fries-small', 1]]);
+});
+
+test('parseCart reads quantities and skips prices', () => {
+	const md = brands.find(b => b.slug === 'mcdonalds').data;
+	const r = calc.parseCart('2x Big Mac $11.98\nMedium French Fries x3\n10 pc McNuggets\nHappy Meal toy', md);
+	assert.deepEqual(r.matched.map(m => [m.item.id, m.qty]), [['big-mac', 2], ['fries-medium', 3], ['nuggets-10', 1]]);
+	assert.deepEqual(r.unmatched, ['Happy Meal toy']);
+});
+
+test('exercise minutes follow the Harvard Health 30-minute table', () => {
+	assert.deepEqual(calc.exerciseMinutes(133, 155), { walk: 30, run: 14, bike: 14 });
+	assert.deepEqual(calc.exerciseMinutes(336, 185), { walk: 63, run: 30, bike: 30 });
+});

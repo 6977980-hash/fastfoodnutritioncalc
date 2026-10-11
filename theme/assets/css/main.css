@@ -1052,3 +1052,21 @@ html[data-ffnc-theme="dark"] .ffnc-reviewed-list time { color: #4ade80; backgrou
 .ffnc-deal-card .ffnc-item-name { margin-bottom: 2px; }
 .ffnc-deals-table th[scope="row"] { min-width: 220px; }
 .ffnc-deal-build { display: inline-block; font-size: 0.84rem; font-weight: 700; }
+
+/* Order tools: paste an order, swaps, split, price, exercise, share */
+.ffnc-paste { margin: 0 0 12px; }
+.ffnc-paste-toggle { background: none; border: 0; padding: 0; color: var(--ffnc-blue); font-weight: 700; font-size: 0.86rem; cursor: pointer; text-align: left; }
+.ffnc-paste-panel { margin-top: 8px; display: grid; gap: 8px; }
+.ffnc-paste-panel textarea { width: 100%; font: inherit; font-size: 0.88rem; padding: 8px 10px; border: 1px solid var(--ffnc-border); border-radius: 10px; background: var(--ffnc-white); color: var(--ffnc-ink); }
+.ffnc-paste-list { margin: 0 0 6px; padding-left: 18px; font-size: 0.86rem; }
+.ffnc-paste-miss { font-size: 0.8rem; color: var(--ffnc-muted); margin: 0 0 8px; }
+.ffnc-swap { flex-basis: 100%; margin: 4px 0 0; font-size: 0.8rem; color: var(--ffnc-muted); }
+.ffnc-swap-btn { background: none; border: 1px solid var(--ffnc-border); border-radius: 999px; padding: 1px 10px; font-size: 0.78rem; font-weight: 700; color: var(--ffnc-blue); cursor: pointer; }
+.ffnc-order-tools { border-top: 1px solid var(--ffnc-border); margin-top: 12px; padding-top: 12px; display: grid; gap: 10px; font-size: 0.86rem; }
+.ffnc-tool-row label { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 600; }
+.ffnc-tool-row input, .ffnc-tool-row select { font: inherit; width: 5.5em; padding: 4px 6px; border: 1px solid var(--ffnc-border); border-radius: 8px; background: var(--ffnc-white); color: var(--ffnc-ink); }
+.ffnc-tool-row select { width: auto; }
+.ffnc-tool-row p { margin: 4px 0 0; color: var(--ffnc-muted); }
+.ffnc-paste-panel .ffnc-btn, .ffnc-paste-result .ffnc-btn { justify-self: start; }
+.ffnc-share { background: var(--ffnc-white); color: var(--ffnc-blue); border: 1px solid var(--ffnc-border); justify-self: start; }
+.ffnc-share:hover { background: var(--ffnc-bg); }
