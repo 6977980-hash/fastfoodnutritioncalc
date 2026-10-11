@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Fast Food Nutrition Lookup",
+  "version": "0.1.0",
+  "description": "Shows official calories and protein next to menu items on DoorDash, Uber Eats and Grubhub, from fastfoodnutritioncalc.com.",
+  "homepage_url": "https://fastfoodnutritioncalc.com/",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.doordash.com/*",
+        "https://www.ubereats.com/*",
+        "https://www.grubhub.com/*"
+      ],
+      "js": ["data.js", "calculator.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

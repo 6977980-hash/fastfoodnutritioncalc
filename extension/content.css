@@ -1,0 +1,13 @@
+.ffnc-ext-badge {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 1px 7px;
+	border-radius: 999px;
+	background: #eef3ff;
+	color: #1546a8 !important;
+	font: 600 12px/1.6 system-ui, -apple-system, sans-serif !important;
+	text-decoration: none !important;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+.ffnc-ext-badge:hover { background: #dce7ff; }

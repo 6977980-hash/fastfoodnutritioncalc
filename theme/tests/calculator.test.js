@@ -282,3 +282,10 @@ test('generated item-types.json is up to date (run node scripts/build-item-types
 	const gen = require('../../scripts/build-item-types.js');
 	assert.equal(fs.readFileSync(gen.OUT, 'utf8'), gen.build());
 });
+
+test('extension data and engine copy are up to date (run node scripts/build-extension.js)', () => {
+	const ext = require('../../scripts/build-extension.js');
+	for (const [file, build] of Object.entries(ext.FILES)) {
+		assert.equal(fs.readFileSync(file, 'utf8'), build(), file);
+	}
+});
