@@ -1,0 +1,168 @@
+{
+  "brand": "Burger King",
+  "slug": "burger-king",
+  "note": "Values are Burger King's official U.S. nutrition figures from bk.com's Nutrition Explorer, checked on September 26, 2026. Recipes and availability vary by location — confirm current figures with Burger King, especially for allergies or medical diets.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Burger King Nutrition Explorer (U.S.)",
+    "source_url": "https://www.bk.com/nutrition-explorer",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Every item was checked on 2026-09-26 against the per-item nutrition panel in Burger King's official U.S. Nutrition Explorer (bk.com/nutrition-explorer).",
+    "status": "verified",
+    "last_reviewed": "2026-09-26",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "Burger King's Nutrition Explorer does not publish standalone nutrition for extra toppings or dipping sauces, so this calculator lists no add-ons. Whopper with Cheese and Whopper with Bacon are listed as separate items with Burger King's published values.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-26",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "burgers",
+      "name": "Burgers",
+      "items": [
+        {
+          "id": "whopper",
+          "name": "Whopper",
+          "calories": 710,
+          "protein": 34,
+          "carbs": 57,
+          "fat": 42,
+          "sodium": 1250,
+          "addons": []
+        },
+        {
+          "id": "whopper-cheese",
+          "name": "Whopper with Cheese",
+          "calories": 790,
+          "protein": 37,
+          "carbs": 58,
+          "fat": 49,
+          "sodium": 1660,
+          "addons": []
+        },
+        {
+          "id": "whopper-bacon",
+          "name": "Whopper with Bacon",
+          "calories": 770,
+          "protein": 38,
+          "carbs": 57,
+          "fat": 47,
+          "sodium": 1500,
+          "addons": []
+        },
+        {
+          "id": "bacon-king",
+          "name": "Bacon King",
+          "calories": 1260,
+          "protein": 69,
+          "carbs": 58,
+          "fat": 84,
+          "sodium": 2330,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "chicken",
+      "name": "Chicken",
+      "items": [
+        {
+          "id": "chicken-fries-4",
+          "name": "Chicken Fries (4 pc)",
+          "calories": 110,
+          "protein": 7,
+          "carbs": 8,
+          "fat": 6,
+          "sodium": 330,
+          "addons": []
+        },
+        {
+          "id": "chicken-fries-8",
+          "name": "Chicken Fries (8 pc)",
+          "calories": 220,
+          "protein": 13,
+          "carbs": 16,
+          "fat": 12,
+          "sodium": 680,
+          "addons": []
+        },
+        {
+          "id": "chicken-fries-12",
+          "name": "Chicken Fries (12 pc)",
+          "calories": 340,
+          "protein": 20,
+          "carbs": 25,
+          "fat": 18,
+          "sodium": 1030,
+          "addons": []
+        },
+        {
+          "id": "original-chicken-sandwich",
+          "name": "Original Chicken Sandwich",
+          "calories": 680,
+          "protein": 23,
+          "carbs": 63,
+          "fat": 39,
+          "sodium": 1380,
+          "addons": []
+        },
+        {
+          "id": "royal-crispy-chicken",
+          "name": "Royal Crispy Chicken",
+          "calories": 600,
+          "protein": 31,
+          "carbs": 54,
+          "fat": 31,
+          "sodium": 1330,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Sides & Desserts",
+      "items": [
+        {
+          "id": "fries-medium",
+          "name": "French Fries (Medium)",
+          "calories": 370,
+          "protein": 5,
+          "carbs": 50,
+          "fat": 17,
+          "sodium": 330,
+          "addons": []
+        },
+        {
+          "id": "onion-rings-medium",
+          "name": "Onion Rings (Medium)",
+          "calories": 290,
+          "protein": 4,
+          "carbs": 39,
+          "fat": 13,
+          "sodium": 530,
+          "addons": []
+        },
+        {
+          "id": "hersheys-sundae-pie",
+          "name": "HERSHEY'S Sundae Pie",
+          "calories": 310,
+          "protein": 3,
+          "carbs": 32,
+          "fat": 18,
+          "sodium": 230,
+          "addons": []
+        }
+      ]
+    }
+  ]
+}

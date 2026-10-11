@@ -1,0 +1,178 @@
+{
+  "brand": "Panda Express",
+  "slug": "panda-express",
+  "note": "Values are Panda Express's official U.S. nutrition figures, checked on September 25, 2026, for the portion sizes Panda Express publishes. Confirm current figures with Panda Express, especially for allergies or medical diets.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Panda Express Nutrition Information (U.S.)",
+    "source_url": "https://www.pandaexpress.com/nutritioninformation",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Every item was checked on 2026-09-25 against Panda Express's official nutrition table (pandaexpress.com/nutritioninformation). Portion sizes shown are Panda Express's published portions.",
+    "status": "verified",
+    "last_reviewed": "2026-09-25",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "This calculator has no add-ons.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-25",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. New ids: chicken-egg-roll."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "entrees",
+      "name": "Entrees",
+      "items": [
+        {
+          "id": "orange-chicken",
+          "name": "Orange Chicken (5.9 oz)",
+          "calories": 510,
+          "protein": 16,
+          "carbs": 53,
+          "fat": 24,
+          "sodium": 850,
+          "addons": []
+        },
+        {
+          "id": "beijing-beef",
+          "name": "Beijing Beef (5.6 oz)",
+          "calories": 470,
+          "protein": 14,
+          "carbs": 46,
+          "fat": 27,
+          "sodium": 600,
+          "addons": []
+        },
+        {
+          "id": "kung-pao-chicken",
+          "name": "Kung Pao Chicken (6.7 oz)",
+          "calories": 320,
+          "protein": 17,
+          "carbs": 15,
+          "fat": 21,
+          "sodium": 1050,
+          "addons": []
+        },
+        {
+          "id": "broccoli-beef",
+          "name": "Broccoli Beef (5.4 oz)",
+          "calories": 150,
+          "protein": 15,
+          "carbs": 12,
+          "fat": 6,
+          "sodium": 520,
+          "addons": []
+        },
+        {
+          "id": "honey-walnut-shrimp",
+          "name": "Honey Walnut Shrimp (4.4 oz)",
+          "calories": 430,
+          "protein": 13,
+          "carbs": 32,
+          "fat": 28,
+          "sodium": 700,
+          "addons": []
+        },
+        {
+          "id": "grilled-teriyaki-chicken",
+          "name": "Grilled Teriyaki Chicken (6 oz)",
+          "calories": 275,
+          "protein": 33,
+          "carbs": 14,
+          "fat": 10,
+          "sodium": 470,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Sides",
+      "items": [
+        {
+          "id": "chow-mein",
+          "name": "Chow Mein (Side, 11 oz)",
+          "calories": 600,
+          "protein": 15,
+          "carbs": 94,
+          "fat": 23,
+          "sodium": 1000,
+          "addons": []
+        },
+        {
+          "id": "fried-rice",
+          "name": "Fried Rice (Side, 11 oz)",
+          "calories": 620,
+          "protein": 13,
+          "carbs": 101,
+          "fat": 19,
+          "sodium": 1000,
+          "addons": []
+        },
+        {
+          "id": "super-greens",
+          "name": "Super Greens (Side, 10 oz)",
+          "calories": 130,
+          "protein": 9,
+          "carbs": 14,
+          "fat": 4,
+          "sodium": 370,
+          "addons": []
+        },
+        {
+          "id": "white-rice-side",
+          "name": "White Steamed Rice (Side, 11 oz)",
+          "calories": 520,
+          "protein": 10,
+          "carbs": 118,
+          "fat": 0,
+          "sodium": 0,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "appetizers",
+      "name": "Appetizers",
+      "items": [
+        {
+          "id": "spring-roll",
+          "name": "Vegetable Spring Rolls (2 rolls)",
+          "calories": 240,
+          "protein": 4,
+          "carbs": 24,
+          "fat": 14,
+          "sodium": 560,
+          "addons": []
+        },
+        {
+          "id": "chicken-egg-roll",
+          "name": "Chicken Egg Roll (1 roll)",
+          "calories": 200,
+          "protein": 6,
+          "carbs": 20,
+          "fat": 10,
+          "sodium": 340,
+          "addons": []
+        },
+        {
+          "id": "cream-cheese-rangoon-3",
+          "name": "Cream Cheese Rangoon (3 pieces)",
+          "calories": 190,
+          "protein": 5,
+          "carbs": 24,
+          "fat": 8,
+          "sodium": 180,
+          "addons": []
+        }
+      ]
+    }
+  ]
+}

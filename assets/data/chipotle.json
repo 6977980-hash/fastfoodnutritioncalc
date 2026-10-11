@@ -1,0 +1,294 @@
+{
+  "brand": "Chipotle",
+  "slug": "chipotle",
+  "note": "Chipotle meals are build-your-own, so this calculator works ingredient by ingredient, the way you order at the counter. Values are Chipotle's official U.S. nutrition figures for the portions shown, checked on September 25, 2026. Actual portions vary from order to order.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Chipotle U.S. Nutrition Facts",
+    "source_url": "https://www.chipotle.com/nutrition-calculator",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Every ingredient was checked on 2026-09-25 against the U.S. Nutrition Facts sheet that chipotle.com's Nutrition Calculator links to as its full nutrition facts (OCT-2024-US edition).",
+    "status": "verified",
+    "last_reviewed": "2026-09-25",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "Chipotle is built ingredient by ingredient, so there are no add-ons: add each ingredient as its own line.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-25",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: chicken-al-pastor, chips-guac. New ids: chipotle-honey-vinaigrette, fajita-veggies, queso-side, supergreens."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "proteins",
+      "name": "Proteins (4 oz)",
+      "items": [
+        {
+          "id": "chicken",
+          "name": "Chicken (4 oz)",
+          "calories": 180,
+          "protein": 32,
+          "carbs": 0,
+          "fat": 7,
+          "sodium": 310,
+          "addons": []
+        },
+        {
+          "id": "steak",
+          "name": "Steak (4 oz)",
+          "calories": 150,
+          "protein": 21,
+          "carbs": 1,
+          "fat": 6,
+          "sodium": 330,
+          "addons": []
+        },
+        {
+          "id": "barbacoa",
+          "name": "Barbacoa (4 oz)",
+          "calories": 170,
+          "protein": 24,
+          "carbs": 2,
+          "fat": 7,
+          "sodium": 530,
+          "addons": []
+        },
+        {
+          "id": "carnitas",
+          "name": "Carnitas (4 oz)",
+          "calories": 210,
+          "protein": 23,
+          "carbs": 0,
+          "fat": 12,
+          "sodium": 450,
+          "addons": []
+        },
+        {
+          "id": "sofritas",
+          "name": "Sofritas (4 oz)",
+          "calories": 150,
+          "protein": 8,
+          "carbs": 9,
+          "fat": 10,
+          "sodium": 560,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "base",
+      "name": "Rice, Beans & Base",
+      "items": [
+        {
+          "id": "white-rice",
+          "name": "Cilantro-Lime White Rice (4 oz)",
+          "calories": 210,
+          "protein": 4,
+          "carbs": 40,
+          "fat": 4,
+          "sodium": 350,
+          "addons": []
+        },
+        {
+          "id": "brown-rice",
+          "name": "Cilantro-Lime Brown Rice (4 oz)",
+          "calories": 210,
+          "protein": 4,
+          "carbs": 36,
+          "fat": 6,
+          "sodium": 190,
+          "addons": []
+        },
+        {
+          "id": "black-beans",
+          "name": "Black Beans (4 oz)",
+          "calories": 130,
+          "protein": 8,
+          "carbs": 22,
+          "fat": 1.5,
+          "sodium": 210,
+          "addons": []
+        },
+        {
+          "id": "pinto-beans",
+          "name": "Pinto Beans (4 oz)",
+          "calories": 130,
+          "protein": 8,
+          "carbs": 21,
+          "fat": 1.5,
+          "sodium": 210,
+          "addons": []
+        },
+        {
+          "id": "fajita-veggies",
+          "name": "Fajita Vegetables (2 oz)",
+          "calories": 20,
+          "protein": 1,
+          "carbs": 5,
+          "fat": 0,
+          "sodium": 150,
+          "addons": []
+        },
+        {
+          "id": "flour-tortilla-burrito",
+          "name": "Flour Tortilla (Burrito)",
+          "calories": 320,
+          "protein": 8,
+          "carbs": 50,
+          "fat": 9,
+          "sodium": 600,
+          "addons": []
+        },
+        {
+          "id": "supergreens",
+          "name": "Supergreens Salad Mix (3 oz)",
+          "calories": 15,
+          "protein": 1,
+          "carbs": 3,
+          "fat": 0,
+          "sodium": 15,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "toppings",
+      "name": "Toppings & Salsas",
+      "items": [
+        {
+          "id": "fresh-tomato-salsa",
+          "name": "Fresh Tomato Salsa (4 oz)",
+          "calories": 25,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "sodium": 550,
+          "addons": []
+        },
+        {
+          "id": "corn-salsa",
+          "name": "Roasted Chili-Corn Salsa (4 oz)",
+          "calories": 80,
+          "protein": 3,
+          "carbs": 16,
+          "fat": 1.5,
+          "sodium": 330,
+          "addons": []
+        },
+        {
+          "id": "tomatillo-green-salsa",
+          "name": "Tomatillo-Green Chili Salsa (2 fl oz)",
+          "calories": 15,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "sodium": 260,
+          "addons": []
+        },
+        {
+          "id": "tomatillo-red-salsa",
+          "name": "Tomatillo-Red Chili Salsa (2 fl oz)",
+          "calories": 30,
+          "protein": 0,
+          "carbs": 4,
+          "fat": 0,
+          "sodium": 500,
+          "addons": []
+        },
+        {
+          "id": "sour-cream",
+          "name": "Sour Cream (2 oz)",
+          "calories": 110,
+          "protein": 2,
+          "carbs": 2,
+          "fat": 9,
+          "sodium": 30,
+          "addons": []
+        },
+        {
+          "id": "cheese",
+          "name": "Cheese (1 oz)",
+          "calories": 110,
+          "protein": 6,
+          "carbs": 1,
+          "fat": 8,
+          "sodium": 190,
+          "addons": []
+        },
+        {
+          "id": "romaine-lettuce",
+          "name": "Romaine Lettuce (1 oz)",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 1,
+          "fat": 0,
+          "sodium": 0,
+          "addons": []
+        },
+        {
+          "id": "guacamole",
+          "name": "Guacamole (4 oz)",
+          "calories": 230,
+          "protein": 2,
+          "carbs": 8,
+          "fat": 22,
+          "sodium": 370,
+          "addons": []
+        },
+        {
+          "id": "queso-blanco",
+          "name": "Queso Blanco (entree, 2 oz)",
+          "calories": 120,
+          "protein": 5,
+          "carbs": 4,
+          "fat": 9,
+          "sodium": 250,
+          "addons": []
+        },
+        {
+          "id": "chipotle-honey-vinaigrette",
+          "name": "Chipotle-Honey Vinaigrette (2 fl oz)",
+          "calories": 220,
+          "protein": 1,
+          "carbs": 18,
+          "fat": 16,
+          "sodium": 850,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "chips",
+      "name": "Chips & Sides",
+      "items": [
+        {
+          "id": "chips",
+          "name": "Chips (regular, 4 oz)",
+          "calories": 540,
+          "protein": 7,
+          "carbs": 73,
+          "fat": 25,
+          "sodium": 390,
+          "addons": []
+        },
+        {
+          "id": "queso-side",
+          "name": "Queso Blanco (side, 4 oz)",
+          "calories": 240,
+          "protein": 10,
+          "carbs": 7,
+          "fat": 18,
+          "sodium": 490,
+          "addons": []
+        }
+      ]
+    }
+  ]
+}

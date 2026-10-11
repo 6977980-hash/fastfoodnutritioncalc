@@ -1,0 +1,153 @@
+{
+  "brand": "Panera Bread",
+  "slug": "panera-bread",
+  "note": "Values are Panera Bread's official U.S. nutrition figures (Nutrition Guide effective September 2, 2026), checked on September 25, 2026. Menus vary by bakery-cafe — confirm current figures with Panera.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Panera Bread Nutrition Guide (effective 9/2/2026)",
+    "source_url": "https://www.panerabread.com/en-us/menu/nutritious-eating/allergen-and-nutrition-information.html",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Every item was checked on 2026-09-25 against Panera Bread's official Nutrition Guide (effective 9/2/2026) linked from panerabread.com. Salads are listed as served.",
+    "status": "verified",
+    "last_reviewed": "2026-09-25",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "The Caesar dressing add-on uses Panera's published values for one dressing cup, so all five nutrients are included in totals.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-25",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: napa-almond-chicken-whole, turkey-bacon-avocado-half. New ids: toasted-italiano-half."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "soups",
+      "name": "Soups",
+      "items": [
+        {
+          "id": "broccoli-cheddar-bowl",
+          "name": "Broccoli Cheddar Soup (Bowl)",
+          "calories": 420,
+          "protein": 12,
+          "carbs": 25,
+          "fat": 31,
+          "sodium": 1520,
+          "addons": []
+        },
+        {
+          "id": "broccoli-cheddar-cup",
+          "name": "Broccoli Cheddar Soup (Cup)",
+          "calories": 280,
+          "protein": 8,
+          "carbs": 17,
+          "fat": 20,
+          "sodium": 1010,
+          "addons": []
+        },
+        {
+          "id": "chicken-noodle-bowl",
+          "name": "Homestyle Chicken Noodle Soup (Bowl)",
+          "calories": 180,
+          "protein": 14,
+          "carbs": 21,
+          "fat": 4.5,
+          "sodium": 1570,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "salads",
+      "name": "Salads (whole, as served)",
+      "items": [
+        {
+          "id": "caesar-salad-chicken",
+          "name": "Caesar Salad with Chicken (Whole)",
+          "calories": 670,
+          "protein": 35,
+          "carbs": 27,
+          "fat": 47,
+          "sodium": 2620,
+          "addons": [
+            {
+              "name": "Extra Caesar Dressing (1 cup)",
+              "calories": 160,
+              "protein": 1,
+              "carbs": 2,
+              "fat": 16,
+              "sodium": 440
+            }
+          ]
+        },
+        {
+          "id": "greek-salad",
+          "name": "Greek Salad (Whole)",
+          "calories": 630,
+          "protein": 8,
+          "carbs": 17,
+          "fat": 59,
+          "sodium": 1400,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "sandwiches",
+      "name": "Sandwiches",
+      "items": [
+        {
+          "id": "toasted-italiano-half",
+          "name": "Toasted Italiano on Baguette (Half)",
+          "calories": 670,
+          "protein": 29,
+          "carbs": 65,
+          "fat": 32,
+          "sodium": 2060,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "bakery",
+      "name": "Bakery",
+      "items": [
+        {
+          "id": "bread-bowl",
+          "name": "Sourdough Soup Bowl (bread bowl only)",
+          "calories": 650,
+          "protein": 21,
+          "carbs": 136,
+          "fat": 2.5,
+          "sodium": 1340,
+          "addons": []
+        },
+        {
+          "id": "cinnamon-roll",
+          "name": "Cinnamon Roll",
+          "calories": 580,
+          "protein": 7,
+          "carbs": 97,
+          "fat": 18,
+          "sodium": 420,
+          "addons": []
+        },
+        {
+          "id": "baguette-quarter",
+          "name": "French Baguette (1/4 baguette)",
+          "calories": 290,
+          "protein": 9,
+          "carbs": 61,
+          "fat": 1,
+          "sodium": 620,
+          "addons": []
+        }
+      ]
+    }
+  ]
+}

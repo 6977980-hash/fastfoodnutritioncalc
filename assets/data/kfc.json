@@ -1,0 +1,299 @@
+{
+  "brand": "KFC",
+  "slug": "kfc",
+  "note": "Values are KFC's official U.S. nutrition figures (Full Nutrition Guide, last updated September 15, 2026), checked on September 25, 2026. Recipes and portions change and vary by location — confirm current figures with KFC, especially for allergies or medical diets.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "KFC Full Nutrition Guide (U.S.)",
+    "source_url": "https://www.kfc.com/full-nutrition-guide",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Every item and add-on was checked on 2026-09-25 against KFC's official U.S. Full Nutrition Guide (kfc.com/full-nutrition-guide, served through Nutritionix, last updated 09/15/2026).",
+    "status": "verified",
+    "last_reviewed": "2026-09-25",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "Dipping-sauce add-ons use KFC's published per-cup nutrition, so all five nutrients are included in totals.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-25",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: ec-tenders-3, popcorn-nuggets. New ids: kentucky-fried-nugget-1, or-tender-1."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "original-recipe",
+      "name": "Original Recipe Chicken",
+      "items": [
+        {
+          "id": "or-breast",
+          "name": "Original Recipe Chicken Breast",
+          "calories": 390,
+          "protein": 39,
+          "carbs": 11,
+          "fat": 21,
+          "sodium": 1190,
+          "addons": [
+            {
+              "name": "BBQ Dipping Sauce (1 cup)",
+              "calories": 45,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 150
+            },
+            {
+              "name": "Ranch Dipping Sauce (1 cup)",
+              "calories": 130,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 14,
+              "sodium": 240
+            }
+          ]
+        },
+        {
+          "id": "or-thigh",
+          "name": "Original Recipe Chicken Thigh",
+          "calories": 280,
+          "protein": 19,
+          "carbs": 8,
+          "fat": 19,
+          "sodium": 910,
+          "addons": [
+            {
+              "name": "BBQ Dipping Sauce (1 cup)",
+              "calories": 45,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 150
+            }
+          ]
+        },
+        {
+          "id": "or-drumstick",
+          "name": "Original Recipe Drumstick",
+          "calories": 130,
+          "protein": 12,
+          "carbs": 4,
+          "fat": 8,
+          "sodium": 430,
+          "addons": []
+        },
+        {
+          "id": "or-wing",
+          "name": "Original Recipe Whole Wing",
+          "calories": 130,
+          "protein": 10,
+          "carbs": 3,
+          "fat": 8,
+          "sodium": 380,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "extra-crispy",
+      "name": "Extra Crispy Chicken",
+      "items": [
+        {
+          "id": "ec-breast",
+          "name": "Extra Crispy Chicken Breast",
+          "calories": 530,
+          "protein": 35,
+          "carbs": 18,
+          "fat": 35,
+          "sodium": 1150,
+          "addons": [
+            {
+              "name": "BBQ Dipping Sauce (1 cup)",
+              "calories": 45,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 150
+            }
+          ]
+        },
+        {
+          "id": "ec-thigh",
+          "name": "Extra Crispy Chicken Thigh",
+          "calories": 330,
+          "protein": 22,
+          "carbs": 9,
+          "fat": 23,
+          "sodium": 700,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "tenders-sandwiches",
+      "name": "Tenders, Nuggets & Sandwiches",
+      "items": [
+        {
+          "id": "or-tender-1",
+          "name": "Original Recipe Tender (1 piece)",
+          "calories": 170,
+          "protein": 11,
+          "carbs": 20,
+          "fat": 6,
+          "sodium": 400,
+          "addons": [
+            {
+              "name": "Honey Mustard Dipping Sauce (1 cup)",
+              "calories": 110,
+              "protein": 0,
+              "carbs": 6,
+              "fat": 9,
+              "sodium": 120
+            },
+            {
+              "name": "Ranch Dipping Sauce (1 cup)",
+              "calories": 130,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 14,
+              "sodium": 240
+            },
+            {
+              "name": "BBQ Dipping Sauce (1 cup)",
+              "calories": 45,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 150
+            }
+          ]
+        },
+        {
+          "id": "kentucky-fried-nugget-1",
+          "name": "Kentucky Fried Nuggets (1 piece)",
+          "calories": 35,
+          "protein": 3,
+          "carbs": 1,
+          "fat": 1.5,
+          "sodium": 140,
+          "addons": [
+            {
+              "name": "BBQ Dipping Sauce (1 cup)",
+              "calories": 45,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 0,
+              "sodium": 150
+            },
+            {
+              "name": "Ranch Dipping Sauce (1 cup)",
+              "calories": 130,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 14,
+              "sodium": 240
+            }
+          ]
+        },
+        {
+          "id": "chicken-sandwich",
+          "name": "Classic Chicken Sandwich",
+          "calories": 650,
+          "protein": 34,
+          "carbs": 49,
+          "fat": 35,
+          "sodium": 1260,
+          "addons": [
+            {
+              "name": "KFC Sauce (1 cup)",
+              "calories": 90,
+              "protein": 0,
+              "carbs": 5,
+              "fat": 8,
+              "sodium": 170
+            }
+          ]
+        },
+        {
+          "id": "famous-bowl",
+          "name": "Famous Bowl",
+          "calories": 590,
+          "protein": 31,
+          "carbs": 67,
+          "fat": 22,
+          "sodium": 2160,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Sides",
+      "items": [
+        {
+          "id": "mashed-potatoes-gravy",
+          "name": "Mashed Potatoes with Gravy (individual)",
+          "calories": 130,
+          "protein": 3,
+          "carbs": 20,
+          "fat": 4.5,
+          "sodium": 520,
+          "addons": []
+        },
+        {
+          "id": "coleslaw",
+          "name": "Coleslaw (individual)",
+          "calories": 170,
+          "protein": 1,
+          "carbs": 14,
+          "fat": 12,
+          "sodium": 180,
+          "addons": []
+        },
+        {
+          "id": "mac-cheese",
+          "name": "Mac & Cheese (individual)",
+          "calories": 140,
+          "protein": 5,
+          "carbs": 17,
+          "fat": 6,
+          "sodium": 590,
+          "addons": []
+        },
+        {
+          "id": "biscuit",
+          "name": "Biscuit",
+          "calories": 180,
+          "protein": 4,
+          "carbs": 22,
+          "fat": 8,
+          "sodium": 520,
+          "addons": [
+            {
+              "name": "Honey Sauce Packet",
+              "calories": 30,
+              "protein": 0,
+              "carbs": 8,
+              "fat": 0,
+              "sodium": 0
+            }
+          ]
+        },
+        {
+          "id": "secret-fries",
+          "name": "Secret Recipe Fries (individual)",
+          "calories": 320,
+          "protein": 5,
+          "carbs": 41,
+          "fat": 15,
+          "sodium": 1100,
+          "addons": []
+        }
+      ]
+    }
+  ]
+}

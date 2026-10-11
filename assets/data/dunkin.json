@@ -1,0 +1,208 @@
+{
+  "brand": "Dunkin'",
+  "slug": "dunkin",
+  "note": "Values are Dunkin's official U.S. nutrition figures (Nutrition Guide last updated August 19, 2026), checked on September 25, 2026. Confirm current figures with Dunkin', especially for allergies or medical diets.",
+  "meta": {
+    "market": "US",
+    "market_label": "United States",
+    "source_name": "Dunkin' Nutrition Guide (U.S., updated 08-19-2026)",
+    "source_url": "https://www.dunkindonuts.com/en/nutrition",
+    "source_type": "Official restaurant nutrition information",
+    "values_origin": "Every item was checked on 2026-09-25 against Dunkin's official U.S. Nutrition Guide PDF (last updated 08-19-2026) that dunkindonuts.com links to. Coffee variations are listed as Dunkin' publishes them (for example, with cream, or with cream and sugar) instead of as add-ons.",
+    "status": "verified",
+    "last_reviewed": "2026-09-25",
+    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "addon_macros": "Dunkin' publishes finished-drink nutrition rather than per-add-on values, so this calculator lists drink variations as separate items and has no add-ons.",
+    "spot_checks": [],
+    "changelog": [
+      {
+        "date": "2026-09-25",
+        "change": "Added provenance metadata (market, official reference, review status). Nutrition values unchanged."
+      },
+      {
+        "date": "2026-09-25",
+        "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: glazed-munchkins-4. New ids: bacon-egg-cheese-wake-up-wrap, glazed-munchkin-1, iced-coffee-cream-medium, sausage-egg-cheese-wake-up-wrap."
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "donuts",
+      "name": "Donuts & Munchkins",
+      "items": [
+        {
+          "id": "glazed-donut",
+          "name": "Glazed Donut",
+          "calories": 240,
+          "protein": 4,
+          "carbs": 33,
+          "fat": 11,
+          "sodium": 270,
+          "addons": []
+        },
+        {
+          "id": "chocolate-frosted-donut",
+          "name": "Chocolate Frosted Donut",
+          "calories": 260,
+          "protein": 4,
+          "carbs": 34,
+          "fat": 11,
+          "sodium": 290,
+          "addons": []
+        },
+        {
+          "id": "boston-kreme-donut",
+          "name": "Boston Kreme Donut",
+          "calories": 270,
+          "protein": 5,
+          "carbs": 39,
+          "fat": 11,
+          "sodium": 320,
+          "addons": []
+        },
+        {
+          "id": "glazed-munchkin-1",
+          "name": "Glazed Munchkins Donut Hole (1 piece)",
+          "calories": 60,
+          "protein": 1,
+          "carbs": 7,
+          "fat": 3,
+          "sodium": 60,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "breakfast",
+      "name": "Breakfast",
+      "items": [
+        {
+          "id": "bacon-egg-cheese-croissant",
+          "name": "Bacon, Egg & Cheese on Croissant",
+          "calories": 520,
+          "protein": 19,
+          "carbs": 34,
+          "fat": 34,
+          "sodium": 870,
+          "addons": []
+        },
+        {
+          "id": "sausage-egg-cheese-muffin",
+          "name": "Sausage, Egg & Cheese on English Muffin",
+          "calories": 560,
+          "protein": 21,
+          "carbs": 40,
+          "fat": 35,
+          "sodium": 1140,
+          "addons": []
+        },
+        {
+          "id": "egg-cheese-wake-up-wrap",
+          "name": "Egg & Cheese Wake-Up Wrap",
+          "calories": 180,
+          "protein": 7,
+          "carbs": 14,
+          "fat": 10,
+          "sodium": 470,
+          "addons": []
+        },
+        {
+          "id": "bacon-egg-cheese-wake-up-wrap",
+          "name": "Bacon, Egg & Cheese Wake-Up Wrap",
+          "calories": 220,
+          "protein": 10,
+          "carbs": 15,
+          "fat": 13,
+          "sodium": 590,
+          "addons": []
+        },
+        {
+          "id": "sausage-egg-cheese-wake-up-wrap",
+          "name": "Sausage, Egg & Cheese Wake-Up Wrap",
+          "calories": 280,
+          "protein": 10,
+          "carbs": 15,
+          "fat": 20,
+          "sodium": 690,
+          "addons": []
+        },
+        {
+          "id": "hash-browns",
+          "name": "Hash Browns (6 pieces)",
+          "calories": 110,
+          "protein": 1,
+          "carbs": 13,
+          "fat": 6,
+          "sodium": 360,
+          "addons": []
+        },
+        {
+          "id": "avocado-toast",
+          "name": "Avocado Toast",
+          "calories": 240,
+          "protein": 6,
+          "carbs": 34,
+          "fat": 11,
+          "sodium": 530,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Coffee & Drinks (Medium)",
+      "items": [
+        {
+          "id": "iced-coffee-black-medium",
+          "name": "Iced Coffee, Black (Medium)",
+          "calories": 5,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 15,
+          "addons": []
+        },
+        {
+          "id": "iced-coffee-cream-medium",
+          "name": "Iced Coffee with Cream (Medium)",
+          "calories": 90,
+          "protein": 2,
+          "carbs": 1,
+          "fat": 9,
+          "sodium": 45,
+          "addons": []
+        },
+        {
+          "id": "iced-coffee-cream-sugar-medium",
+          "name": "Iced Coffee with Cream & Sugar (Medium)",
+          "calories": 190,
+          "protein": 2,
+          "carbs": 27,
+          "fat": 9,
+          "sodium": 45,
+          "addons": []
+        },
+        {
+          "id": "coolatta-medium",
+          "name": "Blue Raspberry Coolatta (Medium)",
+          "calories": 350,
+          "protein": 0,
+          "carbs": 84,
+          "fat": 0,
+          "sodium": 45,
+          "addons": []
+        },
+        {
+          "id": "hot-latte-medium",
+          "name": "Hot Latte with Whole Milk (Medium)",
+          "calories": 170,
+          "protein": 9,
+          "carbs": 14,
+          "fat": 9,
+          "sodium": 125,
+          "addons": []
+        }
+      ]
+    }
+  ]
+}
