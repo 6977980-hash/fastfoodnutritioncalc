@@ -11,7 +11,7 @@
     "values_origin": "Every ingredient was checked on 2026-09-25 against the U.S. Nutrition Facts sheet that chipotle.com's Nutrition Calculator links to as its full nutrition facts (OCT-2024-US edition).",
     "status": "verified",
     "last_reviewed": "2026-09-25",
-    "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
+    "serving_basis": "One standard serving of each ingredient, as Chipotle portions it. Build your meal by adding each ingredient as its own line.",
     "addon_macros": "Chipotle is built ingredient by ingredient, so there are no add-ons: add each ingredient as its own line.",
     "spot_checks": [],
     "changelog": [

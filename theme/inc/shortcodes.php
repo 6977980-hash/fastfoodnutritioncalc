@@ -46,7 +46,7 @@ function ffnc_shortcode_calculator( $atts ) {
 			<script type="application/json" class="ffnc-calc-data"><?php echo wp_json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP ); ?></script>
 		<?php endif; ?>
 		<div class="ffnc-calc-loading"><?php esc_html_e( 'Loading calculator…', 'ffnc' ); ?></div>
-		<noscript><p class="ffnc-calc-error"><?php esc_html_e( 'The interactive calculator needs JavaScript. The complete nutrition table for every menu item is further down this page.', 'ffnc' ); ?></p></noscript>
+		<noscript><p class="ffnc-calc-error"><?php esc_html_e( 'The interactive calculator needs JavaScript. The complete nutrition table for every item in this calculator is further down this page.', 'ffnc' ); ?></p></noscript>
 	</div>
 	<?php
 	return ob_get_clean();

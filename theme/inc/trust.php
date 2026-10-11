@@ -143,7 +143,16 @@ function ffnc_render_data_source_box( $slug ) {
 			<?php if ( $report ) : ?><a href="<?php echo esc_url( add_query_arg( 'brand', $slug, $report ) ); ?>" rel="nofollow"><?php esc_html_e( 'Report a nutrition data error', 'ffnc' ); ?></a>
 			<?php elseif ( $contact ) : ?><a href="<?php echo esc_url( $contact ); ?>"><?php esc_html_e( 'Report a nutrition data error', 'ffnc' ); ?></a><?php endif; ?>
 		</p>
-		<p class="ffnc-source-independent"><?php echo esc_html( sprintf( /* translators: %s brand */ __( 'This site is independent and is not affiliated with, endorsed by, or sponsored by %s. Always confirm current values with the restaurant, especially for allergies or medical diets.', 'ffnc' ), $name ) ); ?></p>
+		<?php
+		// The page's own [ff_disclaimer_note] already states the no-affiliation
+		// point; don't repeat it in the same page's source box.
+		$ffnc_has_note = get_post() && has_shortcode( get_post()->post_content, 'ff_disclaimer_note' );
+		?>
+		<p class="ffnc-source-independent"><?php
+		echo esc_html( $ffnc_has_note
+			? __( 'Always confirm current values with the restaurant, especially for allergies or medical diets.', 'ffnc' )
+			: sprintf( /* translators: %s brand */ __( 'This site is independent and is not affiliated with, endorsed by, or sponsored by %s. Always confirm current values with the restaurant, especially for allergies or medical diets.', 'ffnc' ), $name ) );
+		?></p>
 	</section>
 	<?php
 	return ob_get_clean();

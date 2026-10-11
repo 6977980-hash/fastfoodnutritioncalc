@@ -31,6 +31,7 @@ get_header();
 					<a href="<?php the_permalink(); ?>" class="ffnc-blog-card-thumb" tabindex="-1" aria-hidden="true"><?php the_post_thumbnail( 'medium', array( 'loading' => 'lazy' ) ); ?></a>
 				<?php endif; ?>
 				<h2 class="ffnc-blog-card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<p class="ffnc-post-meta"><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></p>
 				<div class="ffnc-blog-card-excerpt"><?php the_excerpt(); ?></div>
 				<a class="ffnc-read-more" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read more', 'ffnc' ); ?><span class="screen-reader-text"> <?php the_title(); ?></span></a>
 			</article>
