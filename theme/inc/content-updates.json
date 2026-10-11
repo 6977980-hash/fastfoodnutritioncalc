@@ -65,6 +65,10 @@
    {
     "find": "(last updated September 15, 2026) and were checked line by line on September 25, 2026.",
     "replace": "(last updated October 2, 2026) and were checked line by line on October 11, 2026."
+   },
+   {
+    "find": "A Original Recipe chicken breast comes in at roughly 390 calories with about 39g of protein",
+    "replace": "An Original Recipe chicken breast has 390 calories and 39g of protein"
    }
   ]
  },
