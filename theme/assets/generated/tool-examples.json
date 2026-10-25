@@ -160,6 +160,48 @@
      "sodium": 1130
     }
    },
+   "popeyes": {
+    "lines": [
+     {
+      "id": "chicken-leg",
+      "qty": 1
+     },
+     {
+      "id": "blackened-tenders-5",
+      "qty": 1
+     },
+     {
+      "id": "mashed-potatoes-regular",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 590,
+     "protein": 65,
+     "carbs": 26,
+     "fat": 27,
+     "sodium": 2720
+    }
+   },
+   "qdoba": {
+    "lines": [
+     {
+      "id": "keto-bowl-chicken",
+      "qty": 1
+     },
+     {
+      "id": "black-beans-with-cheese-side",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 550,
+     "protein": 42,
+     "carbs": 24,
+     "fat": 33,
+     "sodium": 1280
+    }
+   },
    "subway": {
     "lines": [
      {
@@ -370,6 +412,36 @@
      "carbs": 22,
      "fat": 16.5,
      "sodium": 740
+    }
+   },
+   "popeyes": {
+    "lines": [
+     {
+      "id": "blackened-tenders-5",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 280,
+     "protein": 47,
+     "carbs": 4,
+     "fat": 9,
+     "sodium": 1430
+    }
+   },
+   "qdoba": {
+    "lines": [
+     {
+      "id": "keto-bowl-chicken",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 400,
+     "protein": 33,
+     "carbs": 11,
+     "fat": 26,
+     "sodium": 990
     }
    },
    "subway": {

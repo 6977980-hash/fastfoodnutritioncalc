@@ -35,7 +35,7 @@ function ffnc_get_homepage_seo_title() {
 }
 
 function ffnc_get_homepage_seo_description() {
-	return __( 'Free fast food nutrition calculators for 15 U.S. restaurant chains. Build an order and see calories, protein, carbs, fat and sodium, with the data source shown for every menu.', 'ffnc' );
+	return __( 'Free fast food nutrition calculators for 17 U.S. restaurant chains. Build an order and see calories, protein, carbs, fat and sodium, with the data source shown for every menu.', 'ffnc' );
 }
 
 function ffnc_get_seo_title() {

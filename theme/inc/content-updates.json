@@ -882,5 +882,89 @@
     "insert_after": "<h2>Who is responsible</h2>\n<p>The site is run by Ali Ahmad, its founder and editor, who writes the guides, builds the calculators and checks every dataset against the restaurant’s official nutrition information. More on the <a href=\"/about/\">About page</a>.</p>"
    }
   ]
+ },
+ {
+  "page": "high-protein-fast-food",
+  "changes": [
+   {
+    "find": "Here is every main item with at least 25g of protein across our 15 chains, best ratio first.",
+    "replace": "Here is every main item with at least 25g of protein across our 17 chains, best ratio first."
+   }
+  ],
+  "meta": {
+   "_ffnc_meta_description": "Every fast food main with 25g+ protein from 17 chains, ranked by protein per 100 calories using official nutrition data."
+  }
+ },
+ {
+  "page": "fast-food-under-500-calories",
+  "changes": [],
+  "meta": {
+   "_ffnc_meta_description": "Fast food main items at 500 calories or less from 17 chains, sorted by protein, with official nutrition values."
+  }
+ },
+ {
+  "page": "low-carb-fast-food",
+  "changes": [],
+  "meta": {
+   "_ffnc_meta_description": "Fast food main items with 15g of carbs or less as served, from official nutrition data for 17 chains."
+  }
+ },
+ {
+  "page": "low-sodium-fast-food",
+  "changes": [],
+  "meta": {
+   "_ffnc_meta_description": "Fast food main items with 600mg of sodium or less, from official nutrition data for 17 chains."
+  }
+ },
+ {
+  "page": "diabetic-friendly-fast-food",
+  "changes": [],
+  "meta": {
+   "_ffnc_meta_description": "Fast food main items with 30g of carbs or less, ranked by protein, plus the sides and drinks that add the most carbs. Official nutrition data for 17 chains."
+  }
+ },
+ {
+  "page": "vegetarian-fast-food",
+  "changes": [],
+  "title": {
+   "find": "Vegetarian Fast Food Options at 15 Chains",
+   "replace": "Vegetarian Fast Food Options at 17 Chains"
+  }
+ },
+ {
+  "page": "fast-food-cheat-sheets",
+  "changes": [],
+  "title": {
+   "find": "Fast Food Cheat Sheets: Best Picks at 15 Chains",
+   "replace": "Fast Food Cheat Sheets: Best Picks at 17 Chains"
+  }
+ },
+ {
+  "page": "fast-food-nutrition-report",
+  "changes": [
+   {
+    "find": "nutrition data for 15 fast food chains up to date for our calculators.",
+    "replace": "nutrition data for 17 fast food chains up to date for our calculators."
+   }
+  ],
+  "meta": {
+   "_ffnc_seo_title": "Fast Food Nutrition Report 2026: Data From 17 U.S. Chains"
+  }
+ },
+ {
+  "page": "sodium-in-fast-food",
+  "post_type": "post",
+  "changes": [],
+  "meta": {
+   "_ffnc_meta_description": "Average and highest sodium per main item at 17 U.S. chains, how that compares with the 2,300 mg daily limit, and easy ways to cut back."
+  }
+ },
+ {
+  "page": "fast-food-on-glp-1-small-portions",
+  "post_type": "post",
+  "changes": [],
+  "meta": {
+   "_ffnc_meta_description": "Eating less on Ozempic, Wegovy, Mounjaro or Zepbound? How to pick small fast food orders that still give you protein, with the best items from 17 chains."
+  }
  }
 ]
