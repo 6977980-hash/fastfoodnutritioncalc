@@ -43,6 +43,11 @@
 		return Math.round(n * 10) / 10;
 	}
 
+	/** People to split an order between: a whole number from 1 to 20. */
+	function splitCount(v) {
+		return Math.max(1, Math.min(20, Math.floor(num(v)) || 1));
+	}
+
 	function clampQty(q) {
 		q = Math.floor(num(q));
 		if (q < 0) { return 0; }
@@ -314,15 +319,19 @@
 
 	/**
 	 * Read a pasted order (delivery app cart, receipt, a note) line by line.
+	 * Lines may also list items separated by commas ("2 Big Mac, 1 medium
+	 * fries"); commas inside an item's own name are kept when the whole
+	 * phrase matches better.
 	 * Returns { matched: [{ item, qty, line, score }], unmatched: [line] }.
 	 */
 	function parseCart(text, data) {
 		var items = allItems(data).map(function (x) { return x.item; });
 		var matched = [];
 		var unmatched = [];
-		String(text || '').split(/\r?\n|;/).forEach(function (raw) {
+
+		function matchPiece(raw) {
 			var line = raw.replace(/\$\s*\d+(\.\d+)?/g, ' ').trim();
-			if (!line || line.length < 3) { return; }
+			if (!line || line.length < 3) { return { skip: true }; }
 			var qty = 1;
 			var m = /^\s*(\d{1,2})\s*(?:x|×)\s+/i.exec(line) || /^\s*(\d{1,2})\s+(?!pc\b|piece|pieces|ct\b|count\b|-?inch|")/i.exec(line);
 			if (m) { qty = Number(m[1]); line = line.slice(m[0].length); }
@@ -335,10 +344,32 @@
 				if (s > bestScore) { bestScore = s; best = it; }
 			});
 			if (best && bestScore >= 0.5) {
-				matched.push({ item: best, qty: clampQty(qty) || 1, line: raw.trim(), score: round1(bestScore) });
-			} else if (/[a-z]{3}/i.test(line)) {
-				unmatched.push(raw.trim());
+				return { item: best, qty: clampQty(qty) || 1, line: raw.trim(), score: round1(bestScore), value: bestScore - 0.5 };
 			}
+			return /[a-z]{3}/i.test(line) ? { miss: raw.trim(), value: -0.25 } : { skip: true };
+		}
+
+		// Thousands separators ("1,000") are not item separators.
+		String(text || '').replace(/(\d),(?=\d{3}(?!\d))/g, '$1').split(/\r?\n|;/).forEach(function (raw) {
+			var parts = raw.split(',');
+			// best[i] = best way to read parts[0..i): groups of adjacent parts,
+			// scored by how well each matches (a miss costs a little).
+			var best = [{ value: 0, groups: [] }];
+			for (var i = 1; i <= parts.length; i++) {
+				best[i] = null;
+				for (var j = Math.max(0, i - 6); j < i; j++) { // An item name has at most a few commas.
+					var r = matchPiece(parts.slice(j, i).join(','));
+					var v = best[j].value + (r.skip ? 0 : r.value);
+					if (!best[i] || v > best[i].value) { best[i] = { value: v, groups: best[j].groups.concat([r]) }; }
+				}
+			}
+			best[parts.length].groups.forEach(function (r) {
+				if (r.item) {
+					matched.push({ item: r.item, qty: r.qty, line: r.line, score: r.score });
+				} else if (r.miss) {
+					unmatched.push(r.miss);
+				}
+			});
 		});
 		return { matched: matched, unmatched: unmatched };
 	}
@@ -461,6 +492,7 @@
 		lineTotals: lineTotals,
 		computeTotals: computeTotals,
 		clampQty: clampQty,
+		splitCount: splitCount,
 		hasCaloriesOnlyAddons: hasCaloriesOnlyAddons,
 		unavailableNutrients: unavailableNutrients,
 		hasUnavailableValues: hasUnavailableValues,
@@ -831,7 +863,9 @@
 			toolsEl.hidden = empty;
 			if (empty) { return; }
 			var t = computeTotals(state.order);
-			var n = Math.max(1, Math.min(20, Math.floor(num(splitIn.value)) || 1));
+			var n = splitCount(splitIn.value);
+			// Show the number the maths uses (the box allows 1 to 20 people).
+			if (splitIn.value !== '' && splitIn.value !== String(n)) { splitIn.value = n; }
 			splitOut.hidden = n < 2;
 			if (n > 1) {
 				splitOut.textContent = 'Each person: ' + fmt(t.calories / n) + ' cal, ' + fmt(t.protein / n) + 'g protein, ' +

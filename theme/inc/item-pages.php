@@ -289,11 +289,18 @@ add_action( 'admin_init', 'ffnc_ensure_generated_pages', 20 ); // After the tool
  * Shared bits
  * ---------------------------------------------------------------------- */
 
-/** Lighter items from the same menu category (same rule as the calculator). */
+/**
+ * Lighter items from the same menu category (same rule as the calculator).
+ *
+ * @return array{items: array[], keeps_protein: bool} keeps_protein is false when no
+ *               lighter item keeps 70% of the protein and the fallback is returned.
+ */
 function ffnc_item_swaps( $brand, $item, $limit = 3 ) {
-	$cal = ffnc_num( $item, 'calories' );
-	if ( null === $cal ) {
-		return array();
+	$none  = array( 'items' => array(), 'keeps_protein' => false );
+	$cal   = ffnc_num( $item, 'calories' );
+	$types = ffnc_item_types();
+	if ( null === $cal || ( isset( $types[ $brand ][ $item['id'] ] ) && 'ingredient' === $types[ $brand ][ $item['id'] ] ) ) {
+		return $none;
 	}
 	$lower = array_filter( ffnc_get_brand_items( $brand ), function ( $i ) use ( $item, $cal ) {
 		return $i['id'] !== $item['id'] && $i['category_name'] === $item['category_name'] && null !== ffnc_num( $i, 'calories' ) && ffnc_num( $i, 'calories' ) < $cal;
@@ -305,15 +312,15 @@ function ffnc_item_swaps( $brand, $item, $limit = 3 ) {
 		usort( $keep, function ( $a, $b ) {
 			return ffnc_num( $a, 'calories' ) <=> ffnc_num( $b, 'calories' );
 		} );
-		return array_slice( $keep, 0, $limit );
+		return array( 'items' => array_slice( $keep, 0, $limit ), 'keeps_protein' => true );
 	}
 	if ( ! $lower ) {
-		return array();
+		return $none;
 	}
 	usort( $lower, function ( $a, $b ) {
 		return ffnc_num( $b, 'calories' ) <=> ffnc_num( $a, 'calories' );
 	} );
-	return array_slice( $lower, 0, 1 );
+	return array( 'items' => array_slice( $lower, 0, 1 ), 'keeps_protein' => false );
 }
 
 /** The closest item of the same kind at each other chain, nearest calories first. */
@@ -516,7 +523,8 @@ function ffnc_shortcode_item_page( $atts ) {
 		<?php endif; ?>
 
 		<?php
-		$swaps   = ffnc_item_swaps( $slug, $main );
+		$swap_r  = ffnc_item_swaps( $slug, $main );
+		$swaps   = $swap_r['items'];
 		$addons  = array_filter( (array) ( isset( $main['addons'] ) ? $main['addons'] : array() ), function ( $a ) { return ffnc_num( $a, 'calories' ) > 0; } );
 		if ( $swaps || $addons ) :
 			?>
@@ -603,13 +611,23 @@ function ffnc_shortcode_item_page( $atts ) {
 			$qas[ sprintf( /* translators: %s item */ __( 'How many calories are in each size of %s?', 'ffnc' ), $name ) ] = implode( '; ', $sizes ) . ' ' . __( 'calories.', 'ffnc' );
 		}
 		if ( $swaps ) {
-			$qas[ sprintf( /* translators: %s brand */ __( 'What is a lighter choice at %s?', 'ffnc' ), $brand['name'] ) ] = sprintf(
-				/* translators: 1 item 2 cal 3 saved */
-				__( 'The %1$s has %2$s calories, %3$s fewer, and still keeps most of the protein.', 'ffnc' ),
-				$swaps[0]['name'],
-				ffnc_fmt_num( ffnc_num( $swaps[0], 'calories' ) ),
-				ffnc_fmt_num( $cal - ffnc_num( $swaps[0], 'calories' ) )
-			);
+			$qas[ sprintf( /* translators: %s brand */ __( 'What is a lighter choice at %s?', 'ffnc' ), $brand['name'] ) ] = $swap_r['keeps_protein']
+				? sprintf(
+					/* translators: 1 item 2 cal 3 saved */
+					__( 'The %1$s has %2$s calories, %3$s fewer, and still keeps most of the protein.', 'ffnc' ),
+					$swaps[0]['name'],
+					ffnc_fmt_num( ffnc_num( $swaps[0], 'calories' ) ),
+					ffnc_fmt_num( $cal - ffnc_num( $swaps[0], 'calories' ) )
+				)
+				: sprintf(
+					/* translators: 1 item 2 cal 3 saved 4 swap protein 5 this item's protein */
+					__( 'The %1$s has %2$s calories, %3$s fewer, but less protein (%4$sg vs %5$sg).', 'ffnc' ),
+					$swaps[0]['name'],
+					ffnc_fmt_num( ffnc_num( $swaps[0], 'calories' ) ),
+					ffnc_fmt_num( $cal - ffnc_num( $swaps[0], 'calories' ) ),
+					ffnc_fmt_num( ffnc_num( $swaps[0], 'protein' ) ),
+					ffnc_fmt_num( ffnc_num( $main, 'protein' ) )
+				);
 		}
 		echo ffnc_render_faq( $qas ); // phpcs:ignore
 
