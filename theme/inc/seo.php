@@ -72,7 +72,7 @@ function ffnc_get_seo_description() {
 				$meta = ffnc_get_dataset_meta( $slug );
 				return sprintf(
 					/* translators: 1 brand 2 item count 3 market */
-					__( 'Free %1$s calorie calculator: add up calories, protein, carbs, fat and sodium for %2$d %3$s menu items, with a full nutrition table and data source.', 'ffnc' ),
+					__( 'Free %1$s calorie calculator: add up calories, protein, carbs, fat and sodium for %2$d %3$s menu items and sizes, with a full nutrition table and data source.', 'ffnc' ),
 					$brand['name'],
 					count( ffnc_get_brand_items( $slug ) ),
 					$meta['market'] ? $meta['market'] : ''

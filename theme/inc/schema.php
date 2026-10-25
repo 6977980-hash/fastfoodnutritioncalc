@@ -84,8 +84,8 @@ function ffnc_output_head_schema() {
 			'datePublished'    => get_the_date( 'c' ),
 			'dateModified'     => get_the_modified_date( 'c' ),
 			'mainEntityOfPage' => get_permalink(),
-			// Authored by the site (no invented person or credentials).
-			'author'           => array( '@id' => $org_id ),
+			// Written by the site's owner (real person, no invented credentials).
+			'author'           => array( '@id' => home_url( '/#owner' ) ),
 			'publisher'        => array( '@id' => $org_id ),
 			'isPartOf'         => array( '@id' => $site_id ),
 		);
@@ -93,6 +93,9 @@ function ffnc_output_head_schema() {
 			$article['image'] = get_the_post_thumbnail_url( get_the_ID(), 'large' );
 		}
 		$graph[] = $article;
+		$graph[] = ffnc_owner_schema();
+	} elseif ( is_page( 'about' ) ) {
+		$graph[] = ffnc_owner_schema();
 	}
 
 	$schemas = array(

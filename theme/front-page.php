@@ -21,7 +21,7 @@ $reviewed   = ffnc_get_recently_reviewed();
 	<div class="ffnc-container ffnc-hero-inner">
 		<h1><?php esc_html_e( 'Fast Food Nutrition Calculators for Your Favorite Restaurant Menus', 'ffnc' ); ?></h1>
 		<p class="ffnc-hero-sub">
-			<?php echo esc_html( sprintf( /* translators: 1 brands 2 items */ __( 'Build your order from %1$d U.S. fast food chains and see calories, protein, carbs, fat and sodium add up as you go — %2$d menu items, free, independent, with the data source shown on every calculator.', 'ffnc' ), $live_count, $item_count ) ); ?>
+			<?php echo esc_html( sprintf( /* translators: 1 brands 2 items */ __( 'Build your order from %1$d U.S. fast food chains and see calories, protein, carbs, fat and sodium add up as you go — %2$d menu items and sizes, free, independent, with the data source shown on every calculator.', 'ffnc' ), $live_count, $item_count ) ); ?>
 		</p>
 		<div class="ffnc-hero-ctas">
 			<a class="ffnc-btn ffnc-btn-primary" href="<?php echo esc_url( $hub_url ); ?>"><?php esc_html_e( 'Start Calculating', 'ffnc' ); ?></a>
@@ -82,7 +82,7 @@ $reviewed   = ffnc_get_recently_reviewed();
 <section class="ffnc-container ffnc-stats">
 	<div class="ffnc-stats-grid">
 		<div class="ffnc-stat"><span class="ffnc-stat-number"><?php echo esc_html( $live_count ); ?></span><span><?php esc_html_e( 'Restaurant Brands', 'ffnc' ); ?></span></div>
-		<div class="ffnc-stat"><span class="ffnc-stat-number"><?php echo esc_html( number_format_i18n( $item_count ) ); ?></span><span><?php esc_html_e( 'Menu Items Covered', 'ffnc' ); ?></span></div>
+		<div class="ffnc-stat"><span class="ffnc-stat-number"><?php echo esc_html( number_format_i18n( $item_count ) ); ?></span><span><?php esc_html_e( 'Menu Items & Sizes', 'ffnc' ); ?></span></div>
 		<div class="ffnc-stat"><span class="ffnc-stat-number">100%</span><span><?php esc_html_e( 'Free to Use', 'ffnc' ); ?></span></div>
 	</div>
 </section>

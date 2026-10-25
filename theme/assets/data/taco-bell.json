@@ -1,16 +1,16 @@
 {
   "brand": "Taco Bell",
   "slug": "taco-bell",
-  "note": "Values are Taco Bell's official U.S. nutrition figures, checked on September 25, 2026. Recipes change and vary by location — confirm current figures with Taco Bell, especially for allergies or medical diets.",
+  "note": "Values are Taco Bell's official U.S. nutrition figures (the tacobell.com nutrition table, served by Nutritionix), checked on October 25, 2026. Recipes change and vary by location — confirm current figures with Taco Bell, especially for allergies or medical diets.",
   "meta": {
     "market": "US",
     "market_label": "United States",
-    "source_name": "Taco Bell Nutrition Information (U.S.)",
+    "source_name": "Taco Bell Nutrition Information (U.S., tacobell.com table served by Nutritionix)",
     "source_url": "https://www.tacobell.com/nutrition/info",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item was checked on 2026-09-25 against the official nutrition label each tacobell.com product page links to (served through Nutritionix) and Taco Bell's Full Nutrition Information table (updated 09/24/2026).",
+    "values_origin": "Every item was checked on 2026-10-25 against Taco Bell's official U.S. nutrition table that tacobell.com/nutrition/info serves through Nutritionix (nutritionix.com/taco-bell/menu/premium): all 12 items match on calories, fat, carbohydrates, protein and sodium. First full review 2026-09-25.",
     "status": "verified",
-    "last_reviewed": "2026-09-25",
+    "last_reviewed": "2026-10-25",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
     "addon_macros": "Taco Bell publishes only the calories an add-on adds (\"Adds X Cal\" on tacobell.com). Add-on protein, carbs, fat and sodium are not published, so they are shown as not available and are not counted.",
     "spot_checks": [],
@@ -22,6 +22,10 @@
       {
         "date": "2026-09-25",
         "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed."
+      },
+      {
+        "date": "2026-10-25",
+        "change": "Re-checked all 12 items against Taco Bell's official U.S. nutrition table (tacobell.com, served by Nutritionix); every value matches. Nutrition values unchanged."
       }
     ]
   },

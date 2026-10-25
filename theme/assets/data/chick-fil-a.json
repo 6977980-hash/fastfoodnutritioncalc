@@ -1,14 +1,14 @@
 {
   "brand": "Chick-fil-A",
   "slug": "chick-fil-a",
-  "note": "Values are Chick-fil-A's official U.S. nutrition figures, checked on September 25, 2026. Salads include the default chicken and dressing. Confirm current figures with Chick-fil-A, especially for allergies or medical diets.",
+  "note": "Values are Chick-fil-A's official U.S. nutrition figures, checked on September 25, 2026; items added and checked on October 11, 2026. Salads include the default chicken and dressing. Confirm current figures with Chick-fil-A, especially for allergies or medical diets.",
   "meta": {
     "market": "US",
     "market_label": "United States",
     "source_name": "Chick-fil-A Nutrition & Allergens (U.S.)",
     "source_url": "https://www.chick-fil-a.com/nutrition-allergens",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item was checked on 2026-09-25 against chick-fil-a.com (Nutrition & Allergens page and individual menu-item pages). Salads are listed as Chick-fil-A serves them, including the default chicken and dressing.",
+    "values_origin": "Every item was checked on 2026-09-25 against chick-fil-a.com (Nutrition & Allergens page and individual menu-item pages). On 2026-10-11 the two chicken sandwiches were re-checked and 11 items were added and checked. Salads are listed as Chick-fil-A serves them, including the default chicken and dressing.",
     "status": "verified",
     "last_reviewed": "2026-10-11",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
@@ -31,7 +31,8 @@
         "date": "2026-10-11",
         "change": "Added items from chick-fil-a.com menu pages and the official nutrition & allergens table. New ids: deluxe-sandwich, spicy-deluxe-sandwich, cool-wrap, grilled-nuggets-8, grilled-nuggets-12, chick-n-minis-4, waffle-fries-small, waffle-fries-large, spicy-southwest-salad, chicken-biscuit, hash-brown-scramble-burrito."
       }
-    ]
+    ],
+    "review_detail": "Checked September 25, 2026; items added and checked October 11, 2026."
   },
   "categories": [
     {

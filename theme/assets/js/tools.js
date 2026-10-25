@@ -288,6 +288,10 @@
 		salad: 'salads', soup: 'soups', entree: 'entrees', side: 'sides', other: 'items'
 	};
 
+	function sizeClass(name) {
+		return /\b(double|triple|stacked?|baconator|2 patties|3 patties|quad)\b/i.test(name) ? 'multi' : 'single';
+	}
+
 	function sameCraving(mount, cfg) {
 		var brands = cfg.brands.filter(function (b) { return b.slug !== 'chipotle'; });
 		mount.innerHTML =
@@ -317,9 +321,9 @@
 				if (b === brand) { return; }
 				var same = typed(b).filter(function (x) { return x.type === src.type && !/family/i.test(x.item.name); });
 				if (!same.length) { return; }
-				var closest = same.reduce(function (p, q) {
-					return Math.abs(q.item.calories - src.item.calories) < Math.abs(p.item.calories - src.item.calories) ? q : p;
-				});
+				// Same size class (single vs double patty) first, then nearest calories.
+				var gap = function (x) { return Math.abs(x.item.calories - src.item.calories) + (sizeClass(x.item.name) === sizeClass(src.item.name) ? 0 : 100000); };
+				var closest = same.reduce(function (p, q) { return gap(q) < gap(p) ? q : p; });
 				var lightest = same.reduce(function (p, q) { return q.item.calories < p.item.calories ? q : p; });
 				rows.push({ brand: b, closest: closest.item, lightest: lightest.item });
 			});
@@ -333,7 +337,7 @@
 			};
 			out.innerHTML = '<p class="ffnc-tool-note">' + esc(src.item.name) + ' at ' + esc(brand.name) + ': ' + fmt(src.item.calories) + ' cal, ' +
 				fmt(src.item.protein) + 'g protein. Other chains’ ' + esc(TYPE_LABEL[src.type] || 'items') + ':</p>' +
-				(rows.length ? '<div class="ffnc-table-scroll" tabindex="0"><table class="ffnc-nutrition-table"><thead><tr><th scope="col">Restaurant</th><th scope="col">Closest match</th><th scope="col">Calories</th><th scope="col">Protein</th><th scope="col">Lightest of that kind</th></tr></thead><tbody>' +
+				(rows.length ? '<div class="ffnc-table-scroll" tabindex="0"><table class="ffnc-nutrition-table"><thead><tr><th scope="col">Restaurant</th><th scope="col">Similar-calorie match</th><th scope="col">Calories</th><th scope="col">Protein</th><th scope="col">Lightest of that kind</th></tr></thead><tbody>' +
 				rows.map(function (r) {
 					return '<tr><th scope="row">' + esc(r.brand.name) + '</th><td>' + link(r.brand, r.closest) + ' <span class="ffnc-muted">(' + diff(r.closest) + ')</span></td><td>' + fmt(r.closest.calories) + '</td><td>' + fmt(r.closest.protein) + 'g</td><td>' +
 						(r.lightest === r.closest ? 'same' : link(r.brand, r.lightest) + ' (' + fmt(r.lightest.calories) + ' cal)') + '</td></tr>';

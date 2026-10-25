@@ -19,6 +19,74 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * The person responsible for the site (About page, bylines, schema,
+ * privacy policy). Real details given by the owner; no credentials are
+ * claimed beyond what the owner stated.
+ *
+ * @return array{name: string, role: string, bio: string, same_as: string[]}
+ */
+function ffnc_site_owner() {
+	return apply_filters( 'ffnc_site_owner', array(
+		'name'    => 'Ali Ahmad',
+		'role'    => __( 'Founder and editor', 'ffnc' ),
+		'bio'     => __( 'Ali Ahmad is a web developer with a strong interest in health and nutrition. The site was built for people who work out and still want fast food now and then, so they can see exactly what they are eating, how much, and in what portion.', 'ffnc' ),
+		'same_as' => array( 'https://www.linkedin.com/in/ali-ahmad-chaudhry-12777486/' ),
+	) );
+}
+
+/** schema.org Person for the owner, linked from posts and the About page. */
+function ffnc_owner_schema() {
+	$o     = ffnc_site_owner();
+	$about = ffnc_page_url( 'about' );
+	return array_filter( array(
+		'@type'       => 'Person',
+		'@id'         => home_url( '/#owner' ),
+		'name'        => $o['name'],
+		'jobTitle'    => $o['role'],
+		'description' => $o['bio'],
+		'url'         => $about ? $about : home_url( '/' ),
+		'sameAs'      => $o['same_as'],
+		'worksFor'    => array( '@id' => home_url( '/#organization' ) ),
+	) );
+}
+
+/**
+ * Rank Math: blog posts are written by the owner (not the generic "Team"
+ * WordPress user), and the About page describes the owner.
+ *
+ * @param array $data JSON-LD entities keyed by id.
+ * @return array
+ */
+function ffnc_rank_math_owner_schema( $data ) {
+	if ( is_singular( 'post' ) ) {
+		foreach ( $data as $key => $entity ) {
+			$type = isset( $entity['@type'] ) ? (array) $entity['@type'] : array();
+			if ( array( 'Person' ) === $type && isset( $entity['@id'] ) && false !== strpos( $entity['@id'], '/author/' ) ) {
+				unset( $data[ $key ] );
+			}
+			if ( array_intersect( $type, array( 'Article', 'BlogPosting', 'NewsArticle' ) ) ) {
+				$data[ $key ]['author'] = array( '@id' => home_url( '/#owner' ) );
+			}
+		}
+		$data['ffncOwner'] = ffnc_owner_schema();
+	} elseif ( is_page( 'about' ) ) {
+		$data['ffncOwner'] = ffnc_owner_schema();
+	}
+	return $data;
+}
+add_filter( 'rank_math/json_ld', 'ffnc_rank_math_owner_schema', 100 );
+
+/** "Who runs this site" box for the About page ([ff_site_owner]). */
+add_shortcode( 'ff_site_owner', function () {
+	$o    = ffnc_site_owner();
+	$link = $o['same_as'] ? ' <a href="' . esc_url( $o['same_as'][0] ) . '" rel="noopener me" target="_blank">' . esc_html__( 'LinkedIn profile', 'ffnc' ) . '</a>' : '';
+	return '<section class="ffnc-owner" aria-labelledby="ffnc-owner-title"><h2 id="ffnc-owner-title">' . esc_html__( 'Who runs this site', 'ffnc' ) . '</h2>' .
+		'<p><strong>' . esc_html( $o['name'] ) . '</strong> · ' . esc_html( $o['role'] ) . '</p>' .
+		'<p>' . esc_html( $o['bio'] ) . $link . '</p>' .
+		'<p>' . esc_html( sprintf( /* translators: %s name */ __( '%s writes the guides, builds the calculators and checks every dataset against the restaurant’s official nutrition information. No dietitian or medical professional reviews the site at the moment.', 'ffnc' ), $o['name'] ) ) . '</p></section>';
+} );
+
+/**
  * Menu-similarity clusters used for default related-calculator links.
  */
 function ffnc_brand_clusters() {
@@ -91,7 +159,7 @@ function ffnc_render_data_source_box( $slug ) {
 			<?php if ( $meta['market_label'] ) : ?>
 				<div><dt><?php esc_html_e( 'Market', 'ffnc' ); ?></dt><dd><?php echo esc_html( sprintf( /* translators: %s market */ __( '%s menu only — values differ in other countries', 'ffnc' ), $meta['market_label'] ) ); ?></dd></div>
 			<?php endif; ?>
-			<div><dt><?php esc_html_e( 'Items covered', 'ffnc' ); ?></dt><dd><?php echo esc_html( sprintf( /* translators: %d count */ _n( '%d menu item', '%d menu items', count( $items ), 'ffnc' ), count( $items ) ) ); ?></dd></div>
+			<div><dt><?php esc_html_e( 'Items covered', 'ffnc' ); ?></dt><dd><?php echo esc_html( sprintf( /* translators: %d count */ _n( '%d menu item or size', '%d menu items and sizes', count( $items ), 'ffnc' ), count( $items ) ) ); ?></dd></div>
 			<div><dt><?php esc_html_e( 'Data source', 'ffnc' ); ?></dt><dd>
 				<?php if ( $verified ) : ?>
 					<?php esc_html_e( 'Official restaurant nutrition information', 'ffnc' ); ?>
@@ -116,6 +184,9 @@ function ffnc_render_data_source_box( $slug ) {
 				echo $meta['last_reviewed']
 					? '<time datetime="' . esc_attr( $meta['last_reviewed'] ) . '">' . esc_html( ffnc_format_review_date( $meta['last_reviewed'], 'F j, Y' ) ) . '</time>'
 					: esc_html__( 'Not yet reviewed', 'ffnc' );
+				if ( ! empty( $meta['review_detail'] ) ) {
+					echo ' <span class="ffnc-review-detail">' . esc_html( $meta['review_detail'] ) . '</span>';
+				}
 				?>
 			</dd></div>
 			<div><dt><?php esc_html_e( 'Serving basis', 'ffnc' ); ?></dt><dd><?php echo esc_html( ! empty( $meta['serving_basis'] ) ? $meta['serving_basis'] : __( 'One standard menu serving as named.', 'ffnc' ) ); ?></dd></div>

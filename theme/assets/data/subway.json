@@ -1,14 +1,14 @@
 {
   "brand": "Subway",
   "slug": "subway",
-  "note": "Values are Subway's official U.S. nutrition figures (January 2026 guide), checked on October 11, 2026. Sandwiches are 6-inch, standard Subway recipe; double values for a footlong. Confirm current figures with Subway, especially for allergies or medical diets.",
+  "note": "Values are Subway's official U.S. nutrition figures (January 2026 guide), checked on October 11, 2026. Sandwiches are 6-inch, standard Subway recipe: the bread, protein, cheese, vegetables and default sauce Subway lists, so a 6\" Oven-Roasted Turkey is 480 calories as served. Double values for a footlong. Confirm current figures with Subway, especially for allergies or medical diets.",
   "meta": {
     "market": "US",
     "market_label": "United States",
     "source_name": "Subway U.S. Nutrition Information (January 2026)",
     "source_url": "https://www.subway.com/en-us/menunutrition/nutrition",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item and add-on was checked on 2026-09-25 against Subway's official U.S. Nutrition Information PDF (January 2026) linked from subway.com. 6-inch sandwiches are Subway's standard recipe as published (bread, protein, cheese, vegetables and sauce as Subway lists them).",
+    "values_origin": "Every item and add-on was checked on 2026-09-25 and re-checked on 2026-10-11 against Subway's official U.S. Nutrition Information PDF (January 2026) linked from subway.com. 6-inch sandwiches are Subway's standard recipe as published (bread, protein, cheese, vegetables and sauce as Subway lists them).",
     "status": "verified",
     "last_reviewed": "2026-10-11",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
