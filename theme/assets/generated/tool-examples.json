@@ -91,20 +91,16 @@
    "mcdonalds": {
     "lines": [
      {
-      "id": "mcdouble",
-      "qty": 1
-     },
-     {
-      "id": "nuggets-4",
+      "id": "mccrispy-strips-4",
       "qty": 1
      }
     ],
     "totals": {
-     "calories": 560,
-     "protein": 31,
-     "carbs": 42,
-     "fat": 30,
-     "sodium": 1260
+     "calories": 530,
+     "protein": 41,
+     "carbs": 32,
+     "fat": 26,
+     "sodium": 1760
     }
    },
    "panda-express": {
@@ -296,16 +292,16 @@
    "mcdonalds": {
     "lines": [
      {
-      "id": "mcdouble",
+      "id": "mccrispy-strips-3",
       "qty": 1
      }
     ],
     "totals": {
-     "calories": 390,
-     "protein": 22,
-     "carbs": 32,
+     "calories": 400,
+     "protein": 31,
+     "carbs": 24,
      "fat": 20,
-     "sodium": 920
+     "sodium": 1320
     }
    },
    "panda-express": {

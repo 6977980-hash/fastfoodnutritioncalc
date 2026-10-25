@@ -714,6 +714,10 @@
     "replace": "the Hash Browns (140 calories) are the lowest-calorie food. Among drinks, a small Sweet Tea is 100 calories."
    },
    {
+    "find": "the Hash Browns (140 calories) are the lowest-calorie food. Among drinks, a small Sweet Tea is 100 calories.",
+    "replace": "the Apple Slices (15 calories) are the lowest-calorie food, followed by Kids Fries (110 calories) and Hash Browns (140 calories). Among drinks, black Premium Roast Coffee and Unsweetened Iced Tea have 0 to 10 calories, and a small Sweet Tea is 100 calories."
+   },
+   {
     "find": "which tend to run higher in sodium than the lunch and dinner sandwiches.",
     "replace": "which has 1,330mg of sodium, nearly as much as a Double Quarter Pounder with Cheese (1,360mg)."
    },
