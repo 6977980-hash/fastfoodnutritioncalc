@@ -116,11 +116,34 @@ $reviewed   = ffnc_get_recently_reviewed();
 	</p>
 </section>
 
-<?php if ( $compare_url ) : ?>
+<?php
+// Popular head-to-head pages (generated from inc/page-catalog.json); only published ones are linked.
+$ffnc_popular_compares = array();
+if ( function_exists( 'ffnc_generated_page_url' ) ) {
+	foreach ( array( 'big-mac-vs-whopper', 'chick-fil-a-vs-popeyes-chicken-sandwich', 'chipotle-vs-qdoba-chicken', 'mcnuggets-vs-chick-fil-a-nuggets', 'kfc-vs-popeyes-chicken-sandwich', 'mcdonalds-fries-vs-burger-king-fries', 'big-mac-vs-daves-single', 'baconator-vs-bacon-king', 'mcchicken-vs-chick-fil-a-sandwich' ) as $ffnc_c ) {
+		$ffnc_pair = ffnc_comparison( $ffnc_c );
+		$ffnc_url  = $ffnc_pair ? ffnc_generated_page_url( 'compare:' . $ffnc_c ) : '';
+		if ( $ffnc_url ) {
+			$ffnc_popular_compares[ $ffnc_url ] = $ffnc_pair['title'];
+		}
+	}
+}
+?>
+<?php if ( $compare_url || $ffnc_popular_compares ) : ?>
 <section class="ffnc-container ffnc-home-compare">
 	<h2><?php esc_html_e( 'Compare Fast Food Meals Side by Side', 'ffnc' ); ?></h2>
 	<p><?php esc_html_e( 'Wondering whether a Whopper or a Big Mac has more protein, or which chicken sandwich has less sodium? Pick up to three items from any of our restaurants and compare them in one table.', 'ffnc' ); ?></p>
-	<p><a class="ffnc-btn ffnc-btn-solid" href="<?php echo esc_url( $compare_url ); ?>"><?php esc_html_e( 'Open the comparison tool', 'ffnc' ); ?></a></p>
+	<?php if ( $ffnc_popular_compares ) : ?>
+		<h3><?php esc_html_e( 'Popular comparisons', 'ffnc' ); ?></h3>
+		<ul class="ffnc-home-blog-list ffnc-home-compare-list">
+			<?php foreach ( $ffnc_popular_compares as $ffnc_url => $ffnc_title ) : ?>
+				<li><a href="<?php echo esc_url( $ffnc_url ); ?>"><?php echo esc_html( $ffnc_title ); ?></a></li>
+			<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+	<?php if ( $compare_url ) : ?>
+		<p><a class="ffnc-btn ffnc-btn-solid" href="<?php echo esc_url( $compare_url ); ?>"><?php esc_html_e( 'Open the comparison tool', 'ffnc' ); ?></a></p>
+	<?php endif; ?>
 </section>
 <?php endif; ?>
 
@@ -133,7 +156,7 @@ $reviewed   = ffnc_get_recently_reviewed();
  */
 $ffnc_blog_page_id = (int) get_option( 'page_for_posts' );
 if ( $ffnc_blog_page_id ) {
-	$ffnc_recent_posts = get_posts( array( 'numberposts' => 3, 'post_status' => 'publish' ) );
+	$ffnc_recent_posts = get_posts( array( 'numberposts' => 9, 'post_status' => 'publish' ) ); // Every guide; the grid wraps.
 	if ( ! empty( $ffnc_recent_posts ) ) :
 		?>
 		<section class="ffnc-container ffnc-home-blog">

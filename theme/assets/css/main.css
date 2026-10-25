@@ -1041,6 +1041,7 @@ html[data-ffnc-theme="dark"] .ffnc-reviewed-list time { color: #4ade80; backgrou
 }
 .ffnc-home-blog-list a::after { content: "Read guide →"; content: "Read guide →" / ""; font-size: 0.85rem; font-weight: 700; color: var(--ffnc-blue); }
 .ffnc-home-blog-list a:hover { text-decoration: none; }
+.ffnc-home-compare-list a::after { content: "Compare →"; content: "Compare →" / ""; }
 .ffnc-home-blog-list li:only-child { grid-column: span 2; }
 .ffnc-home-blog > p:last-child a { font-weight: 700; }
 @media (max-width: 760px) {
