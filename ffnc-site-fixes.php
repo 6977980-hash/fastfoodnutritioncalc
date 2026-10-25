@@ -2,14 +2,14 @@
 /**
  * Plugin Name: FFNC Site Fixes
  * Description: Keeps the Fast Food Nutrition Calculators theme in sync with GitHub. Hostinger deploys this repo into this plugin folder; the plugin copies the theme files from theme/ into the active theme.
- * Version:     2.0.0
+ * Version:     2.0.1
  * Author:      Fast Food Nutrition Calculators Team
  * License:     GPL-2.0-or-later
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'FFNC_SITE_FIXES_VERSION', '2.0.0' );
+define( 'FFNC_SITE_FIXES_VERSION', '2.0.1' );
 
 // Only this theme is ever written to (matched by its style.css Text Domain).
 define( 'FFNC_SITE_FIXES_THEME_DOMAIN', 'ffnc' );
@@ -113,7 +113,21 @@ function ffnc_site_fixes_sync() {
 	}
 	return array( 'copied' => $copied, 'failed' => $failed );
 }
-add_action( 'init', 'ffnc_site_fixes_sync', 1 );
+
+/**
+ * Run the sync on every admin request, but for visitors at most once every
+ * 5 minutes, so normal page views do not stat every file under theme/.
+ */
+function ffnc_site_fixes_maybe_sync() {
+	if ( ! is_admin() ) {
+		if ( get_transient( 'ffnc_site_fixes_checked' ) ) {
+			return;
+		}
+		set_transient( 'ffnc_site_fixes_checked', 1, 5 * MINUTE_IN_SECONDS );
+	}
+	ffnc_site_fixes_sync();
+}
+add_action( 'init', 'ffnc_site_fixes_maybe_sync', 1 );
 
 /** Tell admins when a sync could not finish. */
 function ffnc_site_fixes_admin_notice() {
