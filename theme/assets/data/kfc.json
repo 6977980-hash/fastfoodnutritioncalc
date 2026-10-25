@@ -8,9 +8,9 @@
     "source_name": "KFC Full Nutrition Guide (U.S.)",
     "source_url": "https://www.kfc.com/full-nutrition-guide",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item and add-on was checked on 2026-10-11 against KFC's official U.S. Full Nutrition Guide (kfc.com/full-nutrition-guide, last updated 10/02/2026).",
+    "values_origin": "Core nutrients for every item and add-on were checked on 2026-10-11 against KFC's official U.S. Full Nutrition Guide (last updated 10/02/2026). On 2026-10-25 saturated fat, sugar and fiber, plus the new items, were taken from KFC's full nutrition table (the Nutritionix table KFC publishes, last updated 10/19/2026); all existing values still match it.",
     "status": "verified",
-    "last_reviewed": "2026-10-11",
+    "last_reviewed": "2026-10-25",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
     "addon_macros": "Dipping-sauce add-ons use KFC's published per-cup nutrition, so all five nutrients are included in totals.",
     "spot_checks": [],
@@ -26,8 +26,13 @@
       {
         "date": "2026-10-11",
         "change": "Re-checked every item against KFC's official U.S. Full Nutrition Guide (last updated 10/02/2026); all existing values match. Added Extra Crispy drumstick and wing, Kentucky Grilled and Spicy Crispy pieces, Spicy Chicken Sandwich, Snacker, Twister, Pot Pie, Popcorn Chicken, more sides, family sides, desserts and drinks."
+      },
+      {
+        "date": "2026-10-25",
+        "change": "Added saturated fat, sugar and fiber for every item and sauce from KFC's full nutrition table (last updated 10/19/2026); existing calories/protein/carbs/fat/sodium all unchanged. Added Cheese Curds, Sweet Kernel Corn, Potato Wedges (limited time), more family sides, side salads, kids meals, Hot & Spicy Wing (limited time), regional Gizzards/Livers/Country Fried Steak, cakes and more drink sizes."
       }
-    ]
+    ],
+    "secondary_source_url": "https://www.nutritionix.com/kfc/menu/premium"
   },
   "categories": [
     {
@@ -42,6 +47,9 @@
           "carbs": 11,
           "fat": 21,
           "sodium": 1190,
+          "sat_fat": 4,
+          "sugar": 0,
+          "fiber": 2,
           "addons": [
             {
               "name": "BBQ Dipping Sauce (1 cup)",
@@ -49,7 +57,10 @@
               "protein": 0,
               "carbs": 11,
               "fat": 0,
-              "sodium": 150
+              "sodium": 150,
+              "sat_fat": 0,
+              "sugar": 11,
+              "fiber": 0
             },
             {
               "name": "Ranch Dipping Sauce (1 cup)",
@@ -57,7 +68,10 @@
               "protein": 0,
               "carbs": 2,
               "fat": 14,
-              "sodium": 240
+              "sodium": 240,
+              "sat_fat": 2.5,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
@@ -69,6 +83,9 @@
           "carbs": 8,
           "fat": 19,
           "sodium": 910,
+          "sat_fat": 4.5,
+          "sugar": 0,
+          "fiber": 1,
           "addons": [
             {
               "name": "BBQ Dipping Sauce (1 cup)",
@@ -76,7 +93,10 @@
               "protein": 0,
               "carbs": 11,
               "fat": 0,
-              "sodium": 150
+              "sodium": 150,
+              "sat_fat": 0,
+              "sugar": 11,
+              "fiber": 0
             }
           ]
         },
@@ -88,6 +108,9 @@
           "carbs": 4,
           "fat": 8,
           "sodium": 430,
+          "sat_fat": 1.5,
+          "sugar": 0,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -98,6 +121,9 @@
           "carbs": 3,
           "fat": 8,
           "sodium": 380,
+          "sat_fat": 2,
+          "sugar": 0,
+          "fiber": 0,
           "addons": []
         }
       ]
@@ -114,6 +140,9 @@
           "carbs": 18,
           "fat": 35,
           "sodium": 1150,
+          "sat_fat": 6,
+          "sugar": 0,
+          "fiber": 0,
           "addons": [
             {
               "name": "BBQ Dipping Sauce (1 cup)",
@@ -121,7 +150,10 @@
               "protein": 0,
               "carbs": 11,
               "fat": 0,
-              "sodium": 150
+              "sodium": 150,
+              "sat_fat": 0,
+              "sugar": 11,
+              "fiber": 0
             }
           ]
         },
@@ -133,6 +165,9 @@
           "carbs": 9,
           "fat": 23,
           "sodium": 700,
+          "sat_fat": 4.5,
+          "sugar": 0,
+          "fiber": 0,
           "addons": []
         },
         {
@@ -143,6 +178,9 @@
           "carbs": 5,
           "fat": 12,
           "sodium": 390,
+          "sat_fat": 2,
+          "sugar": 0,
+          "fiber": 0,
           "addons": []
         },
         {
@@ -153,6 +191,9 @@
           "carbs": 5,
           "fat": 13,
           "sodium": 340,
+          "sat_fat": 2,
+          "sugar": 0,
+          "fiber": 0,
           "addons": []
         }
       ]
@@ -169,6 +210,10 @@
           "carbs": 0,
           "fat": 7,
           "sodium": 710,
+          "availability": "not sold at every KFC",
+          "sat_fat": 2,
+          "sugar": 0,
+          "fiber": 0,
           "addons": [
             {
               "name": "BBQ Dipping Sauce (1 cup)",
@@ -176,10 +221,12 @@
               "protein": 0,
               "carbs": 11,
               "fat": 0,
-              "sodium": 150
+              "sodium": 150,
+              "sat_fat": 0,
+              "sugar": 11,
+              "fiber": 0
             }
-          ],
-          "availability": "not sold at every KFC"
+          ]
         },
         {
           "id": "kgc-thigh",
@@ -189,8 +236,11 @@
           "carbs": 0,
           "fat": 9,
           "sodium": 420,
-          "addons": [],
-          "availability": "not sold at every KFC"
+          "availability": "not sold at every KFC",
+          "sat_fat": 3,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
         },
         {
           "id": "kgc-drumstick",
@@ -200,8 +250,11 @@
           "carbs": 0,
           "fat": 4,
           "sodium": 220,
-          "addons": [],
-          "availability": "not sold at every KFC"
+          "availability": "not sold at every KFC",
+          "sat_fat": 1,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
         },
         {
           "id": "kgc-wing",
@@ -211,8 +264,11 @@
           "carbs": 0,
           "fat": 3,
           "sodium": 180,
-          "addons": [],
-          "availability": "not sold at every KFC"
+          "availability": "not sold at every KFC",
+          "sat_fat": 1,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
         }
       ]
     },
@@ -228,6 +284,9 @@
           "carbs": 11,
           "fat": 20,
           "sodium": 1100,
+          "sat_fat": 3.5,
+          "sugar": 0,
+          "fiber": 1,
           "addons": [
             {
               "name": "Ranch Dipping Sauce (1 cup)",
@@ -235,7 +294,10 @@
               "protein": 0,
               "carbs": 2,
               "fat": 14,
-              "sodium": 240
+              "sodium": 240,
+              "sat_fat": 2.5,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
@@ -247,6 +309,9 @@
           "carbs": 10,
           "fat": 20,
           "sodium": 720,
+          "sat_fat": 3.5,
+          "sugar": 0,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -257,6 +322,9 @@
           "carbs": 5,
           "fat": 8,
           "sodium": 420,
+          "sat_fat": 1.5,
+          "sugar": 0,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -267,6 +335,9 @@
           "carbs": 5,
           "fat": 8,
           "sodium": 350,
+          "sat_fat": 1.5,
+          "sugar": 0,
+          "fiber": 0,
           "addons": []
         }
       ]
@@ -283,6 +354,9 @@
           "carbs": 20,
           "fat": 6,
           "sodium": 400,
+          "sat_fat": 0.5,
+          "sugar": 0,
+          "fiber": 0,
           "addons": [
             {
               "name": "Honey Mustard Dipping Sauce (1 cup)",
@@ -290,7 +364,10 @@
               "protein": 0,
               "carbs": 6,
               "fat": 9,
-              "sodium": 120
+              "sodium": 120,
+              "sat_fat": 1.5,
+              "sugar": 6,
+              "fiber": 0
             },
             {
               "name": "Ranch Dipping Sauce (1 cup)",
@@ -298,7 +375,10 @@
               "protein": 0,
               "carbs": 2,
               "fat": 14,
-              "sodium": 240
+              "sodium": 240,
+              "sat_fat": 2.5,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "BBQ Dipping Sauce (1 cup)",
@@ -306,7 +386,10 @@
               "protein": 0,
               "carbs": 11,
               "fat": 0,
-              "sodium": 150
+              "sodium": 150,
+              "sat_fat": 0,
+              "sugar": 11,
+              "fiber": 0
             }
           ]
         },
@@ -318,6 +401,9 @@
           "carbs": 1,
           "fat": 1.5,
           "sodium": 140,
+          "sat_fat": 0,
+          "sugar": 0,
+          "fiber": 0,
           "addons": [
             {
               "name": "BBQ Dipping Sauce (1 cup)",
@@ -325,7 +411,10 @@
               "protein": 0,
               "carbs": 11,
               "fat": 0,
-              "sodium": 150
+              "sodium": 150,
+              "sat_fat": 0,
+              "sugar": 11,
+              "fiber": 0
             },
             {
               "name": "Ranch Dipping Sauce (1 cup)",
@@ -333,7 +422,10 @@
               "protein": 0,
               "carbs": 2,
               "fat": 14,
-              "sodium": 240
+              "sodium": 240,
+              "sat_fat": 2.5,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
@@ -345,6 +437,9 @@
           "carbs": 49,
           "fat": 35,
           "sodium": 1260,
+          "sat_fat": 4.5,
+          "sugar": 6,
+          "fiber": 1,
           "addons": [
             {
               "name": "KFC Sauce (1 cup)",
@@ -352,7 +447,10 @@
               "protein": 0,
               "carbs": 5,
               "fat": 8,
-              "sodium": 170
+              "sodium": 170,
+              "sat_fat": 1.5,
+              "sugar": 5,
+              "fiber": 0
             }
           ]
         },
@@ -364,6 +462,9 @@
           "carbs": 67,
           "fat": 22,
           "sodium": 2160,
+          "sat_fat": 5,
+          "sugar": 3,
+          "fiber": 4,
           "addons": []
         },
         {
@@ -374,6 +475,9 @@
           "carbs": 49,
           "fat": 33,
           "sodium": 2140,
+          "sat_fat": 4,
+          "sugar": 6,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -384,6 +488,9 @@
           "carbs": 39,
           "fat": 16,
           "sodium": 730,
+          "sat_fat": 2,
+          "sugar": 3,
+          "fiber": null,
           "addons": []
         },
         {
@@ -394,6 +501,9 @@
           "carbs": 74,
           "fat": 31,
           "sodium": 1360,
+          "sat_fat": 7,
+          "sugar": 3,
+          "fiber": null,
           "addons": []
         },
         {
@@ -404,6 +514,9 @@
           "carbs": 60,
           "fat": 41,
           "sodium": 1750,
+          "sat_fat": 25,
+          "sugar": 5,
+          "fiber": 7,
           "addons": []
         },
         {
@@ -414,6 +527,9 @@
           "carbs": 40,
           "fat": 41,
           "sodium": 1970,
+          "sat_fat": 5,
+          "sugar": 0,
+          "fiber": 2,
           "addons": [
             {
               "name": "BBQ Dipping Sauce (1 cup)",
@@ -421,7 +537,10 @@
               "protein": 0,
               "carbs": 11,
               "fat": 0,
-              "sodium": 150
+              "sodium": 150,
+              "sat_fat": 0,
+              "sugar": 11,
+              "fiber": 0
             },
             {
               "name": "Honey Mustard Dipping Sauce (1 cup)",
@@ -429,9 +548,94 @@
               "protein": 0,
               "carbs": 6,
               "fat": 9,
-              "sodium": 120
+              "sodium": 120,
+              "sat_fat": 1.5,
+              "sugar": 6,
+              "fiber": 0
             }
           ]
+        },
+        {
+          "id": "nuggets-kids-meal",
+          "name": "Kentucky Fried Nuggets Kids Meal",
+          "calories": 170,
+          "protein": 17,
+          "carbs": 7,
+          "fat": 8,
+          "sodium": 690,
+          "sat_fat": 1,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "tenders-kids-meal",
+          "name": "Original Recipe Tenders Kids Meal",
+          "calories": 350,
+          "protein": 21,
+          "carbs": 39,
+          "fat": 12,
+          "sodium": 810,
+          "sat_fat": 1.5,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "hot-spicy-wing-1",
+          "name": "Hot & Spicy Wing (1 piece)",
+          "calories": 90,
+          "protein": 5,
+          "carbs": 3,
+          "fat": 6,
+          "sodium": 180,
+          "sat_fat": 1,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": [],
+          "availability": "limited time"
+        },
+        {
+          "id": "gizzards",
+          "name": "KFC Gizzards",
+          "calories": 300,
+          "protein": 20,
+          "carbs": 18,
+          "fat": 16,
+          "sodium": 770,
+          "sat_fat": 2,
+          "sugar": 0,
+          "fiber": null,
+          "addons": [],
+          "availability": "regional"
+        },
+        {
+          "id": "livers",
+          "name": "KFC Livers",
+          "calories": 230,
+          "protein": 17,
+          "carbs": 12,
+          "fat": 13,
+          "sodium": 750,
+          "sat_fat": 2.5,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": [],
+          "availability": "regional"
+        },
+        {
+          "id": "country-fried-steak-gravy",
+          "name": "Country Fried Steak with Peppered White Gravy",
+          "calories": 390,
+          "protein": 13,
+          "carbs": 26,
+          "fat": 26,
+          "sodium": 910,
+          "sat_fat": 7,
+          "sugar": 0,
+          "fiber": 2,
+          "addons": [],
+          "availability": "regional"
         }
       ]
     },
@@ -447,6 +651,9 @@
           "carbs": 20,
           "fat": 4.5,
           "sodium": 520,
+          "sat_fat": 1,
+          "sugar": 0,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -457,6 +664,9 @@
           "carbs": 14,
           "fat": 12,
           "sodium": 180,
+          "sat_fat": 2,
+          "sugar": 10,
+          "fiber": 4,
           "addons": []
         },
         {
@@ -467,6 +677,9 @@
           "carbs": 17,
           "fat": 6,
           "sodium": 590,
+          "sat_fat": 1.5,
+          "sugar": 2,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -477,6 +690,9 @@
           "carbs": 22,
           "fat": 8,
           "sodium": 520,
+          "sat_fat": 4.5,
+          "sugar": 1,
+          "fiber": 1,
           "addons": [
             {
               "name": "Honey Sauce Packet",
@@ -484,7 +700,10 @@
               "protein": 0,
               "carbs": 8,
               "fat": 0,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 0,
+              "sugar": 5,
+              "fiber": 0
             }
           ]
         },
@@ -496,6 +715,9 @@
           "carbs": 41,
           "fat": 15,
           "sodium": 1100,
+          "sat_fat": 2,
+          "sugar": 0,
+          "fiber": 3,
           "addons": []
         },
         {
@@ -506,6 +728,9 @@
           "carbs": 17,
           "fat": 3.5,
           "sodium": 330,
+          "sat_fat": 0.5,
+          "sugar": 0,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -516,6 +741,9 @@
           "carbs": 34,
           "fat": 1,
           "sodium": 650,
+          "sat_fat": 0,
+          "sugar": 15,
+          "fiber": 7,
           "addons": []
         },
         {
@@ -526,6 +754,9 @@
           "carbs": 17,
           "fat": 0.5,
           "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 3,
+          "fiber": 2,
           "addons": []
         },
         {
@@ -536,6 +767,9 @@
           "carbs": 5,
           "fat": 0,
           "sodium": 300,
+          "sat_fat": 0,
+          "sugar": 1,
+          "fiber": 3,
           "addons": []
         },
         {
@@ -546,6 +780,9 @@
           "carbs": 28,
           "fat": 9,
           "sodium": 240,
+          "sat_fat": 1.5,
+          "sugar": 11,
+          "fiber": null,
           "addons": [
             {
               "name": "Honey Sauce Packet",
@@ -553,7 +790,10 @@
               "protein": 0,
               "carbs": 8,
               "fat": 0,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 0,
+              "sugar": 5,
+              "fiber": 0
             }
           ]
         },
@@ -565,6 +805,9 @@
           "carbs": 88,
           "fat": 21,
           "sodium": 2590,
+          "sat_fat": 5,
+          "sugar": 1,
+          "fiber": 6,
           "addons": []
         },
         {
@@ -575,6 +818,9 @@
           "carbs": 54,
           "fat": 46,
           "sodium": 670,
+          "sat_fat": 7,
+          "sugar": 37,
+          "fiber": 14,
           "addons": []
         },
         {
@@ -585,6 +831,9 @@
           "carbs": 66,
           "fat": 23,
           "sodium": 2220,
+          "sat_fat": 6,
+          "sugar": 8,
+          "fiber": 5,
           "addons": []
         },
         {
@@ -595,6 +844,140 @@
           "carbs": 108,
           "fat": 40,
           "sodium": 2890,
+          "sat_fat": 5,
+          "sugar": 0,
+          "fiber": 9,
+          "addons": []
+        },
+        {
+          "id": "cheese-curds",
+          "name": "Cheese Curds",
+          "calories": 350,
+          "protein": 17,
+          "carbs": 17,
+          "fat": 23,
+          "sodium": 640,
+          "sat_fat": 11,
+          "sugar": null,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "sweet-kernel-corn",
+          "name": "Sweet Kernel Corn",
+          "calories": 70,
+          "protein": 2,
+          "carbs": 16,
+          "fat": 0.5,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 2,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "potato-wedges",
+          "name": "Potato Wedges",
+          "calories": 320,
+          "protein": 5,
+          "carbs": 40,
+          "fat": 15,
+          "sodium": 830,
+          "sat_fat": 2,
+          "sugar": 0,
+          "fiber": 4,
+          "addons": [],
+          "availability": "limited time"
+        },
+        {
+          "id": "bbq-baked-beans-family",
+          "name": "BBQ Baked Beans (family)",
+          "calories": 830,
+          "protein": 47,
+          "carbs": 148,
+          "fat": 5,
+          "sodium": 2810,
+          "sat_fat": 1,
+          "sugar": 63,
+          "fiber": 31,
+          "addons": []
+        },
+        {
+          "id": "mashed-potatoes-family",
+          "name": "Mashed Potatoes, no gravy (family)",
+          "calories": 460,
+          "protein": 9,
+          "carbs": 72,
+          "fat": 15,
+          "sodium": 1410,
+          "sat_fat": 3,
+          "sugar": 0,
+          "fiber": 6,
+          "addons": []
+        },
+        {
+          "id": "green-beans-family",
+          "name": "Green Beans (family)",
+          "calories": 80,
+          "protein": 4,
+          "carbs": 15,
+          "fat": 0,
+          "sodium": 930,
+          "sat_fat": 0,
+          "sugar": 3,
+          "fiber": 9,
+          "addons": []
+        },
+        {
+          "id": "sweet-kernel-corn-family",
+          "name": "Sweet Kernel Corn (family)",
+          "calories": 280,
+          "protein": 10,
+          "carbs": 67,
+          "fat": 2.5,
+          "sodium": 10,
+          "sat_fat": 0,
+          "sugar": 8,
+          "fiber": 7,
+          "addons": []
+        },
+        {
+          "id": "corn-on-the-cob-family",
+          "name": "Corn on the Cob (family)",
+          "calories": 280,
+          "protein": 9,
+          "carbs": 67,
+          "fat": 2,
+          "sodium": 15,
+          "sat_fat": 0,
+          "sugar": 11,
+          "fiber": 8,
+          "addons": []
+        },
+        {
+          "id": "house-side-salad",
+          "name": "House Side Salad",
+          "calories": 15,
+          "protein": 1,
+          "carbs": 3,
+          "fat": 0,
+          "sodium": 10,
+          "sat_fat": 0,
+          "sugar": 2,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "caesar-side-salad",
+          "name": "Caesar Side Salad",
+          "calories": 40,
+          "protein": 3,
+          "carbs": 2,
+          "fat": 2,
+          "sodium": 90,
+          "sat_fat": 1,
+          "sugar": 1,
+          "fiber": 1,
           "addons": []
         }
       ]
@@ -611,6 +994,9 @@
           "carbs": 26,
           "fat": 9,
           "sodium": 105,
+          "sat_fat": 4.5,
+          "sugar": 15,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -621,6 +1007,9 @@
           "carbs": 32,
           "fat": 10,
           "sodium": 140,
+          "sat_fat": 2.5,
+          "sugar": 12,
+          "fiber": null,
           "addons": []
         },
         {
@@ -631,6 +1020,9 @@
           "carbs": 69,
           "fat": 0,
           "sodium": 55,
+          "sat_fat": 0,
+          "sugar": 69,
+          "fiber": 0,
           "addons": []
         },
         {
@@ -641,6 +1033,9 @@
           "carbs": 104,
           "fat": 0,
           "sodium": 80,
+          "sat_fat": 0,
+          "sugar": 103,
+          "fiber": 0,
           "addons": []
         },
         {
@@ -651,6 +1046,9 @@
           "carbs": 36,
           "fat": 0,
           "sodium": 80,
+          "sat_fat": 0,
+          "sugar": 36,
+          "fiber": 0,
           "addons": []
         },
         {
@@ -661,6 +1059,9 @@
           "carbs": 39,
           "fat": 0,
           "sodium": 130,
+          "sat_fat": 0,
+          "sugar": 38,
+          "fiber": 0,
           "addons": []
         },
         {
@@ -671,6 +1072,165 @@
           "carbs": 0,
           "fat": 0,
           "sodium": 60,
+          "sat_fat": 0,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "chocolate-chip-cake",
+          "name": "Chocolate Chip Cake (1 slice)",
+          "calories": 300,
+          "protein": 4,
+          "carbs": 39,
+          "fat": 15,
+          "sodium": 260,
+          "sat_fat": 3,
+          "sugar": 27,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "lemon-cake",
+          "name": "Lemon Cake (1 slice)",
+          "calories": 220,
+          "protein": 2,
+          "carbs": 30,
+          "fat": 10,
+          "sodium": 170,
+          "sat_fat": 2,
+          "sugar": 20,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "pepsi-12",
+          "name": "Pepsi (12 fl oz)",
+          "calories": 150,
+          "protein": 0,
+          "carbs": 41,
+          "fat": 0,
+          "sodium": 30,
+          "sat_fat": 0,
+          "sugar": 41,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "pepsi-16",
+          "name": "Pepsi (16 fl oz)",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 55,
+          "fat": 0,
+          "sodium": 45,
+          "sat_fat": 0,
+          "sugar": 55,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "mountain-dew-20",
+          "name": "Mountain Dew (20 fl oz)",
+          "calories": 270,
+          "protein": 0,
+          "carbs": 73,
+          "fat": 0,
+          "sodium": 85,
+          "sat_fat": 0,
+          "sugar": 73,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "mountain-dew-30",
+          "name": "Mountain Dew (30 fl oz)",
+          "calories": 410,
+          "protein": 0,
+          "carbs": 110,
+          "fat": 0,
+          "sodium": 125,
+          "sat_fat": 0,
+          "sugar": 109,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "dr-pepper-20",
+          "name": "Dr Pepper (20 fl oz)",
+          "calories": 240,
+          "protein": 0,
+          "carbs": 65,
+          "fat": 0,
+          "sodium": 75,
+          "sat_fat": 0,
+          "sugar": 64,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "sweet-tea-30",
+          "name": "Lipton Brisk Sweet Iced Tea (30 fl oz)",
+          "calories": 200,
+          "protein": 0,
+          "carbs": 54,
+          "fat": 0,
+          "sodium": 120,
+          "sat_fat": 0,
+          "sugar": 54,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "southern-iced-tea-20",
+          "name": "Southern Iced Tea (20 fl oz)",
+          "calories": 350,
+          "protein": 2,
+          "carbs": 86,
+          "fat": 0,
+          "sodium": 45,
+          "sat_fat": 0,
+          "sugar": 86,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "unsweetened-tea-20",
+          "name": "Lipton Brisk Unsweetened Iced Tea (20 fl oz)",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 75,
+          "sat_fat": 0,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "pink-lemonade-20",
+          "name": "Tropicana Pink Lemonade (20 fl oz)",
+          "calories": 260,
+          "protein": 0,
+          "carbs": 67,
+          "fat": 0,
+          "sodium": 260,
+          "sat_fat": 0,
+          "sugar": 67,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "fruit-punch-20",
+          "name": "Tropicana Fruit Punch (20 fl oz)",
+          "calories": 280,
+          "protein": 0,
+          "carbs": 75,
+          "fat": 0,
+          "sodium": 60,
+          "sat_fat": 0,
+          "sugar": 75,
+          "fiber": 0,
           "addons": []
         }
       ]
