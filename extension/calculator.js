@@ -421,11 +421,12 @@
 		['sub', /^6 |footlong|protein pocket|italiano/],
 		['dessert', /\b(cake|cookie)\b.*\bslice\b/],
 		['pizza', /\b(pizza|slice)\b/],
+		['dessert', /\b(banana split|buster parfait|cupfection)\b/],
 		['salad', /\bsalad\b/],
 		// Bakery items whose names would otherwise read as coffee, nuggets or other.
 		['dessert', /\b(coffee roll|coffee cake|cruller|fritter|e?clair|(blueberry|chocolate chip|corn) muffin)\b/],
 		['breakfast', /\bbagels?\b/],
-		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|mountain dew|dr pepper|fruit punch|baja blast|chocolate milk|low fat milk|smoothies?)\b/],
+		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|mountain dew|dr pepper|fruit punch|baja blast|chocolate milk|low fat milk|^milk|smoothies?)\b/],
 		['coffee', /\b(coffee|latte|cappuccino|espresso|macchiato)\b/],
 		['shake', /\b((milk)?shake|icedream|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
 		// Steak tacos and burritos are Mexican, steak breakfast items breakfast.
@@ -434,17 +435,19 @@
 		['entree', /\b(orange chicken|beijing|kung pao|broccoli beef|shrimp|teriyaki|steak|mushroom chicken|string bean|honey sesame|pot pie|famous bowl|black pepper chicken|sweetfire|eggplant tofu|super greens entree)\b/],
 		['dessert', /\b(cookie|pie|cake|brownie|cinnamon|churro|twists|turnover|donut|munchkin|cinnabon|empanada)\b/],
 		['breakfast', /\b(mcmuffin|biscuit|croissant|wake up wrap|hash browns?|scramble|egg and cheese|egg cheese|sausage|breakfast|pancake|avocado toast)\b/],
+		['chicken-sandwich', /\bstrip sandwich\b/],
 		['nuggets', /\b(nugget|nuggets|mcnuggets|tenders?|strips?|minis|popcorn chicken|snacker|chicken fries)\b/],
 		['fries', /\b(fries|fry|tots|onion rings)\b/],
 		['wings', /\bwings?\b/],
 		['chicken-piece', /\b(breast|thigh|drumstick)\b/],
 		// Pizza Hut Melts are folded pizza, not burgers.
 		['other', /\b(lovers|parmesan|burger) melt\b/],
-		['burger', /\b(burger|whopper|big mac|quarter pounder|mcdouble|baconator|daves|cheeseburger|hamburger|bacon king|double stack|daily double)\b/],
+		['burger', /\b(burger|whopper|big mac|quarter pounder|mcdouble|baconator|daves|cheeseburger|hamburger|stackburger|bacon king|double stack|daily double)\b/],
 		['chicken-sandwich', /\b(sandwich|mcchicken|mccrispy|snack wrap|royal crispy|cool wrap|twister|filet o fish)\b/],
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|gordita|nachos|chalupa)\b/],
+		['other', /\b(chili )?(cheese )?dogs?\b/],
 		['soup', /\b(soup|chili)\b/],
-		['side', /\b(cheese curds|cheese stick|apple slices|apple crisps|chow fun|potstickers?|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
+		['side', /\b(cheese curds|cheese stick|apple slices|apple crisps|chow fun|potstickers?|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips|pretzel sticks|^banana)\b/]
 	];
 	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
 	function itemType(item, catName, brandSlug) {
