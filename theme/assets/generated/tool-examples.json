@@ -112,14 +112,18 @@
      {
       "id": "super-greens",
       "qty": 1
+     },
+     {
+      "id": "hot-sour-soup-cup",
+      "qty": 1
      }
     ],
     "totals": {
-     "calories": 460,
-     "protein": 46,
-     "carbs": 30,
-     "fat": 18,
-     "sodium": 1270
+     "calories": 600,
+     "protein": 55,
+     "carbs": 46,
+     "fat": 22,
+     "sodium": 2270
     }
    },
    "pizza-hut": {
