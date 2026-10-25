@@ -313,6 +313,11 @@ test('generated item-types.json is up to date (run node scripts/build-item-types
 	assert.equal(fs.readFileSync(gen.OUT, 'utf8'), gen.build());
 });
 
+test('generated tool-examples.json is up to date (run node scripts/build-item-types.js)', () => {
+	const gen = require('../../scripts/build-item-types.js');
+	assert.equal(fs.readFileSync(gen.OUT_EXAMPLES, 'utf8'), gen.buildExamples());
+});
+
 test('extension data and engine copy are up to date (run node scripts/build-extension.js)', () => {
 	const ext = require('../../scripts/build-extension.js');
 	for (const [file, build] of Object.entries(ext.FILES)) {

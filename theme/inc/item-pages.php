@@ -110,10 +110,39 @@ function ffnc_item_groups( $slug ) {
 			usort( $groups[ $g ]['items'], function ( $a, $b ) {
 				return ffnc_num( $a, 'calories' ) <=> ffnc_num( $b, 'calories' );
 			} );
+			$groups[ $g ]['thin'] = ffnc_item_group_is_thin( $slug, $groups[ $g ] );
 		}
 	}
 	$cache[ $slug ] = $groups;
 	return $groups;
+}
+
+/**
+ * Groups too thin to stand as a search result of their own: Chipotle's
+ * build-your-own ingredients, drinks, coffee and Panera's bread containers.
+ * Their pages stay up (noindex, follow) but are left out of the sitemap and
+ * of every list that links item pages.
+ */
+function ffnc_item_group_is_thin( $brand, $group ) {
+	$types = ffnc_item_types();
+	$ids   = array( 'panera-bread' => array( 'bread-bowl', 'baguette-quarter' ) );
+	foreach ( $group['items'] as $i ) {
+		$type = isset( $types[ $brand ][ $i['id'] ] ) ? $types[ $brand ][ $i['id'] ] : '';
+		if ( ! in_array( $type, array( 'ingredient', 'drink', 'coffee' ), true ) && ! in_array( $i['id'], isset( $ids[ $brand ] ) ? $ids[ $brand ] : array(), true ) ) {
+			return false;
+		}
+	}
+	return true;
+}
+
+/** Is this generated-page key a thin item page? */
+function ffnc_generated_key_is_thin( $key ) {
+	list( $kind, $rest ) = array_pad( explode( ':', (string) $key, 2 ), 2, '' );
+	if ( 'item' !== $kind ) {
+		return false;
+	}
+	$r = ffnc_resolve_item_key( $rest );
+	return $r && ! empty( $r['group']['thin'] );
 }
 
 /** The size shown in the headline: medium/regular, else the middle size. */
@@ -198,11 +227,18 @@ function ffnc_generated_page_ids() {
 	return is_array( $ids ) ? $ids : array();
 }
 
-/** Permalink of a generated page by key, or '' when it is not published. */
+/**
+ * Permalink of a generated page by key, or '' when it is not published.
+ * Thin item pages answer '' too, so no list links them.
+ */
 function ffnc_generated_page_url( $key ) {
 	static $cache = array();
 	if ( isset( $cache[ $key ] ) ) {
 		return $cache[ $key ];
+	}
+	if ( ffnc_generated_key_is_thin( $key ) ) {
+		$cache[ $key ] = '';
+		return '';
 	}
 	$ids = ffnc_generated_page_ids();
 	$url = '';
@@ -357,17 +393,187 @@ function ffnc_item_link( $brand, $item, $label = '' ) {
 	return '<a href="' . esc_url( $url ) . '">' . esc_html( $label ? $label : $item['name'] ) . '</a>';
 }
 
-function ffnc_source_line( $brand ) {
+/**
+ * "Official U.S. values from <source>, last checked <date>." An item with its
+ * own official page (source_url) links that page; an item's own last_checked
+ * date wins over the dataset's last_reviewed.
+ */
+function ffnc_source_line( $brand, $item = null ) {
 	$b    = ffnc_get_brand( $brand );
 	$meta = ffnc_get_dataset_meta( $brand );
 	$src  = $meta['source_url'] ? '<a href="' . esc_url( $meta['source_url'] ) . '" rel="nofollow noopener" target="_blank">' . esc_html( $meta['source_name'] ? $meta['source_name'] : $b['name'] ) . '</a>' : esc_html( $b['name'] );
-	$date = ffnc_format_review_date( $meta['last_reviewed'], 'F j, Y' );
+	if ( $item && ! empty( $item['source_url'] ) ) {
+		$src .= ' (' . sprintf(
+			/* translators: %s item */
+			esc_html__( 'official page for the %s', 'ffnc' ),
+			'<a href="' . esc_url( $item['source_url'] ) . '" rel="nofollow noopener" target="_blank">' . esc_html( $item['name'] ) . '</a>'
+		) . ')';
+	}
+	$date = ffnc_format_review_date( $item && ! empty( $item['last_checked'] ) ? $item['last_checked'] : $meta['last_reviewed'], 'F j, Y' );
 	return '<p class="ffnc-item-source">' . sprintf(
 		/* translators: 1 source link 2 date */
 		esc_html__( 'Official U.S. values from %1$s, last checked %2$s. Restaurants change recipes, so values in your area can differ.', 'ffnc' ),
 		$src, // Escaped above.
 		esc_html( $date ? $date : __( 'recently', 'ffnc' ) )
 	) . '</p>';
+}
+
+/**
+ * Deals in the brand's dataset that include any size of this item, with the
+ * deal's total from the same item values the calculator uses.
+ */
+function ffnc_item_deals_block( $slug, $group ) {
+	$data = ffnc_get_brand_data( $slug );
+	if ( empty( $data['deals'] ) ) {
+		return '';
+	}
+	$ids   = wp_list_pluck( $group['items'], 'id' );
+	$brand = ffnc_get_brand( $slug );
+	$rows  = array();
+	foreach ( $data['deals'] as $deal ) {
+		$lines = (array) ( isset( $deal['items'] ) ? $deal['items'] : array() );
+		if ( ! array_intersect( $ids, wp_list_pluck( $lines, 'id' ) ) ) {
+			continue;
+		}
+		$cal = 0;
+		foreach ( $lines as $l ) {
+			$it = ffnc_get_brand_item( $slug, $l['id'] );
+			if ( ! $it ) {
+				continue 2;
+			}
+			$cal += (float) ffnc_num( $it, 'calories' ) * max( 1, (int) $l['qty'] );
+		}
+		$rows[] = '<li><a href="' . esc_url( add_query_arg( 'deal', $deal['id'], home_url( $brand['url'] ) ) ) . '">' . esc_html( $deal['name'] ) . '</a>' .
+			( ! empty( $deal['includes'] ) ? ': ' . esc_html( $deal['includes'] ) : '' ) . '. ' .
+			esc_html( sprintf( /* translators: %s calories */ __( '%s calories in total.', 'ffnc' ), ffnc_fmt_num( round( $cal, 1 ) ) ) ) . '</li>';
+	}
+	if ( ! $rows ) {
+		return '';
+	}
+	$meta = isset( $data['deals_meta'] ) ? $data['deals_meta'] : array();
+	$note = ! empty( $meta['checked'] ) ? sprintf( /* translators: %s date */ __( 'Deal contents checked %s. Prices and contents vary by location.', 'ffnc' ), ffnc_format_review_date( $meta['checked'], 'F j, Y' ) ) : __( 'Prices and contents vary by location.', 'ffnc' );
+	return '<h2>' . esc_html( sprintf( /* translators: %s item */ __( 'Deals that include the %s', 'ffnc' ), $group['base'] ) ) . '</h2><ul class="ffnc-list">' . implode( '', $rows ) . '</ul><p class="ffnc-goal-note">' . esc_html( $note ) . '</p>';
+}
+
+/**
+ * Entries of the brand's changelog that name this item: added under
+ * "New ids", or named at the start of a clause ("...: Chicken Sandwich fat 18 -> 16 g").
+ */
+function ffnc_item_changes( $slug, $group ) {
+	$data = ffnc_get_brand_data( $slug );
+	$out  = array();
+	if ( empty( $data['meta']['changelog'] ) ) {
+		return $out;
+	}
+	$ids   = wp_list_pluck( $group['items'], 'id' );
+	$names = array_unique( array_merge( array( $group['base'] ), wp_list_pluck( $group['items'], 'name' ) ) );
+	foreach ( $data['meta']['changelog'] as $c ) {
+		$text = (string) $c['change'];
+		$added = preg_match( '/New ids:([^.]*)/i', $text, $m ) && array_intersect( $ids, array_map( 'trim', explode( ',', $m[1] ) ) );
+		$hit   = $added;
+		foreach ( $names as $n ) {
+			if ( ! $hit && preg_match( '/(?:^|[:;,]\s|\b(?:and|for)\s)' . preg_quote( $n, '/' ) . '(?=[\s,.;:]|$)/i', $text ) ) {
+				$hit = true;
+			}
+		}
+		if ( $hit ) {
+			$text  = trim( preg_replace( '/\s*(Removed\/replaced ids|New ids|Removed ids):[^.]*\./i', '', $text ) );
+			if ( $added && 0 === stripos( $text, 'Full review' ) ) {
+				$text = __( 'Added to our data during a full review against the official U.S. source.', 'ffnc' );
+			}
+			$out[] = array(
+				'date' => $c['date'],
+				'text' => ( $added && 0 !== stripos( $text, 'Added' ) ? __( 'First added to our data.', 'ffnc' ) . ' ' : '' ) . $text,
+			);
+		}
+	}
+	usort( $out, function ( $a, $b ) {
+		return strcmp( $b['date'], $a['date'] );
+	} );
+	return $out;
+}
+
+/** 1 => 1st, 2 => 2nd, 11 => 11th. */
+function ffnc_ordinal( $n ) {
+	$n = (int) $n;
+	$s = ( $n % 100 >= 11 && $n % 100 <= 13 ) ? 'th' : ( array( 'th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th' )[ $n % 10 ] );
+	return $n . $s;
+}
+
+/**
+ * Where the item sits on its own menu category and among items of the same
+ * kind at every chain we cover, by calories and by protein per calorie.
+ */
+function ffnc_item_rank_block( $slug, $group, $main ) {
+	$cal = ffnc_num( $main, 'calories' );
+	if ( null === $cal ) {
+		return '';
+	}
+	$types = ffnc_item_types();
+	$type  = isset( $types[ $slug ][ $main['id'] ] ) ? $types[ $slug ][ $main['id'] ] : '';
+	$dens  = function ( $i ) {
+		return (float) ffnc_num( $i, 'protein' ) / max( 1, (float) ffnc_num( $i, 'calories' ) );
+	};
+	// "the 3rd lightest" in the lower half, "the 2nd highest in calories" in the upper half.
+	$pos   = function ( $list, $get ) use ( $cal ) {
+		$lighter = count( array_filter( $list, function ( $x ) use ( $get, $cal ) { return $get( $x ) < $cal; } ) );
+		$heavier = count( array_filter( $list, function ( $x ) use ( $get, $cal ) { return $get( $x ) > $cal; } ) );
+		return $lighter <= $heavier
+			? sprintf( /* translators: %s rank */ __( 'the %slightest', 'ffnc' ), $lighter ? ffnc_ordinal( $lighter + 1 ) . ' ' : '' )
+			: sprintf( /* translators: %s rank */ __( 'the %shighest in calories', 'ffnc' ), $heavier ? ffnc_ordinal( $heavier + 1 ) . ' ' : '' );
+	};
+	$lines = array();
+	$cat   = array_values( array_filter( ffnc_get_brand_items( $slug ), function ( $i ) use ( $main ) {
+		return $i['category_name'] === $main['category_name'] && null !== ffnc_num( $i, 'calories' );
+	} ) );
+	if ( count( $cat ) >= 3 ) {
+		$denser  = count( array_filter( $cat, function ( $i ) use ( $main, $dens ) { return $dens( $i ) > $dens( $main ); } ) );
+		$lines[] = sprintf(
+			/* translators: 1 item 2 rank 3 count 4 category 5 brand 6 protein rank */
+			__( 'The %1$s is %2$s of the %3$d items in the %5$s “%4$s” menu, and %6$s for protein per calorie.', 'ffnc' ),
+			$main['name'],
+			$pos( $cat, function ( $i ) { return ffnc_num( $i, 'calories' ); } ),
+			count( $cat ),
+			$main['category_name'],
+			ffnc_get_brand( $slug )['name'],
+			ffnc_ordinal( $denser + 1 )
+		);
+	}
+	if ( $type && ! in_array( $type, array( 'ingredient', 'other' ), true ) ) {
+		$same = array_values( array_filter( ffnc_all_items(), function ( $x ) use ( $type ) {
+			return $x['type'] === $type && null !== ffnc_num( $x['item'], 'calories' );
+		} ) );
+		$chains = count( array_unique( wp_list_pluck( $same, 'brand' ) ) );
+		if ( count( $same ) >= 5 && $chains >= 2 ) {
+			$avg     = array_sum( array_map( function ( $x ) { return (float) ffnc_num( $x['item'], 'calories' ); }, $same ) ) / count( $same );
+			$lines[] = sprintf(
+				/* translators: 1 rank 2 count 3 chains 4 average */
+				__( 'Across the %2$d items of the same kind we track at %3$d chains, it is %1$s; their average is %4$s calories.', 'ffnc' ),
+				$pos( $same, function ( $x ) { return ffnc_num( $x['item'], 'calories' ); } ),
+				count( $same ),
+				$chains,
+				ffnc_fmt_num( round( $avg ) )
+			);
+		}
+	}
+	if ( ! $lines ) {
+		return '';
+	}
+	return '<h2>' . esc_html( sprintf( /* translators: %s item */ __( 'How the %s ranks', 'ffnc' ), $group['base'] ) ) . '</h2><ul class="ffnc-list"><li>' . implode( '</li><li>', array_map( 'esc_html', $lines ) ) . '</li></ul>';
+}
+
+function ffnc_item_changes_block( $slug, $group ) {
+	$rows = ffnc_item_changes( $slug, $group );
+	if ( ! $rows ) {
+		return '';
+	}
+	$li = '';
+	foreach ( $rows as $r ) {
+		$li .= '<li><strong>' . esc_html( ffnc_format_review_date( $r['date'], 'F j, Y' ) ) . ':</strong> ' . esc_html( $r['text'] ) . '</li>';
+	}
+	$all = function_exists( 'ffnc_page_url' ) ? ffnc_page_url( 'menu-changes' ) : '';
+	return '<h2>' . esc_html( sprintf( /* translators: %s item */ __( '%s in our menu change log', 'ffnc' ), $group['base'] ) ) . '</h2><ul class="ffnc-list">' . $li . '</ul>' .
+		( $all ? '<p><a href="' . esc_url( $all ) . '">' . esc_html__( 'Every menu change we have logged', 'ffnc' ) . '</a></p>' : '' );
 }
 
 function ffnc_macro_chips( $item ) {
@@ -456,7 +662,7 @@ function ffnc_shortcode_item_page( $atts ) {
 			<p class="ffnc-item-actions">
 				<a class="ffnc-btn ffnc-btn-solid" href="<?php echo esc_url( ffnc_order_link( $calc, $main['id'] ) ); ?>"><?php esc_html_e( 'Add it to an order in the calculator', 'ffnc' ); ?></a>
 			</p>
-			<?php echo ffnc_source_line( $slug ); // phpcs:ignore ?>
+			<?php echo ffnc_source_line( $slug, $main ); // phpcs:ignore ?>
 		</div>
 
 		<?php if ( $multi ) : ?>
@@ -521,6 +727,10 @@ function ffnc_shortcode_item_page( $atts ) {
 			<h2><?php esc_html_e( 'As a meal', 'ffnc' ); ?></h2>
 			<ul class="ffnc-list"><?php echo wp_kses_post( implode( '', $meal_links ) ); ?></ul>
 		<?php endif; ?>
+
+		<?php echo ffnc_item_deals_block( $slug, $group ); // phpcs:ignore ?>
+		<?php echo ffnc_item_changes_block( $slug, $group ); // phpcs:ignore ?>
+		<?php echo ffnc_item_rank_block( $slug, $group, $main ); // phpcs:ignore ?>
 
 		<?php
 		$swap_r  = ffnc_item_swaps( $slug, $main );
@@ -1141,13 +1351,55 @@ add_filter( 'rank_math/frontend/description', function ( $desc ) {
 function ffnc_generated_page_is_orphan( $post_id ) {
 	return '' !== ffnc_generated_key( $post_id ) && null === ffnc_generated_seo( $post_id );
 }
+
+/** Generated pages kept out of search: orphans and thin item pages. */
+function ffnc_generated_page_is_noindex( $post_id ) {
+	return ffnc_generated_page_is_orphan( $post_id ) || ffnc_generated_key_is_thin( ffnc_generated_key( $post_id ) );
+}
 add_filter( 'wp_robots', function ( $robots ) {
-	if ( is_singular( 'page' ) && ffnc_generated_page_is_orphan( get_queried_object_id() ) ) {
+	if ( is_singular( 'page' ) && ffnc_generated_page_is_noindex( get_queried_object_id() ) ) {
 		$robots['noindex'] = true;
 		$robots['follow']  = true;
+		unset( $robots['index'], $robots['max-image-preview'] );
 	}
 	return $robots;
 }, 30 );
+/** Rank Math prints its own robots tag. */
+add_filter( 'rank_math/frontend/robots', function ( $robots ) {
+	if ( is_singular( 'page' ) && ffnc_generated_page_is_noindex( get_queried_object_id() ) ) {
+		$robots['index']  = 'noindex';
+		$robots['follow'] = 'follow';
+	}
+	return $robots;
+}, 30 );
+
+/** Keep the same pages out of Rank Math's and core's sitemaps. */
+add_filter( 'rank_math/sitemap/entry', function ( $url, $type, $object ) {
+	if ( 'post' === $type && $object && isset( $object->ID ) && 'page' === get_post_type( $object ) && ffnc_generated_page_is_noindex( $object->ID ) ) {
+		return false;
+	}
+	return $url;
+}, 10, 3 );
+add_filter( 'wp_sitemaps_posts_query_args', function ( $args, $post_type ) {
+	if ( 'page' === $post_type ) {
+		$skip = array();
+		foreach ( ffnc_generated_page_ids() as $key => $id ) {
+			if ( ffnc_generated_key_is_thin( $key ) ) {
+				$skip[] = (int) $id;
+			}
+		}
+		$args['post__not_in'] = array_merge( isset( $args['post__not_in'] ) ? (array) $args['post__not_in'] : array(), $skip );
+	}
+	return $args;
+}, 10, 2 );
+
+/** Rebuild Rank Math's cached sitemap once after a theme update changes what it lists. */
+add_action( 'init', function () {
+	if ( get_option( 'ffnc_sitemap_version' ) !== FFNC_VERSION ) {
+		update_option( 'ffnc_sitemap_version', FFNC_VERSION, false );
+		do_action( 'rank_math/sitemap/invalidate_cache' );
+	}
+}, 99 );
 
 /* -------------------------------------------------------------------------
  * Links from calculator pages
@@ -1189,4 +1441,67 @@ function ffnc_render_brand_item_links( $slug ) {
 		$out .= '<h3>' . esc_html__( 'Head-to-head', 'ffnc' ) . '</h3><p class="ffnc-item-more">' . implode( ' · ', $vs ) . '</p>';
 	}
 	return $out . '</aside>';
+}
+
+/* -------------------------------------------------------------------------
+ * /compare/ hub: example result and the list of head-to-head pages
+ * ---------------------------------------------------------------------- */
+
+/** Links to every published comparison page, as <li> items. */
+function ffnc_comparison_links() {
+	$out = array();
+	foreach ( ffnc_page_catalog()['comparisons'] as $c ) {
+		$url = ffnc_generated_page_url( 'compare:' . $c['slug'] );
+		$p   = $url ? ffnc_comparison( $c['slug'] ) : null;
+		if ( $p ) {
+			$out[] = '<li><a href="' . esc_url( $url ) . '">' . esc_html( $p['title'] ) . '</a>: ' . esc_html( sprintf(
+				/* translators: 1 a cal 2 b cal */
+				__( '%1$s vs %2$s calories', 'ffnc' ),
+				ffnc_fmt_num( ffnc_num( $p['a']['item'], 'calories' ) ),
+				ffnc_fmt_num( ffnc_num( $p['b']['item'], 'calories' ) )
+			) ) . '</li>';
+		}
+	}
+	return $out;
+}
+
+/**
+ * A server-rendered example comparison shown in the compare tool's result
+ * area until the visitor picks their own items (and for visitors without JS).
+ */
+function ffnc_compare_example( $slug = 'big-mac-vs-whopper' ) {
+	$p = ffnc_comparison( $slug );
+	if ( ! $p ) {
+		return '';
+	}
+	$rows = array(
+		'calories' => array( __( 'Calories', 'ffnc' ), '', 'low' ),
+		'protein'  => array( __( 'Protein', 'ffnc' ), 'g', 'high' ),
+		'carbs'    => array( __( 'Carbs', 'ffnc' ), 'g', 'low' ),
+		'fat'      => array( __( 'Fat', 'ffnc' ), 'g', 'low' ),
+		'sodium'   => array( __( 'Sodium', 'ffnc' ), 'mg', 'low' ),
+	);
+	$body = '';
+	foreach ( $rows as $k => $r ) {
+		$x     = ffnc_num( $p['a']['item'], $k );
+		$y     = ffnc_num( $p['b']['item'], $k );
+		$win   = ( null === $x || null === $y || $x == $y ) ? '' : ( ( 'low' === $r[2] ) === ( $x < $y ) ? 'a' : 'b' ); // phpcs:ignore
+		$body .= '<tr><th scope="row">' . esc_html( $r[0] ) . '</th>' .
+			'<td' . ( 'a' === $win ? ' class="ffnc-cmp-best"' : '' ) . '>' . esc_html( ffnc_fmt_num( $x ) . ( null === $x ? '' : $r[1] ) ) . '</td>' .
+			'<td' . ( 'b' === $win ? ' class="ffnc-cmp-best"' : '' ) . '>' . esc_html( ffnc_fmt_num( $y ) . ( null === $y ? '' : $r[1] ) ) . '</td></tr>';
+	}
+	$head = '';
+	foreach ( array( $p['a'], $p['b'] ) as $side ) {
+		$head .= '<th scope="col">' . wp_kses_post( ffnc_item_link( $side['brand'], $side['item'], $side['label'] ) ) . '</th>';
+	}
+	$diff = abs( (float) ffnc_num( $p['a']['item'], 'calories' ) - (float) ffnc_num( $p['b']['item'], 'calories' ) );
+	$url  = ffnc_generated_page_url( 'compare:' . $slug );
+	return '<p class="ffnc-compare-summary">' . sprintf(
+		/* translators: 1 comparison 2 calories */
+		esc_html__( 'Example, %1$s: the calorie difference is %2$s.', 'ffnc' ),
+		$url ? '<a href="' . esc_url( $url ) . '">' . esc_html( $p['title'] ) . '</a>' : esc_html( $p['title'] ),
+		'<strong>' . esc_html( sprintf( /* translators: %s calories */ __( '%s calories', 'ffnc' ), ffnc_fmt_num( $diff ) ) ) . '</strong>'
+	) . '</p>' .
+		'<div class="ffnc-table-scroll" tabindex="0" role="region" aria-label="' . esc_attr__( 'Example comparison table (scrollable)', 'ffnc' ) . '"><table class="ffnc-nutrition-table ffnc-compare-table"><thead><tr><th scope="col">' . esc_html__( 'Per serving', 'ffnc' ) . '</th>' . $head . '</tr></thead><tbody>' . $body . '</tbody></table></div>' .
+		'<p class="ffnc-compare-empty">' . esc_html__( 'Pick your own items above to replace this example.', 'ffnc' ) . '</p>';
 }
