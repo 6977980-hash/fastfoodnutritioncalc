@@ -129,24 +129,20 @@
    "pizza-hut": {
     "lines": [
      {
-      "id": "meat-lovers-pan-slice",
-      "qty": 1
-     },
-     {
-      "id": "cheese-hand-tossed-slice",
+      "id": "meat-lovers-stuffed-slice",
       "qty": 1
      },
      {
       "id": "traditional-wing-1",
-      "qty": 1
+      "qty": 2
      }
     ],
     "totals": {
-     "calories": 600,
-     "protein": 32,
-     "carbs": 54,
-     "fat": 28.5,
-     "sodium": 1180
+     "calories": 520,
+     "protein": 33,
+     "carbs": 30,
+     "fat": 28,
+     "sodium": 1130
     }
    },
    "subway": {
@@ -326,7 +322,7 @@
    "pizza-hut": {
     "lines": [
      {
-      "id": "supreme-pan-slice",
+      "id": "pepperoni-lovers-thin-slice",
       "qty": 1
      },
      {
@@ -335,11 +331,11 @@
      }
     ],
     "totals": {
-     "calories": 340,
-     "protein": 20,
-     "carbs": 28,
+     "calories": 330,
+     "protein": 21,
+     "carbs": 22,
      "fat": 16.5,
-     "sodium": 650
+     "sodium": 740
     }
    },
    "subway": {
