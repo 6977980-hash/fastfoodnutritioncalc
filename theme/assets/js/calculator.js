@@ -421,7 +421,7 @@
 		// Bakery items whose names would otherwise read as coffee, nuggets or other.
 		['dessert', /\b(coffee roll|coffee cake|cruller|fritter|e?clair|(blueberry|chocolate chip|corn) muffin)\b/],
 		['breakfast', /\bbagels?\b/],
-		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|baja blast)\b/],
+		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|baja blast|chocolate milk|low fat milk)\b/],
 		['coffee', /\b(coffee|latte|cappuccino|espresso|macchiato)\b/],
 		['shake', /\b(shake|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
 		// Steak tacos and burritos are Mexican, steak breakfast items breakfast.
