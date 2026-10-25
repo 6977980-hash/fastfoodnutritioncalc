@@ -126,6 +126,21 @@
      "sodium": 2270
     }
    },
+   "panera-bread": {
+    "lines": [
+     {
+      "id": "green-goddess-cobb-salad-with-chicken-whole",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 580,
+     "protein": 40,
+     "carbs": 30,
+     "fat": 34,
+     "sodium": 1980
+    }
+   },
    "pizza-hut": {
     "lines": [
      {
@@ -317,6 +332,25 @@
      "carbs": 13,
      "fat": 9,
      "sodium": 610
+    }
+   },
+   "panera-bread": {
+    "lines": [
+     {
+      "id": "chicken-noodle-cup",
+      "qty": 1
+     },
+     {
+      "id": "green-goddess-cobb-salad-with-chicken-half",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 410,
+     "protein": 30,
+     "carbs": 29,
+     "fat": 20,
+     "sodium": 2040
     }
    },
    "pizza-hut": {
