@@ -363,6 +363,18 @@
    {
     "find": "checked line by line on September 25, 2026.",
     "replace": "checked line by line on October 11, 2026."
+   },
+   {
+    "find": "Mushroom Chicken has the fewest calories of the entrees here at 180,",
+    "replace": "Apart from the 45-calorie Super Greens entree portion, Mushroom Chicken has the fewest calories of the entrees here at 180,"
+   },
+   {
+    "find": "Mushroom Chicken is the lowest-calorie entree in this calculator at 180 calories per serving,",
+    "replace": "Apart from the Super Greens entree portion (45 calories), Mushroom Chicken is the lowest-calorie entree in this calculator at 180 calories per serving,"
+   },
+   {
+    "find": "checked line by line on October 11, 2026.",
+    "replace": "checked line by line on October 11, 2026, and again on October 25, 2026."
    }
   ]
  },

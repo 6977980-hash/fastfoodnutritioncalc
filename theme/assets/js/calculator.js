@@ -430,7 +430,7 @@
 		// Steak tacos and burritos are Mexican, steak breakfast items breakfast.
 		['breakfast', /\bbreakfast\b.*\bsteak\b/],
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|chalupa|nachos)\b.*\bsteak\b|\bsteak (taco|burrito|quesadilla)\b/],
-		['entree', /\b(orange chicken|beijing|kung pao|broccoli beef|shrimp|teriyaki|steak|mushroom chicken|string bean|honey sesame|pot pie|famous bowl)\b/],
+		['entree', /\b(orange chicken|beijing|kung pao|broccoli beef|shrimp|teriyaki|steak|mushroom chicken|string bean|honey sesame|pot pie|famous bowl|black pepper chicken|sweetfire|eggplant tofu|super greens entree)\b/],
 		['dessert', /\b(cookie|pie|cake|brownie|cinnamon|churro|twists|turnover|donut|munchkin|cinnabon|empanada)\b/],
 		['breakfast', /\b(mcmuffin|biscuit|croissant|wake up wrap|hash browns?|scramble|egg and cheese|egg cheese|sausage|breakfast|pancake|avocado toast)\b/],
 		['nuggets', /\b(nugget|nuggets|mcnuggets|tenders?|strips?|minis|popcorn chicken|snacker|chicken fries)\b/],
@@ -441,7 +441,7 @@
 		['chicken-sandwich', /\b(sandwich|mcchicken|mccrispy|snack wrap|royal crispy|cool wrap|twister|filet o fish)\b/],
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|gordita|nachos|chalupa)\b/],
 		['soup', /\b(soup|chili)\b/],
-		['side', /\b(cheese curds|apple slices|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
+		['side', /\b(cheese curds|apple slices|apple crisps|chow fun|potstickers?|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
 	];
 	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
 	function itemType(item, catName, brandSlug) {

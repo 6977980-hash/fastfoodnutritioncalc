@@ -8,9 +8,9 @@
     "source_name": "Panda Express Nutrition Information (U.S.)",
     "source_url": "https://www.pandaexpress.com/nutritioninformation",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item was checked on 2026-10-11 against Panda Express's official nutrition table (pandaexpress.com/nutritioninformation). Portion sizes shown are Panda Express's published portions.",
+    "values_origin": "Every item was checked on 2026-10-11 against Panda Express's official nutrition table (pandaexpress.com/nutritioninformation). Portion sizes shown are Panda Express's published portions. On 2026-10-25 every item was re-checked against the same official table (all values still match), and saturated fat, sugar, fiber, regional entrees, soups, sauces and fountain drinks were added from it.",
     "status": "verified",
-    "last_reviewed": "2026-10-11",
+    "last_reviewed": "2026-10-25",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
     "addon_macros": "This calculator has no add-ons.",
     "spot_checks": [],
@@ -26,6 +26,10 @@
       {
         "date": "2026-10-11",
         "change": "Re-checked every item against pandaexpress.com/nutritioninformation. Updated values and portion sizes for Orange Chicken, Beijing Beef, Kung Pao Chicken, Broccoli Beef, Honey Walnut Shrimp, Grilled Teriyaki Chicken, Chow Mein, Fried Rice, Super Greens and White Steamed Rice (sides are 12 oz). New ids: honey-sesame-chicken, string-bean-chicken, black-pepper-sirloin-steak, mushroom-chicken."
+      },
+      {
+        "date": "2026-10-25",
+        "change": "Re-checked every item against pandaexpress.com/nutritioninformation (no changes). Added saturated fat, sugar and fiber; Super Greens entree portion; regional Black Pepper Chicken, SweetFire Chicken Breast, Eggplant Tofu, Chow Fun, Quinoa Fried Rice, Chicken Potstickers and Hot & Sour Soup; Fortune Cookie; Apple Crisps; dipping sauces as add-ons on appetizers; and fountain drinks in four sizes. Fountain drinks leave fiber out: Panda's table lists 1g of fiber for every soda, even zero-sugar ones with 0g of carbs."
       }
     ]
   },
@@ -42,6 +46,9 @@
           "carbs": 63,
           "fat": 25,
           "sodium": 1000,
+          "sat_fat": 5,
+          "sugar": 24,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -52,6 +59,9 @@
           "carbs": 46,
           "fat": 27,
           "sodium": 600,
+          "sat_fat": 5,
+          "sugar": 21,
+          "fiber": 2,
           "addons": []
         },
         {
@@ -62,6 +72,9 @@
           "carbs": 16,
           "fat": 14,
           "sodium": 1300,
+          "sat_fat": 3,
+          "sugar": 7,
+          "fiber": 2,
           "addons": []
         },
         {
@@ -72,6 +85,9 @@
           "carbs": 14,
           "fat": 7,
           "sodium": 600,
+          "sat_fat": 2,
+          "sugar": 7,
+          "fiber": 2,
           "addons": []
         },
         {
@@ -82,6 +98,9 @@
           "carbs": 28,
           "fat": 20,
           "sodium": 790,
+          "sat_fat": 3,
+          "sugar": 6,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -92,6 +111,9 @@
           "carbs": 13,
           "fat": 9,
           "sodium": 610,
+          "sat_fat": 3,
+          "sugar": 9,
+          "fiber": 0,
           "addons": []
         },
         {
@@ -102,6 +124,9 @@
           "carbs": 44,
           "fat": 20,
           "sodium": 540,
+          "sat_fat": 5,
+          "sugar": 19,
+          "fiber": 2,
           "addons": []
         },
         {
@@ -112,6 +137,9 @@
           "carbs": 15,
           "fat": 10,
           "sodium": 600,
+          "sat_fat": 2,
+          "sugar": 7,
+          "fiber": 3,
           "addons": []
         },
         {
@@ -122,6 +150,9 @@
           "carbs": 15,
           "fat": 8,
           "sodium": 560,
+          "sat_fat": 2,
+          "sugar": 8,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -132,7 +163,65 @@
           "carbs": 12,
           "fat": 9,
           "sodium": 820,
+          "sat_fat": 2,
+          "sugar": 5,
+          "fiber": 1,
           "addons": []
+        },
+        {
+          "id": "super-greens-entree",
+          "name": "Super Greens (Entree, 3.5 oz)",
+          "calories": 45,
+          "protein": 3,
+          "carbs": 5,
+          "fat": 2,
+          "sodium": 130,
+          "sat_fat": 0,
+          "sugar": 2,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "black-pepper-chicken",
+          "name": "Black Pepper Chicken (6.3 oz)",
+          "calories": 200,
+          "protein": 15,
+          "carbs": 9,
+          "fat": 12,
+          "sodium": 1070,
+          "sat_fat": 2,
+          "sugar": 3,
+          "fiber": 1,
+          "addons": [],
+          "availability": "regional"
+        },
+        {
+          "id": "sweetfire-chicken",
+          "name": "SweetFire Chicken Breast (5.8 oz)",
+          "calories": 360,
+          "protein": 15,
+          "carbs": 40,
+          "fat": 15,
+          "sodium": 370,
+          "sat_fat": 3,
+          "sugar": 19,
+          "fiber": 2,
+          "addons": [],
+          "availability": "regional"
+        },
+        {
+          "id": "eggplant-tofu",
+          "name": "Eggplant Tofu (6.1 oz)",
+          "calories": 310,
+          "protein": 8,
+          "carbs": 23,
+          "fat": 21,
+          "sodium": 350,
+          "sat_fat": 4,
+          "sugar": 15,
+          "fiber": 4,
+          "addons": [],
+          "availability": "regional"
         }
       ]
     },
@@ -148,6 +237,9 @@
           "carbs": 89,
           "fat": 12,
           "sodium": 1040,
+          "sat_fat": 2,
+          "sugar": 11,
+          "fiber": 5,
           "addons": []
         },
         {
@@ -158,6 +250,9 @@
           "carbs": 109,
           "fat": 13,
           "sodium": 810,
+          "sat_fat": 3,
+          "sugar": 2,
+          "fiber": 3,
           "addons": []
         },
         {
@@ -168,6 +263,9 @@
           "carbs": 17,
           "fat": 9,
           "sodium": 660,
+          "sat_fat": 2,
+          "sugar": 8,
+          "fiber": 8,
           "addons": []
         },
         {
@@ -178,7 +276,38 @@
           "carbs": 129,
           "fat": 0,
           "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 0,
+          "fiber": 0,
           "addons": []
+        },
+        {
+          "id": "chow-fun",
+          "name": "Chow Fun (Side, 12 oz)",
+          "calories": 580,
+          "protein": 13,
+          "carbs": 103,
+          "fat": 13,
+          "sodium": 1570,
+          "sat_fat": 1,
+          "sugar": 8,
+          "fiber": 1,
+          "addons": [],
+          "availability": "regional"
+        },
+        {
+          "id": "quinoa-fried-rice",
+          "name": "Quinoa Fried Rice (Side, 12 oz)",
+          "calories": 600,
+          "protein": 15,
+          "carbs": 91,
+          "fat": 19,
+          "sodium": 740,
+          "sat_fat": 4,
+          "sugar": 1,
+          "fiber": 4,
+          "addons": [],
+          "availability": "regional"
         }
       ]
     },
@@ -194,7 +323,55 @@
           "carbs": 24,
           "fat": 14,
           "sodium": 560,
-          "addons": []
+          "sat_fat": 2,
+          "sugar": 0,
+          "fiber": 2,
+          "addons": [
+            {
+              "name": "Sweet & Sour Sauce (1 cup)",
+              "calories": 70,
+              "protein": 0,
+              "carbs": 21,
+              "fat": 0,
+              "sodium": 120,
+              "sat_fat": 0,
+              "sugar": 20,
+              "fiber": 0
+            },
+            {
+              "name": "Chili Sauce (1 packet)",
+              "calories": 10,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 0,
+              "sodium": 130,
+              "sat_fat": 0,
+              "sugar": 2,
+              "fiber": 0
+            },
+            {
+              "name": "Soy Sauce (1 packet)",
+              "calories": 5,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 0,
+              "sodium": 380,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            },
+            {
+              "name": "Hot Mustard (1 packet)",
+              "calories": 10,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 1,
+              "sodium": 115,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            }
+          ]
         },
         {
           "id": "chicken-egg-roll",
@@ -204,7 +381,55 @@
           "carbs": 20,
           "fat": 10,
           "sodium": 340,
-          "addons": []
+          "sat_fat": 2,
+          "sugar": 2,
+          "fiber": 2,
+          "addons": [
+            {
+              "name": "Sweet & Sour Sauce (1 cup)",
+              "calories": 70,
+              "protein": 0,
+              "carbs": 21,
+              "fat": 0,
+              "sodium": 120,
+              "sat_fat": 0,
+              "sugar": 20,
+              "fiber": 0
+            },
+            {
+              "name": "Chili Sauce (1 packet)",
+              "calories": 10,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 0,
+              "sodium": 130,
+              "sat_fat": 0,
+              "sugar": 2,
+              "fiber": 0
+            },
+            {
+              "name": "Soy Sauce (1 packet)",
+              "calories": 5,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 0,
+              "sodium": 380,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            },
+            {
+              "name": "Hot Mustard (1 packet)",
+              "calories": 10,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 1,
+              "sodium": 115,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            }
+          ]
         },
         {
           "id": "cream-cheese-rangoon-3",
@@ -214,6 +439,413 @@
           "carbs": 24,
           "fat": 8,
           "sodium": 180,
+          "sat_fat": 5,
+          "sugar": 1,
+          "fiber": 2,
+          "addons": [
+            {
+              "name": "Sweet & Sour Sauce (1 cup)",
+              "calories": 70,
+              "protein": 0,
+              "carbs": 21,
+              "fat": 0,
+              "sodium": 120,
+              "sat_fat": 0,
+              "sugar": 20,
+              "fiber": 0
+            },
+            {
+              "name": "Chili Sauce (1 packet)",
+              "calories": 10,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 0,
+              "sodium": 130,
+              "sat_fat": 0,
+              "sugar": 2,
+              "fiber": 0
+            },
+            {
+              "name": "Soy Sauce (1 packet)",
+              "calories": 5,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 0,
+              "sodium": 380,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            },
+            {
+              "name": "Hot Mustard (1 packet)",
+              "calories": 10,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 1,
+              "sodium": 115,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            }
+          ]
+        },
+        {
+          "id": "chicken-potstickers-3",
+          "name": "Chicken Potstickers (3 pieces)",
+          "calories": 160,
+          "protein": 6,
+          "carbs": 20,
+          "fat": 6,
+          "sodium": 250,
+          "sat_fat": 1.5,
+          "sugar": 2,
+          "fiber": 1,
+          "addons": [
+            {
+              "name": "Sweet & Sour Sauce (1 cup)",
+              "calories": 70,
+              "protein": 0,
+              "carbs": 21,
+              "fat": 0,
+              "sodium": 120,
+              "sat_fat": 0,
+              "sugar": 20,
+              "fiber": 0
+            },
+            {
+              "name": "Chili Sauce (1 packet)",
+              "calories": 10,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 0,
+              "sodium": 130,
+              "sat_fat": 0,
+              "sugar": 2,
+              "fiber": 0
+            },
+            {
+              "name": "Soy Sauce (1 packet)",
+              "calories": 5,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 0,
+              "sodium": 380,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            },
+            {
+              "name": "Hot Mustard (1 packet)",
+              "calories": 10,
+              "protein": 0,
+              "carbs": 0,
+              "fat": 1,
+              "sodium": 115,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            }
+          ],
+          "availability": "regional"
+        },
+        {
+          "id": "hot-sour-soup-cup",
+          "name": "Hot & Sour Soup (Cup)",
+          "calories": 140,
+          "protein": 9,
+          "carbs": 16,
+          "fat": 4,
+          "sodium": 1000,
+          "sat_fat": 1,
+          "sugar": 4,
+          "fiber": 1,
+          "addons": [],
+          "availability": "regional"
+        },
+        {
+          "id": "hot-sour-soup-bowl",
+          "name": "Hot & Sour Soup (Bowl)",
+          "calories": 170,
+          "protein": 10,
+          "carbs": 20,
+          "fat": 6,
+          "sodium": 1260,
+          "sat_fat": 1,
+          "sugar": 6,
+          "fiber": 1,
+          "addons": [],
+          "availability": "regional"
+        },
+        {
+          "id": "fortune-cookie",
+          "name": "Fortune Cookie (1 piece)",
+          "calories": 20,
+          "protein": 0,
+          "carbs": 5,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 2,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "apple-crisps",
+          "name": "Tree Top Apple Crisps",
+          "calories": 40,
+          "protein": 0,
+          "carbs": 10,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 7,
+          "fiber": 1,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Fountain Drinks (with ice)",
+      "items": [
+        {
+          "id": "coca-cola-12",
+          "name": "Coca-Cola (Kids, 12 oz)",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 39,
+          "fat": 0,
+          "sodium": 40,
+          "sat_fat": 0,
+          "sugar": 39,
+          "addons": []
+        },
+        {
+          "id": "coca-cola-22",
+          "name": "Coca-Cola (Small, 22 oz)",
+          "calories": 260,
+          "protein": 0,
+          "carbs": 71,
+          "fat": 0,
+          "sodium": 75,
+          "sat_fat": 0,
+          "sugar": 71,
+          "addons": []
+        },
+        {
+          "id": "coca-cola-30",
+          "name": "Coca-Cola (Medium, 30 oz)",
+          "calories": 360,
+          "protein": 0,
+          "carbs": 97,
+          "fat": 0,
+          "sodium": 100,
+          "sat_fat": 0,
+          "sugar": 97,
+          "addons": []
+        },
+        {
+          "id": "coca-cola-42",
+          "name": "Coca-Cola (Large, 42 oz)",
+          "calories": 500,
+          "protein": 0,
+          "carbs": 136,
+          "fat": 0,
+          "sodium": 140,
+          "sat_fat": 0,
+          "sugar": 136,
+          "addons": []
+        },
+        {
+          "id": "dr-pepper-12",
+          "name": "Dr Pepper (Kids, 12 oz)",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 39,
+          "fat": 0,
+          "sodium": 45,
+          "sat_fat": 0,
+          "sugar": 38,
+          "addons": []
+        },
+        {
+          "id": "dr-pepper-22",
+          "name": "Dr Pepper (Small, 22 oz)",
+          "calories": 260,
+          "protein": 0,
+          "carbs": 72,
+          "fat": 0,
+          "sodium": 80,
+          "sat_fat": 0,
+          "sugar": 70,
+          "addons": []
+        },
+        {
+          "id": "dr-pepper-30",
+          "name": "Dr Pepper (Medium, 30 oz)",
+          "calories": 360,
+          "protein": 0,
+          "carbs": 98,
+          "fat": 0,
+          "sodium": 110,
+          "sat_fat": 0,
+          "sugar": 98,
+          "addons": []
+        },
+        {
+          "id": "dr-pepper-42",
+          "name": "Dr Pepper (Large, 42 oz)",
+          "calories": 500,
+          "protein": 0,
+          "carbs": 137,
+          "fat": 0,
+          "sodium": 150,
+          "sat_fat": 0,
+          "sugar": 137,
+          "addons": []
+        },
+        {
+          "id": "sprite-12",
+          "name": "Sprite (Kids, 12 oz)",
+          "calories": 140,
+          "protein": 0,
+          "carbs": 36,
+          "fat": 0,
+          "sodium": 70,
+          "sat_fat": 0,
+          "sugar": 36,
+          "addons": []
+        },
+        {
+          "id": "sprite-22",
+          "name": "Sprite (Small, 22 oz)",
+          "calories": 250,
+          "protein": 0,
+          "carbs": 67,
+          "fat": 0,
+          "sodium": 125,
+          "sat_fat": 0,
+          "sugar": 67,
+          "addons": []
+        },
+        {
+          "id": "sprite-30",
+          "name": "Sprite (Medium, 30 oz)",
+          "calories": 340,
+          "protein": 0,
+          "carbs": 91,
+          "fat": 0,
+          "sodium": 170,
+          "sat_fat": 0,
+          "sugar": 91,
+          "addons": []
+        },
+        {
+          "id": "sprite-42",
+          "name": "Sprite (Large, 42 oz)",
+          "calories": 480,
+          "protein": 0,
+          "carbs": 128,
+          "fat": 0,
+          "sodium": 240,
+          "sat_fat": 0,
+          "sugar": 128,
+          "addons": []
+        },
+        {
+          "id": "minute-maid-lemonade-12",
+          "name": "Minute Maid Lemonade (Kids, 12 oz)",
+          "calories": 130,
+          "protein": 0,
+          "carbs": 34,
+          "fat": 0,
+          "sodium": 100,
+          "sat_fat": 0,
+          "sugar": 34,
+          "addons": []
+        },
+        {
+          "id": "minute-maid-lemonade-22",
+          "name": "Minute Maid Lemonade (Small, 22 oz)",
+          "calories": 240,
+          "protein": 0,
+          "carbs": 63,
+          "fat": 0,
+          "sodium": 180,
+          "sat_fat": 0,
+          "sugar": 63,
+          "addons": []
+        },
+        {
+          "id": "minute-maid-lemonade-30",
+          "name": "Minute Maid Lemonade (Medium, 30 oz)",
+          "calories": 330,
+          "protein": 0,
+          "carbs": 86,
+          "fat": 0,
+          "sodium": 250,
+          "sat_fat": 0,
+          "sugar": 86,
+          "addons": []
+        },
+        {
+          "id": "minute-maid-lemonade-42",
+          "name": "Minute Maid Lemonade (Large, 42 oz)",
+          "calories": 460,
+          "protein": 0,
+          "carbs": 121,
+          "fat": 0,
+          "sodium": 340,
+          "sat_fat": 0,
+          "sugar": 120,
+          "addons": []
+        },
+        {
+          "id": "coke-zero-12",
+          "name": "Coca-Cola Zero Sugar (Kids, 12 oz)",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 40,
+          "sat_fat": 0,
+          "sugar": 0,
+          "addons": []
+        },
+        {
+          "id": "coke-zero-22",
+          "name": "Coca-Cola Zero Sugar (Small, 22 oz)",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 75,
+          "sat_fat": 0,
+          "sugar": 0,
+          "addons": []
+        },
+        {
+          "id": "coke-zero-30",
+          "name": "Coca-Cola Zero Sugar (Medium, 30 oz)",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 100,
+          "sat_fat": 0,
+          "sugar": 0,
+          "addons": []
+        },
+        {
+          "id": "coke-zero-42",
+          "name": "Coca-Cola Zero Sugar (Large, 42 oz)",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 115,
+          "sat_fat": 0,
+          "sugar": 0,
           "addons": []
         }
       ]
