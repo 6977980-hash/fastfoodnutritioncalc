@@ -153,6 +153,25 @@
      "sodium": 1570
     }
    },
+   "taco-bell": {
+    "lines": [
+     {
+      "id": "cantina-chicken-crispy-taco",
+      "qty": 1
+     },
+     {
+      "id": "crispy-chicken-nuggets-5",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 590,
+     "protein": 41,
+     "carbs": 44,
+     "fat": 28,
+     "sodium": 1600
+    }
+   },
    "wendys": {
     "lines": [
      {
@@ -321,6 +340,21 @@
      "carbs": 30,
      "fat": 13,
      "sodium": 750
+    }
+   },
+   "taco-bell": {
+    "lines": [
+     {
+      "id": "crispy-chicken-nuggets-5",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 320,
+     "protein": 26,
+     "carbs": 25,
+     "fat": 13,
+     "sodium": 1080
     }
    },
    "wendys": {

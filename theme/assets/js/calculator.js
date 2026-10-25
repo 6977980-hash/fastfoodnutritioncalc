@@ -16,6 +16,10 @@
  *                 total for that nutrient is shown as a minimum ("+") and the
  *                 UI names the item or add-on whose value is not published
  *   order total = sum of line totals, rounded to 1 decimal for display
+ *   extras      = saturated fat, sugar and fiber are optional per item (not
+ *                 every chain publishes them); extraTotals() adds them with
+ *                 the same "+ = minimum" rule and the UI shows them only
+ *                 for datasets that have them
  *
  * No build step, no dependencies.
  */
@@ -23,6 +27,7 @@
 	'use strict';
 
 	var NUTRIENTS = ['calories', 'protein', 'carbs', 'fat', 'sodium'];
+	var EXTRAS = ['sat_fat', 'sugar', 'fiber'];
 	var MAX_QTY = 20;
 
 	/* ------------------------------------------------------------------
@@ -121,6 +126,41 @@
 	function hasUnavailableValues(order) {
 		var u = unavailableNutrients(order);
 		return NUTRIENTS.some(function (k) { return u[k].length > 0; });
+	}
+
+	/**
+	 * Saturated fat, sugar and fiber for the order. For each one:
+	 * { total, missing: [names whose value is not published], known: bool }.
+	 * known is false when no line in the order publishes that value at all.
+	 */
+	function extraTotals(order) {
+		var out = {};
+		EXTRAS.forEach(function (k) { out[k] = { total: 0, missing: [], known: false }; });
+		(order || []).forEach(function (entry) {
+			var qty = clampQty(entry.qty === undefined ? 1 : entry.qty);
+			if (qty === 0) { return; }
+			EXTRAS.forEach(function (k) {
+				var o = out[k];
+				var parts = [entry.item].concat((entry.addons || []).filter(function (a) { return !isNoChangeAddon(a); }));
+				parts.forEach(function (p) {
+					if (isKnown(p[k])) {
+						o.total += num(p[k]) * qty;
+						o.known = true;
+					} else if (o.missing.indexOf(p.name) === -1) {
+						o.missing.push(p.name);
+					}
+				});
+			});
+		});
+		EXTRAS.forEach(function (k) { out[k].total = round1(out[k].total); });
+		return out;
+	}
+
+	/** Does any item in the dataset publish saturated fat, sugar or fiber? */
+	function hasExtras(data) {
+		return allItems(data).some(function (x) {
+			return EXTRAS.some(function (k) { return isKnown(x.item[k]); });
+		});
 	}
 
 	/** Back-compat alias (v1.2): any add-on whose macros are not published. */
@@ -378,11 +418,14 @@
 		['sub', /^6 |footlong|protein pocket|italiano/],
 		['pizza', /\b(pizza|slice)\b/],
 		['salad', /\bsalad\b/],
-		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water)\b/],
+		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|baja blast)\b/],
 		['coffee', /\b(coffee|latte|cappuccino|espresso|macchiato)\b/],
 		['shake', /\b(shake|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
+		// Steak tacos and burritos are Mexican, steak breakfast items breakfast.
+		['breakfast', /\bbreakfast\b.*\bsteak\b/],
+		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|chalupa|nachos)\b.*\bsteak\b|\bsteak (taco|burrito|quesadilla)\b/],
 		['entree', /\b(orange chicken|beijing|kung pao|broccoli beef|shrimp|teriyaki|steak|mushroom chicken|string bean|honey sesame|pot pie|famous bowl)\b/],
-		['dessert', /\b(cookie|pie|cake|brownie|cinnamon|churro|twists|turnover|donut|munchkin)\b/],
+		['dessert', /\b(cookie|pie|cake|brownie|cinnamon|churro|twists|turnover|donut|munchkin|cinnabon|empanada)\b/],
 		['breakfast', /\b(mcmuffin|biscuit|croissant|wake up wrap|hash browns?|scramble|egg and cheese|egg cheese|sausage|breakfast|pancake|avocado toast)\b/],
 		['nuggets', /\b(nugget|nuggets|mcnuggets|tenders?|strips?|minis|popcorn chicken|snacker|chicken fries)\b/],
 		['fries', /\b(fries|fry|tots|onion rings)\b/],
@@ -392,7 +435,7 @@
 		['chicken-sandwich', /\b(sandwich|mcchicken|royal crispy|cool wrap|twister|filet o fish)\b/],
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|gordita|nachos|chalupa)\b/],
 		['soup', /\b(soup|chili)\b/],
-		['side', /\b(rice|chow mein|greens|mashed|coleslaw|mac|beans|corn|potato|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
+		['side', /\b(rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
 	];
 	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
 	function itemType(item, catName, brandSlug) {
@@ -486,6 +529,9 @@
 
 	var api = {
 		NUTRIENTS: NUTRIENTS,
+		EXTRAS: EXTRAS,
+		extraTotals: extraTotals,
+		hasExtras: hasExtras,
 		MAX_QTY: MAX_QTY,
 		unitTotals: unitTotals,
 		lineTotals: lineTotals,
@@ -550,6 +596,12 @@
 	}
 	var LABELS = { calories: 'calories', protein: 'protein', carbs: 'carbohydrates', fat: 'fat', sodium: 'sodium' };
 	var UNITS = { calories: '', protein: 'g', carbs: 'g', fat: 'g', sodium: 'mg' };
+	var EXTRA_LABELS = { sat_fat: 'Sat. fat', sugar: 'Sugar', fiber: 'Fiber' };
+	/** Extra-nutrient total as text: "12g", "12g+" (minimum) or an em dash. */
+	function fmtExtra(o) {
+		if (!o.known) { return '\u2014'; }
+		return fmt(o.total) + 'g' + (o.missing.length ? '+' : '');
+	}
 	/** One plain-language sentence naming what each incomplete total excludes. */
 	function describeUnavailable(u) {
 		var parts = [];
@@ -598,6 +650,7 @@
 		var meta = data.meta || {};
 		var DEALS_TAB = '__deals';
 		var dealsMeta = data.deals_meta || {};
+		var showExtras = hasExtras(data);
 		var deals = (data.deals || []).map(function (d) {
 			return { deal: d, lines: dealLines(d, data) };
 		}).filter(function (d) { return d.lines; });
@@ -717,6 +770,9 @@
 			'  <div class="ffnc-total-row"><span>Carbs</span><strong data-total="carbs">0g</strong></div>' +
 			'  <div class="ffnc-total-row"><span>Fat</span><strong data-total="fat">0g</strong></div>' +
 			'  <div class="ffnc-total-row"><span>Sodium</span><strong data-total="sodium">0mg</strong></div>' +
+			(showExtras ? EXTRAS.map(function (k) {
+				return '  <div class="ffnc-total-row ffnc-total-extra"><span>' + EXTRA_LABELS[k] + '</span><strong data-extra="' + k + '">0g</strong></div>';
+			}).join('') : '') +
 			'  <p class="ffnc-order-addon-note" hidden></p>' +
 			'</div>' +
 			'<div class="ffnc-order-tools" hidden>' +
@@ -990,6 +1046,8 @@
 					'  <span class="ffnc-pill"><abbr title="Carbohydrates">C</abbr> ' + fmtU(item.carbs, 'g') + '</span>' +
 					'  <span class="ffnc-pill"><abbr title="Fat">F</abbr> ' + fmtU(item.fat, 'g') + '</span>' +
 					'  <span class="ffnc-pill">' + fmtU(item.sodium, 'mg') + ' sodium</span>' +
+					(isKnown(item.sugar) ? '  <span class="ffnc-pill">' + fmt(item.sugar) + 'g sugar</span>' : '') +
+					(isKnown(item.fiber) ? '  <span class="ffnc-pill">' + fmt(item.fiber) + 'g fiber</span>' : '') +
 					'</div>';
 
 				var addBtn = document.createElement('button');
@@ -1177,6 +1235,18 @@
 					el.removeAttribute('title');
 				}
 			});
+			if (showExtras) {
+				var ex = extraTotals(state.order);
+				EXTRAS.forEach(function (k) {
+					var el = orderTotalsEl.querySelector('[data-extra="' + k + '"]');
+					el.textContent = fmtExtra(ex[k]);
+					if (ex[k].missing.length) {
+						el.setAttribute('title', (ex[k].known ? 'At least ' + fmt(ex[k].total) + 'g \u2014 ' : '') + 'not published for ' + ex[k].missing.join(', '));
+					} else {
+						el.removeAttribute('title');
+					}
+				});
+			}
 			var unavailableNote = describeUnavailable(unavailable);
 			addonNoteEl.textContent = unavailableNote;
 			addonNoteEl.hidden = !unavailableNote;
@@ -1205,6 +1275,7 @@
 					'<td>' + fmt(lt.carbs) + 'g</td>' +
 					'<td>' + fmt(lt.fat) + 'g</td>' +
 					'<td>' + fmt(lt.sodium) + 'mg</td>' +
+					(showExtras ? EXTRAS.map(function (k) { return '<td>' + fmtExtra(extraTotals([entry])[k]) + '</td>'; }).join('') : '') +
 					'</tr>';
 			}).join('');
 
@@ -1233,11 +1304,12 @@
 				'<h1>' + escapeHtml(title) + '</h1>' +
 				'<p class="m">Generated ' + escapeHtml(dateStr) + '</p>' +
 				'<button type="button" class="p" onclick="window.print()">Print / Save as PDF</button>' +
-				'<div class="t"><table><thead><tr><th>Item</th><th>Add-ons</th><th>Qty</th><th>Cal</th><th>Protein</th><th>Carbs</th><th>Fat</th><th>Sodium</th></tr></thead>' +
+				'<div class="t"><table><thead><tr><th>Item</th><th>Add-ons</th><th>Qty</th><th>Cal</th><th>Protein</th><th>Carbs</th><th>Fat</th><th>Sodium</th>' +
+				(showExtras ? EXTRAS.map(function (k) { return '<th>' + EXTRA_LABELS[k] + '</th>'; }).join('') : '') + '</tr></thead>' +
 				'<tbody>' + rows + '</tbody>' +
 				'<tfoot><tr><td colspan="3">Calculated total</td>' + NUTRIENTS.map(function (k) {
 					return '<td>' + fmt(totals[k]) + UNITS[k] + (unavailable[k].length ? '+' : '') + '</td>';
-				}).join('') + '</tr></tfoot>' +
+				}).join('') + (showExtras ? EXTRAS.map(function (k) { return '<td>' + fmtExtra(extraTotals(state.order)[k]) + '</td>'; }).join('') : '') + '</tr></tfoot>' +
 				'</table></div>' +
 				(hasUnavailableValues(state.order) ? '<p class="d">' + escapeHtml(describeUnavailable(unavailable)) + '</p>' : '') +
 				'<p class="d">' + escapeHtml(provenance) + '</p>' +

@@ -686,6 +686,7 @@ function ffnc_shortcode_item_page( $atts ) {
 	$name   = $group['title'];
 	$single = $multi ? $name . ' (' . $main['size'] . ')' : ffnc_brand_display_name( $brand, $main['name'] );
 	$cat    = ffnc_page_catalog();
+	$extras = ffnc_items_have_extras( $group['items'] );
 	ob_start();
 	?>
 	<div class="ffnc-item-page" style="--ffnc-brand-color:<?php echo esc_attr( ffnc_get_brand_color( $brand ) ); ?>">
@@ -724,6 +725,9 @@ function ffnc_shortcode_item_page( $atts ) {
 				<th scope="col"><?php esc_html_e( 'Carbs', 'ffnc' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Fat', 'ffnc' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Sodium', 'ffnc' ); ?></th>
+				<?php if ( $extras ) : foreach ( ffnc_extra_nutrients() as $label ) : ?>
+					<th scope="col"><?php echo esc_html( $label ); ?></th>
+				<?php endforeach; endif; ?>
 				<th scope="col"><?php esc_html_e( '% of 2,000 cal', 'ffnc' ); ?></th>
 			</tr></thead>
 			<tbody>
@@ -735,6 +739,9 @@ function ffnc_shortcode_item_page( $atts ) {
 					<td><?php echo esc_html( ffnc_fmt_num( ffnc_num( $it, 'carbs' ) ) . 'g' ); ?></td>
 					<td><?php echo esc_html( ffnc_fmt_num( ffnc_num( $it, 'fat' ) ) . 'g' ); ?></td>
 					<td><?php echo esc_html( ffnc_fmt_num( ffnc_num( $it, 'sodium' ) ) . 'mg' ); ?></td>
+					<?php if ( $extras ) : foreach ( array_keys( ffnc_extra_nutrients() ) as $k ) : ?>
+						<td><?php echo esc_html( ffnc_fmt_g( ffnc_num( $it, $k ) ) ); ?></td>
+					<?php endforeach; endif; ?>
 					<td><?php echo esc_html( round( (float) ffnc_num( $it, 'calories' ) / 20 ) . '%' ); ?></td>
 				</tr>
 			<?php endforeach; ?>

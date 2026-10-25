@@ -764,6 +764,7 @@ html[data-ffnc-theme="dark"] .ffnc-theme-toggle .ffnc-icon-moon { display: none;
 
 .ffnc-order-totals { border-top: 2px solid var(--ffnc-border); padding-top: 10px; margin-top: 6px; }
 .ffnc-total-row { display: flex; justify-content: space-between; font-size: 0.9rem; padding: 4px 0; color: var(--ffnc-ink); }
+.ffnc-total-extra { font-size: 0.82rem; color: var(--ffnc-muted, var(--ffnc-ink)); }
 .ffnc-total-cal { font-size: 1.05rem; font-weight: 800; }
 .ffnc-order-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .ffnc-order-clear, .ffnc-order-export {

@@ -42,7 +42,7 @@
   { "slug": "five-guys-fries-vs-mcdonalds-fries", "title": "Five Guys Fries vs McDonald's Fries", "a": "five-guys:regular-fries", "b": "mcdonalds:fries-medium", "note": "A regular Five Guys fries is a much bigger portion than a medium McDonald's fries; the Five Guys calculator also has the Little size." }
  ],
  "vegetarian": {
-  "taco-bell": ["bean-burrito", "chips-cheese", "cinnamon-twists"],
+  "taco-bell": ["bean-burrito", "cheesy-bean-rice-burrito", "spicy-potato-soft-taco", "black-bean-chalupa-supreme", "black-bean-crunchwrap-supreme", "quesadilla-cheese", "veggie-mexican-pizza", "cheesy-roll-up", "cheesy-toasted-breakfast-burrito-potato", "chips-cheese", "cheesy-fiesta-potatoes", "black-beans-rice", "black-beans", "pintos-n-cheese", "hash-brown", "cinnamon-twists", "cinnabon-delights-2", "cinnabon-delights-12"],
   "subway": ["veggie-delite", "veggie-delite-salad", "cookie-choc-chip", "cookie-double-chocolate", "cookie-oatmeal-raisin", "cookie-white-chip-macadamia"],
   "chipotle": ["sofritas", "white-rice", "brown-rice", "black-beans", "pinto-beans", "flour-tortilla-burrito", "corn-salsa", "guacamole", "cheese", "sour-cream", "queso-blanco", "queso-side", "chips"],
   "dominos": ["cheese-slice", "pacific-veggie-slice", "spinach-feta-slice", "wisconsin-6-cheese-slice", "thin-cheese-slice", "cheesy-bread-1", "garlic-bread-bites-4", "chocolate-lava-cake", "cinnamon-bread-bites-4"],
@@ -63,6 +63,7 @@
   "kfc": "KFC's gravy, green beans and BBQ baked beans are left out because they may contain meat or meat flavoring.",
   "chipotle": "Build a bowl or burrito from sofritas, rice, beans, salsas, cheese and guacamole; every part is in the Chipotle calculator.",
   "burger-king": "The Impossible Whopper is not in our Burger King data yet, so only sides and desserts are listed.",
+  "taco-bell": "Listed items are the ones Taco Bell marks (V) as vegetarian in its official U.S. nutrition table.",
   "panda-express": "Panda Express cooks in shared woks, so vegetarian sides may touch meat dishes."
  }
 }
