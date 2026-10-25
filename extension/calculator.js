@@ -427,7 +427,7 @@
 		['breakfast', /\bbagels?\b/],
 		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|mountain dew|dr pepper|fruit punch|baja blast|chocolate milk|low fat milk)\b/],
 		['coffee', /\b(coffee|latte|cappuccino|espresso|macchiato)\b/],
-		['shake', /\b(shake|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
+		['shake', /\b((milk)?shake|icedream|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
 		// Steak tacos and burritos are Mexican, steak breakfast items breakfast.
 		['breakfast', /\bbreakfast\b.*\bsteak\b/],
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|chalupa|nachos)\b.*\bsteak\b|\bsteak (taco|burrito|quesadilla)\b/],
@@ -442,7 +442,7 @@
 		['chicken-sandwich', /\b(sandwich|mcchicken|royal crispy|cool wrap|twister|filet o fish)\b/],
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|gordita|nachos|chalupa)\b/],
 		['soup', /\b(soup|chili)\b/],
-		['side', /\b(cheese curds|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
+		['side', /\b(cheese curds|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
 	];
 	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
 	function itemType(item, catName, brandSlug) {

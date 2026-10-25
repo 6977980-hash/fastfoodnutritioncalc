@@ -404,6 +404,18 @@
    {
     "find": "In this calculator, the 8-count Nuggets (250 calories, 27g protein) are the lowest-calorie entree, followed by the 3-count Chick-n-Strips (310 calories). The Grilled Chicken Sandwich (390 calories) is the lowest-calorie sandwich.",
     "replace": "In this calculator, the 8-count Grilled Nuggets (130 calories, 25g protein) are the lowest-calorie entree, followed by the 12-count Grilled Nuggets (200 calories, 38g protein). The Grilled Chicken Sandwich (390 calories) is the lowest-calorie sandwich."
+   },
+   {
+    "find": "Chick-fil-A does not publish sodium for its sauces, so a sodium total that includes a sauce is marked + and excludes the sauce.",
+    "replace": "Sauce sodium is counted too: 170mg for Chick-fil-A Sauce and 210mg for Polynesian Sauce."
+   },
+   {
+    "find": "The Grilled Chicken Sandwich (390 calories) is the lowest-calorie sandwich.",
+    "replace": "The Grilled Chicken Sandwich (390 calories) is the lowest-calorie sandwich outside breakfast; at breakfast the Egg White Grill is 300 calories."
+   },
+   {
+    "find": "were checked line by line on September 25, 2026.",
+    "replace": "were checked line by line on September 25, 2026, and again on October 25, 2026."
    }
   ]
  },
