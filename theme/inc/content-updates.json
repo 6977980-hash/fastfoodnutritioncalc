@@ -273,6 +273,30 @@
    {
     "find": "and were checked line by line on September 25, 2026.",
     "replace": "and the pizzas were re-checked on October 11, 2026."
+   },
+   {
+    "find": "A Medium Original Pan cheese slice is 240 calories, a Medium Hand Tossed cheese slice is 210, and a Medium Thin ‘N Crispy cheese slice is 180 — 60 calories less than Pan per slice, or 240 calories less over four slices.",
+    "replace": "A Medium Original Pan cheese slice is 260 calories, a Medium Hand Tossed cheese slice is 220, and a Medium Thin ‘N Crispy cheese slice is 180 — 80 calories less than Pan per slice, or 320 calories less over four slices. A Medium Original Stuffed Crust cheese slice is 280 calories."
+   },
+   {
+    "find": "A slice of Medium Original Pan cheese pizza is 240 calories, with 10g of protein, 28g of carbs, 10g of fat and 440mg of sodium.",
+    "replace": "A slice of Medium Original Pan cheese pizza is 260 calories, with 10g of protein, 30g of carbs, 11g of fat and 480mg of sodium."
+   },
+   {
+    "find": "Yes, per slice. A Medium Thin ‘N Crispy cheese slice (180 calories) has 60 fewer calories than a Medium Original Pan cheese slice (240 calories).",
+    "replace": "Yes, per slice. A Medium Thin ‘N Crispy cheese slice (180 calories) has 80 fewer calories than a Medium Original Pan cheese slice (260 calories)."
+   },
+   {
+    "find": "(linked from pizzahut.com, updated September 23, 2026) and the pizzas were re-checked on October 11, 2026.",
+    "replace": "(linked from pizzahut.com, updated October 23, 2026) and the full menu was re-checked on October 25, 2026."
+   },
+   {
+    "find": "(menu updated September 23, 2026), sides and wings checked on September 25, 2026, pizza re-checked on October 11, 2026.",
+    "replace": "(menu updated October 23, 2026), checked on October 25, 2026."
+   },
+   {
+    "find": "slices along with wings, breadsticks and dessert,",
+    "replace": "slices, plus Hand Tossed and Stuffed Crust slices, wings, sides, Melts, pasta, desserts and drinks,"
    }
   ]
  },

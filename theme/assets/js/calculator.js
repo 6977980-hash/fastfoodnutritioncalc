@@ -418,7 +418,7 @@
 		['breakfast', /^6 .*\begg and cheese\b/],
 		['salad', /\bprotein bowl\b/],
 		['sub', /^6 |footlong|protein pocket|italiano/],
-		['dessert', /\bcake\b.*\bslice\b/],
+		['dessert', /\b(cake|cookie)\b.*\bslice\b/],
 		['pizza', /\b(pizza|slice)\b/],
 		['salad', /\bsalad\b/],
 		// Bakery items whose names would otherwise read as coffee, nuggets or other.
@@ -437,11 +437,13 @@
 		['fries', /\b(fries|fry|tots|onion rings)\b/],
 		['wings', /\bwings?\b/],
 		['chicken-piece', /\b(breast|thigh|drumstick)\b/],
+		// Pizza Hut Melts are folded pizza, not burgers.
+		['other', /\b(lovers|parmesan|burger) melt\b/],
 		['burger', /\b(burger|whopper|big mac|quarter pounder|mcdouble|baconator|daves|cheeseburger|hamburger|bacon king|double stack|daily double)\b/],
 		['chicken-sandwich', /\b(sandwich|mcchicken|mccrispy|snack wrap|royal crispy|cool wrap|twister|filet o fish)\b/],
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|gordita|nachos|chalupa)\b/],
 		['soup', /\b(soup|chili)\b/],
-		['side', /\b(cheese curds|apple slices|apple crisps|chow fun|potstickers?|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
+		['side', /\b(cheese curds|cheese stick|apple slices|apple crisps|chow fun|potstickers?|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
 	];
 	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
 	function itemType(item, catName, brandSlug) {
