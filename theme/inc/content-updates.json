@@ -637,6 +637,20 @@
    {
     "find": "This is a general template and should be reviewed by a qualified professional before publishing, so it accurately reflects your actual data practices and complies with the laws that apply to your visitors (such as GDPR in the EU/UK or CCPA in California).",
     "replace": ""
+   },
+   {
+    "find": "Last updated: September 25, 2026.",
+    "replace": "Last updated: October 25, 2026."
+   },
+   {
+    "find": "We built this site to be a straightforward, free resource, and we aim to be equally straightforward about how it handles your information.",
+    "replace": "We built this site to be a straightforward, free resource, and we aim to be equally straightforward about how it handles your information.",
+    "insert_after": "<p>This site is owned and run by Ali Ahmad, who is responsible for (the “controller” of) the personal information described in this policy. You can reach the owner through our <a href=\"/contact/\">Contact page</a>.</p>"
+   },
+   {
+    "find": "Depending on your location, you may have additional rights regarding your personal information, such as the right to access, correct, or request deletion of data held about you.",
+    "replace": "Depending on your location, you may have additional rights regarding your personal information, such as the right to access, correct, or request deletion of data held about you.",
+    "insert_after": "<h2>U.S. State Privacy Rights</h2>\n<p>If you live in California, Colorado, Connecticut, Virginia or another U.S. state with a consumer privacy law, you may have the right to know what personal information we collect and why, to ask us to correct or delete it, and to opt out of the “sale” or “sharing” of personal information, including for targeted advertising. We do not sell personal information for money. If advertising partners such as Google show personalized ads on this site, their use of cookies may count as “sharing” under some state laws; you can opt out at any time through the Google Ads Settings link above or by contacting us. We will not treat you differently for using any of these rights. To make a request, use our <a href=\"/contact/\">Contact page</a>; we may ask you to confirm the request comes from you.</p>"
    }
   ]
  },
@@ -674,6 +688,90 @@
    {
     "find": "breakfast menu at around 310 calories",
     "replace": "breakfast menu at 310 calories"
+   }
+  ]
+ },
+ {
+  "page": "how-many-calories-should-you-eat-in-a-day",
+  "post_type": "post",
+  "changes": [
+   {
+    "find": "The UK’s NHS uses about 2,000 calories a day for women and 2,500 calories a day for men as a general reference point for maintaining weight. The Dietary Guidelines for Americans give a wider range — roughly 1,600–2,400 calories a day for adult women and 2,000–3,000 for adult men — and the FDA uses 2,000 calories as the reference for the % Daily Value on U.S. nutrition labels. Actual needs vary quite a bit based on age, height, activity level, and individual goals. Someone who’s very active or trying to build muscle may need meaningfully more; someone with a smaller frame or a more sedentary routine may need less. These numbers are a starting point for context, not a personal recommendation — if you want a number tailored to you, a registered dietitian or your doctor is the right resource.",
+    "replace": "The UK’s NHS uses about 2,000 calories a day for women and 2,500 calories a day for men as a general reference point for maintaining weight. The Dietary Guidelines for Americans, 2025–2030 say the calories you need depend on your age, sex, height, weight and level of physical activity, and they build their daily food-group goals on a 2,000-calorie pattern (with patterns from 1,000 to 3,200 calories). The FDA also uses 2,000 calories as the reference for the % Daily Value on U.S. nutrition labels. Someone who’s very active or trying to build muscle may need meaningfully more; someone with a smaller frame or a more sedentary routine may need less. These numbers are a starting point for context, not a personal recommendation — if you want a number tailored to you, a registered dietitian or your doctor is the right resource."
+   },
+   {
+    "find": "The UK’s NHS uses about 2,000 calories a day for women and 2,500 calories a day for men as a general reference point for maintaining weight. The Dietary Guidelines for Americans, 2025–2030 say the calories you need depend on your age, sex, height, weight and level of physical activity, and they build their daily food-group goals on a 2,000-calorie pattern (with patterns from 1,000 to 3,200 calories). The FDA also uses 2,000 calories as the reference for the % Daily Value on U.S. nutrition labels. Someone who’s very active or trying to build muscle may need meaningfully more; someone with a smaller frame or a more sedentary routine may need less. These numbers are a starting point for context, not a personal recommendation — if you want a number tailored to you, a registered dietitian or your doctor is the right resource.",
+    "replace": "The UK’s NHS uses about 2,000 calories a day for women and 2,500 calories a day for men as a general reference point for maintaining weight. The Dietary Guidelines for Americans, 2025–2030 say the calories you need depend on your age, sex, height, weight and level of physical activity, and they build their daily food-group goals on a 2,000-calorie pattern (with patterns from 1,000 to 3,200 calories). The FDA also uses 2,000 calories as the reference for the % Daily Value on U.S. nutrition labels. Someone who’s very active or trying to build muscle may need meaningfully more; someone with a smaller frame or a more sedentary routine may need less. These numbers are a starting point for context, not a personal recommendation — if you want a number tailored to you, a registered dietitian or your doctor is the right resource.",
+    "insert_after": "<h2>Work Out Your Own Number</h2>\n<p>Enter your details for an estimate of the calories you burn in a day. Eating about this much keeps your weight steady; the result also links to our Day Planner with your number filled in.</p>\n[ff_calorie_needs]"
+   },
+   {
+    "find": "two Original Recipe drumsticks with mashed potatoes and coleslaw comes to roughly 550 calories, compared to around 840 for a Famous Bowl plus a biscuit.",
+    "replace": "two Original Recipe drumsticks (130 each) with Mashed Potatoes with Gravy (130) and Coleslaw (170) come to 560 calories, compared with 770 for a Famous Bowl (590) plus a Biscuit (180)."
+   },
+   {
+    "find": "a 6-inch Turkey Breast without extra sauce sits around 260 calories, while the same sandwich with mayo, extra cheese and a bag of chips can climb past 600.",
+    "replace": "a 6-inch Oven-Roasted Turkey is 480 calories as Subway makes it by default (bread, turkey, cheese, vegetables and the standard sauce, as listed in Subway’s nutrition guide); adding mayonnaise (100) and extra provolone (90) takes it to 670."
+   },
+   {
+    "find": "<a href=\"https://www.dietaryguidelines.gov/sites/default/files/2020-12/Dietary_Guidelines_for_Americans_2020-2025.pdf\"",
+    "replace": "<a href=\"https://cdn.realfood.gov/DGA.pdf\""
+   },
+   {
+    "find": "U.S. Dietary Guidelines for Americans, 2020–2025 (Appendix 2: Estimated Calorie Needs)",
+    "replace": "Dietary Guidelines for Americans, 2025–2030 (USDA and HHS, realfood.gov)"
+   },
+   {
+    "find": "FDA — How to Understand and Use the Nutrition Facts Label",
+    "replace": "FDA — How to Understand and Use the Nutrition Facts Label",
+    "insert_after": "<li><a href=\"https://pubmed.ncbi.nlm.nih.gov/2305711/\" rel=\"noopener\" target=\"_blank\">Mifflin MD, St Jeor ST, et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr, 1990</a></li>"
+   }
+  ]
+ },
+ {
+  "page": "diabetic-friendly-fast-food",
+  "title": {
+   "find": "Diabetic-Friendly Fast Food: Lower-Carb Orders at 15 Chains",
+   "replace": "Lower-Carb Fast Food for Diabetes: Mains Under 30g Carbs"
+  },
+  "changes": [
+   {
+    "find": "If you have diabetes, the number that matters most on a fast food menu is usually carbohydrate. These are the main items with 30g of carbs or less exactly as served, with the most protein first, from each restaurant’s official U.S. nutrition data.",
+    "replace": "If you have diabetes, the number that matters most on a fast food menu is usually carbohydrate. These are the main items with 30g of carbs or less exactly as served, with the most protein first, from each restaurant’s official U.S. nutrition data.",
+    "insert_after": "<p>The 30g per item cut-off is this site’s own, not a medical target. Many fast food mains are also very salty, so items over 1,000mg of sodium are marked and items over 1,500mg are listed last.</p>"
+   }
+  ]
+ },
+ {
+  "page": "low-sodium-fast-food",
+  "title": {
+   "find": "Low-Sodium Fast Food: Mains Under 600mg",
+   "replace": "Lower-Sodium Fast Food: Mains Under 600mg Sodium"
+  },
+  "changes": [
+   {
+    "find": "Fast food is often salty. These main items have 600mg of sodium or less, sorted by protein. Remember that fries, sauces and some drinks add sodium too.",
+    "replace": "Fast food is often salty. These main items have 600mg of sodium or less, sorted by protein. Remember that fries, sauces and some drinks add sodium too.",
+    "insert_after": "<p>Why 600mg? It is about a quarter of the 2,300mg a day the Dietary Guidelines for Americans set as the upper limit for adults. It is our own cut-off for a lower-sodium main, not the FDA’s “low sodium” label, which means 140mg or less per serving. See also <a href=\"/sodium-in-fast-food/\">Sodium in Fast Food: Which Chains and Items Have the Most</a>.</p>"
+   }
+  ]
+ },
+ {
+  "page": "about",
+  "changes": [
+   {
+    "find": "We built this site to close that gap.",
+    "replace": "We built this site to close that gap.",
+    "insert_after": "[ff_site_owner]"
+   }
+  ]
+ },
+ {
+  "page": "editorial-policy",
+  "changes": [
+   {
+    "find": "This page explains how Fast Food Nutrition Calculators decides what to publish, where the numbers come from and how mistakes are corrected.",
+    "replace": "This page explains how Fast Food Nutrition Calculators decides what to publish, where the numbers come from and how mistakes are corrected.",
+    "insert_after": "<h2>Who is responsible</h2>\n<p>The site is run by Ali Ahmad, its founder and editor, who writes the guides, builds the calculators and checks every dataset against the restaurant’s official nutrition information. More on the <a href=\"/about/\">About page</a>.</p>"
    }
   ]
  }

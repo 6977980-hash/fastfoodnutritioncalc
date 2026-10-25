@@ -1,16 +1,16 @@
 {
   "brand": "Dunkin'",
   "slug": "dunkin",
-  "note": "Values are Dunkin's official U.S. nutrition figures (Nutrition Guide last updated August 19, 2026), checked on September 25, 2026. Confirm current figures with Dunkin', especially for allergies or medical diets.",
+  "note": "Values are Dunkin's official U.S. nutrition figures (Nutrition Guide last updated September 21, 2026), checked on October 25, 2026. Confirm current figures with Dunkin', especially for allergies or medical diets.",
   "meta": {
     "market": "US",
     "market_label": "United States",
-    "source_name": "Dunkin' Nutrition Guide (U.S., updated 08-19-2026)",
+    "source_name": "Dunkin' Nutrition Guide (U.S., updated 09-21-2026)",
     "source_url": "https://www.dunkindonuts.com/en/nutrition",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item was checked on 2026-09-25 against Dunkin's official U.S. Nutrition Guide PDF (last updated 08-19-2026) that dunkindonuts.com links to. Coffee variations are listed as Dunkin' publishes them (for example, with cream, or with cream and sugar) instead of as add-ons.",
+    "values_origin": "Every item was checked on 2026-10-25 against Dunkin's official U.S. Nutrition Guide PDF (last updated 09-21-2026) that dunkindonuts.com links to; all 16 items match. Coffee variations are listed as Dunkin' publishes them (for example, with cream, or with cream and sugar) instead of as add-ons.",
     "status": "verified",
-    "last_reviewed": "2026-09-25",
+    "last_reviewed": "2026-10-25",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
     "addon_macros": "Dunkin' publishes finished-drink nutrition rather than per-add-on values, so this calculator lists drink variations as separate items and has no add-ons.",
     "spot_checks": [],
@@ -22,6 +22,10 @@
       {
         "date": "2026-09-25",
         "change": "Full review against the official U.S. source listed above. All values replaced with official figures; items no longer on the official U.S. menu or not published by the restaurant were removed or replaced with the official equivalent; add-ons without official values were removed. Removed/replaced ids: glazed-munchkins-4. New ids: bacon-egg-cheese-wake-up-wrap, glazed-munchkin-1, iced-coffee-cream-medium, sausage-egg-cheese-wake-up-wrap."
+      },
+      {
+        "date": "2026-10-25",
+        "change": "Re-checked all 16 items against Dunkin's U.S. Nutrition Guide updated 09-21-2026; every value matches. Nutrition values unchanged."
       }
     ]
   },

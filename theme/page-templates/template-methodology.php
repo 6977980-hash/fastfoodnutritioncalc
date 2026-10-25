@@ -21,7 +21,15 @@ $ffnc_contact_url = ffnc_page_url( 'contact' );
 <article <?php post_class( 'ffnc-page ffnc-container ffnc-methodology' ); ?>>
 	<header class="ffnc-page-header">
 		<h1 class="ffnc-page-title"><?php the_title(); ?></h1>
-		<p class="ffnc-post-meta"><?php printf( esc_html__( 'Page updated %s', 'ffnc' ), '<time datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( get_the_modified_date() ) . '</time>' ); ?></p>
+		<?php
+		// The status table below changes with every dataset review, so the
+		// visible date is the newer of the page edit and the latest review.
+		$ffnc_reviewed = array_filter( wp_list_pluck( ffnc_get_recently_reviewed(), 'last_reviewed' ) );
+		$ffnc_latest   = $ffnc_reviewed ? max( $ffnc_reviewed ) : '';
+		$ffnc_updated  = max( get_the_modified_date( 'Y-m-d' ), (string) $ffnc_latest );
+		$ffnc_owner    = ffnc_site_owner();
+		?>
+		<p class="ffnc-post-meta"><?php printf( esc_html__( 'Page updated %s', 'ffnc' ), '<time datetime="' . esc_attr( $ffnc_updated ) . '">' . esc_html( ffnc_format_review_date( $ffnc_updated, get_option( 'date_format' ) ) ) . '</time>' ); ?> &middot; <?php echo esc_html( sprintf( /* translators: %s name */ __( 'Maintained by %s', 'ffnc' ), $ffnc_owner['name'] ) ); ?></p>
 	</header>
 
 	<div class="ffnc-page-content">
@@ -29,7 +37,7 @@ $ffnc_contact_url = ffnc_page_url( 'contact' );
 
 		<p class="ffnc-lead"><?php echo esc_html( sprintf(
 			/* translators: 1 items 2 brands */
-			__( 'This page explains where the %1$d menu items across our %2$d restaurant calculators come from, how we check them, and how to tell us when something is wrong.', 'ffnc' ),
+			__( 'This page explains where the %1$d menu items and sizes across our %2$d restaurant calculators come from, how we check them, and how to tell us when something is wrong.', 'ffnc' ),
 			$ffnc_items_total,
 			$ffnc_brand_total
 		) ); ?></p>
@@ -76,7 +84,7 @@ $ffnc_contact_url = ffnc_page_url( 'contact' );
 		</p>
 
 		<h2 id="independence"><?php esc_html_e( 'Independence and limits of this site', 'ffnc' ); ?></h2>
-		<p><?php esc_html_e( 'This is an independent website. It is not affiliated with, endorsed by, or sponsored by any restaurant brand; brand names are used only to identify which menu a calculator covers. The site does not provide medical, dietary or allergy advice, and no content here has been reviewed by a dietitian or medical professional. For allergies or medical diets, always use the restaurant’s official allergen information and consult a qualified professional.', 'ffnc' ); ?></p>
+		<p><?php esc_html_e( 'This is an independent website. It is not affiliated with, endorsed by, or sponsored by any restaurant brand; brand names are used only to identify which menu a calculator covers. The site does not provide medical, dietary or allergy advice, and no content here has been reviewed by a dietitian or medical professional. The site is run by its founder and editor, who checks every dataset against the official source. For allergies or medical diets, always use the restaurant’s official allergen information and consult a qualified professional.', 'ffnc' ); ?></p>
 	</div>
 </article>
 <?php endwhile; ?>

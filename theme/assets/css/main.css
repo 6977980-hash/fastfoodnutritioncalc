@@ -992,7 +992,7 @@ html[data-ffnc-theme="dark"] .ffnc-nutrition-table tr:target { background: #3a34
 .ffnc-reviewed-list time {
 	flex: none; font-size: 0.78rem; font-weight: 600; white-space: nowrap;
 	padding: 3px 10px; border-radius: 999px;
-	background: rgba(22, 163, 74, 0.12); color: var(--ffnc-green);
+	background: rgba(22, 163, 74, 0.12); color: #166534; /* 6:1+ on the tint (WCAG AA) */
 }
 html[data-ffnc-theme="dark"] .ffnc-reviewed-list time { color: #4ade80; background: rgba(74, 222, 128, 0.12); }
 @media (max-width: 900px) { .ffnc-reviewed-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -1158,3 +1158,18 @@ html[data-ffnc-theme="dark"] .ffnc-reviewed-list time { color: #4ade80; backgrou
 	.ffnc-macro-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	.ffnc-item-big { font-size: 1.7rem; }
 }
+
+/* 1.6.0: sodium flag, availability note, review detail, owner box, calorie-needs calculator */
+.ffnc-flag-high { display: inline-block; margin-left: 4px; padding: 1px 6px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; background: var(--ffnc-warning-bg); color: var(--ffnc-warning-text); border: 1px solid var(--ffnc-warning-border); white-space: nowrap; }
+.ffnc-item-avail { font-size: 0.8rem; font-weight: 400; color: var(--ffnc-muted); }
+p.ffnc-item-avail { margin: 6px 0 0; }
+.ffnc-review-detail { display: block; font-size: 0.85rem; color: var(--ffnc-muted); }
+.ffnc-owner { margin: 20px 0; padding: 16px 18px; background: var(--ffnc-white); border: 1px solid var(--ffnc-border); border-left: 3px solid var(--ffnc-blue); border-radius: 10px; }
+.ffnc-owner h2 { margin-top: 0; }
+.ffnc-tdee { margin: 16px 0; }
+.ffnc-tdee-form fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.ffnc-tdee-form legend { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+.ffnc-tdee-form fieldset label { display: flex; gap: 6px; font-weight: 500; }
+.ffnc-tdee-form input[type="number"] { max-width: 6em; }
+.ffnc-tdee-form [hidden] { display: none; }
+.ffnc-tdee-out { margin-top: 14px; }

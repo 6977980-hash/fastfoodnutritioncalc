@@ -359,20 +359,55 @@ function ffnc_item_swaps( $brand, $item, $limit = 3 ) {
 	return array( 'items' => array_slice( $lower, 0, 1 ), 'keeps_protein' => false );
 }
 
-/** The closest item of the same kind at each other chain, nearest calories first. */
+/** Reader-facing plural for an item type ("burgers", "chicken sandwiches"). */
+function ffnc_type_plural( $type ) {
+	$map = array(
+		'burger'           => __( 'burgers', 'ffnc' ),
+		'chicken-sandwich' => __( 'chicken sandwiches', 'ffnc' ),
+		'nuggets'          => __( 'nuggets and tenders', 'ffnc' ),
+		'pizza'            => __( 'pizza slices', 'ffnc' ),
+		'sub'              => __( 'subs and sandwiches', 'ffnc' ),
+		'mexican'          => __( 'tacos and burritos', 'ffnc' ),
+		'chicken-piece'    => __( 'chicken pieces', 'ffnc' ),
+		'wings'            => __( 'wings', 'ffnc' ),
+		'breakfast'        => __( 'breakfast items', 'ffnc' ),
+		'salad'            => __( 'salads', 'ffnc' ),
+		'soup'             => __( 'soups', 'ffnc' ),
+		'entree'           => __( 'entrees', 'ffnc' ),
+		'fries'            => __( 'fries', 'ffnc' ),
+		'side'             => __( 'sides', 'ffnc' ),
+		'shake'            => __( 'shakes and frozen treats', 'ffnc' ),
+		'dessert'          => __( 'desserts', 'ffnc' ),
+		'drink'            => __( 'drinks', 'ffnc' ),
+		'coffee'           => __( 'coffee drinks', 'ffnc' ),
+	);
+	return isset( $map[ $type ] ) ? $map[ $type ] : __( 'items', 'ffnc' );
+}
+
+/** Single or multi-patty (double, triple, stacked) by the item name. */
+function ffnc_item_size_class( $name ) {
+	return preg_match( '/\b(double|triple|stacked?|baconator|2 patties|3 patties|quad)\b/i', $name ) ? 'multi' : 'single';
+}
+
+/**
+ * The similar-calorie item of the same kind at each other chain, nearest
+ * calories first. Items of the same size class (single vs double patty)
+ * are preferred; another class is used only when a chain has none.
+ */
 function ffnc_item_at_other_chains( $brand, $item, $limit = 5 ) {
 	$types = ffnc_item_types();
 	$type  = isset( $types[ $brand ][ $item['id'] ] ) ? $types[ $brand ][ $item['id'] ] : '';
 	if ( ! $type || in_array( $type, array( 'ingredient', 'other' ), true ) ) {
 		return array();
 	}
-	$cal  = (float) ffnc_num( $item, 'calories' );
-	$best = array();
+	$cal   = (float) ffnc_num( $item, 'calories' );
+	$class = ffnc_item_size_class( $item['name'] );
+	$best  = array();
 	foreach ( ffnc_all_items() as $x ) {
 		if ( $x['brand'] === $brand || $x['type'] !== $type || null === ffnc_num( $x['item'], 'calories' ) || preg_match( '/family|bucket|\(1 (piece|wing)\)/i', $x['item']['name'] ) ) {
 			continue;
 		}
-		$d = abs( ffnc_num( $x['item'], 'calories' ) - $cal );
+		$d = abs( ffnc_num( $x['item'], 'calories' ) - $cal ) + ( ffnc_item_size_class( $x['item']['name'] ) === $class ? 0 : 100000 );
 		if ( ! isset( $best[ $x['brand'] ] ) || $d < $best[ $x['brand'] ]['d'] ) {
 			$best[ $x['brand'] ] = $x + array( 'd' => $d );
 		}
@@ -410,6 +445,13 @@ function ffnc_source_line( $brand, $item = null ) {
 		) . ')';
 	}
 	$date = ffnc_format_review_date( $item && ! empty( $item['last_checked'] ) ? $item['last_checked'] : $meta['last_reviewed'], 'F j, Y' );
+	if ( ! ffnc_dataset_is_verified( $brand ) ) {
+		return '<p class="ffnc-item-source">' . sprintf(
+			/* translators: %s source link */
+			esc_html__( 'Reference values compiled from %s; not yet checked line by line against the official source, so treat them as estimates.', 'ffnc' ),
+			$src // Escaped above.
+		) . '</p>';
+	}
 	return '<p class="ffnc-item-source">' . sprintf(
 		/* translators: 1 source link 2 date */
 		esc_html__( 'Official U.S. values from %1$s, last checked %2$s. Restaurants change recipes, so values in your area can differ.', 'ffnc' ),
@@ -659,6 +701,9 @@ function ffnc_shortcode_item_page( $atts ) {
 				?>
 			</p>
 			<?php echo ffnc_macro_chips( $main ); // phpcs:ignore ?>
+			<?php if ( ! empty( $main['availability'] ) ) : ?>
+				<p class="ffnc-item-avail"><?php echo esc_html( sprintf( /* translators: %s e.g. "not sold at every KFC" */ __( 'Availability: %s. Check your local menu.', 'ffnc' ), $main['availability'] ) ); ?></p>
+			<?php endif; ?>
 			<p class="ffnc-item-actions">
 				<a class="ffnc-btn ffnc-btn-solid" href="<?php echo esc_url( ffnc_order_link( $calc, $main['id'] ) ); ?>"><?php esc_html_e( 'Add it to an order in the calculator', 'ffnc' ); ?></a>
 			</p>
@@ -796,7 +841,7 @@ function ffnc_shortcode_item_page( $atts ) {
 				<ul class="ffnc-list"><?php echo wp_kses_post( implode( '', $vs ) ); ?></ul>
 			<?php endif; ?>
 			<?php if ( $others ) : ?>
-				<p><?php esc_html_e( 'The closest item of the same kind at other chains:', 'ffnc' ); ?></p>
+				<p><?php echo esc_html( sprintf( /* translators: %s item kind, e.g. "burgers" */ __( 'Similar-calorie %s at other chains (same size where the chain has one):', 'ffnc' ), ffnc_type_plural( ffnc_item_types()[ $slug ][ $main['id'] ] ) ) ); ?></p>
 				<ul class="ffnc-list">
 					<?php foreach ( $others as $o ) : ?>
 						<li><?php echo wp_kses_post( ffnc_item_link( $o['brand'], $o['item'], ffnc_brand_display_name( ffnc_get_brand( $o['brand'] ), $o['item']['name'] ) ) ); ?>: <?php echo esc_html( sprintf( /* translators: 1 cal 2 protein */ __( '%1$s calories, %2$sg protein', 'ffnc' ), ffnc_fmt_num( ffnc_num( $o['item'], 'calories' ) ), ffnc_fmt_num( ffnc_num( $o['item'], 'protein' ) ) ) ); ?></li>
@@ -809,7 +854,9 @@ function ffnc_shortcode_item_page( $atts ) {
 		$qas = array();
 		$qas[ sprintf( /* translators: %s item */ __( 'How many calories are in the %s?', 'ffnc' ), $single ) ] = sprintf(
 			/* translators: 1 item 2 cal 3 protein 4 carbs 5 fat */
-			__( 'The %1$s has %2$s calories, with %3$sg of protein, %4$sg of carbs and %5$sg of fat, according to the restaurant’s official U.S. nutrition information.', 'ffnc' ),
+			ffnc_dataset_is_verified( $slug )
+				? __( 'The %1$s has %2$s calories, with %3$sg of protein, %4$sg of carbs and %5$sg of fat, according to the restaurant’s official U.S. nutrition information.', 'ffnc' )
+				: __( 'The %1$s has about %2$s calories, with %3$sg of protein, %4$sg of carbs and %5$sg of fat, in our reference values (not yet checked against the official source).', 'ffnc' ),
 			$single,
 			ffnc_fmt_num( $cal ),
 			ffnc_fmt_num( ffnc_num( $main, 'protein' ) ),
@@ -1104,7 +1151,11 @@ function ffnc_shortcode_compare_page( $atts ) {
 		);
 		echo ffnc_render_faq( $qas ); // phpcs:ignore
 		?>
-		<p class="ffnc-item-source"><?php esc_html_e( 'Both columns use each restaurant’s official U.S. nutrition values for the standard item, as in our calculators.', 'ffnc' ); ?></p>
+		<p class="ffnc-item-source"><?php
+		echo esc_html( ffnc_dataset_is_verified( $a['brand'] ) && ffnc_dataset_is_verified( $b['brand'] )
+			? __( 'Both columns use each restaurant’s official U.S. nutrition values for the standard item, as in our calculators.', 'ffnc' )
+			: __( 'Both columns use the same values as our calculators; at least one restaurant’s data is not yet checked against its official source, so treat it as an estimate.', 'ffnc' ) );
+		?></p>
 		<p>
 			<?php foreach ( array( $a, $b ) as $i => $x ) : $bb = ffnc_get_brand( $x['brand'] ); ?>
 				<?php echo $i ? ' · ' : ''; ?><a href="<?php echo esc_url( ffnc_order_link( home_url( $bb['url'] ), $x['item']['id'] ) ); ?>"><?php echo esc_html( sprintf( /* translators: %s item */ __( 'Build an order with the %s', 'ffnc' ), $x['label'] ) ); ?></a>

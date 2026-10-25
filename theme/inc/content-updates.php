@@ -51,12 +51,13 @@ function ffnc_cu_loose_pattern( $text ) {
 	$chars = preg_split( '//u', $text, -1, PREG_SPLIT_NO_EMPTY );
 	$out   = '';
 	foreach ( $chars as $ch ) {
+		// Entity alternatives let the same pattern match raw post content.
 		if ( "'" === $ch ) {
-			$out .= "['\u{2018}\u{2019}\u{2032}]";
+			$out .= "(?:['\u{2018}\u{2019}\u{2032}]|&(?:rsquo|lsquo|#8217|#8216|#039|#39);)";
 		} elseif ( '"' === $ch ) {
-			$out .= "[\"\u{201C}\u{201D}\u{2033}]";
+			$out .= "(?:[\"\u{201C}\u{201D}\u{2033}]|&(?:ldquo|rdquo|quot|#8220|#8221);)";
 		} elseif ( '-' === $ch ) {
-			$out .= "(?:--|[-\u{2013}\u{2014}])";
+			$out .= "(?:--|[-\u{2013}\u{2014}]|&(?:ndash|mdash|#8211|#8212);)";
 		} elseif ( ' ' === $ch ) {
 			$out .= '\s+';
 		} else {
@@ -145,6 +146,16 @@ function ffnc_cu_apply_change( &$content, $change ) {
 		if ( 'line' === $type && ( preg_match( '/<(p|h[1-6]|li)[\s>]/', $raw ) || false !== strpos( $raw, '[ff_faq' ) ) ) {
 			continue;
 		}
+		$in_raw = 0;
+		if ( 'attr' !== $type ) {
+			// The sentence sits as plain text inside the unit's markup (no tags
+			// in between): replace it there and keep the unit's links and tags.
+			$try = preg_replace( ffnc_cu_loose_pattern( $find ), str_replace( array( '\\', '$' ), array( '\\\\', '\\$' ), str_replace( array( '<', '>' ), array( '&lt;', '&gt;' ), $replace ) ), $raw, 1, $in_raw );
+		}
+		if ( $in_raw && ! $after ) {
+			$content = substr( $content, 0, $start ) . $try . substr( $content, $start + $len );
+			return 'applied';
+		}
 		if ( $norm === $nfind ) {
 			$new = $replace;
 		} else {
@@ -205,22 +216,54 @@ function ffnc_cu_get_updates() {
 function ffnc_cu_run( $save = false ) {
 	$report = array();
 	foreach ( ffnc_cu_get_updates() as $page_cfg ) {
-		$page = get_page_by_path( $page_cfg['page'] );
+		// Blog posts are listed with "post_type": "post"; everything else is a page.
+		$page = get_page_by_path( $page_cfg['page'], OBJECT, isset( $page_cfg['post_type'] ) ? $page_cfg['post_type'] : 'page' );
 		if ( ! $page ) {
 			$report[] = array( 'page' => $page_cfg['page'], 'status' => 'page_missing', 'find' => '' );
 			continue;
 		}
 		$content  = $page->post_content;
 		$original = $content;
-		foreach ( $page_cfg['changes'] as $change ) {
+		foreach ( isset( $page_cfg['changes'] ) ? $page_cfg['changes'] : array() as $change ) {
 			$status   = ffnc_cu_apply_change( $content, $change );
 			$report[] = array( 'page' => $page_cfg['page'], 'status' => $status, 'find' => $change['find'], 'replace' => $change['replace'] );
 		}
-		if ( $save && $content !== $original ) {
+		// Optional new page title: { "find": old title, "replace": new title }.
+		$title = $page->post_title;
+		if ( ! empty( $page_cfg['title'] ) ) {
+			$t = $page_cfg['title'];
+			if ( ffnc_cu_norm( $title ) === ffnc_cu_norm( $t['find'] ) ) {
+				$title  = $t['replace'];
+				$status = 'applied';
+			} else {
+				$status = ffnc_cu_norm( $title ) === ffnc_cu_norm( $t['replace'] ) ? 'already' : 'not_found';
+			}
+			$report[] = array( 'page' => $page_cfg['page'] . ' (title)', 'status' => $status, 'find' => $t['find'], 'replace' => $t['replace'] );
+		}
+		// Optional SEO fields from the Page Options box, set to the given text.
+		$meta = array();
+		foreach ( isset( $page_cfg['meta'] ) ? (array) $page_cfg['meta'] : array() as $key => $value ) {
+			if ( ! in_array( $key, array( '_ffnc_seo_title', '_ffnc_meta_description' ), true ) ) {
+				continue;
+			}
+			$old    = (string) get_post_meta( $page->ID, $key, true );
+			$status = $old === $value ? 'already' : 'applied';
+			if ( 'applied' === $status ) {
+				$meta[ $key ] = $value;
+			}
+			$report[] = array( 'page' => $page_cfg['page'] . ' (' . $key . ')', 'status' => $status, 'find' => $old, 'replace' => $value );
+		}
+		if ( $save && ( $content !== $original || $title !== $page->post_title ) ) {
 			wp_update_post( array(
 				'ID'           => $page->ID,
+				'post_title'   => wp_slash( $title ),
 				'post_content' => wp_slash( $content ),
 			) );
+		}
+		if ( $save ) {
+			foreach ( $meta as $key => $value ) {
+				update_post_meta( $page->ID, $key, $value );
+			}
 		}
 	}
 	if ( $save ) {

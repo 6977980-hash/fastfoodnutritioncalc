@@ -1,14 +1,14 @@
 {
   "brand": "Five Guys",
   "slug": "five-guys",
-  "note": "Values come from Five Guys' official U.S. Nutrition & Allergen Guide (September 2026). Five Guys lists nutrition by component; burgers here are bun + patties, and toppings are added individually. Values can vary by supplier and restaurant.",
+  "note": "Values come from Five Guys' official U.S. Nutrition & Allergen Guide (September 2026). Five Guys lists nutrition by component; burgers here are bun + patties, and toppings are added individually. Values can vary by supplier and restaurant. Five Guys' published calories and macros don't add up exactly (for example, the Hamburger's protein, carbs and fat suggest fewer calories than the 844 listed); we show their official figures.",
   "meta": {
     "market": "US",
     "market_label": "United States",
     "source_name": "Five Guys U.S. Nutrition & Allergen Guide (September 2026)",
     "source_url": "https://www.fiveguys.com/nutritional-allergy-information/",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Checked on 2026-09-25 against Five Guys' official U.S. Nutrition & Allergen Guide (September 2026 PDF). Five Guys publishes nutrition by component, so burgers and the hot dog are the sum of the official bun + patty (or hot dog) values; where the guide lists more than one supplier, the first-listed supplier's values are used.",
+    "values_origin": "Checked on 2026-09-25 against Five Guys' official U.S. Nutrition & Allergen Guide (September 2026 PDF). Five Guys publishes nutrition by component, so burgers and the hot dog are the sum of the official bun + patty (or hot dog) values; where the guide lists more than one supplier, the first-listed supplier's values are used. Re-checked on 2026-10-25 against the same guide: all 9 items, including the bun + patty sums, match.",
     "status": "verified",
     "last_reviewed": "2026-09-25",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",

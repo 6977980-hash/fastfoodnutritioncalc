@@ -26,7 +26,9 @@ get_header();
 					'<time datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( get_the_modified_date() ) . '</time>'
 				);
 			}
-			echo ' &middot; ' . esc_html( get_bloginfo( 'name' ) );
+			$ffnc_owner = ffnc_site_owner();
+			$ffnc_about = ffnc_page_url( 'about' );
+			echo ' &middot; ' . esc_html__( 'By', 'ffnc' ) . ' ' . ( $ffnc_about ? '<a href="' . esc_url( $ffnc_about ) . '" rel="author">' . esc_html( $ffnc_owner['name'] ) . '</a>' : esc_html( $ffnc_owner['name'] ) );
 			?>
 		</p>
 	</header>

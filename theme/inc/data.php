@@ -17,6 +17,8 @@
  *                   official source on `last_reviewed`, otherwise "pending".
  *   last_reviewed   YYYY-MM-DD of the last full manual review, or null.
  *                   Never set this unless a person actually did the review.
+ *   review_detail   Optional sentence when parts were checked on different
+ *                   dates ("Checked Sep 25, 2026; items added Oct 11, 2026").
  *   spot_checks     Individual values checked against the official source
  *                   (item id, field, dataset value, official value, date, url).
  *   changelog       Human-readable log of data changes.
@@ -71,6 +73,7 @@ function ffnc_get_dataset_meta( $slug ) {
 		'source_url'    => '',
 		'status'        => 'pending',
 		'last_reviewed' => null,
+		'review_detail' => '',
 		'spot_checks'   => array(),
 		'changelog'     => array(),
 	) );
