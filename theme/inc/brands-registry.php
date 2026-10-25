@@ -206,6 +206,16 @@ function ffnc_get_brands() {
 			'tagline'   => 'Build your burrito, bowl or tacos scoop by scoop, queso and guac included.',
 			'live'      => true,
 		),
+		'starbucks'    => array(
+			'name'      => 'Starbucks',
+			'slug'      => 'starbucks',
+			'color'      => '#00704a',
+			'abbr'       => 'SBX',
+			'url'       => '/calculators/starbucks-nutrition-calculator/',
+			'title'     => 'Starbucks Nutrition Calculator',
+			'tagline'   => 'Lattes, Frappuccinos, Refreshers and food in Tall, Grande and Venti.',
+			'live'      => true,
+		),
 	);
 
 	return $brands;

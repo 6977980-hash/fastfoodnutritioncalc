@@ -31,7 +31,8 @@ const ALIASES = {
 	'wendys': ["wendy's", 'wendys'], 'burger-king': ['burger king'], 'dominos': ["domino's", 'dominos'],
 	'pizza-hut': ['pizza hut'], 'chick-fil-a': ['chick-fil-a', 'chick fil a', 'chickfila'], 'panera-bread': ['panera'],
 	'five-guys': ['five guys'], 'panda-express': ['panda express'], 'dairy-queen': ['dairy queen', 'dq grill'],
-	'popeyes': ['popeyes', 'popeyes louisiana kitchen'], 'qdoba': ['qdoba', 'qdoba mexican eats']
+	'popeyes': ['popeyes', 'popeyes louisiana kitchen'], 'qdoba': ['qdoba', 'qdoba mexican eats'],
+	'starbucks': ['starbucks']
 };
 
 function buildData() {

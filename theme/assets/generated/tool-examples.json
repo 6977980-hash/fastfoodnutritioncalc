@@ -202,6 +202,25 @@
      "sodium": 1280
     }
    },
+   "starbucks": {
+    "lines": [
+     {
+      "id": "iced-sugar-free-vanilla-protein-matcha-venti",
+      "qty": 1
+     },
+     {
+      "id": "turkey-bacon-cheddar-and-egg-white-sandwich",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 600,
+     "protein": 67,
+     "carbs": 50,
+     "fat": 16,
+     "sodium": 820
+    }
+   },
    "subway": {
     "lines": [
      {
@@ -442,6 +461,21 @@
      "carbs": 11,
      "fat": 26,
      "sodium": 990
+    }
+   },
+   "starbucks": {
+    "lines": [
+     {
+      "id": "iced-sugar-free-vanilla-protein-matcha-grande",
+      "qty": 1
+     }
+    ],
+    "totals": {
+     "calories": 210,
+     "protein": 31,
+     "carbs": 12,
+     "fat": 4.5,
+     "sodium": 135
     }
    },
    "subway": {

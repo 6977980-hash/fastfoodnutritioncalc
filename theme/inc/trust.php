@@ -96,7 +96,7 @@ function ffnc_brand_clusters() {
 		'mexican' => array( 'chipotle', 'qdoba', 'taco-bell' ),
 		'pizza'   => array( 'dominos', 'pizza-hut' ),
 		'fastcasual' => array( 'panera-bread', 'subway', 'chipotle', 'panda-express' ),
-		'breakfast'  => array( 'dunkin', 'mcdonalds', 'panera-bread' ),
+		'breakfast'  => array( 'dunkin', 'starbucks', 'mcdonalds', 'panera-bread' ),
 	);
 }
 
