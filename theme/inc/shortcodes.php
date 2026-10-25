@@ -113,6 +113,7 @@ function ffnc_shortcode_nutrition_table( $atts ) {
 		if ( ! empty( $atts['category'] ) && $atts['category'] !== $cat['id'] ) {
 			continue;
 		}
+		$ffnc_extras = ffnc_items_have_extras( $cat['items'] );
 		?>
 		<div class="ffnc-nutrition-table-wrap">
 			<<?php echo $hl; // phpcs:ignore ?> class="ffnc-table-heading"><?php echo esc_html( $bname . ' ' . $cat['name'] ); ?></<?php echo $hl; // phpcs:ignore ?>>
@@ -127,6 +128,9 @@ function ffnc_shortcode_nutrition_table( $atts ) {
 						<th scope="col"><?php esc_html_e( 'Carbs', 'ffnc' ); ?></th>
 						<th scope="col"><?php esc_html_e( 'Fat', 'ffnc' ); ?></th>
 						<th scope="col"><?php esc_html_e( 'Sodium', 'ffnc' ); ?></th>
+						<?php if ( $ffnc_extras ) : foreach ( ffnc_extra_nutrients() as $ffnc_label ) : ?>
+							<th scope="col"><?php echo esc_html( $ffnc_label ); ?></th>
+						<?php endforeach; endif; ?>
 					</tr>
 				</thead>
 				<tbody>
@@ -156,6 +160,9 @@ function ffnc_shortcode_nutrition_table( $atts ) {
 						<td><?php echo esc_html( ffnc_fmt_num( $item['carbs'] ) ); ?> g</td>
 						<td><?php echo esc_html( ffnc_fmt_num( $item['fat'] ) ); ?> g</td>
 						<td><?php echo esc_html( ffnc_fmt_num( $item['sodium'] ) ); ?> mg</td>
+						<?php if ( $ffnc_extras ) : foreach ( array_keys( ffnc_extra_nutrients() ) as $ffnc_k ) : ?>
+							<td><?php echo esc_html( ffnc_fmt_g( ffnc_num( $item, $ffnc_k ) ) ); ?></td>
+						<?php endforeach; endif; ?>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>

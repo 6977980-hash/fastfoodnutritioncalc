@@ -738,6 +738,10 @@
     "find": "If you have diabetes, the number that matters most on a fast food menu is usually carbohydrate. These are the main items with 30g of carbs or less exactly as served, with the most protein first, from each restaurant’s official U.S. nutrition data.",
     "replace": "If you have diabetes, the number that matters most on a fast food menu is usually carbohydrate. These are the main items with 30g of carbs or less exactly as served, with the most protein first, from each restaurant’s official U.S. nutrition data.",
     "insert_after": "<p>The 30g per item cut-off is this site’s own, not a medical target. Many fast food mains are also very salty, so items over 1,000mg of sodium are marked and items over 1,500mg are listed last.</p>"
+   },
+   {
+    "find": "Our data lists total carbohydrate only; sugar and fiber are on each restaurant’s own nutrition guide.",
+    "replace": "Where a restaurant publishes fiber and sugar, the table also shows them and the net carbs (total carbohydrate minus fiber); a dash means the restaurant does not publish that value."
    }
   ]
  },

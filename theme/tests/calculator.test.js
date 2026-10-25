@@ -52,6 +52,37 @@ test('there are 15 datasets and every item has numeric nutrients', () => {
 	}
 });
 
+test('saturated fat, sugar and fiber are optional, plausible numbers', () => {
+	for (const b of brands) {
+		for (const it of items(b.data)) {
+			for (const k of calc.EXTRAS) {
+				if (it[k] === undefined || it[k] === null) { continue; }
+				assert.equal(typeof it[k], 'number', `${b.slug}/${it.id}.${k}`);
+				assert.ok(it[k] >= 0, `${b.slug}/${it.id}.${k}`);
+			}
+			if (typeof it.sat_fat === 'number') { assert.ok(it.sat_fat <= it.fat, `${b.slug}/${it.id} sat fat <= fat`); }
+			for (const k of ['sugar', 'fiber']) {
+				if (typeof it[k] === 'number') { assert.ok(it[k] <= it.carbs, `${b.slug}/${it.id} ${k} <= carbs`); }
+			}
+		}
+	}
+});
+
+test('extraTotals adds published extras and marks what is missing', () => {
+	const a = { id: 'a', name: 'A', calories: 100, protein: 1, carbs: 20, fat: 5, sodium: 10, sat_fat: 2, sugar: 3.5, fiber: 1 };
+	const bItem = { id: 'b', name: 'B', calories: 100, protein: 1, carbs: 20, fat: 5, sodium: 10 };
+	const both = calc.extraTotals([{ item: a, addons: [], qty: 2 }, { item: bItem, addons: [], qty: 1 }]);
+	assert.deepEqual(both.sugar, { total: 7, missing: ['B'], known: true });
+	assert.deepEqual(calc.extraTotals([{ item: a, addons: [], qty: 3 }]).fiber, { total: 3, missing: [], known: true });
+	assert.deepEqual(calc.extraTotals([{ item: bItem, addons: [], qty: 1 }]).sat_fat, { total: 0, missing: ['B'], known: false });
+	assert.deepEqual(calc.extraTotals([{ item: bItem, addons: [], qty: 0 }]).sugar, { total: 0, missing: [], known: false });
+	// A calories-only add-on makes the extras a minimum; a no-change add-on does not.
+	assert.deepEqual(calc.extraTotals([{ item: a, addons: [{ name: 'Cheese', calories: 20 }], qty: 1 }]).sugar.missing, ['Cheese']);
+	assert.deepEqual(calc.extraTotals([{ item: a, addons: [{ name: 'No Onions', calories: 0 }], qty: 1 }]).sugar.missing, []);
+	assert.equal(calc.hasExtras({ categories: [{ id: 'c', name: 'C', items: [bItem] }] }), false);
+	assert.equal(calc.hasExtras({ categories: [{ id: 'c', name: 'C', items: [bItem, a] }] }), true);
+});
+
 for (const b of brands) {
 	const all = items(b.data);
 	test(`${b.slug}: single item equals dataset values for every item`, () => {

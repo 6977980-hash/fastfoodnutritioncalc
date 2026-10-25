@@ -85,6 +85,39 @@ function ffnc_num( $item, $k ) {
 	return isset( $item[ $k ] ) && is_numeric( $item[ $k ] ) ? (float) $item[ $k ] : null;
 }
 
+/** Optional nutrients some chains publish (saturated fat, sugar, fiber), in grams. */
+function ffnc_extra_nutrients() {
+	return array(
+		'sat_fat' => __( 'Sat. fat', 'ffnc' ),
+		'sugar'   => __( 'Sugar', 'ffnc' ),
+		'fiber'   => __( 'Fiber', 'ffnc' ),
+	);
+}
+
+/** Does any of these items publish saturated fat, sugar or fiber? */
+function ffnc_items_have_extras( $items ) {
+	foreach ( $items as $it ) {
+		foreach ( array_keys( ffnc_extra_nutrients() ) as $k ) {
+			if ( null !== ffnc_num( $it, $k ) ) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+/** "12g", or an em dash when the value is not published. */
+function ffnc_fmt_g( $v ) {
+	return null === $v ? '—' : ffnc_fmt_num( $v ) . 'g';
+}
+
+/** Net carbs (total carbs minus fiber), or null when either is not published. */
+function ffnc_net_carbs( $item ) {
+	$c = ffnc_num( $item, 'carbs' );
+	$f = ffnc_num( $item, 'fiber' );
+	return ( null === $c || null === $f ) ? null : max( 0, $c - $f );
+}
+
 /* -------------------------------------------------------------------------
  * [ff_tool]
  * ---------------------------------------------------------------------- */
@@ -346,6 +379,7 @@ function ffnc_render_item_rows_table( $rows, $caption, $extra_col = '', $flag_so
 			<th scope="col"><?php esc_html_e( 'Carbs', 'ffnc' ); ?></th>
 			<th scope="col"><?php esc_html_e( 'Sodium', 'ffnc' ); ?></th>
 			<?php if ( 'density' === $extra_col ) : ?><th scope="col"><?php esc_html_e( 'Protein per 100 cal', 'ffnc' ); ?></th><?php endif; ?>
+			<?php if ( 'net-carbs' === $extra_col ) : ?><th scope="col"><?php esc_html_e( 'Fiber', 'ffnc' ); ?></th><th scope="col"><?php esc_html_e( 'Sugar', 'ffnc' ); ?></th><th scope="col"><?php esc_html_e( 'Net carbs', 'ffnc' ); ?></th><?php endif; ?>
 		</tr></thead>
 		<tbody>
 		<?php foreach ( $rows as $r ) : $it = $r['item']; ?>
@@ -357,6 +391,7 @@ function ffnc_render_item_rows_table( $rows, $caption, $extra_col = '', $flag_so
 				<td><?php echo esc_html( ffnc_fmt_num( ffnc_num( $it, 'carbs' ) ) . ( null === ffnc_num( $it, 'carbs' ) ? '' : 'g' ) ); ?></td>
 				<td><?php echo esc_html( ffnc_fmt_num( ffnc_num( $it, 'sodium' ) ) . ( null === ffnc_num( $it, 'sodium' ) ? '' : 'mg' ) ); ?><?php if ( $flag_sodium && ffnc_num( $it, 'sodium' ) > $flag_sodium ) : ?> <span class="ffnc-flag-high"><?php esc_html_e( 'high sodium', 'ffnc' ); ?></span><?php endif; ?></td>
 				<?php if ( 'density' === $extra_col ) : ?><td><?php echo esc_html( ffnc_fmt_num( round( ffnc_num( $it, 'protein' ) / max( 1, ffnc_num( $it, 'calories' ) ) * 100, 1 ) ) . 'g' ); ?></td><?php endif; ?>
+				<?php if ( 'net-carbs' === $extra_col ) : ?><td><?php echo esc_html( ffnc_fmt_g( ffnc_num( $it, 'fiber' ) ) ); ?></td><td><?php echo esc_html( ffnc_fmt_g( ffnc_num( $it, 'sugar' ) ) ); ?></td><td><?php echo esc_html( ffnc_fmt_g( ffnc_net_carbs( $it ) ) ); ?></td><?php endif; ?>
 			</tr>
 		<?php endforeach; ?>
 		</tbody>
@@ -377,7 +412,10 @@ function ffnc_shortcode_goal_list( $atts ) {
 		return '';
 	}
 	$density = in_array( $atts['goal'], array( 'high-protein', 'small-portion' ), true ) ? 'density' : '';
-	$out     = '<p class="ffnc-goal-note">' . esc_html( $defs[ $atts['goal'] ]['note'] ) . ' ' . esc_html__( 'Values are each restaurant’s published figures for the standard item; tap an item for its full nutrition and lighter swaps.', 'ffnc' ) . '</p>';
+	if ( in_array( $atts['goal'], array( 'diabetic', 'carb-extras', 'low-carb' ), true ) && ffnc_items_have_extras( wp_list_pluck( $rows, 'item' ) ) ) {
+		$density = 'net-carbs';
+	}
+	$out     = '<p class="ffnc-goal-note">' . esc_html( $defs[ $atts['goal'] ]['note'] ) . ' ' . esc_html__( 'Values are each restaurant’s published figures for the standard item; tap an item for its full nutrition and lighter swaps.', 'ffnc' ) . ( 'net-carbs' === $density ? ' ' . esc_html__( 'Net carbs are total carbohydrate minus fiber. Fiber and sugar are shown only where the restaurant publishes them; a dash means not published.', 'ffnc' ) : '' ) . '</p>';
 	$flag    = isset( $defs[ $atts['goal'] ]['flag_sodium'] ) ? $defs[ $atts['goal'] ]['flag_sodium'] : 0;
 	return $out . ffnc_render_item_rows_table( $rows, __( 'Ranked menu items', 'ffnc' ), $density, $flag );
 }
@@ -593,7 +631,7 @@ function ffnc_maybe_send_dataset() {
 	header( 'Content-Disposition: attachment; filename="fast-food-nutrition-' . gmdate( 'Y-m-d' ) . '.csv"' );
 	header( 'X-Robots-Tag: noindex' );
 	$fh = fopen( 'php://output', 'w' ); // phpcs:ignore
-	fputcsv( $fh, array( 'restaurant', 'item', 'category', 'calories', 'protein_g', 'carbs_g', 'fat_g', 'sodium_mg', 'official_source', 'last_checked', 'data_from' ) );
+	fputcsv( $fh, array( 'restaurant', 'item', 'category', 'calories', 'protein_g', 'carbs_g', 'fat_g', 'sodium_mg', 'sat_fat_g', 'sugar_g', 'fiber_g', 'official_source', 'last_checked', 'data_from' ) );
 	foreach ( ffnc_all_items() as $x ) {
 		$it   = $x['item'];
 		$data = ffnc_get_brand_data( $x['brand'] );
@@ -606,6 +644,9 @@ function ffnc_maybe_send_dataset() {
 			ffnc_num( $it, 'carbs' ),
 			ffnc_num( $it, 'fat' ),
 			ffnc_num( $it, 'sodium' ),
+			ffnc_num( $it, 'sat_fat' ),
+			ffnc_num( $it, 'sugar' ),
+			ffnc_num( $it, 'fiber' ),
 			! empty( $it['source_url'] ) ? $it['source_url'] : ( isset( $data['meta']['source_url'] ) ? $data['meta']['source_url'] : '' ),
 			! empty( $it['last_checked'] ) ? $it['last_checked'] : $x['reviewed'],
 			home_url( '/' ),
@@ -741,7 +782,7 @@ function ffnc_tool_pages() {
 			'title'   => __( 'Lower-Carb Fast Food for Diabetes: Mains Under 30g Carbs', 'ffnc' ),
 			'seo'     => __( 'Lower-Carb Fast Food for Diabetes: Mains Under 30g Carbs', 'ffnc' ),
 			'desc'    => __( 'Fast food main items with 30g of carbs or less, ranked by protein, plus the sides and drinks that add the most carbs. Official nutrition data for 15 chains.', 'ffnc' ),
-			'content' => "<p>If you have diabetes, the number that matters most on a fast food menu is usually carbohydrate. These are the main items with 30g of carbs or less exactly as served, with the most protein first, from each restaurant's official U.S. nutrition data.</p>\n<p>The 30g per item cut-off is this site's own, not a medical target. Many fast food mains are also very salty, so items over 1,000mg of sodium are marked and items over 1,500mg are listed last.</p>\n<p>This page is general nutrition information, not medical advice. Your doctor, diabetes educator or dietitian can tell you how many carbs fit your own plan. Our data lists total carbohydrate only; sugar and fiber are on each restaurant's own nutrition guide.</p>\n\n[ff_goal_list goal=\"diabetic\" limit=\"40\"]\n\n<h2>Where the carbs hide: sides, drinks and desserts</h2>\n<p>A regular soda or sweet tea and a side of fries often carry more carbs than the main. Water, unsweetened tea, diet soda or black coffee add none.</p>\n[ff_goal_list goal=\"carb-extras\" limit=\"20\"]\n\n<p>Want to add up a whole order? Every item links to its full nutrition, and each restaurant's calculator shows the carb total as you build an order. For the lowest-carb picks, see <a href=\"/low-carb-fast-food/\">Low-Carb Fast Food</a>.</p>",
+			'content' => "<p>If you have diabetes, the number that matters most on a fast food menu is usually carbohydrate. These are the main items with 30g of carbs or less exactly as served, with the most protein first, from each restaurant's official U.S. nutrition data.</p>\n<p>The 30g per item cut-off is this site's own, not a medical target. Many fast food mains are also very salty, so items over 1,000mg of sodium are marked and items over 1,500mg are listed last.</p>\n<p>This page is general nutrition information, not medical advice. Your doctor, diabetes educator or dietitian can tell you how many carbs fit your own plan. Where a restaurant publishes fiber and sugar, the table also shows them and the net carbs (total carbohydrate minus fiber); a dash means the restaurant does not publish that value.</p>\n\n[ff_goal_list goal=\"diabetic\" limit=\"40\"]\n\n<h2>Where the carbs hide: sides, drinks and desserts</h2>\n<p>A regular soda or sweet tea and a side of fries often carry more carbs than the main. Water, unsweetened tea, diet soda or black coffee add none.</p>\n[ff_goal_list goal=\"carb-extras\" limit=\"20\"]\n\n<p>Want to add up a whole order? Every item links to its full nutrition, and each restaurant's calculator shows the carb total as you build an order. For the lowest-carb picks, see <a href=\"/low-carb-fast-food/\">Low-Carb Fast Food</a>.</p>",
 			'tool'    => '',
 		),
 		'vegetarian-fast-food'                  => array(
