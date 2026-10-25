@@ -587,6 +587,14 @@
    {
     "find": "A small OREO Cookie Blizzard is 600 calories and a medium is 820 — more than the Original Cheeseburger (370 calories) and more than the Bacon Two Cheese Deluxe Double (720 calories). For comparison, a small Vanilla Cone is 220 calories.",
     "replace": "A small OREO Cookie Blizzard is 600 calories — more than the Original Cheeseburger (370 calories) — and a medium is 820, more than the Bacon Two Cheese Deluxe Double (720 calories). For comparison, a small Vanilla Cone is 220 calories."
+   },
+   {
+    "find": "A small Vanilla Cone (220 calories) is the lowest-calorie treat in this calculator; a small Chocolate Dipped Cone is 320 calories and a small OREO Cookie Blizzard 600.",
+    "replace": "A Kids Vanilla Cone or Kids Chocolate Cone (160 calories each) is the lowest-calorie treat in this calculator; a small Vanilla Cone is 220 calories, a small Chocolate Dipped Cone 320 and a small OREO Cookie Blizzard 600."
+   },
+   {
+    "find": "The figures come from Dairy Queen’s official nutrition tables on dairyqueen.com and were checked line by line on September 25, 2026.",
+    "replace": "The figures come from Dairy Queen’s official nutrition tables on dairyqueen.com (current as of August 26, 2024) and were checked line by line on October 25, 2026."
    }
   ]
  },
