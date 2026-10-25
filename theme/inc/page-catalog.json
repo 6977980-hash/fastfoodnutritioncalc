@@ -59,7 +59,7 @@
   "mcdonalds": ["apple-pie", "mcflurry-oreo", "mcflurry-mm"]
  },
  "vegetarian_notes": {
-  "mcdonalds": "In the U.S., McDonald's fries and hash browns contain natural beef flavor, so they are not vegetarian. None of the main items in our McDonald's data is meat-free.",
+  "mcdonalds": "In the U.S., McDonald's fries and hash browns contain natural beef flavor, so they are not vegetarian. McDonald's does not label any item vegetarian. Breakfast items without meat in the recipe, such as Hotcakes, Fruit & Maple Oatmeal and the Egg and Cheese Biscuit, are in the calculator; check McDonald's ingredient list before relying on them.",
   "kfc": "KFC's gravy, green beans and BBQ baked beans are left out because they may contain meat or meat flavoring.",
   "chipotle": "Build a bowl or burrito from sofritas, rice, beans, salsas, cheese and guacamole; every part is in the Chipotle calculator.",
   "burger-king": "The Impossible Whopper is not in our Burger King data yet, so only sides and desserts are listed.",

@@ -425,7 +425,7 @@
 		// Bakery items whose names would otherwise read as coffee, nuggets or other.
 		['dessert', /\b(coffee roll|coffee cake|cruller|fritter|e?clair|(blueberry|chocolate chip|corn) muffin)\b/],
 		['breakfast', /\bbagels?\b/],
-		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|mountain dew|dr pepper|fruit punch|baja blast|chocolate milk|low fat milk)\b/],
+		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|mountain dew|dr pepper|fruit punch|baja blast|chocolate milk|low fat milk|smoothies?)\b/],
 		['coffee', /\b(coffee|latte|cappuccino|espresso|macchiato)\b/],
 		['shake', /\b((milk)?shake|icedream|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
 		// Steak tacos and burritos are Mexican, steak breakfast items breakfast.
@@ -438,11 +438,11 @@
 		['fries', /\b(fries|fry|tots|onion rings)\b/],
 		['wings', /\bwings?\b/],
 		['chicken-piece', /\b(breast|thigh|drumstick)\b/],
-		['burger', /\b(burger|whopper|big mac|quarter pounder|mcdouble|baconator|daves|cheeseburger|hamburger|bacon king|double stack)\b/],
-		['chicken-sandwich', /\b(sandwich|mcchicken|royal crispy|cool wrap|twister|filet o fish)\b/],
+		['burger', /\b(burger|whopper|big mac|quarter pounder|mcdouble|baconator|daves|cheeseburger|hamburger|bacon king|double stack|daily double)\b/],
+		['chicken-sandwich', /\b(sandwich|mcchicken|mccrispy|snack wrap|royal crispy|cool wrap|twister|filet o fish)\b/],
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|gordita|nachos|chalupa)\b/],
 		['soup', /\b(soup|chili)\b/],
-		['side', /\b(cheese curds|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
+		['side', /\b(cheese curds|apple slices|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips)\b/]
 	];
 	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
 	function itemType(item, catName, brandSlug) {
