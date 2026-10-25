@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Dairy Queen Nutrition and Allergen Information (U.S.)",
     "source_url": "https://www.dairyqueen.com/en-us/nutrition/",
+    "allergen_url": "https://www.dairyqueen.com/en-us/nutrition/",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item was checked on 2026-10-25 against the Food & Treats nutrition table on dairyqueen.com (the page states the information is current as of August 26, 2024). Local Favorites are sold only at some locations.",
     "status": "verified",

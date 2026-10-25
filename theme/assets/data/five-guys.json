@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Five Guys U.S. Nutrition & Allergen Guide (September 2026)",
     "source_url": "https://www.fiveguys.com/nutritional-allergy-information/",
+    "allergen_url": "https://www.fiveguys.com/nutritional-allergy-information/",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Checked on 2026-09-25 against Five Guys' official U.S. Nutrition & Allergen Guide (September 2026 PDF). Five Guys publishes nutrition by component, so burgers and the hot dog are the sum of the official bun + patty (or hot dog) values; where the guide lists more than one supplier, the first-listed supplier's values are used. Re-checked on 2026-10-25 against the same guide: all 9 items, including the bun + patty sums, match. On 2026-10-25 saturated fat, sugar and fiber were added for every item and add-on, plus the Vanilla Shake and Mini Vanilla Shake (shake base + whipped cream, first-listed supplier) with their official mix-ins, milk, juices and peanuts. Values shown as \"<1\" in the guide are stored as 0.",
     "status": "verified",

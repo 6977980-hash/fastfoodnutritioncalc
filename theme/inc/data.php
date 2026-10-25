@@ -71,6 +71,7 @@ function ffnc_get_dataset_meta( $slug ) {
 		'market_label'  => '',
 		'source_name'   => '',
 		'source_url'    => '',
+		'allergen_url'  => '',
 		'status'        => 'pending',
 		'last_reviewed' => null,
 		'review_detail' => '',

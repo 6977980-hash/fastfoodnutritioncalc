@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Taco Bell Nutrition Information (U.S., tacobell.com table served by Nutritionix)",
     "source_url": "https://www.tacobell.com/nutrition/info",
+    "allergen_url": "https://www.tacobell.com/nutrition/allergen-info",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item was checked on 2026-10-25 against Taco Bell's official U.S. nutrition table that tacobell.com/nutrition/info serves through Nutritionix (nutritionix.com/taco-bell/menu/premium, 543 rows): the original 12 items match on calories, fat, carbohydrates, protein and sodium, and the 77 items added that day (plus saturated fat, sugar and fiber for every item) are copied from the same table. Values shown as \"<1 g\" in the table are stored as 0. First full review 2026-09-25.",
     "status": "verified",

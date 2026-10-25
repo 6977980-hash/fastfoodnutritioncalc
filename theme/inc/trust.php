@@ -193,6 +193,9 @@ function ffnc_render_data_source_box( $slug ) {
 			<?php if ( ! empty( $meta['addon_macros'] ) ) : ?>
 				<div><dt><?php esc_html_e( 'Add-ons', 'ffnc' ); ?></dt><dd><?php echo esc_html( $meta['addon_macros'] ); ?></dd></div>
 			<?php endif; ?>
+			<?php if ( $meta['allergen_url'] ) : ?>
+				<div><dt><?php esc_html_e( 'Allergens', 'ffnc' ); ?></dt><dd><a href="<?php echo esc_url( $meta['allergen_url'] ); ?>" rel="noopener" target="_blank"><?php echo esc_html( sprintf( /* translators: %s brand */ __( '%s official allergen information', 'ffnc' ), $name ) ); ?></a>. <?php esc_html_e( 'We don’t list allergens ourselves; recipes change and kitchens share equipment, so check the restaurant’s guide and ask staff.', 'ffnc' ); ?></dd></div>
+			<?php endif; ?>
 		</dl>
 		<?php
 		$diffs = array_filter( (array) $meta['spot_checks'], function ( $c ) {
