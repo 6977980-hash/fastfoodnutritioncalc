@@ -54,6 +54,21 @@
      "sodium": 3040
     }
    },
+   "dunkin": {
+    "lines": [
+     {
+      "id": "snackin-bacon",
+      "qty": 3
+     }
+    ],
+    "totals": {
+     "calories": 570,
+     "protein": 30,
+     "carbs": 30,
+     "fat": 36,
+     "sodium": 1500
+    }
+   },
    "kfc": {
     "lines": [
      {
@@ -251,16 +266,16 @@
    "dunkin": {
     "lines": [
      {
-      "id": "bacon-egg-cheese-wake-up-wrap",
+      "id": "snackin-bacon",
       "qty": 2
      }
     ],
     "totals": {
-     "calories": 440,
+     "calories": 380,
      "protein": 20,
-     "carbs": 30,
-     "fat": 26,
-     "sodium": 1180
+     "carbs": 20,
+     "fat": 24,
+     "sodium": 1000
     }
    },
    "kfc": {
