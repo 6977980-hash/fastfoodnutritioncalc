@@ -186,6 +186,26 @@ function ffnc_get_brands() {
 			'tagline'   => 'Blizzards, burgers and baskets — calories and macros for the full menu.',
 			'live'      => true,
 		),
+		'popeyes'      => array(
+			'name'      => 'Popeyes',
+			'slug'      => 'popeyes',
+			'color'      => '#e35205',
+			'abbr'       => 'PLK',
+			'url'       => '/calculators/popeyes-nutrition-calculator/',
+			'title'     => 'Popeyes Nutrition Calculator',
+			'tagline'   => 'Chicken by the piece, tenders, sandwiches and Cajun sides — add up your order.',
+			'live'      => true,
+		),
+		'qdoba'        => array(
+			'name'      => 'QDOBA',
+			'slug'      => 'qdoba',
+			'color'      => '#7a1e3a',
+			'abbr'       => 'QDB',
+			'url'       => '/calculators/qdoba-nutrition-calculator/',
+			'title'     => 'QDOBA Nutrition Calculator',
+			'tagline'   => 'Build your burrito, bowl or tacos scoop by scoop, queso and guac included.',
+			'live'      => true,
+		),
 	);
 
 	return $brands;

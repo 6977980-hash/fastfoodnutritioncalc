@@ -92,8 +92,8 @@ add_shortcode( 'ff_site_owner', function () {
 function ffnc_brand_clusters() {
 	return array(
 		'burgers' => array( 'mcdonalds', 'burger-king', 'wendys', 'five-guys', 'dairy-queen' ),
-		'chicken' => array( 'kfc', 'chick-fil-a', 'mcdonalds', 'wendys' ),
-		'mexican' => array( 'chipotle', 'taco-bell' ),
+		'chicken' => array( 'kfc', 'chick-fil-a', 'popeyes', 'mcdonalds', 'wendys' ),
+		'mexican' => array( 'chipotle', 'qdoba', 'taco-bell' ),
 		'pizza'   => array( 'dominos', 'pizza-hut' ),
 		'fastcasual' => array( 'panera-bread', 'subway', 'chipotle', 'panda-express' ),
 		'breakfast'  => array( 'dunkin', 'mcdonalds', 'panera-bread' ),

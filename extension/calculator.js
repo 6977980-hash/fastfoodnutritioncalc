@@ -417,6 +417,7 @@
 	/* Rough food type from item + category name, for cross-chain matching. */
 	var TYPES = [
 		['breakfast', /^6 .*\begg and cheese\b/],
+		['mexican', /\b(double protein|queso|keto|fajita vegan|hot and sweet chicken) bowl\b|\bstreet style .*tacos\b/],
 		['salad', /\bprotein bowl\b/],
 		['sub', /^6 |footlong|protein pocket|italiano/],
 		['dessert', /\b(cake|cookie|loaf)\b.*\bslice\b/],
@@ -427,7 +428,7 @@
 		// Bakery items whose names would otherwise read as coffee, nuggets or other.
 		['dessert', /\b(coffee roll|coffee cake|cruller|fritter|e?clair|(blueberry|chocolate chip|corn) muffin|macaroon|scone|muffie|pastry|chocolate croissant)\b/],
 		['breakfast', /\bbagels?\b/],
-		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|mountain dew|dr pepper|fruit punch|baja blast|chocolate milk|low fat milk|^milk|organic white milk|beverages?|refresher|fresca|hot chocolate|smoothies?)\b/],
+		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|mountain dew|dr pepper|fruit punch|fanta|mello yello|root beer|powerade|jarritos|baja blast|chocolate milk|low ?fat milk|^milk|organic white milk|beverages?|refresher|fresca|hot chocolate|smoothies?)\b/],
 		['coffee', /\b(coffee|frozen java|latte|cappuccino|espresso|macchiato)\b/],
 		['shake', /\b((milk)?shake|icedream|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
 		// Steak tacos and burritos are Mexican, steak breakfast items breakfast.
@@ -440,7 +441,7 @@
 		['nuggets', /\b(nugget|nuggets|mcnuggets|tenders?|strips?|minis|popcorn chicken|snacker|chicken fries)\b/],
 		['fries', /\b(fries|fry|tots|onion rings)\b/],
 		['wings', /\bwings?\b/],
-		['chicken-piece', /\b(breast|thigh|drumstick)\b/],
+		['chicken-piece', /\b(breast|thigh|drumstick)\b|^chicken leg\b/],
 		// Pizza Hut Melts are folded pizza, not burgers.
 		['other', /\b(lovers|parmesan|burger) melt\b/],
 		['burger', /\b(burger|whopper|big mac|quarter pounder|mcdouble|baconator|daves|cheeseburger|hamburger|stackburger|bacon king|double stack|daily double)\b/],
@@ -448,11 +449,13 @@
 		['mexican', /\b(taco|burrito|quesadilla|crunchwrap|gordita|nachos|chalupa)\b/],
 		['other', /\b(chili )?(cheese )?dogs?\b/],
 		['soup', /\b(soup|chili)\b/],
-		['side', /\b(cheese curds|cheese stick|apple slices|apple crisps|chow fun|potstickers?|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips|pretzel sticks|^banana)\b/]
+		['side', /\b(cheese curds|cheese stick|apple slices|apple crisps|chow fun|potstickers?|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips|pretzel sticks|^banana|cajun gravy)\b/]
 	];
 	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
 	function itemType(item, catName, brandSlug) {
 		if (brandSlug === 'chipotle') { return 'ingredient'; }
+		// QDOBA-style menus list build-your-own parts in their own categories.
+		if (/^build your own\b/.test(normalizeName(catName))) { return 'ingredient'; }
 		var n = normalizeName(item.name);
 		var s = normalizeName(item.name + ' ' + (catName || ''));
 		for (var i = 0; i < TYPES.length; i++) {
@@ -482,7 +485,7 @@
 		var typeOf = {};
 		var pool = allItems(data).filter(function (x) {
 			var t = itemType(x.item, x.catName);
-			if (!opts.allowDrinks && (t === 'drink' || t === 'coffee')) { return false; }
+			if (t === 'ingredient' || (!opts.allowDrinks && (t === 'drink' || t === 'coffee'))) { return false; }
 			if (/family|bucket/i.test(x.item.name)) { return false; }
 			return isKnown(x.item.calories) && x.item.calories >= 60 && x.item.calories <= budget;
 		}).map(function (x) { var it = x.item; typeOf[it.id] = itemType(it, x.catName); return it; });

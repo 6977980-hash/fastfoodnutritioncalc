@@ -39,9 +39,14 @@
   { "slug": "chick-fil-a-vs-wendys-spicy-chicken-sandwich", "title": "Chick-fil-A vs Wendy's Spicy Chicken Sandwich", "a": "chick-fil-a:spicy-chicken-sandwich", "b": "wendys:spicy-chicken-sandwich" },
   { "slug": "royal-crispy-chicken-vs-chick-fil-a-sandwich", "title": "BK Royal Crispy Chicken vs Chick-fil-A Chicken Sandwich", "a": "burger-king:royal-crispy-chicken", "b": "chick-fil-a:chicken-sandwich" },
   { "slug": "mcdonalds-cheeseburger-vs-wendys-jr-cheeseburger", "title": "McDonald's Cheeseburger vs Wendy's Jr. Cheeseburger", "a": "mcdonalds:cheeseburger", "b": "wendys:jr-cheeseburger" },
-  { "slug": "five-guys-fries-vs-mcdonalds-fries", "title": "Five Guys Fries vs McDonald's Fries", "a": "five-guys:regular-fries", "b": "mcdonalds:fries-medium", "note": "A regular Five Guys fries is a much bigger portion than a medium McDonald's fries; the Five Guys calculator also has the Little size." }
+  { "slug": "five-guys-fries-vs-mcdonalds-fries", "title": "Five Guys Fries vs McDonald's Fries", "a": "five-guys:regular-fries", "b": "mcdonalds:fries-medium", "note": "A regular Five Guys fries is a much bigger portion than a medium McDonald's fries; the Five Guys calculator also has the Little size." },
+  { "slug": "chick-fil-a-vs-popeyes-chicken-sandwich", "title": "Chick-fil-A vs Popeyes Chicken Sandwich", "a": "chick-fil-a:chicken-sandwich", "b": "popeyes:chicken-sandwich-classic" },
+  { "slug": "kfc-vs-popeyes-chicken-sandwich", "title": "KFC vs Popeyes Chicken Sandwich", "a": "kfc:chicken-sandwich", "b": "popeyes:chicken-sandwich-classic" },
+  { "slug": "chick-fil-a-strips-vs-popeyes-tenders", "title": "Chick-fil-A Chick-n-Strips vs Popeyes Tenders", "a": "chick-fil-a:chick-n-strips-3", "b": "popeyes:tenders-3", "note": "Both are 3-piece orders: Chick-fil-A's 3-count Chick-n-Strips against Popeyes' 3 Classic or Spicy Tenders." },
+  { "slug": "chipotle-vs-qdoba-chicken", "title": "Chipotle vs QDOBA Chicken", "a": "chipotle:chicken", "b": "qdoba:grilled-adobo-chicken-3-5-oz", "note": "Chipotle publishes its chicken per 4 oz portion and QDOBA its Grilled Adobo Chicken per 3.5 oz portion, so the QDOBA portion is a little smaller." }
  ],
  "vegetarian": {
+  "qdoba": ["fajita-vegan-bowl", "black-beans-4-oz", "pinto-beans-4-oz", "cilantro-lime-rice-4-oz", "seasoned-brown-rice-4-oz"],
   "taco-bell": ["bean-burrito", "cheesy-bean-rice-burrito", "spicy-potato-soft-taco", "black-bean-chalupa-supreme", "black-bean-crunchwrap-supreme", "quesadilla-cheese", "veggie-mexican-pizza", "cheesy-roll-up", "cheesy-toasted-breakfast-burrito-potato", "chips-cheese", "cheesy-fiesta-potatoes", "black-beans-rice", "black-beans", "pintos-n-cheese", "hash-brown", "cinnamon-twists", "cinnabon-delights-2", "cinnabon-delights-12"],
   "subway": ["veggie-delite", "veggie-delite-salad", "cookie-choc-chip", "cookie-double-chocolate", "cookie-oatmeal-raisin", "cookie-white-chip-macadamia"],
   "chipotle": ["sofritas", "white-rice", "brown-rice", "black-beans", "pinto-beans", "flour-tortilla-burrito", "corn-salsa", "guacamole", "cheese", "sour-cream", "queso-blanco", "queso-side", "chips"],
@@ -59,6 +64,7 @@
   "mcdonalds": ["apple-pie", "mcflurry-oreo", "mcflurry-mm"]
  },
  "vegetarian_notes": {
+  "qdoba": "Listed items are the Fajita Vegan Bowl and the rice and beans QDOBA marks (v) as vegan in its official nutrition facts. Build a bowl or burrito from them in the QDOBA calculator.",
   "mcdonalds": "In the U.S., McDonald's fries and hash browns contain natural beef flavor, so they are not vegetarian. McDonald's does not label any item vegetarian. Breakfast items without meat in the recipe, such as Hotcakes, Fruit & Maple Oatmeal and the Egg and Cheese Biscuit, are in the calculator; check McDonald's ingredient list before relying on them.",
   "kfc": "KFC's gravy, green beans and BBQ baked beans are left out because they may contain meat or meat flavoring.",
   "chipotle": "Build a bowl or burrito from sofritas, rice, beans, salsas, cheese and guacamole; every part is in the Chipotle calculator.",
