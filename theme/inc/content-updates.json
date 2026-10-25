@@ -542,6 +542,18 @@
    {
     "find": "Panera lists the Sourdough Soup Bowl (the bread bowl alone) at 650 calories.",
     "replace": "Panera lists the Sourdough Soup Bowl (the bread bowl alone) at 650 calories. Served in a bread bowl, Broccoli Cheddar Soup is 930 calories, 510 more than a regular bowl (420 calories)."
+   },
+   {
+    "find": "Panera’s menu covers a wide calorie range — from 180 calories for a bowl of Homestyle Chicken Noodle Soup to 670 calories for a whole Caesar Salad with Chicken or a half Toasted Italiano, and a sourdough bread bowl alone is 650 — so soups, bread bowls and dressings are worth adding up.",
+    "replace": "Panera’s menu covers a wide calorie range — from 120 calories for a cup of Homestyle Chicken Noodle Soup to 1,330 calories for a whole Toasted Italiano, and a sourdough bread bowl alone is 650 — so soups, bread bowls and dressings are worth adding up."
+   },
+   {
+    "find": "In this calculator, a bowl of Homestyle Chicken Noodle Soup (180 calories, 14g protein) is the lowest-calorie item. It has 1,570mg of sodium, so check sodium on soups.",
+    "replace": "A cup of Homestyle Chicken Noodle Soup is 120 calories (10g protein) and a bowl is 180 calories (14g protein). A half Mediterranean Veggie sandwich is 260 calories and a half Caesar Salad 270. Soups run high in sodium: a bowl of chicken noodle has 1,570mg."
+   },
+   {
+    "find": "Nutrition Guide (effective September 2, 2026) and were checked line by line on September 25, 2026.",
+    "replace": "Nutrition Guide (effective September 2, 2026) and were checked line by line on October 25, 2026."
    }
   ]
  },
