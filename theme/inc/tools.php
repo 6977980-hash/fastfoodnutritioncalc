@@ -133,10 +133,126 @@ function ffnc_shortcode_tool( $atts ) {
 	}
 	return '<div class="ffnc-tool" data-tool="' . esc_attr( $atts['name'] ) . '" data-mode="' . esc_attr( $atts['mode'] ) . '" data-brand="' . esc_attr( sanitize_title( $atts['brand'] ) ) . '">' .
 		'<script type="application/json" class="ffnc-tool-data">' . wp_json_encode( ffnc_tools_payload(), JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP ) . '</script>' .
-		'<p class="ffnc-calc-loading">' . esc_html__( 'Loading…', 'ffnc' ) . '</p>' .
-		'<noscript><p>' . esc_html__( 'This tool needs JavaScript.', 'ffnc' ) . '</p></noscript></div>';
+		ffnc_tool_example( $atts['name'], $atts['mode'] ) .
+		'<noscript><p>' . esc_html__( 'Change the inputs with JavaScript turned on; the example above uses the tool’s default settings.', 'ffnc' ) . '</p></noscript></div>';
 }
 add_shortcode( 'ff_tool', 'ffnc_shortcode_tool' );
+
+/* -------------------------------------------------------------------------
+ * Example results printed inside each tool's mount, so the page shows a real
+ * answer before JavaScript runs (and to crawlers). tools.js replaces the
+ * mount's contents when it boots.
+ * ---------------------------------------------------------------------- */
+function ffnc_tool_pills( $t ) {
+	return '<span class="ffnc-pill ffnc-pill-cal">' . esc_html( ffnc_fmt_num( $t['calories'] ) ) . ' cal</span>' .
+		'<span class="ffnc-pill"><abbr title="Protein">P</abbr> ' . esc_html( ffnc_fmt_num( $t['protein'] ) ) . 'g</span>' .
+		'<span class="ffnc-pill"><abbr title="Carbohydrates">C</abbr> ' . esc_html( ffnc_fmt_num( $t['carbs'] ) ) . 'g</span>' .
+		'<span class="ffnc-pill"><abbr title="Fat">F</abbr> ' . esc_html( ffnc_fmt_num( $t['fat'] ) ) . 'g</span>' .
+		'<span class="ffnc-pill">' . esc_html( ffnc_fmt_num( $t['sodium'] ) ) . 'mg sodium</span>';
+}
+
+function ffnc_tool_example( $name, $mode = '' ) {
+	$fn  = 'ffnc_tool_example_' . str_replace( '-', '_', $name );
+	$out = function_exists( $fn ) ? $fn( $mode ) : '';
+	return '<div class="ffnc-tool-example">' . ( $out ? $out : '<p class="ffnc-calc-loading">' . esc_html__( 'Loading…', 'ffnc' ) . '</p>' ) . '</div>';
+}
+
+/** Order Ideas at the default inputs, from assets/generated/tool-examples.json. */
+function ffnc_tool_example_order_ideas( $mode ) {
+	$path = FFNC_DIR . '/assets/generated/tool-examples.json';
+	$all  = is_readable( $path ) ? json_decode( (string) file_get_contents( $path ), true ) : null; // phpcs:ignore
+	$key  = 'small-portion' === $mode ? 'small-portion' : 'default';
+	if ( empty( $all[ $key ]['brands'] ) ) {
+		return '';
+	}
+	$ex   = $all[ $key ];
+	$list = array();
+	foreach ( ffnc_get_live_brands() as $slug => $brand ) {
+		if ( isset( $ex['brands'][ $slug ] ) ) {
+			$list[] = $ex['brands'][ $slug ] + array( 'slug' => $slug, 'brand' => $brand );
+		}
+	}
+	$small = 'small-portion' === $key;
+	usort( $list, function ( $x, $y ) use ( $small ) {
+		return $small
+			? ( $y['totals']['protein'] / max( 1, $y['totals']['calories'] ) ) <=> ( $x['totals']['protein'] / max( 1, $x['totals']['calories'] ) )
+			: $y['totals']['protein'] <=> $x['totals']['protein'];
+	} );
+	$out = '<p class="ffnc-tool-note">' . esc_html( sprintf(
+		/* translators: 1 calories 2 protein */
+		__( 'Example: orders of up to %1$s calories with at least %2$sg of protein.', 'ffnc' ),
+		ffnc_fmt_num( $ex['inputs']['calories'] ),
+		ffnc_fmt_num( $ex['inputs']['protein'] )
+	) ) . '</p><div class="ffnc-tool-results">';
+	foreach ( array_slice( $list, 0, 6 ) as $i => $r ) {
+		$names = array();
+		$ids   = array();
+		foreach ( $r['lines'] as $l ) {
+			$it = ffnc_get_brand_item( $r['slug'], $l['id'] );
+			if ( ! $it ) {
+				continue 2;
+			}
+			$names[] = ( $l['qty'] > 1 ? $l['qty'] . ' × ' : '' ) . $it['name'];
+			$ids     = array_merge( $ids, array_fill( 0, max( 1, (int) $l['qty'] ), $l['id'] ) );
+		}
+		$out .= '<div class="ffnc-item-card ffnc-idea"><p class="ffnc-idea-rank">' . esc_html( sprintf( 'Option %d · %s', $i + 1, $r['brand']['name'] ) ) . '</p>' .
+			'<p class="ffnc-item-name">' . esc_html( implode( ' + ', $names ) ) . '</p>' .
+			'<div class="ffnc-item-pills">' . ffnc_tool_pills( $r['totals'] ) . '</div>' .
+			'<a class="ffnc-idea-open" href="' . esc_url( ffnc_order_link( home_url( $r['brand']['url'] ), $ids ) ) . '">' . esc_html( sprintf( /* translators: %s brand */ __( 'Open in the %s calculator', 'ffnc' ), $r['brand']['name'] ) ) . '</a></div>';
+	}
+	return $out . '</div>';
+}
+
+/** Same Craving for a Big Mac: the closest burger at each other chain. */
+function ffnc_tool_example_same_craving( $mode ) {
+	$src = ffnc_get_brand_item( 'mcdonalds', 'big-mac' );
+	if ( ! $src || ! function_exists( 'ffnc_item_at_other_chains' ) ) {
+		return '';
+	}
+	$rows = '';
+	foreach ( ffnc_item_at_other_chains( 'mcdonalds', $src, 20 ) as $o ) {
+		$b     = ffnc_get_brand( $o['brand'] );
+		$rows .= '<tr><th scope="row">' . esc_html( $b['name'] ) . '</th><td>' . wp_kses_post( ffnc_item_link( $o['brand'], $o['item'] ) ) . '</td><td>' . esc_html( ffnc_fmt_num( ffnc_num( $o['item'], 'calories' ) ) ) . '</td><td>' . esc_html( ffnc_fmt_num( ffnc_num( $o['item'], 'protein' ) ) ) . 'g</td></tr>';
+	}
+	if ( ! $rows ) {
+		return '';
+	}
+	return '<p class="ffnc-tool-note">' . esc_html( sprintf(
+		/* translators: 1 calories 2 protein */
+		__( 'Example: McDonald’s Big Mac, %1$s cal and %2$sg protein. The closest burger at other chains:', 'ffnc' ),
+		ffnc_fmt_num( ffnc_num( $src, 'calories' ) ),
+		ffnc_fmt_num( ffnc_num( $src, 'protein' ) )
+	) ) . '</p><div class="ffnc-table-scroll" tabindex="0"><table class="ffnc-nutrition-table"><thead><tr><th scope="col">' . esc_html__( 'Restaurant', 'ffnc' ) . '</th><th scope="col">' . esc_html__( 'Closest match', 'ffnc' ) . '</th><th scope="col">' . esc_html__( 'Calories', 'ffnc' ) . '</th><th scope="col">' . esc_html__( 'Protein', 'ffnc' ) . '</th></tr></thead><tbody>' . $rows . '</tbody></table></div>';
+}
+
+/** Day Planner: one example day built from four chains. */
+function ffnc_tool_example_day_planner( $mode ) {
+	$day = array(
+		__( 'Breakfast', 'ffnc' ) => array( 'mcdonalds', 'egg-mcmuffin' ),
+		__( 'Lunch', 'ffnc' )     => array( 'subway', 'turkey-breast' ),
+		__( 'Dinner', 'ffnc' )    => array( 'chick-fil-a', 'grilled-chicken-sandwich' ),
+		__( 'Snacks', 'ffnc' )    => array( 'dunkin', 'glazed-donut' ),
+	);
+	$rows  = '';
+	$items = array();
+	foreach ( $day as $meal => $pick ) {
+		$b  = ffnc_get_brand( $pick[0] );
+		$it = $b && ! empty( $b['live'] ) ? ffnc_get_brand_item( $pick[0], $pick[1] ) : null;
+		if ( ! $it ) {
+			return '';
+		}
+		$items[] = $it;
+		$rows   .= '<tr><th scope="row">' . esc_html( $meal ) . '</th><td>' . esc_html( $b['name'] ) . ' ' . wp_kses_post( ffnc_item_link( $pick[0], $it ) ) . '</td><td>' . esc_html( ffnc_fmt_num( ffnc_num( $it, 'calories' ) ) ) . '</td><td>' . esc_html( ffnc_fmt_num( ffnc_num( $it, 'protein' ) ) ) . 'g</td></tr>';
+	}
+	$t = array_fill_keys( array( 'calories', 'protein', 'carbs', 'fat', 'sodium' ), 0 );
+	foreach ( $items as $it ) {
+		foreach ( $t as $k => $v ) {
+			$t[ $k ] = round( $v + (float) ffnc_num( $it, $k ), 1 );
+		}
+	}
+	return '<p class="ffnc-tool-note">' . esc_html__( 'Example day across four chains:', 'ffnc' ) . '</p><div class="ffnc-table-scroll" tabindex="0"><table class="ffnc-nutrition-table"><thead><tr><th scope="col">' . esc_html__( 'Meal', 'ffnc' ) . '</th><th scope="col">' . esc_html__( 'Item', 'ffnc' ) . '</th><th scope="col">' . esc_html__( 'Calories', 'ffnc' ) . '</th><th scope="col">' . esc_html__( 'Protein', 'ffnc' ) . '</th></tr></thead><tbody>' . $rows . '</tbody></table></div>' .
+		'<p class="ffnc-day-sum"><strong>' . esc_html( ffnc_fmt_num( $t['calories'] ) ) . '</strong> ' . esc_html__( 'of 2,000 calories', 'ffnc' ) . '</p><div class="ffnc-item-pills">' . ffnc_tool_pills( $t ) . '</div>';
+}
 
 /* -------------------------------------------------------------------------
  * [ff_goal_list]
@@ -482,7 +598,7 @@ function ffnc_maybe_send_dataset() {
 			ffnc_num( $it, 'fat' ),
 			ffnc_num( $it, 'sodium' ),
 			! empty( $it['source_url'] ) ? $it['source_url'] : ( isset( $data['meta']['source_url'] ) ? $data['meta']['source_url'] : '' ),
-			$x['reviewed'],
+			! empty( $it['last_checked'] ) ? $it['last_checked'] : $x['reviewed'],
 			home_url( '/' ),
 		) );
 	}

@@ -32,7 +32,14 @@
   { "slug": "chick-fil-a-vs-wendys-chicken-sandwich", "title": "Chick-fil-A vs Wendy's Chicken Sandwich", "a": "chick-fil-a:chicken-sandwich", "b": "wendys:classic-chicken-sandwich" },
   { "slug": "dominos-vs-pizza-hut-pepperoni-pizza", "title": "Domino's vs Pizza Hut Pepperoni Pizza", "a": "dominos:pepperoni-slice", "b": "pizza-hut:pepperoni-hand-tossed-slice", "note": "Domino's publishes values for a slice of a large (14\") pizza and Pizza Hut for a slice of a medium (12\") pizza, so a Domino's slice is bigger. Compare whole orders in each calculator if you are choosing a pizza to share." },
   { "slug": "kfc-original-recipe-vs-extra-crispy", "title": "KFC Original Recipe vs Extra Crispy", "a": "kfc:or-breast", "b": "kfc:ec-breast" },
-  { "slug": "mcflurry-vs-blizzard", "title": "McFlurry vs Blizzard", "a": "mcdonalds:mcflurry-oreo", "b": "dairy-queen:oreo-blizzard-small", "note": "Both are the OREO version: a regular McFlurry against a small Blizzard." }
+  { "slug": "mcflurry-vs-blizzard", "title": "McFlurry vs Blizzard", "a": "mcdonalds:mcflurry-oreo", "b": "dairy-queen:oreo-blizzard-small", "note": "Both are the OREO version: a regular McFlurry against a small Blizzard." },
+  { "slug": "whopper-vs-quarter-pounder", "title": "Whopper vs Quarter Pounder with Cheese", "a": "burger-king:whopper", "b": "mcdonalds:quarter-pounder-cheese" },
+  { "slug": "bacon-king-vs-double-quarter-pounder", "title": "Bacon King vs Double Quarter Pounder with Cheese", "a": "burger-king:bacon-king", "b": "mcdonalds:double-quarter-pounder-cheese" },
+  { "slug": "chick-fil-a-nuggets-vs-kfc-popcorn-chicken", "title": "Chick-fil-A Nuggets vs KFC Popcorn Chicken", "a": "chick-fil-a:nuggets-12", "b": "kfc:popcorn-chicken", "note": "Chick-fil-A's 12-count nuggets against KFC's Popcorn Chicken as listed in KFC's U.S. nutrition guide." },
+  { "slug": "chick-fil-a-vs-wendys-spicy-chicken-sandwich", "title": "Chick-fil-A vs Wendy's Spicy Chicken Sandwich", "a": "chick-fil-a:spicy-chicken-sandwich", "b": "wendys:spicy-chicken-sandwich" },
+  { "slug": "royal-crispy-chicken-vs-chick-fil-a-sandwich", "title": "BK Royal Crispy Chicken vs Chick-fil-A Chicken Sandwich", "a": "burger-king:royal-crispy-chicken", "b": "chick-fil-a:chicken-sandwich" },
+  { "slug": "mcdonalds-cheeseburger-vs-wendys-jr-cheeseburger", "title": "McDonald's Cheeseburger vs Wendy's Jr. Cheeseburger", "a": "mcdonalds:cheeseburger", "b": "wendys:jr-cheeseburger" },
+  { "slug": "five-guys-fries-vs-mcdonalds-fries", "title": "Five Guys Fries vs McDonald's Fries", "a": "five-guys:regular-fries", "b": "mcdonalds:fries-medium", "note": "A regular Five Guys fries is a much bigger portion than a medium McDonald's fries; the Five Guys calculator also has the Little size." }
  ],
  "vegetarian": {
   "taco-bell": ["bean-burrito", "chips-cheese", "cinnamon-twists"],

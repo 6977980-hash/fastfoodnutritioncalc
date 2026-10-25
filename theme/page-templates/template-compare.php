@@ -75,10 +75,23 @@ foreach ( ffnc_get_live_brands() as $ffnc_slug => $ffnc_brand ) {
 			<?php endfor; ?>
 		</div>
 		<div class="ffnc-compare-result" aria-live="polite">
-			<p class="ffnc-compare-empty"><?php esc_html_e( 'Choose at least two items to see the comparison.', 'ffnc' ); ?></p>
+			<?php $ffnc_example = function_exists( 'ffnc_compare_example' ) ? ffnc_compare_example() : ''; ?>
+			<?php if ( $ffnc_example ) : ?>
+				<?php echo $ffnc_example; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in ffnc_compare_example(). ?>
+			<?php else : ?>
+				<p class="ffnc-compare-empty"><?php esc_html_e( 'Choose at least two items to see the comparison.', 'ffnc' ); ?></p>
+			<?php endif; ?>
 		</div>
 		<noscript><p><?php esc_html_e( 'The comparison tool needs JavaScript. Every item’s values are also listed in the nutrition table on each restaurant’s calculator page.', 'ffnc' ); ?></p></noscript>
 	</div>
+
+	<?php $ffnc_vs = function_exists( 'ffnc_comparison_links' ) ? ffnc_comparison_links() : array(); ?>
+	<?php if ( $ffnc_vs ) : ?>
+		<section class="ffnc-page-content ffnc-compare-popular" id="popular-comparisons">
+			<h2><?php esc_html_e( 'Popular head-to-head comparisons', 'ffnc' ); ?></h2>
+			<ul class="ffnc-list ffnc-list-columns"><?php echo wp_kses_post( implode( '', $ffnc_vs ) ); ?></ul>
+		</section>
+	<?php endif; ?>
 
 	<div class="ffnc-page-content">
 		<?php the_content(); ?>
