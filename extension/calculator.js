@@ -419,6 +419,9 @@
 		['sub', /^6 |footlong|protein pocket|italiano/],
 		['pizza', /\b(pizza|slice)\b/],
 		['salad', /\bsalad\b/],
+		// Bakery items whose names would otherwise read as coffee, nuggets or other.
+		['dessert', /\b(coffee roll|coffee cake|cruller|fritter|e?clair|(blueberry|chocolate chip|corn) muffin)\b/],
+		['breakfast', /\bbagels?\b/],
 		['drink', /\b(coke|coca|sprite|pepsi|tea|lemonade|soda|drink|coolatta|water|freeze|juice|mtn dew|baja blast)\b/],
 		['coffee', /\b(coffee|latte|cappuccino|espresso|macchiato)\b/],
 		['shake', /\b(shake|frosty|blizzard|mcflurry|sundae|cone|ice cream)\b/],
