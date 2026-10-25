@@ -32,9 +32,35 @@ function ffnc_page_catalog() {
 	if ( null === $cat ) {
 		$path = FFNC_DIR . '/inc/page-catalog.json';
 		$cat  = is_readable( $path ) ? json_decode( (string) file_get_contents( $path ), true ) : array(); // phpcs:ignore
-		$cat  = wp_parse_args( is_array( $cat ) ? $cat : array(), array( 'meals' => array(), 'meal_sets' => array(), 'comparisons' => array(), 'vegetarian' => array(), 'vegetarian_notes' => array() ) );
+		$cat  = wp_parse_args( is_array( $cat ) ? $cat : array(), array( 'meals' => array(), 'meal_sets' => array(), 'comparisons' => array(), 'vegetarian' => array(), 'vegetarian_notes' => array(), 'meal_copy' => array() ) );
 	}
 	return $cat;
+}
+
+/**
+ * Brand wording for meal pages: default size word, title tag and the extra cut-calories tip.
+ *
+ * @param string $slug Brand slug.
+ * @return array
+ */
+function ffnc_meal_copy( $slug ) {
+	$cat = ffnc_page_catalog();
+	return wp_parse_args( isset( $cat['meal_copy'][ $slug ] ) ? $cat['meal_copy'][ $slug ] : array(), array(
+		'size'      => '',
+		'title_tag' => __( 'With Side & Drink', 'ffnc' ),
+		'cut_tip'   => '',
+	) );
+}
+
+/**
+ * "A medium Big Mac Meal" / "A Chicken Sandwich Meal".
+ *
+ * @param array $meal Resolved meal.
+ * @return string
+ */
+function ffnc_meal_phrase( $meal ) {
+	$size = ffnc_meal_copy( $meal['brand'] )['size'];
+	return sprintf( /* translators: %s meal with optional size */ __( 'A %s', 'ffnc' ), trim( $size . ' ' . $meal['name'] ) );
 }
 
 /* -------------------------------------------------------------------------
@@ -961,9 +987,9 @@ function ffnc_shortcode_meal_page( $atts ) {
 			<p class="ffnc-item-answer">
 				<?php
 				echo wp_kses_post( sprintf(
-					/* translators: 1 meal 2 calories 3 sides */
-					__( 'A medium %1$s has <strong class="ffnc-item-big">%2$s calories</strong> with %3$s.', 'ffnc' ),
-					esc_html( $meal['name'] ),
+					/* translators: 1 "A medium Big Mac Meal" 2 calories 3 sides */
+					__( '%1$s has <strong class="ffnc-item-big">%2$s calories</strong> with %3$s.', 'ffnc' ),
+					esc_html( ffnc_meal_phrase( $meal ) ),
 					esc_html( ffnc_fmt_num( $def['total']['calories'] ) ),
 					esc_html( $def['label'] )
 				) );
@@ -1011,9 +1037,9 @@ function ffnc_shortcode_meal_page( $atts ) {
 		}
 		$qas = array();
 		$qas[ sprintf( /* translators: %s meal */ __( 'How many calories are in a %s?', 'ffnc' ), $meal['name'] ) ] = sprintf(
-			/* translators: 1 meal 2 cal 3 sides 4 protein 5 sodium */
-			__( 'A medium %1$s is %2$s calories with %3$s, with %4$sg of protein and %5$smg of sodium.', 'ffnc' ),
-			$meal['name'],
+			/* translators: 1 "A medium Big Mac Meal" 2 cal 3 sides 4 protein 5 sodium */
+			__( '%1$s is %2$s calories with %3$s, with %4$sg of protein and %5$smg of sodium.', 'ffnc' ),
+			ffnc_meal_phrase( $meal ),
 			ffnc_fmt_num( $def['total']['calories'] ),
 			$def['label'],
 			ffnc_fmt_num( $def['total']['protein'] ),
@@ -1022,10 +1048,10 @@ function ffnc_shortcode_meal_page( $atts ) {
 		if ( $water ) {
 			$qas[ sprintf( /* translators: %s meal */ __( 'How can I cut calories from a %s?', 'ffnc' ), $meal['name'] ) ] = sprintf(
 				/* translators: 1 cal saved 2 total */
-				__( 'The drink is the easiest change: water or a zero-calorie drink saves %1$s calories (%2$s total). Small fries instead of medium save more.', 'ffnc' ),
+				__( 'The drink is the easiest change: water or a zero-calorie drink saves %1$s calories (%2$s total).', 'ffnc' ),
 				ffnc_fmt_num( $def['total']['calories'] - $water['total']['calories'] ),
 				ffnc_fmt_num( $water['total']['calories'] )
-			);
+			) . ( ffnc_meal_copy( $slug )['cut_tip'] ? ' ' . ffnc_meal_copy( $slug )['cut_tip'] : '' );
 		}
 		echo ffnc_render_faq( $qas ); // phpcs:ignore
 		$item_url = ffnc_item_page_url( $slug, $main['id'] );
@@ -1338,11 +1364,11 @@ function ffnc_generated_seo( $post_id ) {
 	} elseif ( 'meal' === $kind && ( $m = ffnc_resolve_meal( $rest ) ) ) { // phpcs:ignore
 		$def = $m['sets'][0];
 		$out = array(
-			'title' => sprintf( /* translators: 1 meal 2 cal */ __( '%1$s Calories: %2$s Cal (Medium, With Fries & Drink)', 'ffnc' ), $m['name'], ffnc_fmt_num( $def['total']['calories'] ) ),
+			'title' => sprintf( /* translators: 1 meal 2 cal 3 size and sides */ __( '%1$s Calories: %2$s Cal (%3$s)', 'ffnc' ), ffnc_brand_display_name( ffnc_get_brand( $m['brand'] ), $m['name'] ), ffnc_fmt_num( $def['total']['calories'] ), ffnc_meal_copy( $m['brand'] )['title_tag'] ),
 			'desc'  => sprintf(
-				/* translators: 1 meal 2 cal 3 sides 4 protein */
-				__( 'A medium %1$s has %2$s calories with %3$s and %4$sg protein. See every part, other drink and fries sizes, and how to cut calories.', 'ffnc' ),
-				$m['name'],
+				/* translators: 1 "A medium Big Mac Meal" 2 cal 3 sides 4 protein */
+				__( '%1$s has %2$s calories with %3$s and %4$sg protein. See every part, other sides and drinks, and how to cut calories.', 'ffnc' ),
+				ffnc_meal_phrase( $m ),
 				ffnc_fmt_num( $def['total']['calories'] ),
 				$def['label'],
 				ffnc_fmt_num( $def['total']['protein'] )
