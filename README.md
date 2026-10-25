@@ -24,4 +24,6 @@ Code for [fastfoodnutritioncalc.com](https://fastfoodnutritioncalc.com/) (WordPr
 
 Hostinger hPanel > Advanced > Git deploys `main` into the plugin folder (Auto
 Deployment webhook in GitHub). On the next page load the plugin copies changed
-files from `theme/` into the live theme. Keep **FFNC Site Fixes** active.
+files from `theme/` into the live theme (visitors trigger the check at most every
+5 minutes; any wp-admin page checks right away). Keep **FFNC Site Fixes** active.
+The root `.htaccess` blocks direct browser access to this plugin folder.
