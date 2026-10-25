@@ -1,18 +1,18 @@
 {
   "brand": "Subway",
   "slug": "subway",
-  "note": "Values are Subway's official U.S. nutrition figures (January 2026 guide), checked on October 11, 2026. Sandwiches are 6-inch, standard Subway recipe: the bread, protein, cheese, vegetables and default sauce Subway lists, so a 6\" Oven-Roasted Turkey is 480 calories as served. Double values for a footlong. Confirm current figures with Subway, especially for allergies or medical diets.",
+  "note": "Values are Subway's official U.S. nutrition figures (October 2026 guide), checked on October 25, 2026. Sandwiches are 6-inch, standard Subway recipe: the bread, protein, cheese, vegetables and default sauce Subway lists, so a 6\" Oven-Roasted Turkey is 470 calories as served. Salads exclude dressing. Double values for a footlong. Confirm current figures with Subway, especially for allergies or medical diets.",
   "meta": {
     "market": "US",
     "market_label": "United States",
-    "source_name": "Subway U.S. Nutrition Information (January 2026)",
+    "source_name": "Subway U.S. Nutrition Information (October 2026)",
     "source_url": "https://www.subway.com/en-us/menunutrition/nutrition",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item and add-on was checked on 2026-09-25 and re-checked on 2026-10-11 against Subway's official U.S. Nutrition Information PDF (January 2026) linked from subway.com. 6-inch sandwiches are Subway's standard recipe as published (bread, protein, cheese, vegetables and sauce as Subway lists them).",
+    "values_origin": "Every item and add-on was checked on 2026-10-25 against Subway's official U.S. Nutrition Information PDF (October 2026) linked from subway.com, which replaced the January 2026 guide used for the 2026-09-25 and 2026-10-11 reviews. 6-inch sandwiches are Subway's standard recipe as published (bread, protein, cheese, vegetables and sauce as Subway lists them); salads and protein bowls are as Subway lists them, without dressing. Saturated fat, sugar and fiber are from the same guide; \"<1 g\" is stored as 0.",
     "status": "verified",
-    "last_reviewed": "2026-10-11",
+    "last_reviewed": "2026-10-25",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
-    "addon_macros": "Cheese, bacon, sauce and avocado add-ons use Subway's published 6-inch portion values, so all five nutrients are included in totals. Double them for a footlong, as Subway advises.",
+    "addon_macros": "Cheese, bacon, sauce and avocado add-ons use Subway's published 6-inch portion values, so all nutrients (including saturated fat, sugar and fiber) are included in totals. Double them for a footlong, as Subway advises.",
     "spot_checks": [],
     "changelog": [
       {
@@ -26,6 +26,10 @@
       {
         "date": "2026-10-11",
         "change": "Re-checked every item against Subway's U.S. Nutrition Information PDF (January 2026); all existing values match. Added 10 more 6-inch sandwiches, the four Protein Pockets, the Grilled Chicken Salad and three cookies with official values."
+      },
+      {
+        "date": "2026-10-25",
+        "change": "Updated to Subway's October 2026 U.S. Nutrition Information guide. Changed values: italian-bmt: calories 610->590, protein 27->26, fat 36->35, sodium 1500->1470; turkey-breast: calories 480->470, protein 26->25, fat 23->22, sodium 1150->1120; tuna: calories 570->560, fat 33->32, sodium 950->920; meatball-marinara: calories 570->550, protein 27->26, carbs 53->52, fat 28->27, sodium 1370->1330; cold-cut-combo: calories 530->520, protein 25->24, fat 29->28, sodium 1320->1290; veggie-delite: calories 320->310, protein 17->16, carbs 41->40, sodium 600->580; spicy-italian: calories 680->660, protein 27->26, fat 44->43, sodium 1690->1660; black-forest-ham: calories 490->480, fat 23->22, sodium 1190->1160; subway-club: fat 24->23; roast-beef: calories 500->490, protein 31->30, fat 23->22, sodium 1120->1100; all-american-club: protein 27->28; five-meat-italian: calories 680->660, protein 40->39, fat 37->36, sodium 1940->1910; meatball-pepperoni: calories 690->670, protein 33->32, fat 38->37, sodium 1860->1820; buffalo-chicken: calories 510->460, protein 31->29, carbs 55->45, sodium 1780->1650; veggie-delite-salad: calories 150->140, protein 10->9, fat 9->8, sodium 320->290; grilled-chicken-salad: calories 440->450, sodium 590->580. Removed (not in the October 2026 guide): spicy-nacho-chicken, honey-mustard-bbq-chicken, cheesy-garlic-steak. Added 7 more 6-inch sandwiches, 4 breakfast subs, 6 salads, 6 protein bowls, a cookie, applesauce and 3 soups, and saturated fat, sugar and fiber for every item and add-on."
       }
     ]
   },
@@ -37,11 +41,14 @@
         {
           "id": "italian-bmt",
           "name": "6\" B.M.T.",
-          "calories": 610,
-          "protein": 27,
+          "calories": 590,
+          "protein": 26,
           "carbs": 44,
-          "fat": 36,
-          "sodium": 1500,
+          "fat": 35,
+          "sodium": 1470,
+          "sat_fat": 12,
+          "sugar": 5,
+          "fiber": 2,
           "addons": [
             {
               "name": "Add American Cheese (6-inch portion)",
@@ -49,7 +56,10 @@
               "protein": 4,
               "carbs": 1,
               "fat": 7,
-              "sodium": 420
+              "sodium": 420,
+              "sat_fat": 5,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Add Bacon (2 strips)",
@@ -57,7 +67,10 @@
               "protein": 5,
               "carbs": 1,
               "fat": 6,
-              "sodium": 170
+              "sodium": 170,
+              "sat_fat": 3,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Mayonnaise (6-inch portion)",
@@ -65,7 +78,10 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 65
+              "sodium": 65,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Peppercorn Ranch (6-inch portion)",
@@ -73,18 +89,24 @@
               "protein": 0,
               "carbs": 1,
               "fat": 8,
-              "sodium": 100
+              "sodium": 100,
+              "sat_fat": 2,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "turkey-breast",
           "name": "6\" Oven-Roasted Turkey",
-          "calories": 480,
-          "protein": 26,
+          "calories": 470,
+          "protein": 25,
           "carbs": 42,
-          "fat": 23,
-          "sodium": 1150,
+          "fat": 22,
+          "sodium": 1120,
+          "sat_fat": 7,
+          "sugar": 5,
+          "fiber": 3,
           "addons": [
             {
               "name": "Add Provolone (6-inch portion)",
@@ -92,7 +114,10 @@
               "protein": 6,
               "carbs": 1,
               "fat": 7,
-              "sodium": 220
+              "sodium": 220,
+              "sat_fat": 4,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Avocado, sliced (6-inch portion)",
@@ -100,7 +125,10 @@
               "protein": 1,
               "carbs": 2,
               "fat": 4,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 1,
+              "sugar": 0,
+              "fiber": 2
             },
             {
               "name": "Mayonnaise (6-inch portion)",
@@ -108,18 +136,24 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 65
+              "sodium": 65,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "tuna",
           "name": "6\" Tuna",
-          "calories": 570,
+          "calories": 560,
           "protein": 27,
           "carbs": 42,
-          "fat": 33,
-          "sodium": 950,
+          "fat": 32,
+          "sodium": 920,
+          "sat_fat": 9,
+          "sugar": 4,
+          "fiber": 2,
           "addons": [
             {
               "name": "Add American Cheese (6-inch portion)",
@@ -127,7 +161,10 @@
               "protein": 4,
               "carbs": 1,
               "fat": 7,
-              "sodium": 420
+              "sodium": 420,
+              "sat_fat": 5,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Add Bacon (2 strips)",
@@ -135,18 +172,24 @@
               "protein": 5,
               "carbs": 1,
               "fat": 6,
-              "sodium": 170
+              "sodium": 170,
+              "sat_fat": 3,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "meatball-marinara",
           "name": "6\" Meatball Marinara",
-          "calories": 570,
-          "protein": 27,
-          "carbs": 53,
-          "fat": 28,
-          "sodium": 1370,
+          "calories": 550,
+          "protein": 26,
+          "carbs": 52,
+          "fat": 27,
+          "sodium": 1330,
+          "sat_fat": 12,
+          "sugar": 7,
+          "fiber": 4,
           "addons": [
             {
               "name": "Add Provolone (6-inch portion)",
@@ -154,7 +197,10 @@
               "protein": 6,
               "carbs": 1,
               "fat": 7,
-              "sodium": 220
+              "sodium": 220,
+              "sat_fat": 4,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
@@ -166,6 +212,9 @@
           "carbs": 55,
           "fat": 11,
           "sodium": 1250,
+          "sat_fat": 5,
+          "sugar": 20,
+          "fiber": 4,
           "addons": [
             {
               "name": "Add American Cheese (6-inch portion)",
@@ -173,7 +222,10 @@
               "protein": 4,
               "carbs": 1,
               "fat": 7,
-              "sodium": 420
+              "sodium": 420,
+              "sat_fat": 5,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Avocado, sliced (6-inch portion)",
@@ -181,18 +233,24 @@
               "protein": 1,
               "carbs": 2,
               "fat": 4,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 1,
+              "sugar": 0,
+              "fiber": 2
             }
           ]
         },
         {
           "id": "cold-cut-combo",
           "name": "6\" Cold Cut Combo",
-          "calories": 530,
-          "protein": 25,
+          "calories": 520,
+          "protein": 24,
           "carbs": 43,
-          "fat": 29,
-          "sodium": 1320,
+          "fat": 28,
+          "sodium": 1290,
+          "sat_fat": 8,
+          "sugar": 5,
+          "fiber": 2,
           "addons": [
             {
               "name": "Add American Cheese (6-inch portion)",
@@ -200,7 +258,10 @@
               "protein": 4,
               "carbs": 1,
               "fat": 7,
-              "sodium": 420
+              "sodium": 420,
+              "sat_fat": 5,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Mayonnaise (6-inch portion)",
@@ -208,18 +269,24 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 65
+              "sodium": 65,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "veggie-delite",
           "name": "6\" Veggie Delite",
-          "calories": 320,
-          "protein": 17,
-          "carbs": 41,
+          "calories": 310,
+          "protein": 16,
+          "carbs": 40,
           "fat": 10,
-          "sodium": 600,
+          "sodium": 580,
+          "sat_fat": 5,
+          "sugar": 6,
+          "fiber": 4,
           "addons": [
             {
               "name": "Add Provolone (6-inch portion)",
@@ -227,7 +294,10 @@
               "protein": 6,
               "carbs": 1,
               "fat": 7,
-              "sodium": 220
+              "sodium": 220,
+              "sat_fat": 4,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Avocado, sliced (6-inch portion)",
@@ -235,7 +305,10 @@
               "protein": 1,
               "carbs": 2,
               "fat": 4,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 1,
+              "sugar": 0,
+              "fiber": 2
             },
             {
               "name": "Peppercorn Ranch (6-inch portion)",
@@ -243,7 +316,10 @@
               "protein": 0,
               "carbs": 1,
               "fat": 8,
-              "sodium": 100
+              "sodium": 100,
+              "sat_fat": 2,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
@@ -255,6 +331,9 @@
           "carbs": 43,
           "fat": 24,
           "sodium": 830,
+          "sat_fat": 8,
+          "sugar": 5,
+          "fiber": 3,
           "addons": [
             {
               "name": "Avocado, sliced (6-inch portion)",
@@ -262,7 +341,10 @@
               "protein": 1,
               "carbs": 2,
               "fat": 4,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 1,
+              "sugar": 0,
+              "fiber": 2
             },
             {
               "name": "Baja Chipotle Sauce (6-inch portion)",
@@ -270,18 +352,24 @@
               "protein": 0,
               "carbs": 1,
               "fat": 7,
-              "sodium": 125
+              "sodium": 125,
+              "sat_fat": 1,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "spicy-italian",
           "name": "6\" Spicy Italian",
-          "calories": 680,
-          "protein": 27,
+          "calories": 660,
+          "protein": 26,
           "carbs": 44,
-          "fat": 44,
-          "sodium": 1690,
+          "fat": 43,
+          "sodium": 1660,
+          "sat_fat": 15,
+          "sugar": 5,
+          "fiber": 3,
           "addons": [
             {
               "name": "Add Provolone (6-inch portion)",
@@ -289,7 +377,10 @@
               "protein": 6,
               "carbs": 1,
               "fat": 7,
-              "sodium": 220
+              "sodium": 220,
+              "sat_fat": 4,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Peppercorn Ranch (6-inch portion)",
@@ -297,7 +388,10 @@
               "protein": 0,
               "carbs": 1,
               "fat": 8,
-              "sodium": 100
+              "sodium": 100,
+              "sat_fat": 2,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
@@ -309,6 +403,9 @@
           "carbs": 43,
           "fat": 25,
           "sodium": 1320,
+          "sat_fat": 9,
+          "sugar": 5,
+          "fiber": 2,
           "addons": [
             {
               "name": "Mayonnaise (6-inch portion)",
@@ -316,7 +413,10 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 65
+              "sodium": 65,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Baja Chipotle Sauce (6-inch portion)",
@@ -324,18 +424,24 @@
               "protein": 0,
               "carbs": 1,
               "fat": 7,
-              "sodium": 125
+              "sodium": 125,
+              "sat_fat": 1,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "black-forest-ham",
           "name": "6\" Black Forest Ham",
-          "calories": 490,
+          "calories": 480,
           "protein": 25,
           "carbs": 44,
-          "fat": 23,
-          "sodium": 1190,
+          "fat": 22,
+          "sodium": 1160,
+          "sat_fat": 7,
+          "sugar": 5,
+          "fiber": 2,
           "addons": [
             {
               "name": "Add American Cheese (6-inch portion)",
@@ -343,7 +449,10 @@
               "protein": 4,
               "carbs": 1,
               "fat": 7,
-              "sodium": 420
+              "sodium": 420,
+              "sat_fat": 5,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Mayonnaise (6-inch portion)",
@@ -351,7 +460,10 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 65
+              "sodium": 65,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
@@ -361,8 +473,11 @@
           "calories": 500,
           "protein": 31,
           "carbs": 43,
-          "fat": 24,
+          "fat": 23,
           "sodium": 1520,
+          "sat_fat": 8,
+          "sugar": 8,
+          "fiber": 4,
           "addons": [
             {
               "name": "Avocado, sliced (6-inch portion)",
@@ -370,7 +485,10 @@
               "protein": 1,
               "carbs": 2,
               "fat": 4,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 1,
+              "sugar": 0,
+              "fiber": 2
             }
           ]
         },
@@ -382,6 +500,9 @@
           "carbs": 44,
           "fat": 29,
           "sodium": 1230,
+          "sat_fat": 10,
+          "sugar": 5,
+          "fiber": 3,
           "addons": [
             {
               "name": "Avocado, sliced (6-inch portion)",
@@ -389,18 +510,24 @@
               "protein": 1,
               "carbs": 2,
               "fat": 4,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 1,
+              "sugar": 0,
+              "fiber": 2
             }
           ]
         },
         {
           "id": "roast-beef",
           "name": "6\" Roast Beef",
-          "calories": 500,
-          "protein": 31,
+          "calories": 490,
+          "protein": 30,
           "carbs": 44,
-          "fat": 23,
-          "sodium": 1120,
+          "fat": 22,
+          "sodium": 1100,
+          "sat_fat": 7,
+          "sugar": 6,
+          "fiber": 2,
           "addons": [
             {
               "name": "Add Provolone (6-inch portion)",
@@ -408,7 +535,10 @@
               "protein": 6,
               "carbs": 1,
               "fat": 7,
-              "sodium": 220
+              "sodium": 220,
+              "sat_fat": 4,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Mayonnaise (6-inch portion)",
@@ -416,45 +546,10 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 65
-            }
-          ]
-        },
-        {
-          "id": "spicy-nacho-chicken",
-          "name": "6\" Spicy Nacho Chicken",
-          "calories": 440,
-          "protein": 24,
-          "carbs": 49,
-          "fat": 17,
-          "sodium": 1280,
-          "addons": [
-            {
-              "name": "Avocado, sliced (6-inch portion)",
-              "calories": 45,
-              "protein": 1,
-              "carbs": 2,
-              "fat": 4,
-              "sodium": 0
-            }
-          ]
-        },
-        {
-          "id": "honey-mustard-bbq-chicken",
-          "name": "6\" Honey Mustard BBQ Chicken",
-          "calories": 510,
-          "protein": 30,
-          "carbs": 53,
-          "fat": 20,
-          "sodium": 1350,
-          "addons": [
-            {
-              "name": "Add Bacon (2 strips)",
-              "calories": 80,
-              "protein": 5,
-              "carbs": 1,
-              "fat": 6,
-              "sodium": 170
+              "sodium": 65,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
@@ -466,6 +561,9 @@
           "carbs": 44,
           "fat": 22,
           "sodium": 1440,
+          "sat_fat": 9,
+          "sugar": 5,
+          "fiber": 2,
           "addons": [
             {
               "name": "Mayonnaise (6-inch portion)",
@@ -473,26 +571,10 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 65
-            }
-          ]
-        },
-        {
-          "id": "cheesy-garlic-steak",
-          "name": "6\" Cheesy Garlic Steak",
-          "calories": 510,
-          "protein": 26,
-          "carbs": 49,
-          "fat": 23,
-          "sodium": 1190,
-          "addons": [
-            {
-              "name": "Baja Chipotle Sauce (6-inch portion)",
-              "calories": 70,
-              "protein": 0,
-              "carbs": 1,
-              "fat": 7,
-              "sodium": 125
+              "sodium": 65,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
@@ -500,10 +582,13 @@
           "id": "all-american-club",
           "name": "6\" All American Club",
           "calories": 540,
-          "protein": 27,
+          "protein": 28,
           "carbs": 45,
           "fat": 28,
           "sodium": 1520,
+          "sat_fat": 10,
+          "sugar": 6,
+          "fiber": 2,
           "addons": [
             {
               "name": "Avocado, sliced (6-inch portion)",
@@ -511,7 +596,10 @@
               "protein": 1,
               "carbs": 2,
               "fat": 4,
-              "sodium": 0
+              "sodium": 0,
+              "sat_fat": 1,
+              "sugar": 0,
+              "fiber": 2
             },
             {
               "name": "Mayonnaise (6-inch portion)",
@@ -519,18 +607,24 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 65
+              "sodium": 65,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "five-meat-italian",
           "name": "6\" 5 Meat Italian",
-          "calories": 680,
-          "protein": 40,
+          "calories": 660,
+          "protein": 39,
           "carbs": 46,
-          "fat": 37,
-          "sodium": 1940,
+          "fat": 36,
+          "sodium": 1910,
+          "sat_fat": 12,
+          "sugar": 6,
+          "fiber": 2,
           "addons": [
             {
               "name": "Add Provolone (6-inch portion)",
@@ -538,7 +632,10 @@
               "protein": 6,
               "carbs": 1,
               "fat": 7,
-              "sodium": 220
+              "sodium": 220,
+              "sat_fat": 4,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Peppercorn Ranch (6-inch portion)",
@@ -546,18 +643,24 @@
               "protein": 0,
               "carbs": 1,
               "fat": 8,
-              "sodium": 100
+              "sodium": 100,
+              "sat_fat": 2,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "meatball-pepperoni",
           "name": "6\" Meatball Pepperoni",
-          "calories": 690,
-          "protein": 33,
+          "calories": 670,
+          "protein": 32,
           "carbs": 56,
-          "fat": 38,
-          "sodium": 1860,
+          "fat": 37,
+          "sodium": 1820,
+          "sat_fat": 16,
+          "sugar": 7,
+          "fiber": 4,
           "addons": [
             {
               "name": "Add Provolone (6-inch portion)",
@@ -565,18 +668,24 @@
               "protein": 6,
               "carbs": 1,
               "fat": 7,
-              "sodium": 220
+              "sodium": 220,
+              "sat_fat": 4,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
         {
           "id": "buffalo-chicken",
           "name": "6\" Buffalo Chicken",
-          "calories": 510,
-          "protein": 31,
-          "carbs": 55,
+          "calories": 460,
+          "protein": 29,
+          "carbs": 45,
           "fat": 19,
-          "sodium": 1780,
+          "sodium": 1650,
+          "sat_fat": 7,
+          "sugar": 6,
+          "fiber": 2,
           "addons": [
             {
               "name": "Peppercorn Ranch (6-inch portion)",
@@ -584,9 +693,108 @@
               "protein": 0,
               "carbs": 1,
               "fat": 8,
-              "sodium": 100
+              "sodium": 100,
+              "sat_fat": 2,
+              "sugar": 1,
+              "fiber": 0
             }
           ]
+        },
+        {
+          "id": "steak-bacon",
+          "name": "6\" Steak & Bacon",
+          "calories": 590,
+          "protein": 36,
+          "carbs": 44,
+          "fat": 30,
+          "sodium": 1280,
+          "sat_fat": 11,
+          "sugar": 5,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "honey-mustard-chicken",
+          "name": "6\" Honey Mustard Chicken",
+          "calories": 480,
+          "protein": 30,
+          "carbs": 47,
+          "fat": 20,
+          "sodium": 1240,
+          "sat_fat": 8,
+          "sugar": 8,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "big-hot-pastrami",
+          "name": "6\" Big Hot Pastrami",
+          "calories": 620,
+          "protein": 27,
+          "carbs": 43,
+          "fat": 38,
+          "sodium": 1990,
+          "sat_fat": 17,
+          "sugar": 5,
+          "fiber": 2,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "blt",
+          "name": "6\" B.L.T.",
+          "calories": 480,
+          "protein": 18,
+          "carbs": 42,
+          "fat": 26,
+          "sodium": 800,
+          "sat_fat": 7,
+          "sugar": 5,
+          "fiber": 2,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "turkey-ham",
+          "name": "6\" Oven-Roasted Turkey & Ham",
+          "calories": 460,
+          "protein": 26,
+          "carbs": 41,
+          "fat": 22,
+          "sodium": 1110,
+          "sat_fat": 7,
+          "sugar": 6,
+          "fiber": 4,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "pizza-sub",
+          "name": "6\" Pizza Sub",
+          "calories": 480,
+          "protein": 21,
+          "carbs": 45,
+          "fat": 24,
+          "sodium": 1310,
+          "sat_fat": 10,
+          "sugar": 5,
+          "fiber": 2,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "veggie-patty",
+          "name": "6\" Veggie Patty",
+          "calories": 470,
+          "protein": 19,
+          "carbs": 58,
+          "fat": 19,
+          "sodium": 1100,
+          "sat_fat": 6,
+          "sugar": 9,
+          "fiber": 12,
+          "addons": [],
+          "availability": "participating locations"
         }
       ]
     },
@@ -602,6 +810,9 @@
           "carbs": 30,
           "fat": 13,
           "sodium": 750,
+          "sat_fat": 5,
+          "sugar": 2,
+          "fiber": 2,
           "addons": []
         },
         {
@@ -612,6 +823,9 @@
           "carbs": 32,
           "fat": 29,
           "sodium": 1580,
+          "sat_fat": 10,
+          "sugar": 2,
+          "fiber": 2,
           "addons": []
         },
         {
@@ -622,6 +836,9 @@
           "carbs": 30,
           "fat": 13,
           "sodium": 800,
+          "sat_fat": 5,
+          "sugar": 2,
+          "fiber": 2,
           "addons": []
         },
         {
@@ -632,22 +849,90 @@
           "carbs": 32,
           "fat": 11,
           "sodium": 1260,
+          "sat_fat": 4,
+          "sugar": 4,
+          "fiber": 2,
           "addons": []
         }
       ]
     },
     {
-      "id": "sides",
-      "name": "Salads, Cookies & Sides",
+      "id": "breakfast",
+      "name": "Breakfast (6-inch)",
       "items": [
         {
-          "id": "veggie-delite-salad",
-          "name": "Veggie Delite Salad (no dressing)",
-          "calories": 150,
-          "protein": 10,
-          "carbs": 10,
-          "fat": 9,
-          "sodium": 320,
+          "id": "bacon-egg-cheese-6",
+          "name": "6\" Bacon, Egg & Cheese",
+          "calories": 550,
+          "protein": 26,
+          "carbs": 43,
+          "fat": 30,
+          "sodium": 1200,
+          "sat_fat": 11,
+          "sugar": 4,
+          "fiber": 2,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "ham-egg-cheese-6",
+          "name": "6\" Egg & Cheese with Black Forest Ham",
+          "calories": 510,
+          "protein": 27,
+          "carbs": 44,
+          "fat": 25,
+          "sodium": 1330,
+          "sat_fat": 9,
+          "sugar": 5,
+          "fiber": 2,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "egg-cheese-6",
+          "name": "6\" Egg & Cheese",
+          "calories": 470,
+          "protein": 21,
+          "carbs": 42,
+          "fat": 24,
+          "sodium": 1020,
+          "sat_fat": 8,
+          "sugar": 4,
+          "fiber": 2,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "steak-egg-cheese-6",
+          "name": "6\" Steak, Egg & Cheese",
+          "calories": 530,
+          "protein": 30,
+          "carbs": 43,
+          "fat": 26,
+          "sodium": 1250,
+          "sat_fat": 9,
+          "sugar": 4,
+          "fiber": 2,
+          "addons": [],
+          "availability": "participating locations"
+        }
+      ]
+    },
+    {
+      "id": "salads",
+      "name": "Salads",
+      "items": [
+        {
+          "id": "grilled-chicken-salad",
+          "name": "Grilled Chicken Salad (no dressing)",
+          "calories": 450,
+          "protein": 26,
+          "carbs": 12,
+          "fat": 34,
+          "sodium": 580,
+          "sat_fat": 9,
+          "sugar": 5,
+          "fiber": 4,
           "addons": [
             {
               "name": "Peppercorn Ranch (salad portion, 2x sandwich amount)",
@@ -655,10 +940,206 @@
               "protein": 0,
               "carbs": 2,
               "fat": 16,
-              "sodium": 200
+              "sodium": 200,
+              "sat_fat": 4,
+              "sugar": 2,
+              "fiber": 0
             }
           ]
         },
+        {
+          "id": "veggie-delite-salad",
+          "name": "Veggie Delite Salad (no dressing)",
+          "calories": 140,
+          "protein": 9,
+          "carbs": 10,
+          "fat": 8,
+          "sodium": 290,
+          "sat_fat": 4,
+          "sugar": 5,
+          "fiber": 4,
+          "addons": [
+            {
+              "name": "Peppercorn Ranch (salad portion, 2x sandwich amount)",
+              "calories": 160,
+              "protein": 0,
+              "carbs": 2,
+              "fat": 16,
+              "sodium": 200,
+              "sat_fat": 4,
+              "sugar": 2,
+              "fiber": 0
+            }
+          ]
+        },
+        {
+          "id": "steak-philly-salad",
+          "name": "Steak Philly Salad (no dressing)",
+          "calories": 450,
+          "protein": 24,
+          "carbs": 13,
+          "fat": 35,
+          "sodium": 1070,
+          "sat_fat": 10,
+          "sugar": 6,
+          "fiber": 4,
+          "addons": []
+        },
+        {
+          "id": "chicken-bacon-ranch-salad",
+          "name": "Chicken & Bacon Ranch Salad (no dressing)",
+          "calories": 490,
+          "protein": 30,
+          "carbs": 14,
+          "fat": 36,
+          "sodium": 1010,
+          "sat_fat": 11,
+          "sugar": 7,
+          "fiber": 5,
+          "addons": []
+        },
+        {
+          "id": "teriyaki-chicken-salad",
+          "name": "Sweet Onion Teriyaki Chicken Salad (no dressing)",
+          "calories": 300,
+          "protein": 23,
+          "carbs": 33,
+          "fat": 10,
+          "sodium": 1090,
+          "sat_fat": 5,
+          "sugar": 25,
+          "fiber": 4,
+          "addons": []
+        },
+        {
+          "id": "bmt-salad",
+          "name": "B.M.T. Salad (no dressing)",
+          "calories": 530,
+          "protein": 21,
+          "carbs": 13,
+          "fat": 45,
+          "sodium": 1220,
+          "sat_fat": 13,
+          "sugar": 5,
+          "fiber": 4,
+          "addons": []
+        },
+        {
+          "id": "turkey-salad",
+          "name": "Oven-Roasted Turkey Salad (no dressing)",
+          "calories": 400,
+          "protein": 20,
+          "carbs": 11,
+          "fat": 32,
+          "sodium": 870,
+          "sat_fat": 8,
+          "sugar": 5,
+          "fiber": 4,
+          "addons": []
+        },
+        {
+          "id": "tuna-salad",
+          "name": "Tuna Salad (no dressing)",
+          "calories": 400,
+          "protein": 21,
+          "carbs": 10,
+          "fat": 31,
+          "sodium": 600,
+          "sat_fat": 8,
+          "sugar": 5,
+          "fiber": 4,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "bowls",
+      "name": "Protein Bowls",
+      "items": [
+        {
+          "id": "grilled-chicken-bowl",
+          "name": "Grilled Chicken Protein Bowl",
+          "calories": 620,
+          "protein": 48,
+          "carbs": 11,
+          "fat": 44,
+          "sodium": 950,
+          "sat_fat": 15,
+          "sugar": 6,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "chicken-bacon-ranch-bowl",
+          "name": "Chicken & Bacon Ranch Protein Bowl",
+          "calories": 760,
+          "protein": 55,
+          "carbs": 14,
+          "fat": 55,
+          "sodium": 1740,
+          "sat_fat": 20,
+          "sugar": 7,
+          "fiber": 4,
+          "addons": []
+        },
+        {
+          "id": "steak-philly-bowl",
+          "name": "Steak Philly Protein Bowl",
+          "calories": 630,
+          "protein": 43,
+          "carbs": 14,
+          "fat": 47,
+          "sodium": 1940,
+          "sat_fat": 16,
+          "sugar": 7,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "teriyaki-chicken-bowl",
+          "name": "Sweet Onion Teriyaki Chicken Protein Bowl",
+          "calories": 470,
+          "protein": 42,
+          "carbs": 40,
+          "fat": 18,
+          "sodium": 1850,
+          "sat_fat": 10,
+          "sugar": 33,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "turkey-bowl",
+          "name": "Oven-Roasted Turkey Protein Bowl",
+          "calories": 540,
+          "protein": 37,
+          "carbs": 10,
+          "fat": 40,
+          "sodium": 1540,
+          "sat_fat": 12,
+          "sugar": 5,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "bmt-bowl",
+          "name": "B.M.T. Protein Bowl",
+          "calories": 800,
+          "protein": 38,
+          "carbs": 14,
+          "fat": 66,
+          "sodium": 2230,
+          "sat_fat": 22,
+          "sugar": 6,
+          "fiber": 3,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Cookies, Sides & Soups",
+      "items": [
         {
           "id": "cookie-choc-chip",
           "name": "Chocolate Chip Cookie",
@@ -667,6 +1148,9 @@
           "carbs": 30,
           "fat": 10,
           "sodium": 120,
+          "sat_fat": 5,
+          "sugar": 18,
+          "fiber": 0,
           "addons": []
         },
         {
@@ -677,26 +1161,10 @@
           "carbs": 24,
           "fat": 9,
           "sodium": 600,
+          "sat_fat": 3,
+          "sugar": 1,
+          "fiber": 3,
           "addons": []
-        },
-        {
-          "id": "grilled-chicken-salad",
-          "name": "Grilled Chicken Salad (no dressing)",
-          "calories": 440,
-          "protein": 26,
-          "carbs": 12,
-          "fat": 34,
-          "sodium": 590,
-          "addons": [
-            {
-              "name": "Peppercorn Ranch (salad portion, 2x sandwich amount)",
-              "calories": 160,
-              "protein": 0,
-              "carbs": 2,
-              "fat": 16,
-              "sodium": 200
-            }
-          ]
         },
         {
           "id": "cookie-double-chocolate",
@@ -706,6 +1174,9 @@
           "carbs": 29,
           "fat": 9,
           "sodium": 125,
+          "sat_fat": 5,
+          "sugar": 20,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -716,6 +1187,9 @@
           "carbs": 30,
           "fat": 8,
           "sodium": 110,
+          "sat_fat": 4,
+          "sugar": 16,
+          "fiber": 1,
           "addons": []
         },
         {
@@ -726,7 +1200,79 @@
           "carbs": 28,
           "fat": 10,
           "sodium": 125,
+          "sat_fat": 5,
+          "sugar": 17,
+          "fiber": 0,
           "addons": []
+        },
+        {
+          "id": "cookie-raspberry-cheesecake",
+          "name": "Raspberry Cheesecake Cookie",
+          "calories": 210,
+          "protein": 2,
+          "carbs": 29,
+          "fat": 9,
+          "sodium": 115,
+          "sat_fat": 5,
+          "sugar": 16,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "applesauce",
+          "name": "Applesauce",
+          "calories": 70,
+          "protein": 0,
+          "carbs": 16,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 13,
+          "fiber": 3,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "soup-broccoli-cheddar",
+          "name": "Broccoli Cheddar Soup (8 oz bowl)",
+          "calories": 200,
+          "protein": 9,
+          "carbs": 16,
+          "fat": 13,
+          "sodium": 960,
+          "sat_fat": 8,
+          "sugar": 7,
+          "fiber": 0,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "soup-chicken-noodle",
+          "name": "Chicken Noodle Soup (8 oz bowl)",
+          "calories": 70,
+          "protein": 7,
+          "carbs": 6,
+          "fat": 3,
+          "sodium": 1160,
+          "sat_fat": 1,
+          "sugar": 1,
+          "fiber": 0,
+          "addons": [],
+          "availability": "participating locations"
+        },
+        {
+          "id": "soup-loaded-baked-potato",
+          "name": "Loaded Baked Potato Soup with Bacon (8 oz bowl)",
+          "calories": 200,
+          "protein": 9,
+          "carbs": 17,
+          "fat": 14,
+          "sodium": 910,
+          "sat_fat": 7,
+          "sugar": 4,
+          "fiber": 1,
+          "addons": [],
+          "availability": "participating locations"
         }
       ]
     }
