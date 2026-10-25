@@ -36,8 +36,8 @@ function expected(lines) {
 	return t;
 }
 
-test('there are 17 datasets and every item has numeric nutrients', () => {
-	assert.equal(brands.length, 17);
+test('there are 18 datasets and every item has numeric nutrients', () => {
+	assert.equal(brands.length, 18);
 	for (const b of brands) {
 		assert.ok(b.data.meta, b.slug + ' has provenance meta');
 		assert.ok(/^https:\/\//.test(b.data.meta.source_url), b.slug + ' source url');

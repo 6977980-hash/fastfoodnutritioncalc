@@ -173,7 +173,7 @@ function ffnc_generated_key_is_thin( $key ) {
 
 /** The size shown in the headline: medium/regular, else the middle size. */
 function ffnc_group_main_item( $group ) {
-	foreach ( array( 'medium', 'regular' ) as $want ) {
+	foreach ( array( 'medium', 'regular', 'grande' ) as $want ) {
 		foreach ( $group['items'] as $i ) {
 			if ( strtolower( $i['size'] ) === $want ) {
 				return $i;

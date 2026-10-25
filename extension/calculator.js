@@ -452,10 +452,23 @@
 		['side', /\b(cheese curds|cheese stick|apple slices|apple crisps|chow fun|potstickers?|kale crunch|fruit cup|apple ?sauce|applesauce|rice|chow mein|greens|mashed|coleslaw|mac|beans|pintos|corn|potato|potatoes|bread|breadsticks?|spring rolls?|egg roll|rangoon|cornbread|baguette|chips|pretzel sticks|^banana|cajun gravy)\b/]
 	];
 	/* Chipotle is sold by ingredient, so its lines never stand in for a dish. */
+	// Starbucks categories already say what an item is; names alone mislead
+	// ("Iced Banana Bread Chai", "Ham & Swiss on Baguette").
+	function starbucksType(n, cat) {
+		if (/\b(coffee|espresso|tea|chai|matcha|refreshers|frappuccino|protein drinks|hot chocolate)\b/.test(cat)) {
+			return /\b(chai|chaider|matcha|london fog|tea|refresher|drink|dream|lemonade|frappuccino|chocolate|milk|cr e?me)\b/.test(n) && !/\b(cold brew|espresso|mocha|coffee|latte|macchiato)\b/.test(n.replace(/\b(chai|matcha|london fog) latte\b/, '')) ? 'drink' : 'coffee';
+		}
+		if (/\b(spread|icing)\b/.test(n)) { return 'side'; }
+		if (/^breakfast\b/.test(cat)) { return /\b(pull apart)\b/.test(n) ? 'dessert' : 'breakfast'; }
+		if (/\bbakery\b/.test(cat)) { return 'dessert'; }
+		return 'other';
+	}
+
 	function itemType(item, catName, brandSlug) {
 		if (brandSlug === 'chipotle') { return 'ingredient'; }
 		// QDOBA-style menus list build-your-own parts in their own categories.
 		if (/^build your own\b/.test(normalizeName(catName))) { return 'ingredient'; }
+		if (brandSlug === 'starbucks') { return starbucksType(normalizeName(item.name), normalizeName(catName)); }
 		var n = normalizeName(item.name);
 		var s = normalizeName(item.name + ' ' + (catName || ''));
 		for (var i = 0; i < TYPES.length; i++) {
