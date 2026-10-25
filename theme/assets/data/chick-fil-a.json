@@ -8,11 +8,11 @@
     "source_name": "Chick-fil-A Nutrition & Allergens (U.S.)",
     "source_url": "https://www.chick-fil-a.com/nutrition-allergens",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Every item was checked on 2026-09-25 against chick-fil-a.com (Nutrition & Allergens page and individual menu-item pages). On 2026-10-11 the two chicken sandwiches were re-checked and 11 items were added and checked. Salads are listed as Chick-fil-A serves them, including the default chicken and dressing.",
+    "values_origin": "Every item was checked on 2026-09-25 against chick-fil-a.com (Nutrition & Allergens page and individual menu-item pages). On 2026-10-11 the two chicken sandwiches were re-checked and 11 items were added and checked. Salads are listed as Chick-fil-A serves them, including the default chicken and dressing. On 2026-10-25 saturated fat, sugar and fiber, sauce sodium and 50 new items were added from Chick-fil-A's official Nutrition & Allergens table (chick-fil-a.com/nutrition-allergens, read 2026-10-25); all existing core values still match it. Saturated fat, sugar and fiber are listed only for the standard size the table shows.",
     "status": "verified",
-    "last_reviewed": "2026-10-11",
+    "last_reviewed": "2026-10-25",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
-    "addon_macros": "Dipping-sauce add-ons use Chick-fil-A's published calories, fat, carbohydrates and protein. Chick-fil-A's sauce pages do not publish sodium, so sauce sodium is shown as not available and is not counted.",
+    "addon_macros": "Dipping-sauce add-ons use Chick-fil-A's official per-container nutrition from its Nutrition & Allergens table, including sodium, so all five nutrients are counted.",
     "spot_checks": [],
     "changelog": [
       {
@@ -30,9 +30,13 @@
       {
         "date": "2026-10-11",
         "change": "Added items from chick-fil-a.com menu pages and the official nutrition & allergens table. New ids: deluxe-sandwich, spicy-deluxe-sandwich, cool-wrap, grilled-nuggets-8, grilled-nuggets-12, chick-n-minis-4, waffle-fries-small, waffle-fries-large, spicy-southwest-salad, chicken-biscuit, hash-brown-scramble-burrito."
+      },
+      {
+        "date": "2026-10-25",
+        "change": "Added saturated fat, sugar and fiber for standard-size items and sauce sodium from Chick-fil-A's official Nutrition & Allergens table; all existing calories/protein/carbs/fat/sodium unchanged. Added Grilled Chicken Club, Chicken & Waffles sandwiches, breakfast biscuits and muffins, Egg White Grill, Hash Brown Scramble Bowl, Hash Browns, soups, Kale Crunch Side, Side Salad, Fruit Cup, chips, treats (milkshakes, Icedream, cookie, brownie, frosted drinks) and standard-size drinks."
       }
     ],
-    "review_detail": "Checked September 25, 2026; items added and checked October 11, 2026."
+    "review_detail": "Checked September 25, 2026; items added and checked October 11 and October 25, 2026."
   },
   "categories": [
     {
@@ -47,20 +51,31 @@
           "carbs": 41,
           "fat": 16,
           "sodium": 1470,
+          "sat_fat": 3.5,
+          "sugar": 6,
+          "fiber": 1,
           "addons": [
             {
               "name": "Chick-fil-A Sauce (1 container)",
               "calories": 140,
               "protein": 0,
               "carbs": 6,
-              "fat": 13
+              "fat": 13,
+              "sodium": 170,
+              "sat_fat": 2,
+              "sugar": 6,
+              "fiber": 0
             },
             {
               "name": "Polynesian Sauce (1 container)",
               "calories": 110,
               "protein": 0,
               "carbs": 14,
-              "fat": 6
+              "fat": 6,
+              "sodium": 210,
+              "sat_fat": 1,
+              "sugar": 13,
+              "fiber": 0
             }
           ],
           "source_url": "https://www.chick-fil-a.com/menu/chick-fil-a-chicken-sandwich"
@@ -73,13 +88,20 @@
           "carbs": 44,
           "fat": 18,
           "sodium": 1740,
+          "sat_fat": 4,
+          "sugar": 6,
+          "fiber": 1,
           "addons": [
             {
               "name": "Chick-fil-A Sauce (1 container)",
               "calories": 140,
               "protein": 0,
               "carbs": 6,
-              "fat": 13
+              "fat": 13,
+              "sodium": 170,
+              "sat_fat": 2,
+              "sugar": 6,
+              "fiber": 0
             }
           ]
         },
@@ -91,13 +113,20 @@
           "carbs": 45,
           "fat": 11,
           "sodium": 765,
+          "sat_fat": 2.5,
+          "sugar": 11,
+          "fiber": 3,
           "addons": [
             {
               "name": "Honey Mustard Sauce (1 container)",
               "calories": 50,
               "protein": 0,
               "carbs": 11,
-              "fat": 0
+              "fat": 0,
+              "sodium": 160,
+              "sat_fat": 0,
+              "sugar": 10,
+              "fiber": 0
             }
           ]
         },
@@ -109,6 +138,9 @@
           "carbs": 43,
           "fat": 21,
           "sodium": 1710,
+          "sat_fat": 6,
+          "sugar": 7,
+          "fiber": 1,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/chick-fil-a-deluxe-sandwich"
         },
@@ -120,6 +152,9 @@
           "carbs": 46,
           "fat": 24,
           "sodium": 1890,
+          "sat_fat": 8,
+          "sugar": 7,
+          "fiber": 2,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/spicy-deluxe-sandwich"
         },
@@ -131,8 +166,63 @@
           "carbs": 32,
           "fat": 45,
           "sodium": 1420,
+          "sat_fat": 9,
+          "sugar": 5,
+          "fiber": 14,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/chick-fil-a-cool-wrap"
+        },
+        {
+          "id": "grilled-chicken-club",
+          "name": "Grilled Chicken Club Sandwich",
+          "calories": 520,
+          "protein": 37,
+          "carbs": 45,
+          "fat": 22,
+          "sodium": 1055,
+          "sat_fat": 8,
+          "sugar": 12,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "chicken-waffles-sandwich",
+          "name": "Chicken & Waffles Sandwich with Chick-fil-A Filet",
+          "calories": 690,
+          "protein": 32,
+          "carbs": 66,
+          "fat": 34,
+          "sodium": 1600,
+          "sat_fat": 11,
+          "sugar": 29,
+          "fiber": 5,
+          "addons": []
+        },
+        {
+          "id": "chicken-waffles-sandwich-spicy",
+          "name": "Chicken & Waffles Sandwich with Spicy Filet",
+          "calories": 710,
+          "protein": 31,
+          "carbs": 70,
+          "fat": 35,
+          "sodium": 1860,
+          "sat_fat": 12,
+          "sugar": 29,
+          "fiber": 6,
+          "addons": []
+        },
+        {
+          "id": "chicken-waffles-sandwich-grilled",
+          "name": "Chicken & Waffles Sandwich with Grilled Filet",
+          "calories": 540,
+          "protein": 29,
+          "carbs": 55,
+          "fat": 24,
+          "sodium": 850,
+          "sat_fat": 9,
+          "sugar": 28,
+          "fiber": 5,
+          "addons": []
         }
       ]
     },
@@ -148,34 +238,53 @@
           "carbs": 11,
           "fat": 11,
           "sodium": 1210,
+          "sat_fat": 2.5,
+          "sugar": 1,
+          "fiber": 0,
           "addons": [
             {
               "name": "Chick-fil-A Sauce (1 container)",
               "calories": 140,
               "protein": 0,
               "carbs": 6,
-              "fat": 13
+              "fat": 13,
+              "sodium": 170,
+              "sat_fat": 2,
+              "sugar": 6,
+              "fiber": 0
             },
             {
               "name": "Honey Mustard Sauce (1 container)",
               "calories": 50,
               "protein": 0,
               "carbs": 11,
-              "fat": 0
+              "fat": 0,
+              "sodium": 160,
+              "sat_fat": 0,
+              "sugar": 10,
+              "fiber": 0
             },
             {
               "name": "Polynesian Sauce (1 container)",
               "calories": 110,
               "protein": 0,
               "carbs": 14,
-              "fat": 6
+              "fat": 6,
+              "sodium": 210,
+              "sat_fat": 1,
+              "sugar": 13,
+              "fiber": 0
             },
             {
               "name": "Zesty Buffalo Sauce (1 container)",
               "calories": 25,
               "protein": 0,
               "carbs": 1,
-              "fat": 2.5
+              "fat": 2.5,
+              "sodium": 570,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
@@ -193,28 +302,44 @@
               "calories": 140,
               "protein": 0,
               "carbs": 6,
-              "fat": 13
+              "fat": 13,
+              "sodium": 170,
+              "sat_fat": 2,
+              "sugar": 6,
+              "fiber": 0
             },
             {
               "name": "Honey Mustard Sauce (1 container)",
               "calories": 50,
               "protein": 0,
               "carbs": 11,
-              "fat": 0
+              "fat": 0,
+              "sodium": 160,
+              "sat_fat": 0,
+              "sugar": 10,
+              "fiber": 0
             },
             {
               "name": "Polynesian Sauce (1 container)",
               "calories": 110,
               "protein": 0,
               "carbs": 14,
-              "fat": 6
+              "fat": 6,
+              "sodium": 210,
+              "sat_fat": 1,
+              "sugar": 13,
+              "fiber": 0
             },
             {
               "name": "Zesty Buffalo Sauce (1 container)",
               "calories": 25,
               "protein": 0,
               "carbs": 1,
-              "fat": 2.5
+              "fat": 2.5,
+              "sodium": 570,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
@@ -226,34 +351,53 @@
           "carbs": 16,
           "fat": 14,
           "sodium": 870,
+          "sat_fat": 2.5,
+          "sugar": 2,
+          "fiber": 0,
           "addons": [
             {
               "name": "Chick-fil-A Sauce (1 container)",
               "calories": 140,
               "protein": 0,
               "carbs": 6,
-              "fat": 13
+              "fat": 13,
+              "sodium": 170,
+              "sat_fat": 2,
+              "sugar": 6,
+              "fiber": 0
             },
             {
               "name": "Honey Mustard Sauce (1 container)",
               "calories": 50,
               "protein": 0,
               "carbs": 11,
-              "fat": 0
+              "fat": 0,
+              "sodium": 160,
+              "sat_fat": 0,
+              "sugar": 10,
+              "fiber": 0
             },
             {
               "name": "Polynesian Sauce (1 container)",
               "calories": 110,
               "protein": 0,
               "carbs": 14,
-              "fat": 6
+              "fat": 6,
+              "sodium": 210,
+              "sat_fat": 1,
+              "sugar": 13,
+              "fiber": 0
             },
             {
               "name": "Zesty Buffalo Sauce (1 container)",
               "calories": 25,
               "protein": 0,
               "carbs": 1,
-              "fat": 2.5
+              "fat": 2.5,
+              "sodium": 570,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
             }
           ]
         },
@@ -265,6 +409,9 @@
           "carbs": 1,
           "fat": 3,
           "sodium": 440,
+          "sat_fat": 0.5,
+          "sugar": 1,
+          "fiber": 0,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/grilled-nuggets"
         },
@@ -287,6 +434,9 @@
           "carbs": 41,
           "fat": 13,
           "sodium": 1060,
+          "sat_fat": 4,
+          "sugar": 8,
+          "fiber": 2,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/chick-n-minis"
         }
@@ -315,6 +465,9 @@
           "carbs": 45,
           "fat": 24,
           "sodium": 240,
+          "sat_fat": 4,
+          "sugar": 1,
+          "fiber": 5,
           "addons": []
         },
         {
@@ -336,6 +489,113 @@
           "carbs": 28,
           "fat": 29,
           "sodium": 1190,
+          "sat_fat": 16,
+          "sugar": 3,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "side-salad",
+          "name": "Side Salad (with dressing)",
+          "calories": 470,
+          "protein": 6,
+          "carbs": 14,
+          "fat": 42,
+          "sodium": 700,
+          "sat_fat": 8,
+          "sugar": 5,
+          "fiber": 4,
+          "addons": []
+        },
+        {
+          "id": "kale-crunch-side",
+          "name": "Kale Crunch Side",
+          "calories": 170,
+          "protein": 4,
+          "carbs": 13,
+          "fat": 12,
+          "sodium": 250,
+          "sat_fat": 1.5,
+          "sugar": 8,
+          "fiber": 4,
+          "addons": []
+        },
+        {
+          "id": "chicken-noodle-soup",
+          "name": "Chicken Noodle Soup",
+          "calories": 190,
+          "protein": 11,
+          "carbs": 27,
+          "fat": 4.5,
+          "sodium": 1290,
+          "sat_fat": 1,
+          "sugar": 2,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "chicken-tortilla-soup",
+          "name": "Chicken Tortilla Soup",
+          "calories": 350,
+          "protein": 25,
+          "carbs": 39,
+          "fat": 11,
+          "sodium": 1115,
+          "sat_fat": 2.5,
+          "sugar": 4,
+          "fiber": 18,
+          "addons": []
+        },
+        {
+          "id": "fruit-cup",
+          "name": "Fruit Cup",
+          "calories": 70,
+          "protein": 1,
+          "carbs": 16,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 12,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "apple-sauce",
+          "name": "Buddy Fruits Apple Sauce",
+          "calories": 45,
+          "protein": 0,
+          "carbs": 12,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 8,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "waffle-chips",
+          "name": "Waffle Potato Chips (Original)",
+          "calories": 220,
+          "protein": 3,
+          "carbs": 25,
+          "fat": 13,
+          "sodium": 250,
+          "sat_fat": 3.5,
+          "sugar": 0,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "waffle-chips-cfa-sauce",
+          "name": "Waffle Potato Chips (Chick-fil-A Sauce flavored)",
+          "calories": 210,
+          "protein": 3,
+          "carbs": 26,
+          "fat": 12,
+          "sodium": 330,
+          "sat_fat": 3,
+          "sugar": 3,
+          "fiber": 2,
           "addons": []
         }
       ]
@@ -352,6 +612,9 @@
           "carbs": 31,
           "fat": 60,
           "sodium": 2180,
+          "sat_fat": 13,
+          "sugar": 8,
+          "fiber": 5,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/cobb-salad"
         },
@@ -363,6 +626,9 @@
           "carbs": 42,
           "fat": 31,
           "sodium": 1010,
+          "sat_fat": 6,
+          "sugar": 26,
+          "fiber": 5,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/market-salad"
         },
@@ -374,6 +640,9 @@
           "carbs": 27,
           "fat": 49,
           "sodium": 1570,
+          "sat_fat": 10,
+          "sugar": 7,
+          "fiber": 7,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/spicy-southwest-salad"
         }
@@ -391,6 +660,9 @@
           "carbs": 45,
           "fat": 23,
           "sodium": 1510,
+          "sat_fat": 8,
+          "sugar": 6,
+          "fiber": 2,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/chick-fil-a-chicken-biscuit"
         },
@@ -402,8 +674,465 @@
           "carbs": 51,
           "fat": 40,
           "sodium": 1770,
+          "sat_fat": 12,
+          "sugar": 2,
+          "fiber": 3,
           "addons": [],
           "source_url": "https://www.chick-fil-a.com/menu/hash-brown-scramble-burrito"
+        },
+        {
+          "id": "egg-white-grill",
+          "name": "Egg White Grill",
+          "calories": 300,
+          "protein": 27,
+          "carbs": 29,
+          "fat": 8,
+          "sodium": 990,
+          "sat_fat": 4,
+          "sugar": 2,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "spicy-chicken-biscuit",
+          "name": "Spicy Chicken Biscuit",
+          "calories": 450,
+          "protein": 19,
+          "carbs": 44,
+          "fat": 22,
+          "sodium": 1570,
+          "sat_fat": 8,
+          "sugar": 5,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "chicken-egg-cheese-biscuit",
+          "name": "Chicken Egg & Cheese Biscuit",
+          "calories": 550,
+          "protein": 27,
+          "carbs": 48,
+          "fat": 28,
+          "sodium": 1870,
+          "sat_fat": 12,
+          "sugar": 7,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "bacon-egg-cheese-biscuit",
+          "name": "Bacon Egg & Cheese Biscuit",
+          "calories": 420,
+          "protein": 15,
+          "carbs": 38,
+          "fat": 23,
+          "sodium": 1220,
+          "sat_fat": 11,
+          "sugar": 4,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "sausage-egg-cheese-biscuit",
+          "name": "Sausage Egg & Cheese Biscuit",
+          "calories": 620,
+          "protein": 22,
+          "carbs": 38,
+          "fat": 42,
+          "sodium": 1510,
+          "sat_fat": 18,
+          "sugar": 4,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "chicken-egg-cheese-muffin",
+          "name": "Chicken Egg & Cheese Muffin",
+          "calories": 410,
+          "protein": 27,
+          "carbs": 36,
+          "fat": 18,
+          "sodium": 1320,
+          "sat_fat": 6,
+          "sugar": 4,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "bacon-egg-cheese-muffin",
+          "name": "Bacon Egg & Cheese Muffin",
+          "calories": 300,
+          "protein": 16,
+          "carbs": 28,
+          "fat": 13,
+          "sodium": 710,
+          "sat_fat": 6,
+          "sugar": 2,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "sausage-egg-cheese-muffin",
+          "name": "Sausage Egg & Cheese Muffin",
+          "calories": 490,
+          "protein": 23,
+          "carbs": 29,
+          "fat": 32,
+          "sodium": 1000,
+          "sat_fat": 13,
+          "sugar": 1,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "hash-brown-scramble-bowl",
+          "name": "Hash Brown Scramble Bowl",
+          "calories": 470,
+          "protein": 29,
+          "carbs": 19,
+          "fat": 30,
+          "sodium": 1350,
+          "sat_fat": 9,
+          "sugar": 2,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "hash-browns",
+          "name": "Hash Browns",
+          "calories": 270,
+          "protein": 3,
+          "carbs": 23,
+          "fat": 18,
+          "sodium": 440,
+          "sat_fat": 2.5,
+          "sugar": 0,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "berry-parfait",
+          "name": "Berry Parfait",
+          "calories": 270,
+          "protein": 13,
+          "carbs": 35,
+          "fat": 9,
+          "sodium": 85,
+          "sat_fat": 3.5,
+          "sugar": 26,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "chicken-waffles-breakfast-sandwich",
+          "name": "Chicken & Waffles Breakfast Sandwich",
+          "calories": 530,
+          "protein": 22,
+          "carbs": 55,
+          "fat": 26,
+          "sodium": 1160,
+          "sat_fat": 9,
+          "sugar": 27,
+          "fiber": 4,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "treats",
+      "name": "Treats",
+      "items": [
+        {
+          "id": "chocolate-chunk-cookie",
+          "name": "Chocolate Chunk Cookie",
+          "calories": 370,
+          "protein": 5,
+          "carbs": 49,
+          "fat": 17,
+          "sodium": 230,
+          "sat_fat": 9,
+          "sugar": 26,
+          "fiber": 3,
+          "addons": []
+        },
+        {
+          "id": "chocolate-fudge-brownie",
+          "name": "Chocolate Fudge Brownie",
+          "calories": 370,
+          "protein": 4,
+          "carbs": 47,
+          "fat": 21,
+          "sodium": 140,
+          "sat_fat": 8,
+          "sugar": 35,
+          "fiber": 2,
+          "addons": []
+        },
+        {
+          "id": "icedream-cone",
+          "name": "Icedream Cone",
+          "calories": 180,
+          "protein": 4,
+          "carbs": 32,
+          "fat": 4,
+          "sodium": 90,
+          "sat_fat": 2.5,
+          "sugar": 25,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "icedream-cup",
+          "name": "Icedream Cup",
+          "calories": 140,
+          "protein": 4,
+          "carbs": 24,
+          "fat": 3.5,
+          "sodium": 75,
+          "sat_fat": 2.5,
+          "sugar": 24,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "cookies-cream-milkshake",
+          "name": "Cookies & Cream Milkshake",
+          "calories": 630,
+          "protein": 13,
+          "carbs": 91,
+          "fat": 25,
+          "sodium": 430,
+          "sat_fat": 15,
+          "sugar": 84,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "chocolate-milkshake",
+          "name": "Chocolate Milkshake",
+          "calories": 600,
+          "protein": 12,
+          "carbs": 93,
+          "fat": 22,
+          "sodium": 350,
+          "sat_fat": 14,
+          "sugar": 90,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "vanilla-milkshake",
+          "name": "Vanilla Milkshake",
+          "calories": 580,
+          "protein": 13,
+          "carbs": 82,
+          "fat": 23,
+          "sodium": 390,
+          "sat_fat": 15,
+          "sugar": 80,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "strawberry-milkshake",
+          "name": "Strawberry Milkshake",
+          "calories": 560,
+          "protein": 10,
+          "carbs": 92,
+          "fat": 18,
+          "sodium": 370,
+          "sat_fat": 11,
+          "sugar": 86,
+          "fiber": 1,
+          "addons": []
+        },
+        {
+          "id": "frosted-lemonade",
+          "name": "Frosted Lemonade",
+          "calories": 350,
+          "protein": 7,
+          "carbs": 67,
+          "fat": 7,
+          "sodium": 135,
+          "sat_fat": 4.5,
+          "sugar": 65,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "frosted-coffee",
+          "name": "Frosted Coffee",
+          "calories": 260,
+          "protein": 7,
+          "carbs": 45,
+          "fat": 7,
+          "sodium": 140,
+          "sat_fat": 4.5,
+          "sugar": 44,
+          "fiber": 0,
+          "addons": []
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks (standard size)",
+      "items": [
+        {
+          "id": "lemonade",
+          "name": "Chick-fil-A Lemonade",
+          "calories": 260,
+          "protein": 0,
+          "carbs": 66,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 60,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "diet-lemonade",
+          "name": "Chick-fil-A Diet Lemonade",
+          "calories": 60,
+          "protein": 0,
+          "carbs": 15,
+          "fat": 0,
+          "sodium": 10,
+          "sat_fat": 0,
+          "sugar": 11,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "sweet-tea",
+          "name": "Freshly-Brewed Sweet Iced Tea",
+          "calories": 120,
+          "protein": 0,
+          "carbs": 31,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 30,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "unsweet-tea",
+          "name": "Freshly-Brewed Unsweetened Iced Tea",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "sunjoy",
+          "name": "Sunjoy (half sweet tea, half lemonade)",
+          "calories": 240,
+          "protein": 0,
+          "carbs": 60,
+          "fat": 0,
+          "sodium": 0,
+          "sat_fat": 0,
+          "sugar": 57,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "coca-cola",
+          "name": "Coca-Cola",
+          "calories": 170,
+          "protein": 0,
+          "carbs": 46,
+          "fat": 0,
+          "sodium": 45,
+          "sat_fat": 0,
+          "sugar": 46,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "dr-pepper",
+          "name": "Dr Pepper",
+          "calories": 170,
+          "protein": 0,
+          "carbs": 44,
+          "fat": 0,
+          "sodium": 50,
+          "sat_fat": 0,
+          "sugar": 44,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "iced-coffee",
+          "name": "Iced Coffee",
+          "calories": 200,
+          "protein": 7,
+          "carbs": 34,
+          "fat": 4,
+          "sodium": 115,
+          "sat_fat": 3,
+          "sugar": 34,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "hot-coffee",
+          "name": "Hot Coffee",
+          "calories": 0,
+          "protein": 0,
+          "carbs": 0,
+          "fat": 0,
+          "sodium": 10,
+          "sat_fat": 0,
+          "sugar": 0,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "chocolate-milk",
+          "name": "1% Chocolate Milk",
+          "calories": 140,
+          "protein": 7,
+          "carbs": 23,
+          "fat": 2,
+          "sodium": 160,
+          "sat_fat": 1.5,
+          "sugar": 21,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "simply-orange",
+          "name": "Simply Orange Juice",
+          "calories": 160,
+          "protein": 2,
+          "carbs": 34,
+          "fat": 0,
+          "sodium": 10,
+          "sat_fat": 0,
+          "sugar": 30,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "apple-juice",
+          "name": "Honest Kids Apple Juice",
+          "calories": 35,
+          "protein": 0,
+          "carbs": 9,
+          "fat": 0,
+          "sodium": 15,
+          "sat_fat": 0,
+          "sugar": 8,
+          "fiber": 0,
+          "addons": []
         }
       ]
     }

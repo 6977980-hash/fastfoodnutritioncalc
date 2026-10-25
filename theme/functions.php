@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Block direct access.
 }
 
-define( 'FFNC_VERSION', '1.7.4' );
+define( 'FFNC_VERSION', '1.7.5' );
 define( 'FFNC_DIR', get_template_directory() );
 define( 'FFNC_URI', get_template_directory_uri() );
 
