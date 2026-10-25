@@ -6,7 +6,16 @@
   { "brand": "mcdonalds", "main": "double-quarter-pounder-cheese", "name": "Double Quarter Pounder with Cheese Meal" },
   { "brand": "mcdonalds", "main": "mcchicken", "name": "McChicken Meal" },
   { "brand": "mcdonalds", "main": "filet-o-fish", "name": "Filet-O-Fish Meal" },
-  { "brand": "mcdonalds", "main": "nuggets-10", "name": "10 Piece Chicken McNuggets Meal" }
+  { "brand": "mcdonalds", "main": "nuggets-10", "name": "10 Piece Chicken McNuggets Meal" },
+  { "brand": "chick-fil-a", "main": "chicken-sandwich", "name": "Chicken Sandwich Meal" },
+  { "brand": "chick-fil-a", "main": "spicy-chicken-sandwich", "name": "Spicy Chicken Sandwich Meal" },
+  { "brand": "chick-fil-a", "main": "grilled-chicken-sandwich", "name": "Grilled Chicken Sandwich Meal" },
+  { "brand": "chick-fil-a", "main": "nuggets-8", "name": "Nuggets Meal (8 Count)" },
+  { "brand": "chick-fil-a", "main": "nuggets-12", "name": "Nuggets Meal (12 Count)" },
+  { "brand": "popeyes", "main": "chicken-sandwich-classic", "name": "Classic Chicken Sandwich Combo" },
+  { "brand": "popeyes", "main": "chicken-sandwich-spicy", "name": "Spicy Chicken Sandwich Combo" },
+  { "brand": "popeyes", "main": "tenders-3", "name": "3 Piece Tenders Combo" },
+  { "brand": "popeyes", "main": "tenders-5", "name": "5 Piece Tenders Combo" }
  ],
  "meal_sets": {
   "mcdonalds": [
@@ -15,7 +24,27 @@
    { "label": "medium fries and water or a zero-calorie drink", "items": ["fries-medium"] },
    { "label": "small fries and a small Coca-Cola", "items": ["fries-small", "coke-small"] },
    { "label": "large fries and a medium Coca-Cola", "items": ["fries-large", "coke-medium"] }
+  ],
+  "chick-fil-a": [
+   { "label": "medium Waffle Potato Fries and a Coca-Cola", "items": ["waffle-fries-medium", "coca-cola"] },
+   { "label": "medium Waffle Potato Fries and a Chick-fil-A Lemonade", "items": ["waffle-fries-medium", "lemonade"] },
+   { "label": "medium Waffle Potato Fries and water or a zero-calorie drink", "items": ["waffle-fries-medium"] },
+   { "label": "small Waffle Potato Fries and a Coca-Cola", "items": ["waffle-fries-small", "coca-cola"] },
+   { "label": "large Waffle Potato Fries and a Coca-Cola", "items": ["waffle-fries-large", "coca-cola"] },
+   { "label": "apple sauce and a Diet Lemonade", "items": ["apple-sauce", "diet-lemonade"] }
+  ],
+  "popeyes": [
+   { "label": "regular Cajun Fries and a regular Coca-Cola", "items": ["cajun-fries-regular", "coca-cola-regular"] },
+   { "label": "regular Cajun Fries and a regular Sweet Tea", "items": ["cajun-fries-regular", "sweet-tea-regular"] },
+   { "label": "regular Cajun Fries and water or a Diet Coke", "items": ["cajun-fries-regular"] },
+   { "label": "regular Mashed Potatoes with Cajun Gravy and a regular Coca-Cola", "items": ["mashed-potatoes-regular", "coca-cola-regular"] },
+   { "label": "large Cajun Fries and a regular Coca-Cola", "items": ["cajun-fries-large", "coca-cola-regular"] }
   ]
+ },
+ "meal_copy": {
+  "mcdonalds": { "size": "medium", "title_tag": "Medium, With Fries & Drink", "cut_tip": "Small fries instead of medium save more." },
+  "chick-fil-a": { "size": "", "title_tag": "With Waffle Fries & Drink", "cut_tip": "Small Waffle Potato Fries instead of medium save another 100 calories." },
+  "popeyes": { "size": "regular", "title_tag": "Regular, With Cajun Fries & Drink", "cut_tip": "Mashed Potatoes with Cajun Gravy instead of Cajun Fries save another 160 calories." }
  },
  "comparisons": [
   { "slug": "big-mac-vs-whopper", "title": "Big Mac vs Whopper", "a": "mcdonalds:big-mac", "b": "burger-king:whopper" },

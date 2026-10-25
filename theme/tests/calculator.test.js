@@ -364,6 +364,7 @@ test('page-catalog.json (meal, comparison and vegetarian pages) only uses real i
 	for (const m of cat.meals) {
 		assert.ok(has(m.brand, m.main), 'meal ' + m.brand + ':' + m.main);
 		assert.ok((cat.meal_sets[m.brand] || []).length, 'meal sets for ' + m.brand);
+		assert.ok(cat.meal_copy && cat.meal_copy[m.brand] && cat.meal_copy[m.brand].title_tag, 'meal copy for ' + m.brand);
 	}
 	for (const [brand, sets] of Object.entries(cat.meal_sets)) {
 		for (const s of sets) {
