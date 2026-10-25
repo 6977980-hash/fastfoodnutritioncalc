@@ -452,12 +452,17 @@ function ffnc_source_line( $brand, $item = null ) {
 			$src // Escaped above.
 		) . '</p>';
 	}
+	$allergens = $meta['allergen_url'] ? ' ' . sprintf(
+		/* translators: %s link */
+		esc_html__( 'For allergens, see %s.', 'ffnc' ),
+		'<a href="' . esc_url( $meta['allergen_url'] ) . '" rel="nofollow noopener" target="_blank">' . esc_html( sprintf( /* translators: %s brand */ __( '%s official allergen information', 'ffnc' ), $b['name'] ) ) . '</a>'
+	) : '';
 	return '<p class="ffnc-item-source">' . sprintf(
 		/* translators: 1 source link 2 date */
 		esc_html__( 'Official U.S. values from %1$s, last checked %2$s. Restaurants change recipes, so values in your area can differ.', 'ffnc' ),
 		$src, // Escaped above.
 		esc_html( $date ? $date : __( 'recently', 'ffnc' ) )
-	) . '</p>';
+	) . $allergens . '</p>';
 }
 
 /**

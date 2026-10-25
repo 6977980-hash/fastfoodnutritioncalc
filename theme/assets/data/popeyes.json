@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Popeyes USA Nutrition Guide (September 2026)",
     "source_url": "https://www.popeyes.com/nutrition-and-allergens",
+    "allergen_url": "https://www.popeyes.com/nutrition-and-allergens",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item was taken on 2026-10-25 from Popeyes' official USA Nutrition Guide (September 2026), the PDF Popeyes publishes on its nutrition page.",
     "status": "verified",

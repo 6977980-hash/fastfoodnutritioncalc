@@ -41,6 +41,7 @@ test('there are 17 datasets and every item has numeric nutrients', () => {
 	for (const b of brands) {
 		assert.ok(b.data.meta, b.slug + ' has provenance meta');
 		assert.ok(/^https:\/\//.test(b.data.meta.source_url), b.slug + ' source url');
+		if (b.data.meta.allergen_url) { assert.ok(/^https:\/\//.test(b.data.meta.allergen_url), b.slug + ' allergen url'); }
 		assert.ok(['pending', 'verified'].includes(b.data.meta.status));
 		if (b.data.meta.status === 'verified') { assert.match(String(b.data.meta.last_reviewed), /^\d{4}-\d{2}-\d{2}$/); }
 		const ids = new Set();

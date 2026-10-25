@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Panera Bread Nutrition Guide (effective 9/2/2026)",
     "source_url": "https://www.panerabread.com/en-us/menu/nutritious-eating/allergen-and-nutrition-information.html",
+    "allergen_url": "https://www.panerabread.com/en-us/menu/nutritious-eating/allergen-and-nutrition-information.html",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item was checked on 2026-10-25 against Panera Bread's official U.S. Nutrition Guide (effective 9/2/2026) linked from panerabread.com. Salads and bowls are listed as served (with dressing); drink sizes are as Panera lists them.",
     "status": "verified",

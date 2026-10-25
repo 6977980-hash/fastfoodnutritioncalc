@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Domino's Nutrition Guide (U.S., August 2026)",
     "source_url": "https://www.dominos.com/content/nutrition",
+    "allergen_url": "https://www.dominos.com/en/pages/content/nutritional/allergen-info",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Checked on 2026-09-26 against Domino's official U.S. Nutrition Guide (August 2026 PDF). Specialty pizzas, breads, wings, desserts and dipping cups use the guide's published per-serving rows. Cheese, Pepperoni and Crunchy Thin cheese slices are the sum of the guide's official per-1/8 values for crust, garlic oil (Hand Tossed only), pizza sauce, cheese and topping, as the guide publishes build-your-own pizzas by component.",
     "status": "verified",

@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Chick-fil-A Nutrition & Allergens (U.S.)",
     "source_url": "https://www.chick-fil-a.com/nutrition-allergens",
+    "allergen_url": "https://www.chick-fil-a.com/nutrition-allergens",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item was checked on 2026-09-25 against chick-fil-a.com (Nutrition & Allergens page and individual menu-item pages). On 2026-10-11 the two chicken sandwiches were re-checked and 11 items were added and checked. Salads are listed as Chick-fil-A serves them, including the default chicken and dressing. On 2026-10-25 saturated fat, sugar and fiber, sauce sodium and 50 new items were added from Chick-fil-A's official Nutrition & Allergens table (chick-fil-a.com/nutrition-allergens, read 2026-10-25); all existing core values still match it. Saturated fat, sugar and fiber are listed only for the standard size the table shows.",
     "status": "verified",

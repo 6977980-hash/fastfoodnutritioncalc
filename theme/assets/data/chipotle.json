@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Chipotle U.S. Nutrition Facts",
     "source_url": "https://www.chipotle.com/nutrition-calculator",
+    "allergen_url": "https://www.chipotle.com/allergens",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every ingredient was checked on 2026-09-25 against the U.S. Nutrition Facts sheet that chipotle.com's Nutrition Calculator links to as its full nutrition facts (OCT-2024-US edition).",
     "status": "verified",

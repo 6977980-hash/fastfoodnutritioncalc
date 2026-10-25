@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "QDOBA Nutrition Facts 2026 (U.S., September 1, 2026)",
     "source_url": "https://www.qdoba.com/nutrition-allergens",
+    "allergen_url": "https://www.qdoba.com/nutrition-allergens",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item was taken on 2026-10-25 from QDOBA's official Nutrition Facts 2026 PDF (dated September 1, 2026) linked from qdoba.com. Build-your-own parts are listed by portion as QDOBA publishes them; U.S. values only (Canada-only rows left out).",
     "status": "verified",

@@ -7,6 +7,7 @@
     "market_label": "United States",
     "source_name": "Subway U.S. Nutrition Information (October 2026)",
     "source_url": "https://www.subway.com/en-us/menunutrition/nutrition",
+    "allergen_url": "https://media.subway.com/dam/urn:aaid:aem:359a9f3d-2719-453b-9395-030f54968cbe/original/as/us-allergens-en.pdf",
     "source_type": "Official restaurant nutrition information",
     "values_origin": "Every item and add-on was checked on 2026-10-25 against Subway's official U.S. Nutrition Information PDF (October 2026) linked from subway.com, which replaced the January 2026 guide used for the 2026-09-25 and 2026-10-11 reviews. 6-inch sandwiches are Subway's standard recipe as published (bread, protein, cheese, vegetables and sauce as Subway lists them); salads and protein bowls are as Subway lists them, without dressing. Saturated fat, sugar and fiber are from the same guide; \"<1 g\" is stored as 0.",
     "status": "verified",
