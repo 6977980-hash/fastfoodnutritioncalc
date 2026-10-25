@@ -8,11 +8,11 @@
     "source_name": "Five Guys U.S. Nutrition & Allergen Guide (September 2026)",
     "source_url": "https://www.fiveguys.com/nutritional-allergy-information/",
     "source_type": "Official restaurant nutrition information",
-    "values_origin": "Checked on 2026-09-25 against Five Guys' official U.S. Nutrition & Allergen Guide (September 2026 PDF). Five Guys publishes nutrition by component, so burgers and the hot dog are the sum of the official bun + patty (or hot dog) values; where the guide lists more than one supplier, the first-listed supplier's values are used. Re-checked on 2026-10-25 against the same guide: all 9 items, including the bun + patty sums, match.",
+    "values_origin": "Checked on 2026-09-25 against Five Guys' official U.S. Nutrition & Allergen Guide (September 2026 PDF). Five Guys publishes nutrition by component, so burgers and the hot dog are the sum of the official bun + patty (or hot dog) values; where the guide lists more than one supplier, the first-listed supplier's values are used. Re-checked on 2026-10-25 against the same guide: all 9 items, including the bun + patty sums, match. On 2026-10-25 saturated fat, sugar and fiber were added for every item and add-on, plus the Vanilla Shake and Mini Vanilla Shake (shake base + whipped cream, first-listed supplier) with their official mix-ins, milk, juices and peanuts. Values shown as \"<1\" in the guide are stored as 0.",
     "status": "verified",
-    "last_reviewed": "2026-09-25",
+    "last_reviewed": "2026-10-25",
     "serving_basis": "One standard menu serving as named, standard recipe, no customizations unless listed as an add-on.",
-    "addon_macros": "Every topping add-on uses the official per-portion values from the guide, so all five nutrients are included in totals.",
+    "addon_macros": "Every topping and shake mix-in add-on uses the official per-portion values from the guide, so all nutrients (including saturated fat, sugar and fiber) are included in totals. Shake mix-ins use the guide's regular or mini-shake portion to match the shake.",
     "spot_checks": [],
     "changelog": [
       {
@@ -26,6 +26,10 @@
       {
         "date": "2026-10-11",
         "change": "Added Large Cajun Fries from the official U.S. Nutrition & Allergen Guide (September 2026). New ids: large-cajun-fries."
+      },
+      {
+        "date": "2026-10-25",
+        "change": "Added saturated fat, sugar and fiber for every item and topping; added the Vanilla Shake and Mini Vanilla Shake with 11 official mix-ins each, Chocolate Milk, Low Fat Milk, Apple Juice, Orange Juice Blend and Bulk Peanuts from the official U.S. Nutrition & Allergen Guide (September 2026). New ids: vanilla-shake, mini-vanilla-shake, chocolate-milk, low-fat-milk, apple-juice, orange-juice, peanuts. Existing values unchanged."
       }
     ]
   },
@@ -49,7 +53,10 @@
               "protein": 4,
               "carbs": 0,
               "fat": 6,
-              "sodium": 300
+              "sodium": 300,
+              "sat_fat": 3.5,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Bacon (2 pieces)",
@@ -57,7 +64,10 @@
               "protein": 5,
               "carbs": 0,
               "fat": 6,
-              "sodium": 210
+              "sodium": 210,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Grilled Mushrooms",
@@ -65,7 +75,10 @@
               "protein": 0,
               "carbs": 1,
               "fat": 0,
-              "sodium": 50
+              "sodium": 50,
+              "sat_fat": 0,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Grilled Onions",
@@ -73,7 +86,10 @@
               "protein": 0,
               "carbs": 2,
               "fat": 0,
-              "sodium": 1
+              "sodium": 1,
+              "sat_fat": 0,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Mayonnaise",
@@ -81,7 +97,10 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 70
+              "sodium": 70,
+              "sat_fat": 1.5,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "A.1. Sauce",
@@ -89,7 +108,10 @@
               "protein": 0,
               "carbs": 3,
               "fat": 0,
-              "sodium": 280
+              "sodium": 280,
+              "sat_fat": 0,
+              "sugar": 2,
+              "fiber": 0
             },
             {
               "name": "Ketchup",
@@ -97,7 +119,10 @@
               "protein": 0,
               "carbs": 5,
               "fat": 0,
-              "sodium": 160
+              "sodium": 160,
+              "sat_fat": 0,
+              "sugar": 4,
+              "fiber": 0
             },
             {
               "name": "BBQ Sauce",
@@ -105,9 +130,15 @@
               "protein": 0,
               "carbs": 15,
               "fat": 0,
-              "sodium": 400
+              "sodium": 400,
+              "sat_fat": 0,
+              "sugar": 10,
+              "fiber": 0
             }
-          ]
+          ],
+          "sat_fat": 11,
+          "sugar": 6,
+          "fiber": 1
         },
         {
           "id": "hamburger",
@@ -124,7 +155,10 @@
               "protein": 4,
               "carbs": 0,
               "fat": 6,
-              "sodium": 300
+              "sodium": 300,
+              "sat_fat": 3.5,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Bacon (2 pieces)",
@@ -132,7 +166,10 @@
               "protein": 5,
               "carbs": 0,
               "fat": 6,
-              "sodium": 210
+              "sodium": 210,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Grilled Mushrooms",
@@ -140,7 +177,10 @@
               "protein": 0,
               "carbs": 1,
               "fat": 0,
-              "sodium": 50
+              "sodium": 50,
+              "sat_fat": 0,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Grilled Onions",
@@ -148,7 +188,10 @@
               "protein": 0,
               "carbs": 2,
               "fat": 0,
-              "sodium": 1
+              "sodium": 1,
+              "sat_fat": 0,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Mayonnaise",
@@ -156,7 +199,10 @@
               "protein": 0,
               "carbs": 0,
               "fat": 11,
-              "sodium": 70
+              "sodium": 70,
+              "sat_fat": 1.5,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "A.1. Sauce",
@@ -164,7 +210,10 @@
               "protein": 0,
               "carbs": 3,
               "fat": 0,
-              "sodium": 280
+              "sodium": 280,
+              "sat_fat": 0,
+              "sugar": 2,
+              "fiber": 0
             },
             {
               "name": "Ketchup",
@@ -172,7 +221,10 @@
               "protein": 0,
               "carbs": 5,
               "fat": 0,
-              "sodium": 160
+              "sodium": 160,
+              "sat_fat": 0,
+              "sugar": 4,
+              "fiber": 0
             },
             {
               "name": "BBQ Sauce",
@@ -180,9 +232,15 @@
               "protein": 0,
               "carbs": 15,
               "fat": 0,
-              "sodium": 400
+              "sodium": 400,
+              "sat_fat": 0,
+              "sugar": 10,
+              "fiber": 0
             }
-          ]
+          ],
+          "sat_fat": 19,
+          "sugar": 6,
+          "fiber": 1
         }
       ]
     },
@@ -205,7 +263,10 @@
               "protein": 4,
               "carbs": 0,
               "fat": 6,
-              "sodium": 300
+              "sodium": 300,
+              "sat_fat": 3.5,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Bacon (2 pieces)",
@@ -213,7 +274,10 @@
               "protein": 5,
               "carbs": 0,
               "fat": 6,
-              "sodium": 210
+              "sodium": 210,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
             },
             {
               "name": "Grilled Onions",
@@ -221,7 +285,10 @@
               "protein": 0,
               "carbs": 2,
               "fat": 0,
-              "sodium": 1
+              "sodium": 1,
+              "sat_fat": 0,
+              "sugar": 1,
+              "fiber": 0
             },
             {
               "name": "Ketchup",
@@ -229,9 +296,15 @@
               "protein": 0,
               "carbs": 5,
               "fat": 0,
-              "sodium": 160
+              "sodium": 160,
+              "sat_fat": 0,
+              "sugar": 4,
+              "fiber": 0
             }
-          ]
+          ],
+          "sat_fat": 14,
+          "sugar": 6,
+          "fiber": 1
         }
       ]
     },
@@ -247,7 +320,10 @@
           "carbs": 72,
           "fat": 23,
           "sodium": 531,
-          "addons": []
+          "addons": [],
+          "sat_fat": 4,
+          "sugar": 2,
+          "fiber": 8
         },
         {
           "id": "regular-fries",
@@ -257,7 +333,10 @@
           "carbs": 131,
           "fat": 41,
           "sodium": 962,
-          "addons": []
+          "addons": [],
+          "sat_fat": 7,
+          "sugar": 4,
+          "fiber": 15
         },
         {
           "id": "large-fries",
@@ -267,7 +346,10 @@
           "carbs": 181,
           "fat": 57,
           "sodium": 1327,
-          "addons": []
+          "addons": [],
+          "sat_fat": 10,
+          "sugar": 6,
+          "fiber": 21
         },
         {
           "id": "little-cajun-fries",
@@ -277,7 +359,10 @@
           "carbs": 75,
           "fat": 28,
           "sodium": 862,
-          "addons": []
+          "addons": [],
+          "sat_fat": 4,
+          "sugar": 2,
+          "fiber": 8
         },
         {
           "id": "regular-cajun-fries",
@@ -287,7 +372,10 @@
           "carbs": 134,
           "fat": 41,
           "sodium": 1293,
-          "addons": []
+          "addons": [],
+          "sat_fat": 7,
+          "sugar": 4,
+          "fiber": 15
         },
         {
           "id": "large-cajun-fries",
@@ -297,6 +385,356 @@
           "carbs": 184,
           "fat": 57,
           "sodium": 1658,
+          "addons": [],
+          "sat_fat": 10,
+          "sugar": 6,
+          "fiber": 21
+        }
+      ]
+    },
+    {
+      "id": "shakes",
+      "name": "Milkshakes",
+      "items": [
+        {
+          "id": "vanilla-shake",
+          "name": "Vanilla Shake (base + whipped cream)",
+          "calories": 531,
+          "protein": 10,
+          "carbs": 66,
+          "fat": 26.5,
+          "sodium": 317,
+          "sat_fat": 17,
+          "sugar": 65,
+          "fiber": 0,
+          "addons": [
+            {
+              "name": "Add Blackberry Sauce",
+              "calories": 80,
+              "protein": 0,
+              "carbs": 20,
+              "fat": 0,
+              "sodium": 0,
+              "sat_fat": 0,
+              "sugar": 18,
+              "fiber": 0
+            },
+            {
+              "name": "Add Bacon (2 pieces)",
+              "calories": 70,
+              "protein": 5,
+              "carbs": 0,
+              "fat": 6,
+              "sodium": 210,
+              "sat_fat": 2,
+              "sugar": 0,
+              "fiber": 0
+            },
+            {
+              "name": "Add Banana",
+              "calories": 174,
+              "protein": 0,
+              "carbs": 43,
+              "fat": 0,
+              "sodium": 31,
+              "sat_fat": 0,
+              "sugar": 33,
+              "fiber": 2
+            },
+            {
+              "name": "Add Chocolate",
+              "calories": 133,
+              "protein": 2,
+              "carbs": 30,
+              "fat": 2,
+              "sodium": 30,
+              "sat_fat": 2,
+              "sugar": 22,
+              "fiber": 2
+            },
+            {
+              "name": "Add Coffee",
+              "calories": 27,
+              "protein": 0,
+              "carbs": 7,
+              "fat": 0,
+              "sodium": 105,
+              "sat_fat": 0,
+              "sugar": 1,
+              "fiber": 0
+            },
+            {
+              "name": "Add Oreo Crème",
+              "calories": 320,
+              "protein": 0,
+              "carbs": 23,
+              "fat": 25,
+              "sodium": 48,
+              "sat_fat": 7,
+              "sugar": 23,
+              "fiber": 0
+            },
+            {
+              "name": "Add Oreo Cookie Pieces",
+              "calories": 120,
+              "protein": 1,
+              "carbs": 18,
+              "fat": 5,
+              "sodium": 86,
+              "sat_fat": 1,
+              "sugar": 10,
+              "fiber": 0
+            },
+            {
+              "name": "Add Peanut Butter",
+              "calories": 322,
+              "protein": 9,
+              "carbs": 9,
+              "fat": 29,
+              "sodium": 218,
+              "sat_fat": 5,
+              "sugar": 4,
+              "fiber": 3
+            },
+            {
+              "name": "Add Reese's Peanut Butter Cup",
+              "calories": 150,
+              "protein": 3,
+              "carbs": 15,
+              "fat": 8,
+              "sodium": 98,
+              "sat_fat": 3,
+              "sugar": 14,
+              "fiber": 1
+            },
+            {
+              "name": "Add Salted Caramel",
+              "calories": 155,
+              "protein": 0,
+              "carbs": 37,
+              "fat": 0,
+              "sodium": 290,
+              "sat_fat": 0,
+              "sugar": 28,
+              "fiber": 0
+            },
+            {
+              "name": "Add Strawberry",
+              "calories": 107,
+              "protein": 0,
+              "carbs": 28,
+              "fat": 0,
+              "sodium": 12,
+              "sat_fat": 0,
+              "sugar": 24,
+              "fiber": 1
+            }
+          ]
+        },
+        {
+          "id": "mini-vanilla-shake",
+          "name": "Mini Vanilla Shake (base + whipped cream)",
+          "calories": 254,
+          "protein": 5,
+          "carbs": 33,
+          "fat": 12,
+          "sodium": 157,
+          "sat_fat": 8,
+          "sugar": 32,
+          "fiber": 0,
+          "addons": [
+            {
+              "name": "Add Blackberry Sauce",
+              "calories": 40,
+              "protein": 0,
+              "carbs": 10,
+              "fat": 0,
+              "sodium": 0,
+              "sat_fat": 0,
+              "sugar": 9,
+              "fiber": 0
+            },
+            {
+              "name": "Add Bacon (2 pieces)",
+              "calories": 35,
+              "protein": 2,
+              "carbs": 0,
+              "fat": 3,
+              "sodium": 105,
+              "sat_fat": 1,
+              "sugar": 0,
+              "fiber": 0
+            },
+            {
+              "name": "Add Banana",
+              "calories": 87,
+              "protein": 0,
+              "carbs": 21,
+              "fat": 0,
+              "sodium": 15,
+              "sat_fat": 0,
+              "sugar": 16,
+              "fiber": 1
+            },
+            {
+              "name": "Add Chocolate",
+              "calories": 66,
+              "protein": 1,
+              "carbs": 15,
+              "fat": 1,
+              "sodium": 15,
+              "sat_fat": 1,
+              "sugar": 11,
+              "fiber": 1
+            },
+            {
+              "name": "Add Coffee",
+              "calories": 13,
+              "protein": 0,
+              "carbs": 3,
+              "fat": 0,
+              "sodium": 52,
+              "sat_fat": 0,
+              "sugar": 0,
+              "fiber": 0
+            },
+            {
+              "name": "Add Oreo Crème",
+              "calories": 160,
+              "protein": 0,
+              "carbs": 11,
+              "fat": 12,
+              "sodium": 24,
+              "sat_fat": 3,
+              "sugar": 11,
+              "fiber": 0
+            },
+            {
+              "name": "Add Oreo Cookie Pieces",
+              "calories": 60,
+              "protein": 0,
+              "carbs": 9,
+              "fat": 2,
+              "sodium": 43,
+              "sat_fat": 0,
+              "sugar": 5,
+              "fiber": 0
+            },
+            {
+              "name": "Add Peanut Butter",
+              "calories": 161,
+              "protein": 4,
+              "carbs": 4,
+              "fat": 14,
+              "sodium": 109,
+              "sat_fat": 2,
+              "sugar": 2,
+              "fiber": 1
+            },
+            {
+              "name": "Add Reese's Peanut Butter Cup",
+              "calories": 75,
+              "protein": 1,
+              "carbs": 7,
+              "fat": 4,
+              "sodium": 49,
+              "sat_fat": 1,
+              "sugar": 7,
+              "fiber": 0
+            },
+            {
+              "name": "Add Salted Caramel",
+              "calories": 77,
+              "protein": 0,
+              "carbs": 18,
+              "fat": 0,
+              "sodium": 145,
+              "sat_fat": 0,
+              "sugar": 14,
+              "fiber": 0
+            },
+            {
+              "name": "Add Strawberry",
+              "calories": 53,
+              "protein": 0,
+              "carbs": 14,
+              "fat": 0,
+              "sodium": 6,
+              "sat_fat": 0,
+              "sugar": 12,
+              "fiber": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks & Peanuts",
+      "items": [
+        {
+          "id": "chocolate-milk",
+          "name": "Chocolate Milk",
+          "calories": 150,
+          "protein": 8,
+          "carbs": 23,
+          "fat": 2.5,
+          "sodium": 180,
+          "sat_fat": 1.5,
+          "sugar": 22,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "low-fat-milk",
+          "name": "Low Fat Milk",
+          "calories": 90,
+          "protein": 7,
+          "carbs": 10,
+          "fat": 2,
+          "sodium": 90,
+          "sat_fat": 1,
+          "sugar": 10,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "apple-juice",
+          "name": "Apple Juice",
+          "calories": 35,
+          "protein": 0,
+          "carbs": 9,
+          "fat": 0,
+          "sodium": 15,
+          "sat_fat": 0,
+          "sugar": 8,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "orange-juice",
+          "name": "Orange Juice Blend",
+          "calories": 140,
+          "protein": 1,
+          "carbs": 34,
+          "fat": 0,
+          "sodium": 5,
+          "sat_fat": 0,
+          "sugar": 33,
+          "fiber": 0,
+          "addons": []
+        },
+        {
+          "id": "peanuts",
+          "name": "Bulk Peanuts (1 oz)",
+          "calories": 170,
+          "protein": 7,
+          "carbs": 5,
+          "fat": 14,
+          "sodium": 180,
+          "sat_fat": 2,
+          "sugar": 1,
+          "fiber": 3,
           "addons": []
         }
       ]

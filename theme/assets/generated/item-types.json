@@ -199,7 +199,14 @@
   "large-fries": "fries",
   "little-cajun-fries": "fries",
   "regular-cajun-fries": "fries",
-  "large-cajun-fries": "fries"
+  "large-cajun-fries": "fries",
+  "vanilla-shake": "shake",
+  "mini-vanilla-shake": "shake",
+  "chocolate-milk": "drink",
+  "low-fat-milk": "drink",
+  "apple-juice": "drink",
+  "orange-juice": "drink",
+  "peanuts": "other"
  },
  "kfc": {
   "or-breast": "chicken-piece",
