@@ -372,6 +372,10 @@
    {
     "find": "Protein is similar (28g vs. 29g), and sodium is about half (765mg vs. 1,460mg).",
     "replace": "Protein is similar (28g vs. 29g), and sodium is about half (765mg vs. 1,470mg)."
+   },
+   {
+    "find": "In this calculator, the 8-count Nuggets (250 calories, 27g protein) are the lowest-calorie entree, followed by the 3-count Chick-n-Strips (310 calories). The Grilled Chicken Sandwich (390 calories) is the lowest-calorie sandwich.",
+    "replace": "In this calculator, the 8-count Grilled Nuggets (130 calories, 25g protein) are the lowest-calorie entree, followed by the 12-count Grilled Nuggets (200 calories, 38g protein). The Grilled Chicken Sandwich (390 calories) is the lowest-calorie sandwich."
    }
   ]
  },

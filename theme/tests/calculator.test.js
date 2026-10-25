@@ -273,6 +273,36 @@ test('parseCart reads quantities and skips prices', () => {
 	assert.deepEqual(r.unmatched, ['Happy Meal toy']);
 });
 
+test('parseCart splits comma-separated items and reports every piece it cannot match', () => {
+	const md = brands.find(b => b.slug === 'mcdonalds').data;
+	let r = calc.parseCart('2 Big Mac, 1 medium fries', md);
+	assert.deepEqual(r.matched.map(m => [m.item.id, m.qty]), [['big-mac', 2], ['fries-medium', 1]]);
+	assert.deepEqual(r.unmatched, []);
+	r = calc.parseCart('2 Big Mac, Happy Meal toy, 1 small fries', md);
+	assert.deepEqual(r.matched.map(m => [m.item.id, m.qty]), [['big-mac', 2], ['fries-small', 1]]);
+	assert.deepEqual(r.unmatched, ['Happy Meal toy']);
+	// A thousands separator is not an item separator.
+	r = calc.parseCart('Big Mac $1,299.00, small fries', md);
+	assert.deepEqual(r.matched.map(m => m.item.id), ['big-mac', 'fries-small']);
+	assert.deepEqual(r.unmatched, []);
+});
+
+test('parseCart keeps commas that belong to an item name', () => {
+	const du = brands.find(b => b.slug === 'dunkin').data;
+	const r = calc.parseCart('Bacon, Egg & Cheese on Croissant, Hash Browns', du);
+	assert.deepEqual(r.matched.map(m => m.item.id), ['bacon-egg-cheese-croissant', 'hash-browns']);
+	assert.deepEqual(r.unmatched, []);
+});
+
+test('splitCount keeps the split between 1 and 20 people', () => {
+	assert.equal(calc.splitCount('1000'), 20);
+	assert.equal(calc.splitCount('20'), 20);
+	assert.equal(calc.splitCount('3.7'), 3);
+	assert.equal(calc.splitCount('0'), 1);
+	assert.equal(calc.splitCount('-4'), 1);
+	assert.equal(calc.splitCount(''), 1);
+});
+
 test('exercise minutes follow the Harvard Health 30-minute table', () => {
 	assert.deepEqual(calc.exerciseMinutes(133, 155), { walk: 30, run: 14, bike: 14 });
 	assert.deepEqual(calc.exerciseMinutes(336, 185), { walk: 63, run: 30, bike: 30 });
