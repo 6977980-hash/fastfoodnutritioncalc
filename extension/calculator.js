@@ -416,6 +416,8 @@
 
 	/* Rough food type from item + category name, for cross-chain matching. */
 	var TYPES = [
+		['breakfast', /^6 .*\begg and cheese\b/],
+		['salad', /\bprotein bowl\b/],
 		['sub', /^6 |footlong|protein pocket|italiano/],
 		['pizza', /\b(pizza|slice)\b/],
 		['salad', /\bsalad\b/],

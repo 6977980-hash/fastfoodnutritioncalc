@@ -122,6 +122,34 @@
    {
     "find": "and were checked line by line on September 25, 2026.",
     "replace": "and were checked line by line on October 11, 2026."
+   },
+   {
+    "find": "Add any 6-inch sandwich, then check off extras like cheese, bacon, mayo or ranch to see how they change your totals. A cookie, hash browns and a Veggie Delite salad are under Salads, Cookies & Sides.",
+    "replace": "Add any 6-inch sandwich, then check off extras like cheese, bacon, mayo or ranch to see how they change your totals. Breakfast subs, salads, protein bowls, cookies, hash browns and soups each have their own tab."
+   },
+   {
+    "find": "Among the 6-inch sandwiches in this calculator, the Veggie Delite has the fewest calories at 320 (17g of protein), followed by the Sweet Onion Teriyaki Chicken at 430 calories with 29g of protein and 11g of fat. The Oven-Roasted Turkey is 480 calories with 26g of protein.",
+    "replace": "Among the 6-inch sandwiches in this calculator, the Veggie Delite has the fewest calories at 310 (16g of protein), followed by the Sweet Onion Teriyaki Chicken at 430 calories with 29g of protein and 11g of fat. The Oven-Roasted Turkey is 470 calories with 25g of protein."
+   },
+   {
+    "find": "the Meatball Pepperoni (690 calories, 38g of fat), the Spicy Italian (680 calories, 44g of fat) and the 5 Meat Italian (680 calories, 37g of fat) are highest, followed by the B.M.T. at 610 calories. The 6-inch Tuna has 33g of fat;",
+    "replace": "the Meatball Pepperoni (670 calories, 37g of fat), the Spicy Italian (660 calories, 43g of fat) and the 5 Meat Italian (660 calories, 36g of fat) are highest, followed by the Big Hot Pastrami at 620 calories (participating locations) and the B.M.T. at 590. The 6-inch Tuna has 32g of fat;"
+   },
+   {
+    "find": "Adding three of these to a 6-inch Veggie Delite (320 calories) adds 230 to 270 calories.",
+    "replace": "Adding three of these to a 6-inch Veggie Delite (310 calories) adds 230 to 270 calories."
+   },
+   {
+    "find": "A 6-inch B.M.T. made to Subway’s standard recipe is 610 calories, with 27g of protein, 44g of carbs, 36g of fat and 1,500mg of sodium, before any extras.",
+    "replace": "A 6-inch B.M.T. made to Subway’s standard recipe is 590 calories, with 26g of protein, 44g of carbs, 35g of fat and 1,470mg of sodium, before any extras."
+   },
+   {
+    "find": "A 6-inch Veggie Delite (320 calories) or Oven-Roasted Turkey (480 calories) has fewer calories than a McDonald’s Big Mac (580 calories), while a 6-inch Spicy Italian (680 calories) has more,",
+    "replace": "A 6-inch Veggie Delite (310 calories) or Oven-Roasted Turkey (470 calories) has fewer calories than a McDonald’s Big Mac (580 calories), while a 6-inch Spicy Italian (660 calories) has more,"
+   },
+   {
+    "find": "The figures come from Subway’s official U.S. Nutrition Information guide (January 2026) and were checked line by line on October 11, 2026.",
+    "replace": "The figures come from Subway’s official U.S. Nutrition Information guide (October 2026) and were checked line by line on October 25, 2026."
    }
   ]
  },
@@ -724,6 +752,10 @@
     "find": "FDA — How to Understand and Use the Nutrition Facts Label",
     "replace": "FDA — How to Understand and Use the Nutrition Facts Label",
     "insert_after": "<li><a href=\"https://pubmed.ncbi.nlm.nih.gov/2305711/\" rel=\"noopener\" target=\"_blank\">Mifflin MD, St Jeor ST, et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr, 1990</a></li>"
+   },
+   {
+    "find": "a 6-inch Oven-Roasted Turkey is 480 calories as Subway makes it by default (bread, turkey, cheese, vegetables and the standard sauce, as listed in Subway’s nutrition guide); adding mayonnaise (100) and extra provolone (90) takes it to 670.",
+    "replace": "a 6-inch Oven-Roasted Turkey is 470 calories as Subway makes it by default (bread, turkey, cheese, vegetables and the standard sauce, as listed in Subway’s nutrition guide); adding mayonnaise (100) and extra provolone (90) takes it to 660."
    }
   ]
  },
