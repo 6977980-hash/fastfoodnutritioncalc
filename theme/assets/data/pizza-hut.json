@@ -1,7 +1,7 @@
 {
   "brand": "Pizza Hut",
   "slug": "pizza-hut",
-  "note": "Values are Pizza Hut's official U.S. nutrition figures (menu updated September 23, 2026), sides and wings checked on September 25, 2026, pizza re-checked on October 11, 2026. Pizza values are per slice of a Medium pizza. Confirm current figures with Pizza Hut, especially for allergies or medical diets.",
+  "note": "Values are Pizza Hut's official U.S. nutrition figures (menu updated October 23, 2026), checked on October 25, 2026. Pizza values are per slice of a Medium pizza; wing values are per wing. Confirm current figures with Pizza Hut, especially for allergies or medical diets.",
   "meta": {
     "market": "US",
     "market_label": "United States",
