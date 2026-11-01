@@ -901,6 +901,24 @@ function ffnc_shortcode_item_page( $atts ) {
 			ffnc_fmt_num( ffnc_num( $main, 'carbs' ) ),
 			ffnc_fmt_num( ffnc_num( $main, 'fat' ) )
 		);
+		if ( null !== ffnc_num( $main, 'carbs' ) ) {
+			$qas[ sprintf( /* translators: %s item */ __( 'How many carbs are in the %s?', 'ffnc' ), $single ) ] = sprintf(
+				/* translators: 1 item 2 carbs 3 net carbs sentence */
+				__( 'The %1$s has %2$sg of total carbohydrate.%3$s', 'ffnc' ),
+				$single,
+				ffnc_fmt_num( ffnc_num( $main, 'carbs' ) ),
+				null !== ffnc_num( $main, 'fiber' ) ? ' ' . sprintf( /* translators: 1 fiber 2 net carbs */ __( 'With %1$sg of fiber, that is %2$sg of net carbs.', 'ffnc' ), ffnc_fmt_num( ffnc_num( $main, 'fiber' ) ), ffnc_fmt_num( ffnc_net_carbs( $main ) ) ) : ''
+			);
+		}
+		if ( null !== ffnc_num( $main, 'sodium' ) ) {
+			$qas[ sprintf( /* translators: %s item */ __( 'How much sodium is in the %s?', 'ffnc' ), $single ) ] = sprintf(
+				/* translators: 1 item 2 sodium 3 percent */
+				__( 'The %1$s has %2$smg of sodium, about %3$s%% of the 2,300mg daily limit for adults.', 'ffnc' ),
+				$single,
+				ffnc_fmt_num( ffnc_num( $main, 'sodium' ) ),
+				ffnc_fmt_num( round( ffnc_num( $main, 'sodium' ) / 23 ) )
+			);
+		}
 		if ( $multi ) {
 			$sizes = array_map( function ( $i ) { return $i['size'] . ': ' . ffnc_fmt_num( ffnc_num( $i, 'calories' ) ); }, $group['items'] );
 			$qas[ sprintf( /* translators: %s item */ __( 'How many calories are in each size of %s?', 'ffnc' ), $name ) ] = implode( '; ', $sizes ) . ' ' . __( 'calories.', 'ffnc' );
@@ -1348,7 +1366,7 @@ function ffnc_generated_seo( $post_id ) {
 			);
 		} else {
 			$out = array(
-				'title' => sprintf( /* translators: 1 item 2 cal 3 protein */ __( '%1$s Calories: %2$s Cal, %3$sg Protein & Nutrition', 'ffnc' ), $g['title'], ffnc_fmt_num( ffnc_num( $main, 'calories' ) ), ffnc_fmt_num( ffnc_num( $main, 'protein' ) ) ),
+				'title' => sprintf( /* translators: 1 item 2 cal 3 protein */ __( '%1$s Calories & Macros: %2$s Cal, %3$sg Protein', 'ffnc' ), $g['title'], ffnc_fmt_num( ffnc_num( $main, 'calories' ) ), ffnc_fmt_num( ffnc_num( $main, 'protein' ) ) ),
 				'desc'  => sprintf(
 					/* translators: 1 item 2 cal 3 p 4 c 5 f 6 s */
 					__( '%1$s: %2$s calories, %3$sg protein, %4$sg carbs, %5$sg fat and %6$smg sodium (official U.S. values). Lighter swaps, meal totals and how it compares.', 'ffnc' ),
