@@ -1459,9 +1459,45 @@ function ffnc_generated_page_is_orphan( $post_id ) {
 	return '' !== ffnc_generated_key( $post_id ) && null === ffnc_generated_seo( $post_id );
 }
 
-/** Generated pages kept out of search: orphans and thin item pages. */
+/**
+ * Item and meal pages (/calories/...) that stay in Google's index.
+ *
+ * Nov 2026: after ~555 generated pages went live on 2026-10-25, Google left
+ * 264 of them "Discovered - currently not indexed" and site-wide impressions
+ * fell to ~0 from 2026-10-26 (no manual action). The rest of the /calories/
+ * pages stay on the site for visitors but are noindex + out of the sitemap,
+ * so Google sees a smaller set of strong pages. Keep: pages that earned GSC
+ * impressions (Sep 12 - Oct 25, 2026). Calculators, guides and /compare/
+ * pages are not affected.
+ */
+function ffnc_indexed_calorie_slugs() {
+	return array(
+		'mcdonalds-double-quarter-pounder-with-cheese',
+		'kfc-original-recipe-chicken-thigh',
+		'subway-6-inch-tuna',
+		'dominos-stuffed-cheesy-bread',
+		'dominos-cheese-pizza',
+		'subway-italian-trio-protein-pocket',
+		'kfc-famous-bowl',
+		'kfc-spicy-crispy-chicken-whole-wing',
+		'pizza-hut-meat-lovers-pizza-medium-original-pan',
+		'dominos-plain-wings-no-sauce',
+	);
+}
+
+/** Is this generated item/meal page outside the indexed keep-list? */
+function ffnc_generated_page_is_pruned( $key, $post_id ) {
+	$kind = strtok( (string) $key, ':' );
+	if ( 'item' !== $kind && 'meal' !== $kind ) {
+		return false;
+	}
+	return ! in_array( get_post_field( 'post_name', $post_id ), ffnc_indexed_calorie_slugs(), true );
+}
+
+/** Generated pages kept out of search: orphans, thin item pages, pruned item/meal pages. */
 function ffnc_generated_page_is_noindex( $post_id ) {
-	return ffnc_generated_page_is_orphan( $post_id ) || ffnc_generated_key_is_thin( ffnc_generated_key( $post_id ) );
+	$key = ffnc_generated_key( $post_id );
+	return ffnc_generated_page_is_orphan( $post_id ) || ffnc_generated_key_is_thin( $key ) || ffnc_generated_page_is_pruned( $key, $post_id );
 }
 add_filter( 'wp_robots', function ( $robots ) {
 	if ( is_singular( 'page' ) && ffnc_generated_page_is_noindex( get_queried_object_id() ) ) {
@@ -1491,7 +1527,7 @@ add_filter( 'wp_sitemaps_posts_query_args', function ( $args, $post_type ) {
 	if ( 'page' === $post_type ) {
 		$skip = array();
 		foreach ( ffnc_generated_page_ids() as $key => $id ) {
-			if ( ffnc_generated_key_is_thin( $key ) ) {
+			if ( ffnc_generated_key_is_thin( $key ) || ffnc_generated_page_is_pruned( $key, $id ) ) {
 				$skip[] = (int) $id;
 			}
 		}
