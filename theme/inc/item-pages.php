@@ -1466,9 +1466,9 @@ function ffnc_generated_page_is_orphan( $post_id ) {
  * 264 of them "Discovered - currently not indexed" and site-wide impressions
  * fell to ~0 from 2026-10-26 (no manual action). The rest of the /calories/
  * pages stay on the site for visitors but are noindex + out of the sitemap,
- * so Google sees a smaller set of strong pages. Keep (44): pages that earned
- * Google impressions (Sep 12 - Oct 25, 2026) or 10+ Bing impressions (Nov 7,
- * 2026). Still 0-5 Google impressions/day on 2026-11-24. Calculators, guides
+ * so Google sees a smaller set of strong pages. Keep (57): pages that earned
+ * Google impressions (Sep 12 - Oct 25, 2026) or 10+ Bing impressions (Nov 7
+ * and Nov 24, 2026). Still 0-5 Google impressions/day on 2026-11-24. Calculators, guides
  * and /compare/ pages are not affected.
  */
 function ffnc_indexed_calorie_slugs() {
@@ -1517,6 +1517,19 @@ function ffnc_indexed_calorie_slugs() {
 		'subway-6-inch-tuna',
 		'subway-italian-trio-protein-pocket',
 		'taco-bell-black-beans-rice',
+		'mcdonalds-double-cheeseburger',
+		'taco-bell-crunchwrap-supreme',
+		'mcdonalds-chocolate-chip-cookie',
+		'mcdonalds-mcdouble',
+		'taco-bell-chalupa-supreme',
+		'popeyes-honey-chicken-biscuit',
+		'mcdonalds-big-mac',
+		'five-guys-fries',
+		'kfc-chicken-pot-pie',
+		'mcdonalds-mcchicken-meal',
+		'panera-bread-cinnamon-crunch-bagel',
+		'mcdonalds-big-mac-meal',
+		'panera-bread-chicken-roma-asiago-bagel-stack',
 	);
 }
 
