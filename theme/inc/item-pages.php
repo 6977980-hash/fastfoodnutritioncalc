@@ -1466,22 +1466,57 @@ function ffnc_generated_page_is_orphan( $post_id ) {
  * 264 of them "Discovered - currently not indexed" and site-wide impressions
  * fell to ~0 from 2026-10-26 (no manual action). The rest of the /calories/
  * pages stay on the site for visitors but are noindex + out of the sitemap,
- * so Google sees a smaller set of strong pages. Keep: pages that earned GSC
- * impressions (Sep 12 - Oct 25, 2026). Calculators, guides and /compare/
- * pages are not affected.
+ * so Google sees a smaller set of strong pages. Keep (44): pages that earned
+ * Google impressions (Sep 12 - Oct 25, 2026) or 10+ Bing impressions (Nov 7,
+ * 2026). Still 0-5 Google impressions/day on 2026-11-24. Calculators, guides
+ * and /compare/ pages are not affected.
  */
 function ffnc_indexed_calorie_slugs() {
 	return array(
-		'mcdonalds-double-quarter-pounder-with-cheese',
-		'kfc-original-recipe-chicken-thigh',
-		'subway-6-inch-tuna',
-		'dominos-stuffed-cheesy-bread',
+		'burger-king-original-chicken-sandwich',
+		'chick-fil-a-chick-n-minis',
+		'chick-fil-a-chicken-biscuit',
+		'chick-fil-a-chicken-sandwich',
+		'chick-fil-a-chicken-tortilla-soup',
+		'chick-fil-a-chicken-waffles-breakfast-sandwich',
+		'chick-fil-a-chicken-waffles-sandwich-with-grilled-filet',
+		'chick-fil-a-cobb-salad',
+		'chick-fil-a-cool-wrap',
+		'chick-fil-a-deluxe-sandwich',
+		'chick-fil-a-egg-white-grill',
+		'chick-fil-a-grilled-chicken-sandwich',
+		'chick-fil-a-grilled-nuggets',
+		'chick-fil-a-hash-browns',
+		'chick-fil-a-market-salad',
+		'chick-fil-a-nuggets',
+		'chick-fil-a-spicy-chicken-sandwich',
+		'chick-fil-a-spicy-deluxe-sandwich',
+		'chick-fil-a-spicy-southwest-salad',
 		'dominos-cheese-pizza',
-		'subway-italian-trio-protein-pocket',
-		'kfc-famous-bowl',
-		'kfc-spicy-crispy-chicken-whole-wing',
-		'pizza-hut-meat-lovers-pizza-medium-original-pan',
 		'dominos-plain-wings-no-sauce',
+		'dominos-stuffed-cheesy-bread',
+		'dunkin-boston-kreme-donut',
+		'dunkin-hash-browns',
+		'kfc-famous-bowl',
+		'kfc-original-recipe-chicken-thigh',
+		'kfc-spicy-crispy-chicken-whole-wing',
+		'kfc-twister',
+		'mcdonalds-cheeseburger',
+		'mcdonalds-chicken-mcnuggets',
+		'mcdonalds-chocolate-shake',
+		'mcdonalds-double-quarter-pounder-with-cheese',
+		'mcdonalds-french-fries',
+		'mcdonalds-mcchicken',
+		'mcdonalds-sausage-biscuit',
+		'panda-express-grilled-teriyaki-chicken',
+		'pizza-hut-meat-lovers-pizza-medium-original-pan',
+		'popeyes-classic-chicken-sandwich',
+		'starbucks-chicken-bacon-protein-pocket',
+		'starbucks-jalapeno-chicken-pocket',
+		'subway-6-inch-chicken-bacon-ranch',
+		'subway-6-inch-tuna',
+		'subway-italian-trio-protein-pocket',
+		'taco-bell-black-beans-rice',
 	);
 }
 
