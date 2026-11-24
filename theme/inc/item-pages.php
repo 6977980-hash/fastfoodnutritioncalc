@@ -1459,9 +1459,80 @@ function ffnc_generated_page_is_orphan( $post_id ) {
 	return '' !== ffnc_generated_key( $post_id ) && null === ffnc_generated_seo( $post_id );
 }
 
-/** Generated pages kept out of search: orphans and thin item pages. */
+/**
+ * Item and meal pages (/calories/...) that stay in Google's index.
+ *
+ * Nov 2026: after ~555 generated pages went live on 2026-10-25, Google left
+ * 264 of them "Discovered - currently not indexed" and site-wide impressions
+ * fell to ~0 from 2026-10-26 (no manual action). The rest of the /calories/
+ * pages stay on the site for visitors but are noindex + out of the sitemap,
+ * so Google sees a smaller set of strong pages. Keep (44): pages that earned
+ * Google impressions (Sep 12 - Oct 25, 2026) or 10+ Bing impressions (Nov 7,
+ * 2026). Still 0-5 Google impressions/day on 2026-11-24. Calculators, guides
+ * and /compare/ pages are not affected.
+ */
+function ffnc_indexed_calorie_slugs() {
+	return array(
+		'burger-king-original-chicken-sandwich',
+		'chick-fil-a-chick-n-minis',
+		'chick-fil-a-chicken-biscuit',
+		'chick-fil-a-chicken-sandwich',
+		'chick-fil-a-chicken-tortilla-soup',
+		'chick-fil-a-chicken-waffles-breakfast-sandwich',
+		'chick-fil-a-chicken-waffles-sandwich-with-grilled-filet',
+		'chick-fil-a-cobb-salad',
+		'chick-fil-a-cool-wrap',
+		'chick-fil-a-deluxe-sandwich',
+		'chick-fil-a-egg-white-grill',
+		'chick-fil-a-grilled-chicken-sandwich',
+		'chick-fil-a-grilled-nuggets',
+		'chick-fil-a-hash-browns',
+		'chick-fil-a-market-salad',
+		'chick-fil-a-nuggets',
+		'chick-fil-a-spicy-chicken-sandwich',
+		'chick-fil-a-spicy-deluxe-sandwich',
+		'chick-fil-a-spicy-southwest-salad',
+		'dominos-cheese-pizza',
+		'dominos-plain-wings-no-sauce',
+		'dominos-stuffed-cheesy-bread',
+		'dunkin-boston-kreme-donut',
+		'dunkin-hash-browns',
+		'kfc-famous-bowl',
+		'kfc-original-recipe-chicken-thigh',
+		'kfc-spicy-crispy-chicken-whole-wing',
+		'kfc-twister',
+		'mcdonalds-cheeseburger',
+		'mcdonalds-chicken-mcnuggets',
+		'mcdonalds-chocolate-shake',
+		'mcdonalds-double-quarter-pounder-with-cheese',
+		'mcdonalds-french-fries',
+		'mcdonalds-mcchicken',
+		'mcdonalds-sausage-biscuit',
+		'panda-express-grilled-teriyaki-chicken',
+		'pizza-hut-meat-lovers-pizza-medium-original-pan',
+		'popeyes-classic-chicken-sandwich',
+		'starbucks-chicken-bacon-protein-pocket',
+		'starbucks-jalapeno-chicken-pocket',
+		'subway-6-inch-chicken-bacon-ranch',
+		'subway-6-inch-tuna',
+		'subway-italian-trio-protein-pocket',
+		'taco-bell-black-beans-rice',
+	);
+}
+
+/** Is this generated item/meal page outside the indexed keep-list? */
+function ffnc_generated_page_is_pruned( $key, $post_id ) {
+	$kind = strtok( (string) $key, ':' );
+	if ( 'item' !== $kind && 'meal' !== $kind ) {
+		return false;
+	}
+	return ! in_array( get_post_field( 'post_name', $post_id ), ffnc_indexed_calorie_slugs(), true );
+}
+
+/** Generated pages kept out of search: orphans, thin item pages, pruned item/meal pages. */
 function ffnc_generated_page_is_noindex( $post_id ) {
-	return ffnc_generated_page_is_orphan( $post_id ) || ffnc_generated_key_is_thin( ffnc_generated_key( $post_id ) );
+	$key = ffnc_generated_key( $post_id );
+	return ffnc_generated_page_is_orphan( $post_id ) || ffnc_generated_key_is_thin( $key ) || ffnc_generated_page_is_pruned( $key, $post_id );
 }
 add_filter( 'wp_robots', function ( $robots ) {
 	if ( is_singular( 'page' ) && ffnc_generated_page_is_noindex( get_queried_object_id() ) ) {
@@ -1491,7 +1562,7 @@ add_filter( 'wp_sitemaps_posts_query_args', function ( $args, $post_type ) {
 	if ( 'page' === $post_type ) {
 		$skip = array();
 		foreach ( ffnc_generated_page_ids() as $key => $id ) {
-			if ( ffnc_generated_key_is_thin( $key ) ) {
+			if ( ffnc_generated_key_is_thin( $key ) || ffnc_generated_page_is_pruned( $key, $id ) ) {
 				$skip[] = (int) $id;
 			}
 		}
